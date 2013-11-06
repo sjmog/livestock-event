@@ -7,17 +7,18 @@ App.ContractorsTileView = Ember.View.extend({
 	generalImportance: 6,
 	width: 1,
 	height: 1,
+	flipped:false,
+	toggleFlip: function() {
+		var view = this;
+		var flipped = view.flipped;
+		if(flipped) {
+			view.set('flipped', false);
+		}
+		else {
+			view.set('flipped', true);
+		}
+	},
 	didInsertElement: function() {
-		//for the flipping
-		$('#contractorTimescales').click(function() {
-			$('.tile.contractors .front').addClass('flipped');
-			$('.tile.contractors .back').addClass('flipped');
-		});
-		//flip back
-		$('#contractors-closeButton').click(function() {
-			$('.tile.contractors .front').removeClass('flipped');
-			$('.tile.contractors .back').removeClass('flipped');
-		});
 		//carouTabs code
 		var $view = this.$();
 		var $carous = $view.find('.carouTabs'); //all carousels in each carouTabs containers, which may be nested

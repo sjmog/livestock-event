@@ -812,6 +812,14 @@ label {
 	}
 }
 
+a.phoneLink {
+	color:white(0.6) !important;
+	@include transition(all 0.2s ease-in-out);
+	&:hover {
+		color:white(1) !important;
+	}
+}
+
 .rabdfblue a {
 	color:white(1);
 }
@@ -1106,6 +1114,26 @@ label {
 }
 
 /*site-wide components*/
+
+span.flipLink {
+	cursor:pointer;
+	padding:0;
+	height:32px;
+	width:32px;
+	line-height:32px;
+	border-radius:9999px;
+	z-index:9999999;
+	position:absolute;
+	right:10px;
+	top:8px;
+	color:white(0.6);
+	@include transition(all 0.2s ease-in-out);
+	&:hover {
+		color:white(1);
+	}
+	
+
+}
 
 .caption {
 	margin-top:10px !important;

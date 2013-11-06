@@ -7,18 +7,18 @@ App.VisitorTicketsView = Ember.View.extend({
 	generalImportance: 4,
 	width: 1,
 	height: 0.5,
-	
+	flipped:false,
+	toggleFlip: function() {
+		var view = this;
+		var flipped = view.flipped;
+		if(flipped) {
+			view.set('flipped', false);
+		}
+		else {
+			view.set('flipped', true);
+		}
+	},
 	didInsertElement: function() {
-		//for the flipping
-		$('#visitorPricing').click(function() {
-			$('.tile.visitor_tickets .front').addClass('flipped');
-			$('.tile.visitor_tickets .back').addClass('flipped');
-		});
-		//flip back
-		$('#visitor_tickets-closeButton').click(function() {
-			$('.tile.visitor_tickets .front').removeClass('flipped');
-			$('.tile.visitor_tickets .back').removeClass('flipped');
-		});
 		
 	}
 });

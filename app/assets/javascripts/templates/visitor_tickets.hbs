@@ -1,7 +1,7 @@
 
 	
 	<div class="flipper">
-		<div class="front">
+		<div {{bind-attr class=":front view.flipped:flipped"}}>
 			<span class="tile-title">tickets</span>
 			<div class="row buttonContent">
 				<div class="small-6 columns vertWrap">
@@ -12,14 +12,14 @@
 				</div>
 				<div class="small-6 columns vertWrap">
 					<div class="vertElement">
-						<a id="visitorPricing" class="button callToAction"><span class="icon-pound-icon pink"></span></a>
+						<a {{action toggleFlip target="view"}} class="button callToAction"><span class="icon-pound-icon pink"></span></a>
 						<span class="buttonLabel">pricing</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="back">
-			<a class="closeButton" id="visitor_tickets-closeButton"><span class="icon-close-alt"></span></a>
+		<div {{bind-attr class=":back view.flipped:flipped"}}>
+			<span class="flipLink"><span {{action toggleFlip target="view"}} class="icon-back rabdfpink"></span></span>
 			<!--once tickets go-live
 			<div class="row">
 				<div class="small-6 columns">

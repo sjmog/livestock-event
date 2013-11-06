@@ -1,10 +1,10 @@
 <div class="flipper">
-	<div class="front">
+	<div {{bind-attr class=":front view.flipped:flipped"}}>
 		<span class="tile-title contractorTitle">contractors</span>
 		<div class="row buttonContent">
 			<div class="small-6 columns vertWrap">
 				<div class="vertElement">
-					<a id="contractorTimescales" class="button callToAction"><span class="icon-clock"></span></a>
+					<a {{action toggleFlip target="view"}} class="button callToAction"><span class="icon-clock"></span></a>
 					<span class="buttonLabel">timescales</span>
 				</div>
 			</div>
@@ -16,8 +16,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="back">
-		<a class="closeButton" id="contractors-closeButton"><span class="icon-close-alt"></span></a>
+	<div {{bind-attr class=":back view.flipped:flipped"}}>
+	<span class="flipLink"><span {{action toggleFlip target="view"}} class="icon-back rabdfblue"></span></span>
 		<div class="row staticContent">
 	        <div class="carouTabs vertical contentRight carouBlock">
 	    
@@ -26,9 +26,9 @@
 			       
 			       <div class="carouContent">
 			       		<ul>
-			       			 <li>Sunday 29th June 8am - 10pm</li>
-			       				<li>Monday 30th June 8am - 10pm</li>
-			       				<li>Tuesday 1st July 8am - 10pm</li>
+			       			 <li>Sun 29th June 8am - 10pm</li>
+			       				<li>Mon 30th June 8am - 10pm</li>
+			       				<li>Tues 1st July 8am - 10pm</li>
 			       		</ul>
 			             
 			       </div> 
@@ -39,9 +39,9 @@
 			       
 			       <div class="carouContent">
 			       		<ul>
-			       			 <li>Thursday 3rd July 6:30pm - 9pm</li>
-			       				<li>Friday 4th July 8am - 9pm</li>
-			       				<li>Saturday 5th July 8am - Midday</li>
+			       			 <li>Thurs 3rd July 6:30pm - 9pm</li>
+			       				<li>Fri 4th July 8am - 9pm</li>
+			       				<li>Sat 5th July 8am - Midday</li>
 			       		</ul>
 			            
 			       </div> 

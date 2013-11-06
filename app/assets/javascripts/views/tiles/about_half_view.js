@@ -19,16 +19,6 @@ App.AboutHalfView = Ember.View.extend({
 		}
 	},
 	didInsertElement: function() {
-		var $view = this.$();
-		//for the flipping
-		$view.find('.help').click(function() {
-			$view.find('.front').addClass('flipped');
-			$view.find('.back').addClass('flipped');
-		});
-		//flip back
-		$view.find('.help').click(function() {
-			$view.find('.front').removeClass('flipped');
-			$view.find('.back').removeClass('flipped');
-		});
+
 	}
 });

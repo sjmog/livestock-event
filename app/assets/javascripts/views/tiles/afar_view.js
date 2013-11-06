@@ -7,18 +7,19 @@ App.AfarView = Ember.View.extend({
 	generalImportance: 2,
 	width: 1,
 	height: 1,
+	flipped:false,
+	toggleFlip: function() {
+		var view = this;
+		var flipped = view.flipped;
+		if(flipped) {
+			view.set('flipped', false);
+		}
+		else {
+			view.set('flipped', true);
+		}
+	},
 	didInsertElement: function() {
-		var $view = this.$();
-		//for the flipping
-		$view.find('#afarAction').click(function() {
-			$view.find('.front').addClass('flipped');
-			$view.find('.back').addClass('flipped');
-		});
-		//flip back
-		$view.find('#afar-closeButton').click(function() {
-			$view.find('.front').removeClass('flipped');
-			$view.find('.back').removeClass('flipped');
-		});
+		
 	}
 });
 

@@ -11529,6 +11529,14 @@ label .afterthought {
   label .afterthought:before {
     content: "\A"; }
 
+a.phoneLink {
+  color: rgba(255, 255, 255, 0.6) !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+  a.phoneLink:hover {
+    color: white !important; }
+
 .rabdfblue a {
   color: white; }
 
@@ -11791,6 +11799,24 @@ label .afterthought {
   cursor: crosshair; }
 
 /*site-wide components*/
+span.flipLink {
+  cursor: pointer;
+  padding: 0;
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+  border-radius: 9999px;
+  z-index: 9999999;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+  span.flipLink:hover {
+    color: white; }
+
 .caption {
   margin-top: 10px !important; }
 
@@ -13580,7 +13606,6 @@ form.userEdit {
 .subRow {
   border-bottom: none !important;
   border-top: 1px solid #333;
-  position: absolute;
   bottom: 0;
   left: 0px;
   height: 50px !important; }
@@ -13592,10 +13617,14 @@ span.checker {
   -moz-border-radius: 99999px;
   -webkit-border-radius: 99999px;
   border-radius: 99999px;
-  height: 40px;
-  width: 40px; }
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center; }
   span.checker:hover {
-    color: white; }
+    color: white;
+    background-color: none !important; }
     span.checker:hover + span {
       color: white !important; }
 

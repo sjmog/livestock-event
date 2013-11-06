@@ -2,7 +2,7 @@
 
 <div class="flipper">
 	<div {{bind-attr class=":front view.flipped:flipped"}}>
-		<span class="tile-title">about<span class="help"><span {{action toggleFlip target="view"}} class="icon-forward rabdfblue"></span></span></span>
+		<span class="tile-title">about<span class="flipLink"><span {{action toggleFlip target="view"}} class="icon-forward rabdfblue"></span></span></span>
 		<div class="row buttonContent">
 			<div class="small-6 columns vertWrap">
 				<div class="vertElement">
@@ -19,8 +19,7 @@
 		</div>
 	</div>
 	<div {{bind-attr class=":back view.flipped:flipped"}}>
-			<a class="closeButton" id="afar-closeButton"><span class="icon-close-alt"></span></a>
-			<span class="tile-title">about<span class="help"><span {{action toggleFlip target="view"}} class="icon-forward rabdfblue"></span></span></span>
+			<span class="tile-title">about<span class="flipLink"><span {{action toggleFlip target="view"}} class="icon-back rabdfblue"></span></span></span>
 			<div class="row buttonContent">
 				<div class="small-6 columns vertWrap">
 					<div class="vertElement">

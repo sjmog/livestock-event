@@ -1,5 +1,5 @@
 <div class="flipper">
-	<div class="front">
+	<div {{bind-attr class=":front view.flipped:flipped"}}>
 		<span class="tile-title">international</span>
 		<div class="row buttonContent">
 			<div class="small-6 columns vertWrap">
@@ -10,15 +10,14 @@
 			</div>
 			<div class="small-6 columns vertWrap">
 				<div class="vertElement">
-					<a id="afarAction" class="button callToAction"><span class="icon-suitcase pink"></span></a>
+					<a {{action toggleFlip target="view"}} class="button callToAction"><span class="icon-suitcase pink"></span></a>
 					<span class="buttonLabel">tour providers</span>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="back">
-		<a class="closeButton" id="afar-closeButton"><span class="icon-close-alt"></span></a>
-		<span class="tile-title">tour providers</span>
+	<div {{bind-attr class=":back view.flipped:flipped"}}>
+		<span class="tile-title">tour providers<span class="flipLink"><span {{action toggleFlip target="view"}} class="icon-back rabdfblue"></span></span></span>
 		<div class="row buttonContent">
 			<div class="small-6 columns vertWrap">
 				<div class="vertElement">
