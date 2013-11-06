@@ -8,15 +8,16 @@ App.AfarView = Ember.View.extend({
 	width: 1,
 	height: 1,
 	didInsertElement: function() {
+		var $view = this.$();
 		//for the flipping
-		$('#afarAction').click(function() {
-			$('.tile.afar .front').addClass('flipped');
-			$('.tile.afar .back').addClass('flipped');
+		$view.find('#afarAction').click(function() {
+			$view.find('.front').addClass('flipped');
+			$view.find('.back').addClass('flipped');
 		});
 		//flip back
-		$('#afar-closeButton').click(function() {
-			$('.tile.afar .front').removeClass('flipped');
-			$('.tile.afar .back').removeClass('flipped');
+		$view.find('#afar-closeButton').click(function() {
+			$view.find('.front').removeClass('flipped');
+			$view.find('.back').removeClass('flipped');
 		});
 	}
 });

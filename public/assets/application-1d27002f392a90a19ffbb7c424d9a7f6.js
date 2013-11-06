@@ -63279,15 +63279,16 @@ App.AfarView = Ember.View.extend({
 	width: 1,
 	height: 1,
 	didInsertElement: function() {
+		var $view = this.$();
 		//for the flipping
-		$('#afarAction').click(function() {
-			$('.tile.afar .front').addClass('flipped');
-			$('.tile.afar .back').addClass('flipped');
+		$view.find('#afarAction').click(function() {
+			$view.find('.front').addClass('flipped');
+			$view.find('.back').addClass('flipped');
 		});
 		//flip back
-		$('#afar-closeButton').click(function() {
-			$('.tile.afar .front').removeClass('flipped');
-			$('.tile.afar .back').removeClass('flipped');
+		$view.find('#afar-closeButton').click(function() {
+			$view.find('.front').removeClass('flipped');
+			$view.find('.back').removeClass('flipped');
 		});
 	}
 });
@@ -64674,7 +64675,7 @@ function program7(depth0,data) {
 Ember.TEMPLATES["about_half"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, self=this, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
   
@@ -64700,7 +64701,14 @@ function program7(depth0,data) {
   data.buffer.push("<span class=\"icon-handshake\"></span>");
   }
 
-  data.buffer.push("\n\n<div class=\"flipper\">\n	<div class=\"front\">\n		<span class=\"tile-title\">about<span class=\"help\"><span class=\"icon-forward\"></span></span></span>\n		<div class=\"row buttonContent\">\n			<div class=\"small-6 columns vertWrap\">\n				<div class=\"vertElement\">\n					");
+  data.buffer.push("\n\n<div class=\"flipper\">\n	<div ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":front view.flipped:flipped")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">\n		<span class=\"tile-title\">about<span class=\"help\"><span class=\"icon-forward rabdfblue\"></span></span></span>\n		<div class=\"row buttonContent\">\n			<div class=\"small-6 columns vertWrap\">\n				<div class=\"vertElement\">\n					");
   hashContexts = {'class': depth0};
   hashTypes = {'class': "STRING"};
   options = {hash:{
@@ -64716,7 +64724,14 @@ function program7(depth0,data) {
   },inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "awards", options) : helperMissing.call(depth0, "link-to", "awards", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n					<span class=\"buttonLabel\">awards</span>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class=\"back\">\n			<a class=\"closeButton\" id=\"afar-closeButton\"><span class=\"icon-close-alt\"></span></a>\n			<span class=\"tile-title\">tour providers</span>\n			<div class=\"row buttonContent\">\n				<div class=\"small-6 columns vertWrap\">\n					<div class=\"vertElement\">\n						");
+  data.buffer.push("\n					<span class=\"buttonLabel\">awards</span>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":back view.flipped:flipped")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">\n			<a class=\"closeButton\" id=\"afar-closeButton\"><span class=\"icon-close-alt\"></span></a>\n			<span class=\"tile-title\">tour providers</span>\n			<div class=\"row buttonContent\">\n				<div class=\"small-6 columns vertWrap\">\n					<div class=\"vertElement\">\n						");
   hashContexts = {'class': depth0};
   hashTypes = {'class': "STRING"};
   options = {hash:{
@@ -70765,10 +70780,6 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.NewsView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n	");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.GettingThereView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n	");
   hashTypes = {};
   hashContexts = {};
