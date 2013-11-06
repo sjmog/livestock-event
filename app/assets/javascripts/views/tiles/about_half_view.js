@@ -8,6 +8,16 @@ App.AboutHalfView = Ember.View.extend({
 	width: 1,
 	height: 1,
 	flipped:false,
+	toggleFlip: function() {
+		var view = this;
+		var flipped = view.flipped;
+		if(flipped) {
+			view.set('flipped', false);
+		}
+		else {
+			view.set('flipped', true);
+		}
+	},
 	didInsertElement: function() {
 		var $view = this.$();
 		//for the flipping

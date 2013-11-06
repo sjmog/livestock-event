@@ -63242,6 +63242,16 @@ App.AboutHalfView = Ember.View.extend({
 	width: 1,
 	height: 1,
 	flipped:false,
+	toggleFlip: function() {
+		var view = this;
+		var flipped = view.flipped;
+		if(flipped) {
+			view.set('flipped', false);
+		}
+		else {
+			view.set('flipped', true);
+		}
+	},
 	didInsertElement: function() {
 		var $view = this.$();
 		//for the flipping
@@ -64709,7 +64719,13 @@ function program7(depth0,data) {
     'class': (":front view.flipped:flipped")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
-  data.buffer.push(">\n		<span class=\"tile-title\">about<span class=\"help\"><span class=\"icon-forward rabdfblue\"></span></span></span>\n		<div class=\"row buttonContent\">\n			<div class=\"small-6 columns vertWrap\">\n				<div class=\"vertElement\">\n					");
+  data.buffer.push(">\n		<span class=\"tile-title\">about<span class=\"help\"><span ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleFlip", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"icon-forward rabdfblue\"></span></span></span>\n		<div class=\"row buttonContent\">\n			<div class=\"small-6 columns vertWrap\">\n				<div class=\"vertElement\">\n					");
   hashContexts = {'class': depth0};
   hashTypes = {'class': "STRING"};
   options = {hash:{
@@ -64732,7 +64748,13 @@ function program7(depth0,data) {
     'class': (":back view.flipped:flipped")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
-  data.buffer.push(">\n			<a class=\"closeButton\" id=\"afar-closeButton\"><span class=\"icon-close-alt\"></span></a>\n			<span class=\"tile-title\">tour providers</span>\n			<div class=\"row buttonContent\">\n				<div class=\"small-6 columns vertWrap\">\n					<div class=\"vertElement\">\n						");
+  data.buffer.push(">\n			<a class=\"closeButton\" id=\"afar-closeButton\"><span class=\"icon-close-alt\"></span></a>\n			<span class=\"tile-title\">about<span class=\"help\"><span ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleFlip", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"icon-forward rabdfblue\"></span></span></span>\n			<div class=\"row buttonContent\">\n				<div class=\"small-6 columns vertWrap\">\n					<div class=\"vertElement\">\n						");
   hashContexts = {'class': depth0};
   hashTypes = {'class': "STRING"};
   options = {hash:{
