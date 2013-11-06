@@ -60657,7 +60657,7 @@ currentUser: function() {
       console.log(message);
       var data = {name: name, email: email, body: message};
       var self = this;
-      $.post('http://livestockevent-co-uk.herokuapp.com/api/contact.json', { message: data }, function(results) {
+      $.post('<%= DOMAIN_NAME %>/api/contact.json', { message: data }, function(results) {
         self.set('messageSent', true);
 
       }).fail(function(jqxhr, textStatus, error ) {
@@ -61327,7 +61327,7 @@ App.CheckoutController = Ember.ObjectController.extend({
     pay: function() {
       var router = this.get('target');
 
-      $.post('http://livestockevent-co-uk.herokuapp.com/api/users.json', { user: data }, function(results) {
+      $.post('<%= DOMAIN_NAME %>/api/users.json', { user: data }, function(results) {
         App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
         router.transitionTo('bookings.new');
 
@@ -61875,7 +61875,7 @@ App.UsersEditController = Ember.ObjectController.extend({
     var user = this.get('model');
 
     $.ajax({
-        url: 'http://livestockevent-co-uk.herokuapp.com/api/users/',
+        url: '<%= DOMAIN_NAME %>/api/users/',
         data: {user: data},
         type: 'PUT',
         success: function(result) {
@@ -61903,7 +61903,7 @@ App.UsersNewController = Ember.ObjectController.extend({
     var data = this.getProperties('name', 'email', 'password', 'password_confirmation', 'role')
     var user = this.get('model');
 
-    $.post('http://livestockevent-co-uk.herokuapp.com/api/users.json', { user: data }, function(results) {
+    $.post('<%= DOMAIN_NAME %>/api/users.json', { user: data }, function(results) {
       App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
       router.transitionTo('bookings.new');
 
@@ -63230,6 +63230,28 @@ App.TicketsView = Ember.View.extend({
 		//sidebar
 		$('.sidebarHolder').animate({height: (this.$().height() + 10)}, 600);
 
+	}
+});
+App.AboutHalfView = Ember.View.extend({
+	templateName: 'about_half',
+	classNames: ['tile content-tile about-half rabdfblue content-tile mix exhibitor visitor tile-half-tall general_info tile-1-wide'],
+	attributeBindings: ['width:data-width', 'height:data-height', 'visitorImportance:data-visitorimportance', 'exhibitorImportance:data-exhibitorimportance', 'generalImportance:data-generalimportance'],
+	visitorImportance: 2,
+	exhibitorImportance: 2,
+	generalImportance: 2,
+	width: 1,
+	height: 1,
+	didInsertElement: function() {
+		//for the flipping
+		this.$().find('.help').click(function() {
+			this.$().find('.front').addClass('flipped');
+			this.$().find('.back').addClass('flipped');
+		});
+		//flip back
+		this.$().find('.help').click(function() {
+			this.$().find('.front').removeClass('flipped');
+			this.$().find('.back').removeClass('flipped');
+		});
 	}
 });
 App.AboutView = Ember.View.extend({
@@ -64645,6 +64667,71 @@ function program7(depth0,data) {
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "supporters", options) : helperMissing.call(depth0, "link-to", "supporters", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n						<span class=\"buttonLabel\">supporters</span>\n					</div>\n				</div>	\n			</div>\n		</div>\n	</div>\n\n\n");
+  return buffer;
+  
+});
+Ember.TEMPLATES["about_half"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  
+  data.buffer.push("<span class=\"icon-cow\"></span>");
+  }
+
+function program3(depth0,data) {
+  
+  
+  data.buffer.push("<span class=\"icon-award\"></span>");
+  }
+
+function program5(depth0,data) {
+  
+  
+  data.buffer.push("<span class=\"icon-calendar\"></span>");
+  }
+
+function program7(depth0,data) {
+  
+  
+  data.buffer.push("<span class=\"icon-handshake\"></span>");
+  }
+
+  data.buffer.push("\n\n<div class=\"flipper\">\n	<div class=\"front\">\n		<span class=\"tile-title\">about<span class=\"help\"><span class=\"icon-right\"></span></span></span>\n		<div class=\"row buttonContent\">\n			<div class=\"small-6 columns vertWrap\">\n				<div class=\"vertElement\">\n					");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction")
+  },inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "rabdf", options) : helperMissing.call(depth0, "link-to", "rabdf", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n					<span class=\"buttonLabel\">about rabdf</span>\n				</div>\n			</div>\n			<div class=\"small-6 columns vertWrap\">\n				<div class=\"vertElement\">\n					");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction")
+  },inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "awards", options) : helperMissing.call(depth0, "link-to", "awards", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n					<span class=\"buttonLabel\">awards</span>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class=\"back\">\n			<a class=\"closeButton\" id=\"afar-closeButton\"><span class=\"icon-close-alt\"></span></a>\n			<span class=\"tile-title\">tour providers</span>\n			<div class=\"row buttonContent\">\n				<div class=\"small-6 columns vertWrap\">\n					<div class=\"vertElement\">\n						");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction")
+  },inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "past", options) : helperMissing.call(depth0, "link-to", "past", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n						<span class=\"buttonLabel\">last year</span>\n					</div>\n				</div>\n				<div class=\"small-6 columns vertWrap\">\n					<div class=\"vertElement\">\n						");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction")
+  },inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "supporters", options) : helperMissing.call(depth0, "link-to", "supporters", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n						<span class=\"buttonLabel\">supporters</span>\n					</div>\n				</div>	\n			</div>\n		</div>\n</div>\n");
   return buffer;
   
 });
@@ -70222,7 +70309,7 @@ function program3(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "date", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</div>\n  </div>\n</div>\n<h1>payment details</h1>\n<div class=\"paymentsRow\">\n  <div class=\"small-12 columns\">\n    <!--stripe form-->\n    <form action=\"http://livestockevent-co-uk.herokuapp.com/charges\" method=\"POST\" id=\"payment-form\" class=\"grid-form\">\n      <span class=\"payment-errors\"></span>\n      <fieldset>\n        <div data-row-span=\"2\">\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">Card Number</span>\n              <input type=\"text\" size=\"20\" data-stripe=\"number\"/>\n            </label>\n          </div>\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">CVC <span class=\"afterthought\">(last three digits on the reverse of your card)</span></span>\n              <input type=\"text\" size=\"4\" data-stripe=\"cvc\"/>\n            </label>\n          </div>\n        </div>\n        <div data-row-span=\"2\">\n          <div data-field-span=\"1\">\n           <label>\n             <span class=\"formLabel\">Expiration Month (MM)</span>\n             <input type=\"text\" size=\"2\" data-stripe=\"exp-month\"/>\n           </label>\n          </div>\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">Expiration Year (YYYY)</span>\n              <input type=\"text\" size=\"4\" data-stripe=\"exp-year\"/>\n            </label>\n          </div>\n        </div>\n      </fieldset>\n      ");
+  data.buffer.push("</div>\n  </div>\n</div>\n<h1>payment details</h1>\n<div class=\"paymentsRow\">\n  <div class=\"small-12 columns\">\n    <!--stripe form-->\n    <form action=\"http://www.livestockevent.co.uk/charges\" method=\"POST\" id=\"payment-form\" class=\"grid-form\">\n      <span class=\"payment-errors\"></span>\n      <fieldset>\n        <div data-row-span=\"2\">\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">Card Number</span>\n              <input type=\"text\" size=\"20\" data-stripe=\"number\"/>\n            </label>\n          </div>\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">CVC <span class=\"afterthought\">(last three digits on the reverse of your card)</span></span>\n              <input type=\"text\" size=\"4\" data-stripe=\"cvc\"/>\n            </label>\n          </div>\n        </div>\n        <div data-row-span=\"2\">\n          <div data-field-span=\"1\">\n           <label>\n             <span class=\"formLabel\">Expiration Month (MM)</span>\n             <input type=\"text\" size=\"2\" data-stripe=\"exp-month\"/>\n           </label>\n          </div>\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">Expiration Year (YYYY)</span>\n              <input type=\"text\" size=\"4\" data-stripe=\"exp-year\"/>\n            </label>\n          </div>\n        </div>\n      </fieldset>\n      ");
   hashContexts = {'type': depth0,'name': depth0,'valueBinding': depth0};
   hashTypes = {'type': "STRING",'name': "STRING",'valueBinding': "STRING"};
   options = {hash:{
@@ -70660,7 +70747,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   data.buffer.push("<div class=\"sidebar\">\n	");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.AboutView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.AboutHalfView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n	");
   hashTypes = {};
   hashContexts = {};

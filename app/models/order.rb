@@ -45,10 +45,10 @@ class Order < ActiveRecord::Base
 		'Livestock Event 2014 Stand Booking'
 	end
 	def successurl
-		'http://livestockevent-co-uk.herokuapp.com/payment-success'
+		'<%= DOMAIN_NAME %>/payment-success'
 	end
 	def failureurl
-		'http://livestockevent-co-uk.herokuapp.com/payment-incomplete'
+		'<%= DOMAIN_NAME %>/payment-incomplete'
 	end
 	def crypt
 		unencrypted = "VendorTxCode=#{vendortxcode}&Amount=#{amount}&Currency=#{currency}&Description=#{description}&SuccessURL=#{successurl}&FailureUrl=#{failureurl}&BillingSurname=#{billing_surname}&BillingFirstNames=#{billing_firstnames}&BillingAddress1=#{billing_address}&BillingCity=#{billing_city}&BillingPostcode=#{billing_postcode}&BillingCountry=#{billing_country}&DeliverySurname=#{delivery_surname}&DeliveryFirstNames=#{delivery_firstnames}&DeliveryAddress1=#{delivery_address}&DeliveryCity=#{delivery_city}&DeliveryPostcode=#{delivery_postcode}&DeliveryCountry=#{delivery_country}"

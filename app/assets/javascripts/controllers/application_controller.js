@@ -35,7 +35,7 @@ currentUser: function() {
       console.log(message);
       var data = {name: name, email: email, body: message};
       var self = this;
-      $.post('http://livestockevent-co-uk.herokuapp.com/api/contact.json', { message: data }, function(results) {
+      $.post('<%= DOMAIN_NAME %>/api/contact.json', { message: data }, function(results) {
         self.set('messageSent', true);
 
       }).fail(function(jqxhr, textStatus, error ) {

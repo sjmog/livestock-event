@@ -3,13 +3,13 @@ class ApplicationMailer < ActionMailer::Base
    
 	def welcome_email(user)
 	  @user = user
-	  @url  = 'http://livestockevent-co-uk.herokuapp.com/'
+	  @url  = '<%= DOMAIN_NAME %>/'
 	  mail(to: @user.email, subject: 'Your login details are attached.')
 	end
 
 	def booking_email(user)
 	  @user = user
-	  @url  = 'http://livestockevent-co-uk.herokuapp.com/'
+	  @url  = '<%= DOMAIN_NAME %>/'
 	  mail(to: @user.email, subject: 'You have successfully created a booking.')
 	end
 end
