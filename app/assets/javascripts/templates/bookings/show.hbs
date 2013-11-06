@@ -1,0 +1,309 @@
+<div class="flipper bookingsShow">
+  <div class="front">
+    <span class="tile-title">{{#link-to 'bookings' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}Application for {{companyName}}</span>
+    <div class="row firstRow">
+      <a class="inlineLink noUnderline" href="javascript:window.print()"><span class="icon-printer"></span>Print application</a>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+
+        <div class="row">
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Company name:</b> {{ companyName }}
+            </p>
+          </div>
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Contact name:</b> {{ contactName }}
+            </p>
+          </div>
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Exhibiting name:</b> {{ exhibitingName }}
+            </p>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Contact Telephone Number:</b> {{ companyName }}
+            </p>
+          </div>
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Contact email:</b> {{ contactName }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>RABDF Corporate Membership?</b> {{#if corporateMembership }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>T&Cs agreed?</b> {{#if tcAgreed }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-10 large-centered small-12 columns">
+            <p>
+              <b>Correspondence Address:</b> {{ correspondenceAddress }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-10 large-centered small-12 columns">
+            <p>
+              <b>Invoice Address:</b> {{ invoiceAddress }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Finance Contact Email:</b> {{ financeContact }}
+            </p>
+          </div>
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>PO Number:</b> {{ poNumber }}
+            </p>
+          </div>
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Finance Telephone No.:</b> {{ financeTelephone }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-10 large-centered small-12 columns">
+            <p>
+              <b>Would you prefer the same position as 2013?</b> {{#if sameAs2013 }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Show Area:</b> {{ showArea }}
+            </p>
+          </div>
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Zone:</b> {{ zone }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Stand Format:</b> {{ standType }}
+            </p>
+          </div>
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Stand Type:</b> {{ position }}
+            </p>
+          </div>
+        </div>
+
+        {{#if isLivestockHall}}
+        <div class="row">
+          <div class="small-12 columns">
+            <p>
+                <b>Breed society:</b> 
+                {{ breedSociety }}
+            </p>
+          </div>
+        </div>
+        {{/if}}
+
+        <div class="row">
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Frontage:</b> {{ frontage }}m
+            </p>
+          </div>
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Depth:</b> {{ depth }}m
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Contractor Company:</b> {{ contractorCompanyName }}
+            </p>
+          </div>
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Contractor Contact:</b> {{ contractorContactName }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-10 large-centered small-12 columns">
+            <p>
+              <b>Contractor Address:</b> {{contractorAddress}}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Contractor Email:</b> {{ contractorEmail }}
+            </p>
+          </div>
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Contractor Telephone:</b> {{ contractorTelephone }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Do you require leaflets?</b> {{#if requiresLeaflets }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>How many?</b> {{ numberLeaflets }}
+            </p>
+          </div>
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Do you need a PDF version?</b> {{ pdfLeaflet }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Exhibiting Machinery in Motion?</b> {{#if machineryMotion }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Bringing a mobile unit?</b> {{#if mobileUnit }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Exhibiting Livestock?</b> {{#if livestockStand }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Launching New Products?</b> {{#if newProducts }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Entering the Price Philip Award?</b> {{#if philipAward }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+          <div class="large-4 small-12 columns">
+            <p>
+              <b>Entering the 2014 Livestock Machinery & Equipment Award?</b> {{#if livestockAward }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Do you Export from the UK?</b> {{#if exports }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>Do you offer work placements?</b> {{#if placements }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-3 small-12 columns">
+            <p>
+              <b>Base Price:</b> £{{ price }}
+            </p>
+          </div>
+          <div class="large-3 small-12 columns">
+            <p>
+              <b>Surcharge for Stand Type: {{position}}</b> {{#if surcharge}}
+              £{{surcharge}}
+              {{else}}
+                <p class="ellipsis">...</p>
+              {{/if}}
+            </p>
+          </div>
+          <div class="large-3 small-12 columns">
+            <p>
+              <b>Subtotal (excl. VAT):</b> £{{ total }}
+            </p>
+          </div>
+          <div class="large-3 small-12 columns">
+            <p>
+              <b>Total:</b> £{{ totalIncVat }}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>30% Deposit, excl. VAT</b> £{{ depositExVat }}
+            </p>
+          </div>
+          <div class="large-6 small-12 columns">
+            <p>
+              <b>30% Deposit, inc. VAT</b> £{{ deposit }}
+            </p>
+          </div>
+        </div>
+
+        
+
+        <div class="row finalRow">
+          <div class="small-12 columns centerAlign">
+            {{#unless depositPaid}}
+              <span class="afterthought warning">Your booking is not confirmed until you have made your deposit of £{{theDeposit}}.</span>
+              <div class="vertElement">
+                {{#link-to 'orders.new' class="button rightButton exhibitor callToAction" type="submit"}}<span class="icon-tick"></span>{{/link-to}}
+                <span class="buttonLabel">make deposit</span>
+              </div>
+              
+            {{/unless}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="back">
+  
+  </div>
+</div>

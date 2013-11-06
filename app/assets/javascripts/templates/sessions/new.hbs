@@ -1,0 +1,14 @@
+<form {{action "loginUser" on="submit"}}>
+  <div>
+    {{view Ember.TextField valueBinding='email' placeholder="Email Address"}}
+    <small class="below">{{errors.email}}</small>
+  </div>
+
+  <div>
+    {{view Ember.TextField type="password" valueBinding='password' placeholder="Password"}}
+    <small class="below">{{errors.password}}</small>
+  </div>
+
+  <br>
+  <button class="button callToAction" type="submit">log in</button>
+</form>

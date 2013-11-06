@@ -1,0 +1,675 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">{{#link-to 'users.new' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}book stand space</span>
+  <div class="row">
+    <div class="small-12 columns">
+    <div class="row">
+      <div class="large-6 small-12 columns">
+        <p class="introductoryParagraph">To simplify the task of allocating stand space, we have created a floor plan showing the blocks available to accommodate stands. These blocks can be sub-divided or, depending on your stand requirements, increased to accommodate larger stands. Please note that for Outdoor and Machinery Hall areas, blocks will be sold as described and cannot be sub-divided.</p>
+      </div>
+      <div class="large-6 small-12 columns quickActionColumn">
+        <div class="row buttonContent fourButtons">
+          <div class="small-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'bookings.how' class="button callToAction rabdforange"}}<span class="icon-calendar"></span>{{/link-to}}
+              <span class="buttonLabel">how to apply</span>
+            </div>
+          </div>
+          <div class="small-6 columns vertWrap">
+            <div class="vertElement">
+              <a href="#" class="button callToAction disabled rabdforange"><span class="icon-card-user"></span></a>
+              <span class="buttonLabel">exhibitor list (coming soon)</span>
+            </div>
+          </div>
+         
+          
+        </div>
+        <div class="row buttonContent">
+          <div class="small-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'contractors.index' class="button callToAction rabdforange"}}<span class="icon-eye "></span>{{/link-to}}
+              <span class="buttonLabel">contractor list</span>
+            </div>
+          </div>
+          <div class="small-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'bookings.post' class="button callToAction"}}<span class="icon-envelope"></span>{{/link-to}}
+              <span class="buttonLabel">apply by post</span>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+    <div class="row instructionsRow">
+      <div class="small-10 small-centered columns">
+        <h2>To book your stand:</h2>
+        <ul>
+          <li>Complete sections 1-5 of the form below, then</li>
+          <li>Select the show area, type of stand and location (block) you wish to exhibit in from the options and floor plan presented to you.</li>
+          <li>A 30% deposit is required at this stage to confirm your booking.</li>
+          <li>Click 'deposit' and enter your payment details to confirm your order.</li>
+          <li>Fields marked with a '<span class="required">*</span>' are required, and you will not be able to proceed until you have filled them.</li>
+        </ul>
+      </div>
+    </div>
+
+    <form {{action save model on="submit"}} class="grid-form">
+      <fieldset>
+        <legend>1. Personal Info</legend>
+        <div data-row-span="3">
+          <div data-field-span="1">
+            <label for="company_name">Company Name<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.companyName" id="company_name" required=""}}
+          </div>
+          <div data-field-span="1">
+            <label for="contact_name">Contact Name<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.contactName" id="contact_name" required=""}}
+          </div>
+          <div data-field-span="1">
+            <label  id="exhibiting_label" for="exhibiting_name">Exhibiting Name<span class="required">*</span> (<a id="exhibiting_name_copier" class="inlineLink copier">Copy Company Name</a>?)</label><br>
+            {{view Ember.TextField valueBinding="content.exhibitingName" id="exhibiting_name" required=""}}
+          </div>
+        </div>
+        <div data-row-span="3">
+          <div data-field-span="1">
+            <label for="telephone">Contact telephone number<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.telephone" id="telephone" required=""}}
+          </div>
+          <div data-field-span="1">
+            <label for="email">Contact e-mail address<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.email" id="email" required=""}}
+          </div>
+          <div data-field-span="1">
+            <label for="website">Company website<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.website" id="website" required=""}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+          <label for="corporate_membership">Do you have RABDF Corporate Membership?</label><br>
+          {{view Ember.Checkbox checkedBinding="corporateMembership" id="corporate_membership"}}
+          </div>
+          <div data-field-span="1">
+            <label for="tc_agreed">Do you agree to the <a href="/bookings/tcs" target="_blank" class="inlineLink">Terms and Conditions</a>?<span class="required">*</span></label><br>
+            {{view Ember.Checkbox checkedBinding="tcAgreed" id="tc_agreed" required=""}}
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>2. Address Details</legend>
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <label for="correspondence_address">Correspondence Address<span class="required">*</span></label><br>
+              {{view Ember.TextField valueBinding="content.correspondenceAddress" id="correspondence_address" required=""}}
+            </div>
+          </div>
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <label id="invoice_label" for="invoice_address">Invoice Address<span class="required">*</span> (<a id="invoice_address_copier" class="inlineLink copier">Copy Correspondence Address</a>?)</label><br>
+              {{view Ember.TextField valueBinding="content.invoiceAddress" id="invoice_address" required=""}}
+            </div>
+          </div>
+      </fieldset>
+      <fieldset>
+        <legend>3. Finance Details</legend>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="finance_contact">finance contact email address<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.financeContact" id="finance_contact" required=""}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="po_number">PO number</label><br>
+            {{view Ember.TextField valueBinding="content.poNumber" id="po_number"}}
+          </div>
+          <div data-field-span="1">
+            <label for="finance_telephone">finance telephone number<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.financeTelephone" id="finance_telephone" required=""}}
+          </div>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        {{#if standTypeIsClear}}
+        <legend>4a. Stand Details</legend>
+        {{else}}
+        <legend>4. Stand Details</legend>
+        {{/if}}
+        <!--
+        <div data-row-span="1">
+          <div data-field-span="1">
+          <label for="same_as2013">Would you prefer the same position as 2013?</label><br>
+          {{view Ember.Checkbox checkedBinding="sameAs2013" id="same_as2013"}}
+          </div>
+        </div>
+        -->
+        
+        <div data-row-span="2">
+          <div id="showArea_field" data-field-span="1">
+            <label for="show_area">Show Area</label><br>
+            {{view Ember.Select contentBinding="showAreas" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="content.showArea" id="show_area" classNames="select" disabledBinding="'sameAs2013'"}}
+          </div>
+          <div id="zone_field" data-field-span="1">
+            <label for="zone">Zone</label><br>
+            {{view Ember.Select contentBinding="zones" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="content.zone" id="zone" disabledBinding="sameAs2013"}}
+          </div>
+          
+        </div>
+        <div class="helperWrap">
+          {{#if isOutdoor}}
+          <div class="row outdoorRow helperRow">
+          <div class="large-4 small-12 columns pricingColumn">
+            <h1>pricing</h1>
+            <ul>
+              <li>Clear Stand Space only 0-99sqm  £16/sqm</li>
+              <li>Clear Stand Space only 100-199sqm £15/sqm</li>
+              <li>Clear Stand Space only 200+sqm  £14/sqm</li>
+              <li>These prices are early bird stand rates. <i>Please note these will increase on 1st January 2014.</i></li>
+            </ul>
+          </div>
+            <div class="large-4 small-12 columns mapColumn">
+              {{view App.OutdoorMapView}}
+            </div>
+            <div class="large-4 small-12 columns">
+              <h1>Pick an Outdoor stand</h1>
+              <p>The NEC's Outdoor arena is a bustling mix of trade, B2C, and B2B suppliers. The wide open space, which surrounds the Machinery Hall, is perfect for stand-holders who need a little more room without unnecessarily escalating costs.</p>
+              <p><i>If you're trying to book the same stand that you had at the 2013 show & it's marked as unavailable, then please proceed and book this option - The Livestock Event team will do its best to reward your loyalty.</i></p>
+              <div data-row-span="1" class="subRow">
+                <div data-field-span="1" {{bind-attr class=":subField standWarning:warning standGood:good"}}>
+                <label for="stand_number">stand number</label><br>
+                {{view Ember.TextField valueBinding="content.standNumber" id="stand_number"}}
+                <span {{action getStand target="controller"}} class="checker icon-help"></span>
+                <span {{action getStand target="controller"}} class="undercheck afterthought">check stand availability & dimensions</span>
+                {{#if content.stand}}
+                <br />
+                <span class="afterthought">{{content.frontage}}m x {{content.depth}}m (total area: {{content.area}}sqm)</span>
+                {{/if}}
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          {{#if isMachineryHall}}
+          <div class="row machineryHallRow helperRow">
+            <div class="large-4 small-12 columns pricingColumn">
+              <h1>pricing</h1>
+              <ul>
+                <li>Clear Stand Space only 0-99sqm  £18/sqm</li>
+                <li>Clear Stand Space only 100-199sqm £17/sqm</li>
+                <li>Clear Stand Space only 200+sqm  £16/sqm</li>
+                <li>These prices are early bird stand rates. <i>Please note these will increase on 1st January 2014.</i></li>
+              </ul>
+            </div>
+            <div class="large-4 small-12 columns mapColumn">
+              {{view App.MachineryMapView}}
+            </div>
+            <div class="large-4 small-12 columns">
+              <h1 class="machineryColor">Pick a stand from the Machinery Hall</h1>
+              <p>This hall is the UK’s largest dedicated undercover Machinery area.  Exhibitors include John Deere and Land Rover.</p>
+              <p><i>If you're trying to book the same stand that you had at the 2013 show & it's marked as unavailable, then please proceed and book this option - The Livestock Event team will do its best to reward your loyalty.</i></p>
+              <div data-row-span="1" class="subRow">
+                <div data-field-span="1" {{bind-attr class=":subField standWarning:warning standGood:good"}}>
+                <label for="stand_number">stand number</label><br>
+                {{view Ember.TextField valueBinding="content.standNumber" id="stand_number"}}
+                <span {{action getStand target="controller"}} class="checker icon-help"></span>
+                <span {{action getStand target="controller"}} class="undercheck afterthought">check stand availability & dimensions</span>
+                {{#if content.stand}}
+                <br />
+                <span class="afterthought">{{content.frontage}}m x {{content.depth}}m (total area: {{content.area}}sqm)</span>
+                {{/if}}
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+
+          {{#if isIndoor}}
+          <div class="row zoneRow helperRow">
+            <div class="large-4 small-12 columns pricingColumn">
+              <h1>pricing</h1>
+              <ul>
+                <li>Clear Stand Space only 0-199sqm £45/sqm</li>
+                <li>Clear Stand Space only 200+sqm  £42/sqm</li>
+                <li>Modular Shell Scheme £100/sqm</li>
+                <li>These prices are early bird stand rates. <i>Please note these will increase on 1st January 2014.</i></li>
+              </ul>
+            </div>
+            <div class="large-4 small-12 columns mapColumn">
+              {{#if zone}}
+              <h1 style="margin-bottom:0 !important" {{bind-attr class="colorClass"}}>block map: {{zone}}</h1>
+              {{else}}
+              <h1>pick a zone above</h1>
+              {{/if}}
+              {{#if zoneIsAnimalhealth}}
+                {{view App.IndoorBView}}
+              {{/if}}
+              {{#if zoneIsBusinessmanagement}}
+                {{view App.IndoorAView}}
+              {{/if}}
+              {{#if zoneIsDiversifarmrenewables}}
+                {{view App.IndoorCView}}
+              {{/if}}
+              {{#if zoneIsFeedsforage}}
+                {{view App.IndoorAView}}
+              {{/if}}
+              {{#if zoneIsGenetics}}
+                {{view App.IndoorBView}}
+              {{/if}}
+              {{#if zoneIsHousingstorage}}
+                {{view App.IndoorBView}}
+              {{/if}}
+              {{#if zoneIsLivestockequipment}}
+                {{view App.IndoorCView}}
+              {{/if}}
+              {{#if zoneIsMilking}}
+                {{view App.IndoorCView}}
+              {{/if}}
+              {{#if zoneIsMilkmade}}
+                {{view App.IndoorCView}}
+              {{/if}}
+              {{#if zoneIsSlurrymuck}}
+                {{view App.IndoorCView}}
+              {{/if}}
+            </div>
+            <div class="large-4 small-12 columns">
+              {{#if zone}}
+              <h1 {{bind-attr class="colorClass"}}>Pick a block from {{zone}}</h1>
+              {{else}}
+              <h1>pick a zone above</h1>
+              {{/if}}
+              {{#if zoneIsAnimalhealth}}
+              <p>This zone will feature animal health and veterinary product manufacturers and distributors.</p>
+              {{/if}}
+              {{#if zoneIsBusinessmanagement}}
+              <p>Exhibitors will include consultants, financial providers, insurance, IT, education, training and recruitment, trade associations, publishers and quality assurance.</p>
+              {{/if}}
+              {{#if zoneIsDiversifarmrenewables}}
+              <p>This exhibition zone attracts farmers looking to generate additional income from existing land and farm assets.</p>
+              <p><i>Please note that the only block for open space stands within this zone is 126.  All other blocks within this zone will only accommodate shell scheme bookings.</i></p>
+              {{/if}}
+              {{#if zoneIsFeedsforage}}
+              <p>Companies in this zone will cover feeds, seeds, fertilisers, chemicals, silage and feed additives, soil and forage products.</p>
+              {{/if}}
+              {{#if zoneIsGenetics}}
+              <p>This is a dedicated zone for all breeding AI companies and breed societies.</p>
+              {{/if}}
+              {{#if zoneIsHousingstorage}}
+              <p>Exhibitors will include animal housing, building and materials cubicles, bins and bedding products.</p>
+              {{/if}}
+              {{#if zoneIsLivestockequipment}}
+              <p>This zone will cover Equipment for feeding, identification, handling, livestock fencing, tractors, telehandlers, machinery, attachments and spare parts.</p>
+              {{/if}}
+              {{#if zoneIsMilking}}
+              <p>For all aspects of milking, including parlours, cooling equipment, spares, hygiene products, clothing and milk testing.</p>
+              {{/if}}
+              {{#if zoneIsMilkmade}}
+              <p>This zone attracts farmers looking to add value to their milk, whether this be through securing new milk contracts or looking at processing their own milk into cheese, ice cream, yoghurt and other dairy products.</p>
+              {{/if}}
+              {{#if zoneIsSlurrymuck}}
+              <p>For companies involved in the handling and storage of slurry and water, environmental products and advisory services.</p>
+              {{/if}}
+              <div data-row-span="1" class="subRow">
+                <div data-field-span="1" {{bind-attr class=":subField standGood:good"}}>
+                <label for="stand_number">block number</label><br>
+                {{view Ember.TextField valueBinding="content.standNumber" id="stand_number"}}
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+        </div> <!--end helper wrap-->
+        
+        {{#if isLivestockHall}}
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <p>This zone will feature classes from the National Dairy Show, the National Charolais show, the National British Blue Show and the National Lleyn Sheep competition.</p>
+            <h2>Livestock Hall stand particulars</h2>
+            <ul>
+              <li><strong>Dairy</strong> - Upon application - Please call the event office on <a href="tel:08454582711" class="inlineLink">0845 458 2711</a></li>
+              <li><strong>Sheep Breed Society</strong> - 6m x 3m total area - includes two 1.5m x 1.5m pens and straw and a clear stand space of 3m x 3m</li>
+              <li><strong>Beef Breed Society</strong> - 11m x 4m total area - includes two 4m x 4m pens with sleeper base and straw and a clear stand space of 3m x 4m</li>
+            </ul>
+
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="breed_society">Breed society</label><br>
+            {{view Ember.Select contentBinding="breedSocieties" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="content.breedSociety" id="breed_society"}}
+          </div>
+        </div>
+        {{/if}}
+        {{#if breedIsDairy}}
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <h1>Dairy Exhibitors: please call the office on <a class="whiteLink inlineLink" href="tel:+448454582711">0845 458 2711</a>.</h1>
+            </div>
+          </div>
+        {{/if}}
+        <div data-row-span="2">
+          <div id="standType_field" data-field-span="1">
+            <label for="stand_type">Stand Format</label><br>
+            {{view Ember.Select contentBinding="standTypes" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="content.standType" id="stand_type"}}
+          </div>
+
+          {{#if standTypeIsShell}}
+
+          <div id="position_field" data-field-span="1">
+            <label for="position">Stand Type</label><br>
+            {{view Ember.Select contentBinding="positionsAlt" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="content.position" id="position"}}
+          </div>
+
+          {{else}}
+
+          <div id="position_field" data-field-span="1">
+            <label for="position">Stand Type</label><br>
+            {{view Ember.Select contentBinding="positions" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="content.position" id="position"}}
+          </div>
+
+          {{/if}}
+        </div>
+        {{#if standType}}
+        <div class="row standTypeRow helperRow">
+          <div class="large-6 small-12 columns">
+            {{#if standTypeIsClear}}
+            
+            {{else}}
+            <img src="<%= asset_path('shell.jpg') %>" />
+            {{/if}}
+          </div>
+          <div class="large-6 small-12 columns">
+            {{#if standTypeIsClear}}
+            <label>About Clear Stands</label>
+            <a class="closeButton closeFormInfo" id="standTypeRow-closeButton"><span class="icon-close-alt"></span></a>
+            
+            <p>'Open', or 'clear', stand space is sold without carpet or electrics. Benefits include:</p>
+            <ul>
+              <li>Entry into the Show Guide</li>
+              <li>FREE Parking</li>
+              <li>9-199sqm = £45 per sqm</li>
+              <li>200sqm+ = £43 per sqm</li>
+
+            </ul>
+            {{else}}
+              {{#if standTypeIsShell}}
+            <label>About Shell Stands</label>
+            <a class="closeButton closeFormInfo" id="standTypeRow-closeButton"><span class="icon-close-alt"></span></a>
+            <p>A 'shell', or 'modular', system comes as one-metre modules and can be build to just about any size. Benefits include:</p>
+            <ul>
+              <li>Modular shell scheme</li>
+              <li>White <a class="inlineLink" href="http://www.par-group.co.uk/engineering-plastics/Foamex-Foam-PVC.aspx" target="_blank">Foamex</a> infill panels</li>
+              <li>Fascia Name Board</li>
+              <li>Electrical Socket and Lighting Package</li>
+              <li>Carpet</li>
+              <li>Entry into the Show Guide</li>
+              <li>FREE Parking</li>
+              <li>9sqm+ = £100 per sqm</li>
+            </ul>
+              {{/if}}
+            {{/if}}
+          </div>
+        </div>
+        {{/if}}
+
+        {{#if position}}
+        
+        <div class="row positionRow helperRow">
+          <div class="large-6 small-12 columns">
+            {{#if positionIsStandard}}
+            
+            {{/if}}
+            {{#if positionIsCorner}}
+            <img src="<%= asset_path('corner.jpg') %>" />
+            {{/if}}
+            {{#if positionIsPeninsula}}
+            <img src="<%= asset_path('peninsula.jpg') %>" />
+            {{/if}}
+            {{#if positionIsIsland}}
+            <img src="<%= asset_path('island.jpg') %>" />
+            {{/if}}
+            
+          </div>
+          <div class="large-6 small-12 columns">
+            <label>About {{position}} Stands</label>
+            <a class="closeButton closeFormInfo" id="positionRow-closeButton"><span class="icon-close-alt"></span></a>
+            {{#if positionIsStandard}}
+            <p>One side open, with no surcharge or minimum stand area.</p>
+            {{/if}}
+            {{#if positionIsCorner}}
+            <p>Two sides open, with a surcharge of 10% applied to the base stand price. No minimum stand area.</p>
+            {{/if}}
+            {{#if positionIsPeninsula}}
+            <p>Three sides open, with a surcharge of 15% applied to the base stand price. A minimum stand area of 64 sqm.</p>
+            {{/if}}
+            {{#if positionIsIsland}}
+            <p>Four sides open, with a surcharge of 20% applied to the base stand price. A minimum stand area of 100 sqm.</p>
+            {{/if}}
+          </div>
+        </div>
+
+        {{/if}}  
+
+        {{#unless isLivestockHall}}
+        <div {{bind-attr class=":afterHelpRow areaTooSmall:areaWarning"}} data-row-span="2">
+          <div data-field-span="1">
+            <label for="frontage">Frontage/m<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.frontage" id="frontage" required=""}}
+          </div>
+          
+          <div data-field-span="1">
+            <label for="depth">Depth/m<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.depth" id="depth" required=""}}
+          </div>
+        </div>
+        {{/unless}}
+        </fieldset>
+        {{#if standTypeIsClear}}
+        <fieldset>
+          <legend>4b. Contractor Details (if Stand Format is 'Clear')</legend>
+          <div data-row-span="2">
+            <div data-field-span="1">
+              <label for="contractor_company_name">contractor company name</label><br>
+              {{view Ember.TextField valueBinding="content.contractorCompanyName" id="contractor_company_name"}}
+            </div>
+            <div data-field-span="1">
+              <label for="contractor_contact_name">contractor contact name</label><br>
+              {{view Ember.TextField valueBinding="content.contractorContactName" id="contractor_contact_name"}}
+            </div>
+          </div>
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <label for="contractor_address">Contractor Address</label><br>
+              {{view Ember.TextField valueBinding="content.contractorAddress" id="contractor_address"}}
+            </div>
+          </div>
+          <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="contractor_email">Contractor e-mail address</label><br>
+            {{view Ember.TextField valueBinding="content.contractorEmail" id="contractor_email"}}
+          </div>
+            <div data-field-span="1">
+              <label for="contractor_telephone">Contractor Telephone Number</label><br>
+              {{view Ember.TextField valueBinding="content.contractorTelephone" id="contractor_telephone"}}
+            </div>
+          </div>
+          </fieldset>
+        {{/if}}
+      <fieldset>
+        <legend>5. Other Details</legend>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="requires_leaflets">do you require any free event leaflets advertising the event to send to your customers? <span class="afterthought">hard copies are limited to uk-based companies only.</span></label><br>
+            {{view Ember.Checkbox checkedBinding="content.requiresLeaflets" id="requires_leaflets"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="number_leaflets">if so, how many do you require?</label><br>
+            {{view Ember.TextField valueBinding="content.numberLeaflets" id="number_leaflets"}}
+          </div>
+          <div data-field-span="1">
+            <label for="pdf_leaflet">do you require a <a class="inlineLink" target="_blank" href="http://www.adobe.com/uk/products/acrobat/adobepdf.html">pdf copy</a> of the leaflet?</label><br>
+            {{view Ember.Checkbox checkedBinding="content.pdfLeaflet" id="pdf_leaflet"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="machinery_motion">do you intend to exhibit machinery in motion?</label><br>
+            {{view Ember.Checkbox checkedBinding="content.machineryMotion" id="machinery_motion"}}
+          </div>
+          <div data-field-span="1">
+            <label for="mobile_unit">do you intend to bring a mobile unit as part of your stand?</label><br>
+            {{view Ember.Checkbox checkedBinding="content.mobileUnit" id="mobile_unit"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="livestock_stand">do you intend to exhibit livestock on your stand?</label><br>
+            {{view Ember.Checkbox checkedBinding="content.livestockStand" id="livestock_stand"}}
+          </div>
+          <div data-field-span="1">
+           <label for="new_products">do you intend to launch new products at the event? <span class="afterthought">you will be given the opportunity to launch your products at the event and to the press at a briefing held in May.</span></label><br>
+            {{view Ember.Checkbox checkedBinding="content.newProducts" id="new_products"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="philip_award">do you intend to enter the <a href="/awards" target="_blank" class="inlineLink">2014 prince philip award</a>?</label><br>
+            {{view Ember.Checkbox checkedBinding="content.philipAward" id="philip_award"}}
+          </div>
+          <div data-field-span="1">
+           <label for="livestock_award">do you intend to enter the <a href="/awards" target="_blank" class="inlineLink">2014 livestock machinery and equipment award</a>?</label><br>
+            {{view Ember.Checkbox checkedBinding="content.livestockAward" id="livestock_award"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="exports">do you export products from the uk?</label><br>
+            {{view Ember.Checkbox checkedBinding="content.exports" id="exports"}}
+          </div>
+          <div data-field-span="1">
+            <label for="placements">do you offer work placements? <span class="afterthought">Livestock Event will be promoting work placements and apprenticeships as part of the Careers in Agriculture feature. If you offer work placements or apprenticeships, or would like to be involved, please tick the box below.</span></label><br>
+            
+            {{view Ember.Checkbox checkedBinding="content.placements" id="placements"}}
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for "exhibitor_list">Are you happy to be included on the public exhibitor list?<span class="required">*</span></label>
+            <label>
+                {{view Ember.RadioButton name="exhibitor_list" id="exhibitor_list1" selectionBinding="content.exhibitorList" value="true"}}
+                Yes
+            </label>
+            
+            <label>
+                {{view Ember.RadioButton name="exhibitor_list" id="exhibitor_list2" selectionBinding="content.exhibitorList" value="false"}}
+                No
+            </label>
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="requirements">Do you have any special requirements regarding your exhibition location or booking?</label><br>
+            {{view Ember.TextArea valueBinding="content.requirements" id="requirements"}}
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>6. Totals</legend>
+      <div class="row totalsRow">
+      <div class="small-3 columns labelCol">
+        <label>base price (excl. vat)</label>
+        <div class="totalHolder">
+        {{#if price}}
+          <p id="theBasePrice">£{{price}}</p>
+        {{else}}
+          <p class="ellipsis">...</p>
+        {{/if}}
+        </div>
+      </div>
+      <div class="small-3 columns labelCol">
+          
+          <label>Surcharge for Stand Type: {{position}}</label>
+          <div class="totalHolder">
+          {{#if surcharge}}
+            <p >£{{surcharge}}</p>
+            {{else}}
+              <p class="ellipsis">...</p>
+            {{/if}}
+          </div>
+          
+        
+        
+      </div>
+      <div class="small-3 columns labelCol">
+          <label>subtotal (excl. VAT)</label>
+          <div class="totalHolder">
+          {{#if total}}
+            <p id="theSubtotal">£{{total}}</p>
+            {{else}}
+              <p class="ellipsis">...</p>
+            {{/if}}
+          </div>
+      </div>
+
+      <div class="small-3 columns labelCol">
+          <label>total (inc. VAT at 20%)</label>
+          <div class="totalHolder">
+          {{#if totalIncVat}}
+            <p id="theFullPrice">£{{totalIncVat}}</p>
+            {{else}}
+              <p class="ellipsis">...</p>
+            {{/if}}
+          </div>
+      </div>
+      </div>
+      
+      
+      <div class="row totalsRow">
+      <div class="large-4 columns labelCol">
+        <label>30% non-refundable deposit (excl. VAT)</label>
+        <div class="totalHolder">
+          {{#if depositExVat}}
+            <p>£{{depositExVat}}</p>
+          {{else}}
+            <p class="ellipsis">...</p>
+          {{/if}}
+        </div>
+      </div>
+        <div class="large-4 columns labelCol">
+          <label>30% non-refundable deposit (inc. VAT at 20%)</label>
+          <div class="totalHolder">
+            {{#if deposit}}
+              <p id="theDeposit">£{{deposit}}</p>
+            {{else}}
+              <p class="ellipsis">...</p>
+            {{/if}}
+          </div>
+            {{#if deposit}}
+          <label class="afterthought">You will be invoiced for the remaining balance of £{{balance}} (inc. VAT at 20%), due by 31st March 2014.</label>
+          {{/if}}
+        </div>
+        <div class="large-4 columns">
+          <div class="vertElement">
+            <button class="button callToAction" type="submit"><span class="icon-chevron-thick"></span></button>
+            <span class="buttonLabel">save & continue</span>
+          </div>
+          
+          {{#if freeTickets}}
+          <label class="afterthought">You qualify for {{freeTickets}} admission tickets.</label>
+
+          {{/if}}
+        </div>
+      </div>
+      </fieldset>
+
+    </form>
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+

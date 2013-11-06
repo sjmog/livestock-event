@@ -1,0 +1,34 @@
+<div id="booking_bar" class="bookingBar row">
+	<div class="small-12 columns">
+		<div class="row">
+			<div class="large-3 hide-for-small columns labelCol">
+				<label>base price (excl. vat)
+				</label>
+				<div id="base_price" class="totalHolder">{{#if price}}
+					<p>£{{price}}</p>{{else}}
+					<p class="ellipsis">...</p>{{/if}}</div>
+			</div>
+			<div id="subtotal" class="large-3 hide-for-small columns labelCol">
+				<label>subtotal (excl. VAT)
+				</label>
+				<div class="totalHolder">{{#if total}}
+					<p>£{{total}}</p>{{else}}
+					<p class="ellipsis">...</p>{{/if}}</div>
+			</div>
+			<div id="total" class="large-3 small-6 columns labelCol">
+				<label>total (inc. VAT at 20%)
+				</label>
+				<div class="totalHolder">{{#if totalIncVat}}
+					<p>£{{totalIncVat}}</p>{{else}}
+					<p class="ellipsis">...</p>{{/if}}</div>
+			</div>
+			<div id="deposit" class="large-3 small-6 columns labelCol">
+				<label>Deposit (inc. VAT at 20%)
+				</label>
+				<div class="totalHolder">{{#if deposit}}
+					<p>£{{deposit}}</p>{{else}}
+					<p class="ellipsis">...</p>{{/if}}</div>
+			</div>
+		</div>
+	</div>
+</div>

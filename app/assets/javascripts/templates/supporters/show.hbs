@@ -1,0 +1,32 @@
+<div class="flipper">
+	<div class="front">
+		{{#if isSameName}}
+		<span class="tile-title">{{#link-to 'supporters.index' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}Supporter: {{name}}</span>
+		{{else}}
+		<span class="tile-title">{{#link-to 'supporters.index' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}Supporter: {{name}}, {{companyName}}</span>
+		{{/if}}
+		<div class="fullBleedHolder">
+			{{#if image}}
+			<img {{bind-attr src=content.image}} class="fullBleed" />
+			{{/if}}
+		</div>
+
+		<div class="row">
+			<div class="small-12 columns">
+				<h1>About {{name}}</h1>
+				<p>{{explanation}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<h1>Supporter Contact Details</h1>
+				<p>{{address}}</p>
+			</div>
+		</div>
+		
+		
+	</div>
+	<div class="back">
+		
+	</div>
+</div>

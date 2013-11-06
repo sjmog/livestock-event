@@ -1,0 +1,63 @@
+<div class="flipper">
+	<div class="front">
+		<span class="tile-title">Create a new contractor</span>
+		<form {{action save model on="submit"}}>	
+			<div class="fullBleedHolder">
+				{{#if image}}
+				<img {{bind-attr src=content.image}} class="fullBleed" />
+				{{else}}
+				<img src="http://placehold.it/310x310" class="fullBleed"></img>
+				{{/if}}
+			</div>
+			<div class="imageUploader">
+			  <input type="file" id="ajax-upload" />
+			  {{view Ember.TextField valueBinding="image" id="ajax-upload-output" isVisible=false}}
+		  	<div class="uploadButton">
+		  		<span class="icon-add-icon uploadPlus"></span>
+		  		<div>
+		  			{{#if image}}
+		  			Image uploaded: <img {{bind-attr src=content.image}} class="miniImage" />
+		  			{{/if}}
+		  		</div>
+		  		
+		  		<div id="ajax-upload-info">
+		  			{{#unless image}}
+		  		  No file uploaded.
+		  			{{/unless}}
+		  		</div>
+		  	</div>
+		  	</div>
+			<div class="row">
+				<div class="small-6 columns">
+					<label class="afterthought tleft">contractor name</label>
+					{{view Ember.TextField valueBinding='name' placeholder="Contractor Name"}}
+				</div>
+				<div class="small-6 columns">
+			<label class="afterthought tleft">company name</label>
+					{{view Ember.TextField valueBinding='companyName' placeholder="Company Name"}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<label class="afterthought tleft">contractor address</label>
+					{{view Ember.TextArea valueBinding="address" cols="80" rows="5"}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<label class="afterthought tleft">about the contractor</label>
+					{{view Ember.TextArea valueBinding="explanation" cols="80" rows="5"}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-6 columns small-centered">
+					{{view Ember.TextField valueBinding='category' placeholder="Service Category"}}
+				</div>
+			</div>
+			<button class="button callToAction" type="submit">Save</button>
+		</form>
+	</div>
+	<div class="back">
+		
+	</div>
+</div>

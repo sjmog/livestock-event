@@ -1,0 +1,21 @@
+<div class="flipper">
+	<div class="front">
+		<span class="tile-title">contractor list</span>
+		{{#each controller.sortedContractors}}
+			{{#link-to 'contractors.show' this class="ninjaLink"}}
+			<div class="row singleContractor">
+				<div class="small-2 columns">
+					{{#if image}}
+					<img {{bind-attr src=image}} class="avatarImage" />
+					{{/if}}
+				</div>
+				<div class="small-7 columns">{{name}}</div>
+				<div class="small-3 columns">{{category}}</div>
+			</div>
+			{{/link-to}}
+		{{/each}}
+	</div>
+	<div class="back">
+		
+	</div>
+</div>

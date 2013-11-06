@@ -1,0 +1,91 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">book a stand</span>
+
+    <div class="row">
+      <div class="large-6 small-12 columns">
+        <p>To book your stand on-line or by post, you will need to log in below by entering your email address and creating a password. You will receive an email confirmation of your password, please keep it safe as you will need it to access your application at any point in the future.</p>
+        <p>If you would prefer to apply by post, please sign up using the form below and click the 'apply by post' button on the next page.</p>
+      </div>
+      <div class="large-6 small-12 columns quickActionColumn">
+        <div class="row buttonContent fourButtons">
+          <div class="large-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'bookings.how' class="button callToAction rabdforange"}}<span class="icon-calendar"></span>{{/link-to}}
+              <span class="buttonLabel">how to apply</span>
+            </div>
+          </div>
+          <div class="small-6 columns vertWrap">
+            <div class="vertElement">
+              <a href="#" class="button callToAction disabled rabdforange"><span class="icon-card-user"></span></a>
+              <span class="buttonLabel">exhibitor list (coming soon)</span>
+            </div>
+          </div>
+         
+          
+        </div>
+        <div class="row buttonContent">
+          <div class="small-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'contractors.index' class="button callToAction rabdforange"}}<span class="icon-eye "></span>{{/link-to}}
+              <span class="buttonLabel">contractor list</span>
+            </div>
+          </div>
+          <div class="small-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'demographics' class="button callToAction rabdforange"}}<span class="icon-fontawesome-group rabdforange"></span>{{/link-to}}
+              <span class="buttonLabel">visitor demographics</span>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+</div>
+  <div class="row">
+    <div class="small-12 columns">
+    <h1>register to get started</h1>
+      <form class="grid-form registration" {{action "createUser" on="submit"}}>
+          <fieldset>
+            <div data-row-span="2">
+              <div data-field-span="1">
+                <label for="name">Name</label>
+                
+                    {{view Ember.TextField valueBinding="name" id="name"}}
+                
+              </div>
+              <div data-field-span="1">
+                <label for="email">Email</label>
+                
+                  {{view Ember.TextField valueBinding="email" id="email"}}
+                
+              </div>
+            </div>
+            <div data-row-span="2">
+              <div data-field-span="1">
+                <label for="password">Password <span class="afterthought">(at least 6 characters)</span></label>
+                
+                  {{view Ember.TextField valueBinding="password" type="password" id="password"}}
+                  <br/>
+                
+              </div>
+              <div data-field-span="1">
+                <label for="password_confirmation">Confirm Password</label>
+                
+                  {{view Ember.TextField valueBinding="password_confirmation" type="password" id="password_confirmation"}}
+                
+              </div>
+            </div>
+          </fieldset>
+        <div class="form-actions">
+          <button type="submit" class="button callToAction">Proceed</button>
+          <button type="submit" class="button callToAction">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+

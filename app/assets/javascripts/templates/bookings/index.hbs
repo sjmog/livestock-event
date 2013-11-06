@@ -1,0 +1,54 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">{{#link-to 'index' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}all bookings</span>
+  <div class="row">
+    <div class="small-12 columns">
+
+    <table class="bookingsTable" id="bookingsTable">
+  <thead>
+    <th>Company Name & Registration</th>
+    <th>RABDF Membership?</th>
+    <th>Correspondence Address</th>
+    <th>Invoice Address</th>
+    <th>T&Cs</th>
+    <th>Show Area</th>
+    <th>Same as 2013?</th>
+    <th>Stand Type</th>
+    <th>Frontage</th>
+    <th>Depth</th>
+    <th><span class="icon-pound-icon"></span></th>
+    <th>Deposit Paid?</th>
+    <th>Total Paid?</th>
+    <th>Breed Society</th>
+  </thead>
+  <tbody>
+    {{#each controller}}
+    <tr>
+      <td>{{#linkTo "bookings.show" this }}{{ companyName }}{{/linkTo}}<br /><small>{{ companyReg }}</small></td>
+      <td>{{#if corporateMembership }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+      <td>{{ correspondenceAddress }}</td>
+      <td>{{ invoiceAddress }}</td>
+      <td>{{#if tcAgreed }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+      <td>{{ showArea }}</td>
+      <td>{{#if sameAs2013 }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+      <td>{{ standType }}</td>
+      <td>{{ frontage }}m</td>
+      <td>{{ depth }}m</td>
+      <td>£{{ total }}</td>
+      <td>{{#if depositPaid }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+      <td>{{#if totalPaid }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+      <td>{{ breedSociety }}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+
+

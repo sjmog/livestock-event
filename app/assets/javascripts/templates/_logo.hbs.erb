@@ -1,0 +1,22 @@
+{{#if isIndex}}
+<div class="tile logo tile-half-tall" data-speed="750" data-delay="99999999">
+    <span class="tile-title"></span>
+    <div></div>
+    <div></div>
+</div>
+{{else}}
+<div class="tile logo tile-half-tall notIndex" data-speed="750" data-delay="99999999">
+	<div class="row underIndex">
+		<div class="small-4 columns">
+			{{#link-to 'index' class="button callToAction small inline"}}<span class="icon-home"></span>{{/link-to}}
+			<span class="buttonLabel inline">home</span>
+		</div>
+		<div class="small-8 columns">
+			<span class="sponsorLabel inline">principal sponsor</span>
+			<img class="sponsoredBy" src="<%= asset_path('barclays-white.png') %>" />
+		</div>
+	</div>
+    <div></div>
+    <div></div>
+</div>
+{{/if}}

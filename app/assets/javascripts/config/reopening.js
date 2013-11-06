@@ -1,0 +1,3 @@
+Ember.View.reopen({
+
+});

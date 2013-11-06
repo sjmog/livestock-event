@@ -1,0 +1,45 @@
+
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">{{#link-to 'index' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}all testimonials</span>
+  <div class="row">
+    <div class="small-12 columns">
+
+    <table class="testimonialsTable" id="testimonialsTable">
+  <thead>
+    <th>ID</th>
+    <th>Attribution</th>
+    <th>Location</th>
+    <th>Quote</th>
+    <th>Call to Action Icon</th>
+    <th>Call Route</th>
+    <th>Image</th>
+    <th>Category</th>
+  </thead>
+  <tbody>
+    {{#each controller}}
+    <tr>
+      <td>{{#linkTo "testimonials.edit" this }}{{ id }}{{/linkTo}}</td>
+      <td>{{attribution}}</td>
+      <td>{{ location }}</td>
+      <td>{{ quote }}</td>
+      <td><span {{bind-attr class=callIcon}}></span></td>
+      <td>{{callRoute}}</td>
+      <td>{{ image }}</td>
+      <td>{{ category }}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{#link-to "testimonials.new"}}New Testimonial{{/link-to}}
+
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+
+

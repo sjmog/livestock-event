@@ -1,0 +1,79 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">{{#link-to 'testimonials.index' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}new testimonial</span>
+  <div class="row">
+    <div class="small-12 columns">
+
+    <form {{action save on="submit"}} class="grid-form">
+      
+      <fieldset>
+      <div data-row-span="2">
+        <div data-field-span="1">
+          <label for="image">Image</label><br>
+          <!--Ajax file upload-->
+          <input type="file" id="ajax-upload" />
+
+          {{view Ember.TextField valueBinding="image" id="ajax-upload-output" isVisible=false}}
+        </div>
+        <div data-field-span="1">
+          <div id="ajax-upload-info">
+            No file uploaded.
+          </div>
+        </div>
+      </div>
+
+      <div data-row-span="2">
+        <div data-field-span="1">
+          <label for="attribution">Attribution (Who?)</label><br>
+          {{view Ember.TextField valueBinding="attribution" id="attribution"}}
+        </div>
+        <div data-field-span="1">
+          <label for="location">Job and Location</label><br>
+          {{view Ember.TextField valueBinding="location" id="location"}}
+        </div>
+      </div>
+      
+      <div data-row-span="1">
+        <div data-field-span="1">
+          <label for="quote">Quote</label><br>
+          {{view Ember.TextField valueBinding="quote" id="quote"}}
+        </div>
+      </div>
+
+      <div data-row-span="3">
+        <div data-field-span="1">
+          <label for="call_route">Call To Action route</label><br>
+          {{view Ember.Select contentBinding="routes" optionValuePath="content.path" optionLabelPath="content.route" valueBinding="callRoute" id="call_route" classNames="select"}}
+        </div>
+        <div data-field-span="1">
+          <label for="call_icon">Call To Action icon</label><br>
+          {{view Ember.TextField valueBinding="callIcon" id="call_icon"}}
+        </div>
+        <div data-field-span="1">
+          <label for="call_route_name">Call To Action text</label><br>
+          {{view Ember.TextField valueBinding="callRouteName" id="call_route_name"}}
+        </div>
+      </div>
+
+      <div data-row-span="2">
+        <div data-field-span="1">
+          <label for="category">Category</label><br>
+          {{view Ember.Select contentBinding="categories" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="category" id="category" classNames="select"}}
+        </div>
+        <div data-field-span="1">
+          <button class="button callToAction" type="submit">Save</button>
+        </div>
+      </div>
+      </fieldset>
+
+    </form>
+
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+
+

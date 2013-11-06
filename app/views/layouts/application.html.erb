@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Livestock Event 2014</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= filepicker_js_include_tag %>
+  <%= csrf_meta_tags %>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+
+    <link href="//www.google-analytics.com" rel="dns-prefetch">
+    <link href="//ajax.googleapis.com" rel="dns-prefetch">
+
+    <!--payment scripts-->
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<!--end payment scripts-->
+    
+  </head>
+  <body>
+
+    <!--site-wide modal window-->
+
+    <%= render "components/modal" %>
+  
+    <!--start content-->
+    
+		<%= yield %>
+
+    <!--cookie policy bar-->
+
+    <%= render "components/cookies" %>
+	
+    <script type="text/javascript" src="assets/modalEffects.js"></script>
+    <script type="text/javascript" src="assets/history.js"></script>
+    <script type="text/javascript">
+      $( document ).ajaxError(function(event, jqxhr) {
+        var status = jqxhr.status;
+        var errs = jqxhr.responseText;
+        if (status === 401) {
+          $( "#modalHeading" ).text( jqxhr.status );
+          $( "#modalContent" ).text( "We're sorry about this, but you're not allowed to access that resource. You might be seeing this error if you accidentally used the wrong password, or if you're trying to log in to an Admin-only area of the site." );
+        }
+        else if (status == 400) {
+          $( "#modalHeading" ).text( jqxhr.status );
+          $( "#modalContent" ).text( "The request that you sent to the server didn't make sense, so it has rejected it. If this keeps happening, please let us know so we can fix it." );
+        }
+        else if (status == 403) {
+          $( "#modalHeading" ).text( jqxhr.status );
+          $( "#modalContent" ).text( "We're sorry about this, but you're not allowed to access that resource. You might be seeing this error if you accidentally used the wrong password, or if you're trying to log in to an Admin-only area of the site." );
+        }
+        else if (status === 404) {
+          $( "#modalHeading" ).text( jqxhr.status );
+          $( "#modalContent" ).text( "The server couldn't find what you were looking for. Please try again, and if this keeps happening, please let us know so we can fix it." );
+        }
+        else if (status === 422) {
+          $( "#modalHeading" ).text( jqxhr.status );
+          $( "#modalContent" ).text( "The server sort of understands what you're asking for, but something went missing in translation. Please try whatever you were just doing again." );
+        };
+        $(".md-content").addClass('errorModal');
+        $(".md-trigger.callModal").click();
+      });
+    </script>
+    <script type="text/javascript">
+      var throwError = function(heading, error) {
+        $( "#modalHeading" ).text( heading );
+        console.log('heading for error is ' + heading);
+        $( "#modalContent" ).text( error );
+        console.log('content for error is ' + error);
+        $(".md-content").addClass('errorModal');
+        $(".md-trigger.callModal").click();
+      };
+      var throwInfo = function(heading, info) {
+        $( "#modalHeading" ).text( heading );
+        console.log('heading for info is ' + heading);
+        $( "#modalContent" ).html( info );
+        console.log('content for info is ' + info);
+        $(".md-content").addClass('infoModal');
+        $(".md-trigger.callModal").click();
+      };
+    </script>
+    <script>
+    (function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
+    (f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
+    l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-44788878-1', {'cookieDomain': 'none'});
+    ga('send', 'pageview');
+    </script>
+    <script type="text/javascript">
+      Stripe.setPublishableKey('pk_test_OrSntymwWAeHpIIRtzwEDOqo');
+    </script>
+  </body>
+</html>

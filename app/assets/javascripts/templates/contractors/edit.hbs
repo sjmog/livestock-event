@@ -1,0 +1,62 @@
+<div class="flipper">
+	<div class="front">
+		<form {{action save model on="submit"}}>
+			<span class="tile-title">Edit contractor details for {{name}}</span>
+			<div class="fullBleedHolder">
+				{{#if image}}
+				<img {{bind-attr src=image}} class="fullBleed" />
+				{{else}}
+				<img src="http://placehold.it/310x310" class="fullBleed"></img>
+				{{/if}}
+			</div>
+			<div class="imageUploader">
+			  <input type="file" id="ajax-upload" />
+			  {{view Ember.TextField valueBinding="image" id="ajax-upload-output" isVisible=false}}
+		  	<div class="uploadButton">
+		  		<span class="icon-add-icon uploadPlus"></span>
+		  		<div>
+		  			{{#if image}}
+		  			Image uploaded: <img {{bind-attr src=image}} class="miniImage" />
+		  			{{/if}}
+		  		</div>
+		  		
+		  		<div id="ajax-upload-info">
+		  			{{#unless image}}
+		  		  No file uploaded.
+		  			{{/unless}}
+		  		</div>
+		  	</div>
+		  	</div>
+			<div class="row">
+				<div class="small-6 columns">
+					{{view Ember.TextField valueBinding='name' placeholder="Contractor Name"}}
+				</div>
+				<div class="small-6 columns">
+					<a class="afterthought inlineLink" {{action sameName}}>copy contractor name</a>
+					{{view Ember.TextField valueBinding='companyName' placeholder="Company Name"}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<label>Contractor Address</label>
+					{{textarea value="address" cols="80" rows="5"}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<label>About the Contractor</label>
+					{{textarea value="explanation" cols="80" rows="5"}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-6 columns small-centered">
+					{{view Ember.TextField valueBinding='category' placeholder="Service Category"}}
+				</div>
+			</div>
+			<button class="button callToAction" type="submit">Save</button>
+		</form>
+	</div>
+	<div class="back">
+		
+	</div>
+</div>

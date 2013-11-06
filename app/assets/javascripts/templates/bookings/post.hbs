@@ -1,0 +1,128 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">{{#link-to 'bookings.new' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}book a stand by post</span>
+  <div class="row">
+    <div class="small-12 columns">
+
+    <p>To apply for stand space by post, download the following forms and return to the address thereon.</p>
+    <p>You can use the interactive floorplan maps below to view stand positions, dimensions and (where relevant) availability. Use the floorplans to get the correct dimensions for your chosen stand. <i>If you are booking Indoor space, you can choose your stand dimensions yourself</i>.</p>
+
+    <p><a href="https://www.dropbox.com/s/q93ojxv3g81c63w/post.pdf" target="_blank" class="inlineLink">Download Post Application Form</a></p>
+
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns mapHolder">
+
+   	<h1>zone maps</h1>
+
+   	<form class="grid-form"><fieldset><div data-row-span="2">
+   	   	   	  <div id="showArea_field" data-field-span="1">
+   	   	   	    <label for="show_area">Show Area</label><br>
+   	   	   	    {{view Ember.Select contentBinding="showAreas" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="content.showArea" id="show_area" classNames="select"}}
+   	   	   	  </div>
+   	   	   	  <div id="zone_field" data-field-span="1">
+   	   	   	    <label for="zone">Zone</label><br>
+   	   	   	    {{view Ember.Select contentBinding="zones" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="content.zone" id="zone"}}
+   	   	   	  </div>
+   	   	   	  
+   	   	   	</div></fieldset></form>
+
+{{#if isIndoor}}
+	{{#if zone}}
+	   	{{#if zoneIsAnimalhealth}}
+	   	  {{view App.IndoorBView}}
+	   	{{/if}}
+	   	{{#if zoneIsBusinessmanagement}}
+	   	  {{view App.IndoorAView}}
+	   	{{/if}}
+	   	{{#if zoneIsDiversifarmrenewables}}
+	   	  {{view App.IndoorCView}}
+	   	{{/if}}
+	   	{{#if zoneIsFeedsforage}}
+	   	  {{view App.IndoorAView}}
+	   	{{/if}}
+	   	{{#if zoneIsGenetics}}
+	   	  {{view App.IndoorBView}}
+	   	{{/if}}
+	   	{{#if zoneIsHousingstorage}}
+	   	  {{view App.IndoorBView}}
+	   	{{/if}}
+	   	{{#if zoneIsLivestockequipment}}
+	   	  {{view App.IndoorCView}}
+	   	{{/if}}
+	   	{{#if zoneIsMilking}}
+	   	  {{view App.IndoorCView}}
+	   	{{/if}}
+	   	{{#if zoneIsMilkmade}}
+	   	  {{view App.IndoorCView}}
+	   	{{/if}}
+	   	{{#if zoneIsSlurrymuck}}
+	   	  {{view App.IndoorCView}}
+	   	{{/if}}
+	 {{/if}}
+ {{/if}}
+ {{#if isMachineryHall}}
+ 	{{view App.MachineryMapView}}
+ {{/if}}
+ {{#if isOutdoor}}
+ 	{{view App.OutdoorMapView}}
+ {{/if}}
+ {{#if isLivestockHall}}
+ 	{{view App.IndoorBView}}
+ {{/if}}
+
+  </div>
+</div>
+{{#if isMachineryHall}}
+<div class="row standCheckingRow">
+	<div class="small-12 columns standChecker">
+		<h1>Check stand availability: machinery hall</h1>
+		<form class="grid-form">
+			<fieldset>
+				<div data-row-span="1">
+				  <div data-field-span="1" {{bind-attr class="standWarning:warning standGood:good"}}>
+				  <label for="stand_number">stand number</label><br>
+				  {{view Ember.TextField valueBinding="content.standNumber" id="stand_number"}}
+				  <span {{action getStand target="controller"}} class="checker icon-help"></span>
+				  <span {{action getStand target="controller"}} class="undercheck afterthought">check stand availability & dimensions</span>
+				  {{#if content.stand}}
+				  <br />
+				  <span class="afterthought">{{content.frontage}}m x {{content.depth}}m (total area: {{area}}sqm)</span>
+				  {{/if}}
+				  </div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+{{/if}}
+{{#if isOutdoor}}
+<div class="row standCheckingRow">
+	<div class="small-12 columns standChecker">
+		<h1>Check stand availability: outdoor</h1>
+		<form class="grid-form">
+			<fieldset>
+				<div data-row-span="1">
+				  <div data-field-span="1" {{bind-attr class="standWarning:warning standGood:good"}}>
+				  <label for="stand_number">stand number</label><br>
+				  {{view Ember.TextField valueBinding="content.standNumber" id="stand_number"}}
+				  <span {{action getStand target="controller"}} class="checker icon-help"></span>
+				  <span {{action getStand target="controller"}} class="undercheck afterthought">check stand availability & dimensions</span>
+				  {{#if content.stand}}
+				  <br />
+				  <span class="afterthought">{{content.frontage}}m x {{content.depth}}m (total area: {{area}}sqm)</span>
+				  {{/if}}
+				  </div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+{{/if}}
+
+</div>
+<div class="back">
+  
+</div>
+</div>

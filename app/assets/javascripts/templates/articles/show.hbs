@@ -1,0 +1,27 @@
+<div class="flipper">
+	<div class="front">
+		<span class="tile-title">{{#link-to 'articles' class="backbutton"}}<span class="icon-back"></span>{{/link-to}} news</span>
+		<h1>{{title}}</h1>
+		{{#if image}}
+		<div class="fullBleedHolder">
+			<img {{bind-attr src=image}} class="fullBleed"></img>
+		</div>
+		{{/if}}
+		<div class="row metaRow">
+			<div class="large-5 small-12 columns author">
+				By: {{author}}
+			</div>
+			<div class="large-7 hide-for-small columns published">
+				Published: {{day}}/{{monthNumber}}/{{year}}
+			</div>
+		</div>
+		<div class="row articleContentRow">
+			<div class="small-12 columns">
+				{{{articleContent}}}
+			</div>
+		</div>
+	</div>
+	<div class="back">
+		
+	</div>
+</div>

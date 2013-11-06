@@ -1,0 +1,108 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">{{#link-to 'index' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}hi, {{name}}</span>
+  <div class="row userDetailsRow">
+    <div class="small-12 columns">
+
+    <p>
+      <b>Email Address:</b> {{ email }}
+    </p>
+
+
+    
+
+  	</div>
+  </div>
+  <div class="row userBookingsRow">
+  	<div class="small-12 columns">
+      <h1>{{name}}'s bookings</h1>
+      <table class="usersTable" id="personalTable">
+        <thead>
+          <th>Company Name & Registration</th>
+          <th>RABDF Membership?</th>
+          <th>Correspondence Address</th>
+          <th>Invoice Address</th>
+          <th>T&Cs</th>
+          <th>Show Area</th>
+          <th>Same as 2013?</th>
+          <th>Stand Type</th>
+          <th>Frontage</th>
+          <th>Depth</th>
+          <th><span class="icon-pound-icon"></span></th>
+          <th>Deposit Paid?</th>
+          <th>Total Paid?</th>
+          <th>Breed Society</th>
+        </thead>
+        <tbody>
+    		{{#each bookings}}
+          <tr>
+            <td>{{#linkTo "bookings.show" this }}{{ companyName }}{{/linkTo}}<br /><small>{{ companyReg }}</small></td>
+            <td>{{#if corporateMembership }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+            <td>{{ correspondenceAddress }}</td>
+            <td>{{ invoiceAddress }}</td>
+            <td>{{#if tcAgreed }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+            <td>{{ showArea }}</td>
+            <td>{{#if sameAs2013 }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+            <td>{{ standType }}</td>
+            <td>{{ frontage }}m</td>
+            <td>{{ depth }}m</td>
+            <td>£{{ total }}</td>
+            <td>{{#if depositPaid }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+            <td>{{#if totalPaid }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+            <td>{{ breedSociety }}</td>
+          </tr>
+        {{else}}
+          <span class="afterthought">You have not made any bookings yet.</span>
+        {{/each}}
+        </tbody>
+      </table>
+  	</div>
+  </div>
+
+  <div class="row userOrdersRow">
+    <div class="small-12 columns">
+      <h1>{{name}}'s past purchases</h1>
+      <table class="usersTable" id="personalTable">
+        <thead>
+          <th>Order ID</th>
+          <th>Amount</th>
+          <th>Order Date</th>
+          <th>Booking</th>
+          <th>Order Status</th>
+        </thead>
+        <tbody>
+        {{#each orders}}
+          <tr>
+            <td>{{#linkTo "orders.show" this }}{{ id }}{{/linkTo}}<br /><small>{{ companyReg }}</small></td>
+            <td>£{{ amount }}</td>
+            <td>{{ date }}</td>
+            <td>{{ booking }}</td>
+            <td>{{ status }}</td>
+          </tr>
+        {{else}}
+          <span class="afterthought">You have not placed any orders yet.</span>
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="row actionsRow">
+    <div class="large-4 small-12 columns vertWrap">
+     <div class="vertElement"> {{#linkTo "users.edit" model class="button callToAction"}}<span class="icon-gears"></span>{{/linkTo}}<span class="buttonLabel">change something</span></div>
+    </div>
+    <div class="large-4 small-12 columns vertWrap">
+      <div class="vertElement">
+        {{#linkTo "bookings.problems" class="button callToAction"}}<span class="icon-exhibitions-alt"></span>{{/linkTo}}<span class="buttonLabel">problems?</span>
+      </div>
+    </div>
+    <div class="large-4 small-12 columns vertWrap">
+      <div class="vertElement">{{#linkTo "bookings.new" class="button callToAction"}}<span class="icon-add-icon"></span>{{/linkTo}}<span class="buttonLabel">new booking</span></div>
+    </div>
+  </div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+

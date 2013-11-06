@@ -1,0 +1,19 @@
+<div class="cookieBar">
+	<div class="row">
+		<div class="small-12 columns">
+			<a class="closeButton" id="cookie-closeButton"><span class="icon-tick-alt"></span></a>
+			<span class="buttonLabel afterthought">OK, thanks</span>
+			<p>This site uses <a href="http://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" class="inlineLink">cookies</a>. By using this site, we assume this is OK with you. Find out more in our <a href="/privacy" class="inlineLink">Privacy Policy</a>.</p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#cookie-closeButton').click(function() {
+			$('.cookieBar').addClass('downOut disparu');
+		});
+		window.onscroll = function (oEvent) {
+		  $('.cookieBar').addClass('downOut disparu');
+		};
+	});
+</script>

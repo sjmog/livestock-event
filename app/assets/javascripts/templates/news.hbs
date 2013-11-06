@@ -1,0 +1,24 @@
+
+
+	<div class="flipper">
+		<div class="front">
+			<span class="tile-title">news{{#link-to 'articles' class="forwardbutton"}}<span class="icon-infinity"></span>{{/link-to}}</span>
+
+			{{#each sortedArticles}}
+			{{#link-to 'articles.show' this}}
+			<div class="row newsItem">
+				<div class="small-3 columns newsDateCol">
+					<div class="newsDateBlock">
+						<div class="newsDay">{{day}}</div>
+						<div class="newsDate">{{month}} 13</div>
+					</div>
+				</div>
+				<div class="small-9 columns newsExcerpt postText">
+					<span class="newsTitle">{{title}}</span>
+					<span class="newsContent">{{{articleContent}}}</span>
+				</div>
+			</div>
+			{{/link-to}}
+			{{/each}}
+		</div>
+	</div>

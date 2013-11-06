@@ -1,0 +1,57 @@
+
+	
+	<div class="flipper">
+		<div class="front">
+			<span class="tile-title">tickets</span>
+			<div class="row buttonContent">
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						{{#link-to 'tickets' class="button callToAction"}}<span class="icon-add-icon pink"></span>{{/link-to}}
+						<span class="buttonLabel">book</span>
+					</div>
+				</div>
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a id="visitorPricing" class="button callToAction"><span class="icon-pound-icon pink"></span></a>
+						<span class="buttonLabel">pricing</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="back">
+			<a class="closeButton" id="visitor_tickets-closeButton"><span class="icon-close-alt"></span></a>
+			<!--once tickets go-live
+			<div class="row">
+				<div class="small-6 columns">
+					{{view App.NumberField valueBinding="controller.tickets" min="0"}}
+				</div>
+				<div class="small-6 columns">
+					{{#if ticketPrice}}
+						<div class="ticketPrice">
+							£{{controller.ticketPrice}}
+						</div>
+					{{/if}}
+				</div>
+			</div>
+			-->
+			<div class="row">
+				<div class="small-6 columns small-centered vertWrap">
+					<div class="vertElement afterthoughtContainer">
+					<!--
+					{{#if ticketPrice}}
+						{{#if oneTicket}}
+						<a href="/tickets" class="button callToAction"><span class="icon-add-icon pink"></span></a>
+						<span class="buttonLabel">book {{controller.tickets}} ticket</span>
+						{{else}}
+						<a href="/tickets" class="button callToAction"><span class="icon-add-icon pink"></span></a>
+						<span class="buttonLabel">book {{controller.tickets}} tickets</span>
+						{{/if}}
+					{{/if}}
+					-->
+					<span class="afterthought">Prices to be confirmed.</span>
+					<span class="afterthought baseliner">Tickets on sale early March.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

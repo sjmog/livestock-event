@@ -1,0 +1,43 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">{{#link-to 'testimonials.index' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}testimonial #{{id}} by {{attribution}}</span>
+  <div class="row">
+    <div class="small-12 columns">
+
+    <p>
+      <b>Image:</b> {{ image }}
+    </p>
+
+    <p>
+      <b>Attribution:</b> {{ attribution }}
+    </p>
+
+    <p>
+      <b>Location:</b> {{ location }}
+    </p>
+
+    <p>
+      <b>Quote:</b> {{ quote }}
+    </p>
+
+    <p>
+      <b>Call to Action Route:</b> {{ callRoute }}
+    </p>    
+
+    <p>
+      <b>Category:</b> {{ category }}
+    </p>
+
+    {{#linkTo "testimonials.index"}}←All Testimonials{{/linkTo}}
+    {{#linkTo "testimonials.edit" model}}Edit{{/linkTo}}
+    <a href="#" {{action "destroy"}}>Delete Testimonial #{{id}}</a>
+
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+
+

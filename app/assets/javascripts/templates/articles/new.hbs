@@ -1,0 +1,49 @@
+<div class="flipper">
+	<div class="front">
+		<form {{action save model on="submit"}}>
+			<span class="tile-title">{{view Ember.TextField valueBinding='title' placeholder="Title"}}</span>
+			<div class="fullBleedHolder">
+				{{#if image}}
+				<img {{bind-attr src=image}} class="fullBleed" />
+				{{else}}
+				<img src="http://placehold.it/620x310" class="fullBleed"></img>
+				{{/if}}
+			</div>
+			<div class="imageUploader">
+			  <input type="file" id="ajax-upload" />
+			  {{view Ember.TextField valueBinding="image" id="ajax-upload-output" isVisible=false}}
+		  	<div class="uploadButton">
+		  		<span class="icon-add-icon uploadPlus"></span>
+		  		<div>
+		  			{{#if image}}
+		  			Image uploaded: <img {{bind-attr src=image}} class="miniImage" />
+		  			{{/if}}
+		  		</div>
+		  		
+		  		<div id="ajax-upload-info">
+		  			{{#unless image}}
+		  		  No file uploaded.
+		  			{{/unless}}
+		  		</div>
+		  	</div>
+			</div>
+			<div class="row metaRow">
+				<div class="large-5 small-12 columns author">
+					By: {{view Ember.TextField valueBinding='author' class="inlineInput textInput"}}
+				</div>
+				<div class="large-7 small-12 columns published">
+					Published: {{view App.NumberField valueBinding="day" min="1" max="31" class="inlineInput" placeholder="Day"}}/{{view App.NumberField valueBinding="monthNumber" min="1" max="12" class="inlineInput" placeholder="Month (numerical)"}}/{{view App.NumberField valueBinding="year" placeholder="Year" min="2013" class="inlineInput"}}
+				</div>
+			</div>
+			<div class="row articleContentRow">
+				<div class="small-12 columns">
+					{{textarea valueBinding="articleContent" cols="80" rows="6"}}
+				</div>
+			</div>
+			<button class="button callToAction" type="submit">Save</button>
+		</form>
+	</div>
+	<div class="back">
+		
+	</div>
+</div>

@@ -1,0 +1,199 @@
+<script type="text/javascript">
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('pk_test_OrSntymwWAeHpIIRtzwEDOqo');
+  // ...
+</script>
+<div class="tile content-tile lonely confirmOrder tcs rabdforange mix general_info all tile-4-tall tile-n-wide">
+  <div class="flipper">
+    <div class="front">
+      <span class="tile-title">order #{{id}}</span>
+      <div class="tile-content">
+
+<div class="row orderForm">
+  <div class="large-6 small-12 columns">
+
+
+    <h1>Your Billing Details</h1>
+
+
+    <div class="field">
+      {{billingFirstnames}} {{billingSurname}}
+    </div>
+    <div class="field">
+      {{billingAddress}}
+    </div>
+    <div class="field">
+      {{billingCity}}
+    </div>
+    <div class="field">
+      {{billingPostcode}}
+    </div>
+    <div class="field">
+      {{billingCountry}}
+    </div>
+
+
+  </div>
+  <div class="large-6 small-12 columns">
+  
+
+    <h1>Your Delivery Details</h1>
+
+
+    <div class="field">
+      {{deliveryFirstnames}} {{deliverySurname}}
+    </div>
+    <div class="field">
+      {{deliveryAddress}}
+    </div>
+    <div class="field">
+      {{deliveryCity}}
+    </div>
+    <div class="field">
+      {{deliveryPostcode}}
+    </div>
+    <div class="field">
+      {{deliveryCountry}}
+    </div>
+
+
+  </div>
+</div>
+<div class="overviewRow row">
+  <div class="small-12 large-4 columns">
+    <label class="afterthought">ID:</label>
+    <div>#{{id}}</div>
+  </div>
+
+  <div class="small-12 large-4 columns">
+    <label class="afterthought">Amount:</label>
+    <div>£{{amount}}</div>
+  </div>
+
+  <div class="small-12 large-4 columns">
+    <label class="afterthought">Date:</label>
+    <div>{{date}}</div>
+  </div>
+</div>
+<h1>payment details</h1>
+<div class="paymentsRow">
+  <div class="small-12 columns">
+    <!--stripe form-->
+    <form action="http://livestockevent-co-uk.herokuapp.com/charges" method="POST" id="payment-form" class="grid-form">
+      <span class="payment-errors"></span>
+      <fieldset>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label>
+              <span class="formLabel">Card Number</span>
+              <input type="text" size="20" data-stripe="number"/>
+            </label>
+          </div>
+          <div data-field-span="1">
+            <label>
+              <span class="formLabel">CVC <span class="afterthought">(last three digits on the reverse of your card)</span></span>
+              <input type="text" size="4" data-stripe="cvc"/>
+            </label>
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+           <label>
+             <span class="formLabel">Expiration Month (MM)</span>
+             <input type="text" size="2" data-stripe="exp-month"/>
+           </label>
+          </div>
+          <div data-field-span="1">
+            <label>
+              <span class="formLabel">Expiration Year (YYYY)</span>
+              <input type="text" size="4" data-stripe="exp-year"/>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+      {{input type="hidden" name="order_id" valueBinding="id"}}
+      <div class="vertWrap row">
+        <div class="large-6 large-centered small-10 small-centered columns vertElement">
+          <button class="button callToAction" type="submit"><span class="icon-tick rabdforange"></span></button>
+          <span class="buttonLabel depositLabel">make deposit</span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row actionsRow">
+  <div class="large-6 small-12 columns vertWrap">
+   <div class="vertElement"> 
+   {{#link-to 'orders.edit' model class="button callToAction"}}
+      <span class="icon-gears orange"></span>
+  {{/link-to}}
+   <span class="buttonLabel">edit order #{{id}}</span></div>
+  </div>
+
+  <div class="large-6 small-12 columns vertWrap">
+    <div class="vertElement">
+      {{#link-to index class="button callToAction"}}
+        <span class="icon-gears orange"></span>
+      {{/link-to}}
+      <span class="buttonLabel">cancel</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+SAGEPAY FORM
+
+
+<div class="row actionsRow">
+  <div class="large-4 small-12 columns vertWrap">
+   <div class="vertElement"> 
+   {{#link-to 'orders.edit' model class="button callToAction"}}
+      <span class="icon-gears orange"></span>
+  {{/link-to}}
+   <span class="buttonLabel">edit order #{{id}}</span></div>
+  </div>
+  <div class="large-4 small-12 columns vertWrap">
+    <div class="vertElement">
+      <input type=submit class="button callToAction" value="Deposit">
+      <span class="buttonLabel">payment</span>
+    </div>
+  </div>
+  <div class="large-4 small-12 columns vertWrap">
+    <div class="vertElement">
+      {{#link-to index class="button callToAction"}}
+        <span class="icon-gears orange"></span>
+      {{/link-to}}
+      <span class="buttonLabel">cancel</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<! This creates the button. When it is selected in the browser, the form submits the purchase details to us. -->
+
+
+
+
+<!-- The version of the SagePay protocol, default to 3.00 as of 10/2013 
+<input type="hidden" name="VPSProtocol" value="3.00">
+
+< The transfer type (PAYMENT, DEFERRED, or AUTHENTICATE)
+<input type="hidden" name="TxType" value="PAYMENT">
+
+ The SagePay vendor login name
+<input type="hidden" name="Vendor" value="dairyevent123ls">
+
+ The Crypt field, built in real-time for each order. Encrypted and encoded. 
+<input type="hidden" name="Crypt" value="{{crypt}}">
+
+
+
+
+</form> -->
+
+</div>
+</div>
+</div>
+</div>

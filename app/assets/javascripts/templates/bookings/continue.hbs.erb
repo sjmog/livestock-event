@@ -1,0 +1,469 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">book stand space</span>
+  <div class="row">
+    <div class="small-12 columns">
+    <div class="row">
+      <div class="large-6 small-12 columns">
+        <p>To simplify the task of allocating stand space, we have created a floor plan showing the blocks available to accommodate stands. These blocks can be sub-devided depending on your stand requirements or increased to accommodate larger stands. Please note that for Outdoor and Machinery Hall areas, blocks will be sold as described and cannot be sub-devided.</p>
+        <p>To book your stand:</p>
+
+ 
+complete sections 1-5 of the form below
+Select the show area, type of stand and location (block) you wish to exhibit in from the options and floor plan presented to you
+A 30% deposit is required at this stage to confirm your booking
+Click 'deposit' and enter your payment details to confirm your order</p>
+      </div>
+      <div class="large-6 small-12 columns quickActionColumn">
+        <div class="row buttonContent fourButtons">
+          <div class="large-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'bookings.how' class="button callToAction rabdforange"}}<span class="icon-calendar"></span>{{/link-to}}
+              <span class="buttonLabel">how to apply</span>
+            </div>
+          </div>
+          <div class="small-6 columns vertWrap">
+            <div class="vertElement">
+              <a href="#" class="button callToAction disabled rabdforange"><span class="icon-card-user"></span></a>
+              <span class="buttonLabel">exhibitor list (coming soon)</span>
+            </div>
+          </div>
+         
+          
+        </div>
+        <div class="row buttonContent">
+          <div class="small-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'contractors.index' class="button callToAction rabdforange"}}<span class="icon-eye "></span>{{/link-to}}
+              <span class="buttonLabel">contractor list</span>
+            </div>
+          </div>
+          <div class="small-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'demographics' class="button callToAction rabdforange"}}<span class="icon-fontawesome-group rabdforange"></span>{{/link-to}}
+              <span class="buttonLabel">visitor demographics</span>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+
+    <div class="formOptions row">
+      <div class="small-6 columns small-centered vertWrap">
+        <div class="vertElement">
+          {{#link-to 'bookings.post' class="button callToAction"}}<span class="icon-envelope"></span>{{/link-to}}
+          <span class="buttonLabel">apply by post</span>
+        </div>
+      </div>
+    </div>
+
+    <form {{action save on="submit"}} class="grid-form">
+      <fieldset>
+        <legend>1. Personal Info</legend>
+        <div data-row-span="3">
+          <div data-field-span="1">
+            <label for="company_name">Company Name</label><br>
+            {{view Ember.TextField valueBinding="companyName" id="company_name"}}
+          </div>
+          <div data-field-span="1">
+            <label for="contact_name">Contact Name</label><br>
+            {{view Ember.TextField valueBinding="contactName" id="contact_name"}}
+          </div>
+          <div data-field-span="1">
+            <label  id="exhibiting_label" for="exhibiting_name">Exhibiting Name (<a id="exhibiting_name_copier" class="inlineLink copier">Copy Company Name</a>?)</label><br>
+            {{view Ember.TextField valueBinding="exhibitingName" id="exhibiting_name" }}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="telephone">Contact telephone number</label><br>
+            {{view Ember.TextField valueBinding="telephone" id="telephone"}}
+          </div>
+          <div data-field-span="1">
+            <label for="email">Contact e-mail address</label><br>
+            {{view Ember.TextField valueBinding="email" id="email"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+          <label for="corporate_membership">Do you have RABDF Corporate Membership?</label><br>
+          {{view Ember.Checkbox checkedBinding="corporateMembership" id="corporate_membership"}}
+          </div>
+          <div data-field-span="1">
+            <label for="tc_agreed">Do you agree to the <a href="/bookings/tcs" target="_blank" class="inlineLink">Terms and Conditions</a>?</label><br>
+            {{view Ember.Checkbox checkedBinding="tcAgreed" id="tc_agreed"}}
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>2. Address Details</legend>
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <label for="correspondence_address">Correspondence Address</label><br>
+              {{view Ember.TextField valueBinding="correspondenceAddress" id="correspondence_address"}}
+            </div>
+          </div>
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <label id="invoice_label" for="invoice_address">Invoice Address (<a id="invoice_address_copier" class="inlineLink copier">Copy Correspondence Address</a>?)</label><br>
+              {{view Ember.TextField valueBinding="invoiceAddress" id="invoice_address"}}
+            </div>
+          </div>
+      </fieldset>
+      <fieldset>
+        <legend>3. Finance Details</legend>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="finance_contact">finance contact email address</label><br>
+            {{view Ember.TextField valueBinding="financeContact" id="finance_contact"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="po_number">PO number</label><br>
+            {{view Ember.TextField valueBinding="poNumber" id="po_number"}}
+          </div>
+          <div data-field-span="1">
+            <label for="finance_telephone">finance telephone number</label><br>
+            {{view Ember.TextField valueBinding="financeTelephone" id="finance_telephone"}}
+          </div>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        {{#if standTypeIsClear}}
+        <legend>4a. Stand Details</legend>
+        {{else}}
+        <legend>4. Stand Details</legend>
+        {{/if}}
+        <div data-row-span="1">
+          <div data-field-span="1">
+          <label for="same_as2013">Would you prefer the same position as 2013?</label><br>
+          {{view Ember.Checkbox checkedBinding="sameAs2013" id="same_as2013"}}
+          </div>
+        </div>
+        
+        <div data-row-span="4">
+          <div id="showArea_field" data-field-span="1">
+            <label for="show_area">Show Area</label><br>
+            {{view Ember.Select contentBinding="showAreas" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="showArea" id="show_area" classNames="select" disabledBinding=isSameAs2013}}
+          </div>
+          <div id="zone_field" data-field-span="1">
+            <label for="zone">Zone</label><span class="help">?</span><br>
+            {{view Ember.Select contentBinding="zones" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="zone" id="zone" disabledBinding=sameAs2013}}
+          </div>
+          <div id="standType_field" data-field-span="1">
+            <label for="stand_type">Stand Format</label><span class="help">?</span><br>
+            {{view Ember.Select contentBinding="standTypes" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="standType" id="stand_type"}}
+          </div>
+
+          <div id="position_field" data-field-span="1">
+            <label for="position">Stand Type</label><span class="help">?</span><br>
+            {{view Ember.Select contentBinding="positions" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="position" id="position"}}
+          </div>
+        </div>
+        {{#if isOutdoor}}
+        <div class="row outdoorRow">
+          <div class="large-6 small-12 columns mapColumn">
+            {{view App.MapView}}
+          </div>
+          <div class="large-6 small-12 columns">
+            <label>Pick an Outdoor block</label>
+            <a class="closeButton closeFormInfo" id="outdoorRow-closeButton"><span class="icon-close-alt"></span></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+        {{/if}}
+        {{#if isMachineryHall}}
+        <div class="row machineryHallRow">
+          <div class="large-6 small-12 columns mapColumn">
+            {{view App.MapView}}
+          </div>
+          <div class="large-6 small-12 columns">
+            <label>Pick a block from the Machinery Hall</label>
+            <a class="closeButton closeFormInfo" id="machineryHallRow-closeButton"><span class="icon-close-alt"></span></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+        {{/if}}
+
+        {{#if isIndoor}}
+        <div class="row zoneRow">
+          <div class="large-6 small-12 columns mapColumn">
+            {{view App.MapView}}
+          </div>
+          <div class="large-6 small-12 columns">
+            <label>Pick a block from {{zone}}</label>
+            <a class="closeButton closeFormInfo" id="zoneRow-closeButton"><span class="icon-close-alt"></span></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+        {{/if}}
+        <div class="row standTypeRow">
+          <div class="large-6 small-12 columns">
+            {{#if standTypeIsClear}}
+            <img src="http://placehold.it/300x300" />
+            {{else}}
+            <img src="http://placehold.it/300x300" />
+            {{/if}}
+          </div>
+          <div class="large-6 small-12 columns">
+            <label>About {{standType}} Stands</label>
+            <a class="closeButton closeFormInfo" id="standTypeRow-closeButton"><span class="icon-close-alt"></span></a>
+            {{#if standTypeIsClear}}
+            <p>'Open', or 'clear', stand space is sold without carpet or electrics. Benefits include:</p>
+            <ul>
+              <li>Entry into the Show Guide</li>
+              <li>FREE Parking</li>
+            </ul>
+            {{else}}
+            <p>A 'shell', or 'modular', system comes as one-metre modules and can be build to just about any size. Benefits include:</p>
+            <ul>
+              <li>Modular shell scheme</li>
+              <li>White <a class="inlineLink" href="http://www.par-group.co.uk/engineering-plastics/Foamex-Foam-PVC.aspx">Foamex</a> infill panels</li>
+              <li>Fascia Name Board</li>
+              <li>Electrical Socket and Lighting Package</li>
+              <li>Carpet</li>
+              <li>Entry into the Show Guide</li>
+              <li>FREE Parking</li>
+            </ul>
+            {{/if}}
+          </div>
+        </div>
+        <div class="row positionRow">
+          <div class="large-6 small-12 columns">
+            {{#if positionIsStandard}}
+            <img src="http://placehold.it/300x300" />
+            {{/if}}
+            {{#if positionIsCorner}}
+            <img src="<%= asset_path('corner.jpg') %>" />
+            {{/if}}
+            {{#if positionIsPeninsula}}
+            <img src="<%= asset_path('peninsula.jpg') %>" />
+            {{/if}}
+            {{#if positionIsIsland}}
+            <img src="<%= asset_path('island.jpg') %>" />
+            {{/if}}
+            
+          </div>
+          <div class="large-6 small-12 columns">
+            <label>About {{position}} Stands</label>
+            <a class="closeButton closeFormInfo" id="positionRow-closeButton"><span class="icon-close-alt"></span></a>
+            {{#if positionIsStandard}}
+            <p>One side open, with no surcharge or minimum stand area.</p>
+            {{/if}}
+            {{#if positionIsCorner}}
+            <p>Two sides open, with a surcharge of 10% applied to the base stand price. No minimum stand area.</p>
+            {{/if}}
+            {{#if positionIsPeninsula}}
+            <p>Three sides open, with a surcharge of 15% applied to the base stand price. A minimum stand area of 64 sqm.</p>
+            {{/if}}
+            {{#if positionIsIsland}}
+            <p>Four sides open, with a surcharge of 20% applied to the base stand price. A minimum stand area of 100 sqm.</p>
+            {{/if}}
+          </div>
+        </div>
+        <div class="afterHelpRow" data-row-span="2">
+          <div data-field-span="1">
+            <label for="frontage">Frontage/m</label><br>
+            {{view Ember.TextField valueBinding="frontage" id="frontage"}}
+          </div>
+          
+          <div data-field-span="1">
+            <label for="depth">Depth/m</label><br>
+            {{view Ember.TextField valueBinding="depth" id="depth"}}
+          </div>
+        </div>
+        {{#if isLivestockHall}}
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="breed_society">Breed society</label><br>
+            {{view Ember.Select contentBinding="breedSocieties" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="breedSociety" id="breed_society"}}
+          </div>
+        </div>
+        {{/if}}
+        </fieldset>
+        {{#if standTypeIsClear}}
+        <fieldset>
+          <legend>4b. Contractor Details (if Stand Format is 'Clear')</legend>
+          <div data-row-span="2">
+            <div data-field-span="1">
+              <label for="contractor_company_name">contractor company name</label><br>
+              {{view Ember.TextField valueBinding="contractorCompanyName" id="contractor_company_name"}}
+            </div>
+            <div data-field-span="1">
+              <label for="contractor_contact_name">contractor contact name</label><br>
+              {{view Ember.TextField valueBinding="contractorContactName" id="contractor_contact_name"}}
+            </div>
+          </div>
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <label for="contractor_address">Contractor Address</label><br>
+              {{view Ember.TextField valueBinding="contractorAddress" id="contractor_address"}}
+            </div>
+          </div>
+          <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="contractor_email">Contractor e-mail address</label><br>
+            {{view Ember.TextField valueBinding="contractorEmail" id="contractor_email"}}
+          </div>
+            <div data-field-span="1">
+              <label for="contractor_telephone">Contractor Telephone Number</label><br>
+              {{view Ember.TextField valueBinding="contractorTelephone" id="contractor_telephone"}}
+            </div>
+          </div>
+          </fieldset>
+        {{/if}}
+      <fieldset>
+        <legend>5. Other Details</legend>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="requires_leaflets">do you require any free event leaflets advertising the event to send to your customers? <span class="afterthought">hard copies are limited to uk-based companies only.</span></label><br>
+            {{view Ember.Checkbox checkedBinding="requiresLeaflets" id="requires_leaflets"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="number_leaflets">if so, how many do you require?</label><br>
+            {{view Ember.TextField valueBinding="numberLeaflets" id="number_leaflets"}}
+          </div>
+          <div data-field-span="1">
+            <label for="pdf_leaflet">do you require a <a class="inlineLink" target="_blank" href="http://www.adobe.com/uk/products/acrobat/adobepdf.html">pdf copy</a> of the leaflet?</label><br>
+            {{view Ember.Checkbox checkedBinding="pdfLeaflet" id="pdf_leaflet"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="machinery_motion">do you intend to exhibit machinery in motion?</label><br>
+            {{view Ember.Checkbox checkedBinding="machineryMotion" id="machinery_motion"}}
+          </div>
+          <div data-field-span="1">
+            <label for="mobile_unit">do you intend to bring a mobile unit as part of your stand?</label><br>
+            {{view Ember.Checkbox checkedBinding="mobileUnit" id="mobile_unit"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="livestock_stand">do you intend to exhibit livestock on your stand?</label><br>
+            {{view Ember.Checkbox checkedBinding="livestockStand" id="livestock_stand"}}
+          </div>
+          <div data-field-span="1">
+           <label for="new_products">do you intend to launch new products at the event? <span class="afterthought">you will be given the opportunity to launch your products at the event and to the press at a briefing held in May.</span></label><br>
+            {{view Ember.Checkbox checkedBinding="newProducts" id="new_products"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="philip_award">do you intend to enter the <a href="/awards" target="_blank" class="inlineLink">2014 prince philip award</a>?</label><br>
+            {{view Ember.Checkbox checkedBinding="philipAward" id="philip_award"}}
+          </div>
+          <div data-field-span="1">
+           <label for="livestock_award">do you intend to enter the <a href="/awards" target="_blank" class="inlineLink">2014 livestock machinery and equipment award</a>?</label><br>
+            {{view Ember.Checkbox checkedBinding="livestockAward" id="livestock_award"}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="exports">do you export products from the uk?</label><br>
+            {{view Ember.Checkbox checkedBinding="exports" id="exports"}}
+          </div>
+          <div data-field-span="1">
+            <label for="placements">do you offer work placements?</label><br>
+            {{view Ember.Checkbox checkedBinding="placements" id="placements"}}
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>6. Totals</legend>
+      <div class="row totalsRow">
+      <div class="small-3 columns labelCol">
+        <label>base price (excl. vat)</label>
+        <div class="totalHolder">
+        {{#if price}}
+          <p id="theBasePrice">£{{price}}</p>
+        {{else}}
+          <p class="ellipsis">...</p>
+        {{/if}}
+        </div>
+      </div>
+      <div class="small-3 columns labelCol">
+          
+          <label>Surcharge for Stand Type: {{position}}</label>
+          <div class="totalHolder">
+          {{#if surcharge}}
+            <p >£{{surcharge}}</p>
+            {{else}}
+              <p class="ellipsis">...</p>
+            {{/if}}
+          </div>
+          
+        
+        
+      </div>
+      <div class="small-3 columns labelCol">
+          <label>subtotal (excl. VAT)</label>
+          <div class="totalHolder">
+          {{#if total}}
+            <p id="theSubtotal">£{{total}}</p>
+            {{else}}
+              <p class="ellipsis">...</p>
+            {{/if}}
+          </div>
+      </div>
+
+      <div class="small-3 columns labelCol">
+          <label>total (inc. VAT at 20%)</label>
+          <div class="totalHolder">
+          {{#if totalIncVat}}
+            <p id="theFullPrice">£{{totalIncVat}}</p>
+            {{else}}
+              <p class="ellipsis">...</p>
+            {{/if}}
+          </div>
+      </div>
+      </div>
+      
+      
+      <div class="row totalsRow">
+      <div class="large-4 columns labelCol">
+        <label>30% non-refundable deposit (excl. VAT)</label>
+        <div class="totalHolder">
+          {{#if depositExVat}}
+            <p>£{{depositExVat}}</p>
+          {{else}}
+            <p class="ellipsis">...</p>
+          {{/if}}
+        </div>
+      </div>
+        <div class="large-4 columns labelCol">
+          <label>30% non-refundable deposit (inc. VAT at 20%)</label>
+          <div class="totalHolder">
+            {{#if deposit}}
+              <p id="theDeposit">£{{deposit}}</p>
+            {{else}}
+              <p class="ellipsis">...</p>
+            {{/if}}
+          </div>
+            {{#if deposit}}
+          <label class="afterthought">You will be invoiced for the remaining balance of £{{balance}} (inc. VAT at 20%), due by 31st March 2014.</label>
+          {{/if}}
+        </div>
+        <div class="large-4 columns">
+          <button class="button callToAction" type="submit">{{#if deposit}}Deposit{{else}}Save{{/if}}</button>
+          {{#if freeTickets}}
+          <label class="afterthought">You qualify for {{freeTickets}} complimentary admission tickets.</label>
+
+          {{/if}}
+        </div>
+      </div>
+      </fieldset>
+
+    </form>
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+

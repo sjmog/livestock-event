@@ -1,0 +1,39 @@
+
+<div class="flipper">
+	<div class="front unslider">
+		<span class="tile-title disparu">testimonials</span>
+		<div {{bind-attr class=":carouTabs :autoCarou"}}>
+			{{#each filteredTestimonials}}
+
+			    <div {{bind-attr class=":carouTab category slowTransition :activeCarou" id="id"}}>
+			       <div class="carouTabTitle">
+
+			        </div>
+			        <div class="carouContent">
+			             <span class="testimonialIcon icon-speechbubble"></span>
+			             
+			             <div class="quote">&ldquo;{{quote}}&rdquo;</div>
+			             <div class="attribution">{{attribution}}<br>{{location}}</div>
+			             <div class="randomCall">
+			             	<div class="vertElement">
+			             		<a {{bind-attr href=callRoute}} class="button callToAction"><span {{bind-attr class=callIcon}}></span></a>
+			             		<span class="buttonLabel">{{callRouteName}}</span>
+			             	</div>
+			             </div>
+			       </div> 
+			    </div>
+		    {{/each}}
+		</div>
+	</div>
+</div>
+<!--autoRotation-->
+<script type="text/javascript">
+	$(document).ready(function() {
+		var count = 1;
+		window.setInterval(function() {
+			console.log('rotatingCarou');
+			$('#' + count).addClass('activeCarou').siblings('.activeCarou').removeClass('activeCarou');
+			if(count<13) {count++} else {count = 0};
+		},12000);		
+	})
+</script>

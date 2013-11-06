@@ -1,0 +1,116 @@
+
+  <div class="flipper">
+    <div class="front">
+      <span class="tile-title">new order</span>
+      <div class="tile-content">
+            <div class="row bookingDetails">
+                  <div class="large-4 columns">
+                        <h2>select a booking</h2>
+                        {{view Ember.Select contentBinding="bookings" optionValuePath="content" optionLabelPath="content.companyName" valueBinding="content.booking" id="bookings" classNames="select"}}
+                  </div>
+                  <div class="large-8 columns">
+                        {{#if content.booking}}
+                              {{#with content.booking}}
+                              <h2>Booking details</h2>
+                              <p>{{companyName}}</p>
+                              <p>{{contactName}}</p>
+                              <p>{{telephone}}</p>
+                              <p>{{email}}</p>
+                              <p>{{showArea}}</p>
+                              <p>{{zone}}</p>
+                              <p>{{standType}}</p>
+                              <p>{{frontage}}m x {{depth}}m (total area {{area}}sqm)</p>
+                              <p>{{notes}}</p>
+                              <p>Total payable: £{{totalIncVat}}</p>
+                              <p>Payable today: £{{deposit}}</p>
+                              {{/with}}
+                        {{else}}
+                        <p>Select a booking from the dropdown to the left.</p>
+                        {{/if}}
+                  </div>
+            </div>
+      	<form {{action save model on="submit"}}>
+      		<div class="row orderForm">
+      		  <div class="large-6 small-12 columns">
+      		  	    <h1>Billing Details</h1>
+
+
+      		  	    <div class="field">
+      		  	      <label for="billing_firstnames">First name(s)<span class="required">*</span></label>
+
+      		  	      {{view Ember.TextField valueBinding='billingFirstnames'}}
+      		  	    </div>
+      		  	    <div class="field">
+      		  	      <label for="billing_surname">Surname<span class="required">*</span></label>
+      		  	      {{view Ember.TextField valueBinding='billingSurname'}}
+      		  	    </div>
+      		  	    <div class="field">
+      		  	      <label for="billing_address">Address<span class="required">*</span></label>
+      		  	      {{view Ember.TextField valueBinding='billingAddress'}}
+      		  	    </div>
+      		  	    <div class="field">
+      		  	      <label for="billing_city">City<span class="required">*</span></label>
+      		  	      {{view Ember.TextField valueBinding='billingCity'}}
+      		  	    </div>
+      		  	    <div class="field">
+      		  	      <label for="billing_postcode">Postcode<span class="required">*</span></label>
+      		  	      {{view Ember.TextField valueBinding='billingPostcode'}}
+      		  	    </div>
+      		  	    <div class="field">
+      		  	      <label for="billing_country">Country<span class="required">*</span></label>
+      		  	      {{view Ember.TextField valueBinding='billingCountry'}}
+      		  	    </div>
+
+
+      		  	  </div>
+      		  	  <div class="large-6 small-12 columns">
+      		  	  <div class="copier" {{action link target="controller"}} id="orderCopier">
+      		  	    <span class="copierLabel">billing & delivery addresses the same?</span>
+                            {{#unless linked}}
+      		  	    <span class="icon-unlink"></span>
+                            {{else}}
+                            <span class="icon-link"></span>
+                            {{/unless}}
+      		  	  </div>
+      		  	  
+
+      		  	    <h1>Delivery Details</h1>
+
+
+      		  	    <div class="field">
+      		  	      <label for="delivery_firstnames">First name(s)<span class="required">*</span></label>
+
+      		  	      {{view Ember.TextField valueBinding='deliveryFirstnames'}}
+      		  	    </div>
+      		  	    <div class="field">
+      		  	      <label for="delivery_surname">Surname<span class="required">*</span></label>
+      		  	      {{view Ember.TextField valueBinding='deliverySurname'}}
+      		  	    </div>
+      		  	    <div class="field">
+      		  	      <label for="delivery_address">Address<span class="required">*</span></label>
+      		  	      {{view Ember.TextField valueBinding='deliveryAddress'}}
+      		  	    </div>
+      		  	    <div class="field">
+      		  	      <label for="delivery_city">City<span class="required">*</span></label>
+      		  	      {{view Ember.TextField valueBinding='deliveryCity'}}
+      		  	    </div>
+      		  	    <div class="field">
+      		  	      <label for="delivery_postcode">Postcode<span class="required">*</span></label>
+      		  	      {{view Ember.TextField valueBinding='deliveryPostcode'}}
+      		  	    </div>
+      		  	    <div class="field">
+      		  	      <label for="delivery_country">Country<span class="required">*</span></label>
+      		  	      {{view Ember.TextField valueBinding='deliveryCountry'}}
+      		  	    </div>
+
+
+      		  	  </div>
+      		  	</div>
+      		  	<div class="actions orderActions">
+      	    <button class="button callToAction" type="submit">Save</button>
+      	  </div>
+      	</form>
+
+</div>
+</div>
+</div>

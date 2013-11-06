@@ -1,0 +1,107 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">{{#link-to 'index' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}<span class="largeText">register to get started</span><span class="smallText">register to start</span><span class="help" id="registrationHelp">?</span></span>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <form class="grid-form registration" {{action "createUser" target="controller" on="submit"}}>
+          <fieldset>
+            <div data-row-span="2">
+              <div data-field-span="1" {{bindAttr class=":controls errors.name:error"}}>
+                <label>Full Name</label>
+                {{input type="text" value=name placeholder="Full Name"}}
+                <small class="below">{{errors.name}}</small>
+              </div>
+
+              <div data-field-span="1" {{bindAttr class=":controls errors.email:error"}}>
+                <label>Email Address</label>
+                {{input type="email" value=email placeholder="Email Address"}}
+                <small class="below">{{errors.email}}</small>
+              </div>
+            </div>
+            <div data-row-span="2">
+              <div data-field-span="1" {{bindAttr class=":controls errors.password:error"}}>
+                <label>Password</label>
+                {{input type="password" value=password placeholder="Password"}}
+                <small class="below">{{errors.password}}</small>
+              </div>
+
+              <div data-field-span="1" {{bindAttr class=":controls errors.password_confirmation:error"}}>
+                <label>Confirm Password</label>
+                {{input type="password" value=password_confirmation placeholder="Confirm Password"}}
+                <small class="below">{{errors.password_confirmation}}</small>
+              </div>
+            </div>
+          </fieldset>
+          <div class="form-actions">
+
+            <span class="inlineButtonText">go</span>
+            <button type="submit" data-icon="-" class="inlineButton button forward"></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="sponsorMessageRow hide-for-small row">
+      <div class="large-12 columns">
+        <h1>Message from Principal Sponsor</h1>
+        <div class="row">
+          <div class="large-6 small-12 columns vertWrap">
+            <div class="imgWrap vertElement"><span class="icon-barclays-logo-full picture"></span></div>
+          </div>
+          <div class="large-6 small-12 columns sponsorMessage">
+            <p>We are proud to continue our sponsorship of the Livestock Event to demonstrate the continuation of our 300 years of support for UK agriculture and, in this case, the livestock sector in particular.</p>
+            <p>The further development of the program to incorporate a National Dairy Show, the National Charolais show, the National British Blue Show, and the National Lleyn Sheep competition is sure to broaden the appeal of the event to attract more visitors and therefore more exhibitors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="quickActionsRow row">
+          <div class="large-3 small-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'bookings.how' class="button callToAction rabdforange"}}<span class="icon-calendar"></span>{{/link-to}}
+              <span class="buttonLabel">how to apply</span>
+            </div>
+          </div>
+          <div class="large-3 small-6 columns vertWrap">
+            <div class="vertElement">
+              <a href="#" class="button callToAction disabled rabdforange"><span class="icon-card-user"></span></a>
+              <span class="buttonLabel">exhibitor list (coming soon)</span>
+            </div>
+          </div>
+          <div class="large-3 small-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'contractors.index' class="button callToAction rabdforange"}}<span class="icon-eye "></span>{{/link-to}}
+              <span class="buttonLabel">contractor list</span>
+            </div>
+          </div>
+          <div class="large-3 small-6 columns vertWrap">
+            <div class="vertElement">
+              {{#link-to 'demographics' class="button callToAction rabdforange"}}<span class="icon-fontawesome-group rabdforange"></span>{{/link-to}}
+              <span class="buttonLabel">visitor demographics</span>
+            </div>
+          </div>  
+    </div>
+  </div>
+  
+<div class="back">
+  <div class="row">
+    <div class="small-12 columns">
+      <a class="closeButton" id="usersnew-closeButton"><span class="icon-close-alt"></span></a>
+      <div class="row">
+        <div style="height:530px" class="small-10 large-6 small-centered large-centered columns vertWrap">
+         <div class="vertElement">
+             <p>To book your stand on-line or by post, you will need to register or log in by entering your email address and creating a password. You will receive an email confirmation of your password: please keep it safe, as you will need it to access your application at any point in the future.</p>
+            <p>If you would prefer to apply by post, please sign up using the form overleaf and then click the 'apply by post' button on the next page.</p>
+            <div class="row vertWrap">
+              <div class="vertElement">
+                <span id="usersnew-confirmButton" class="confirmButton">OK</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

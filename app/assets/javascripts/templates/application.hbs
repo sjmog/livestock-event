@@ -1,0 +1,43 @@
+<div id="st-container" class="st-container st-effect-2">
+	<nav class="st-menu st-effect-2" id="menu-2">
+		{{#unless isAuthenticated}}
+		<h2 class="">LOG IN</h2>
+		{{else}}
+		<h2 class="">Quick Links</h2>
+		{{/unless}}
+		<a class="closeButton" id="sidebar-closeButton"><span class="icon-close-alt"></span></a>
+		{{#unless isAuthenticated}}
+		<div class="row">
+			<div class="small-12 columns">
+				{{view App.AuthView }}
+			</div>
+		</div>
+		{{else}}
+		<ul>
+			<li>
+				{{#link-to 'users.show' currentUser}}My Account{{/link-to}}
+			</li>
+			<li>
+				<a {{action 'logout'}}>Log Out</a>
+			</li>
+		</ul>
+		{{/unless}}
+	</nav>
+	<div class="st-pusher">
+		<div class="st-content">
+			
+				<div class="container">
+					{{view App.HeaderView}}
+					
+					{{outlet}}
+						
+					<div class="sidebarHolder">
+						{{render sidebar}}
+					</div>
+						
+					{{view App.FooterView}}
+				</div>
+			
+		</div>
+	</div>
+</div>

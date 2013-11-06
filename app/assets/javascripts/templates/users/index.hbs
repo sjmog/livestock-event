@@ -1,0 +1,40 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">all users</span>
+  <div class="row">
+    <div class="small-12 columns">
+
+    <table class="usersTable" id="usersTable">
+  <thead>
+    <th>Name</th>
+    <th>E-mail</th>
+    <th>Bookings</th>
+  </thead>
+  <tbody>
+    {{#each content}}
+    <tr>
+      <td>{{#linkTo "users.show" this class="darkLink"}}{{ name }}{{/linkTo}}</td>
+      <td>{{#linkTo "users.show" this class="darkLink"}}{{ email }}{{/linkTo}}</td>
+      <td>
+      	{{#if bookings }}
+      		{{#each bookings}}
+      			{{#link-to "bookings.show" this}}{{id}}{{/link-to}},
+      		{{/each}}
+      	{{else}}
+      		<span class="icon-close-alt-2"></span>
+      	{{/if}}
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+
+

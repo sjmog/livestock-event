@@ -1,0 +1,88 @@
+<div class="flipper">
+	<div class="front">
+		<span class="tile-title">contact us</span>
+		<div class="carouTabs carouPanel2 carouBottom">
+		   <div class="carouTab activeCarou">
+		       <div class="carouTabTitle">
+		       		<span class="icon-envelope"></span>
+		       		<label>e-mail us</label>
+		        </div>
+		        <div class="carouContent">
+		             <div class="row formContent">
+				    	<!--contact form-->
+				    	<form {{action sendMessage target="controller.controllers.application" on="submit"}}>
+					    	<div class="row holderRow">
+					    	  <div class="small-6 columns">
+					    	    <div id="yourNameHolder" class="valueHolder"></div>
+					    	  </div>
+					    	  <div class="small-6 columns">
+					    	    <div id="yourEmailHolder" class="valueHolder"></div>
+					    	  </div>
+					    	</div>
+		                    <div class="row inputRow">
+		                      <div class="small-12 columns">
+		                        <input type="text" id="yourName" placeholder="NAME">
+		                      </div>
+		                    </div>
+		                    <div class="row inputRow">
+		                      <div class="small-12 columns">
+		                        <input type="text" id="yourEmail" placeholder="E-MAIL">
+		                      </div>
+		                    </div>
+		                    <div class="row messageRow">
+		                    	<div class="small-12 columns">
+		                    		<textarea id="contactMessage" placeholder="MESSAGE" rows="4"></textarea>
+		                    	</div>
+		                    </div>
+		                    <div class="row sendRow">
+		                    	<div class="small-12 columns">
+			                    	<button id="sendButton" type="submit" class="button callToAction"><span class="">SEND</span></button>
+			                    	
+		                    	</div>
+		                    </div>
+		                  </form>
+		                  
+				    </div>
+		       </div> 
+		    </div>
+		    <div class="carouTab">
+		        <div class="carouTabTitle">
+		       		<span class="icon-telephone"></span>
+		       		<label>call us</label>
+		        </div>
+		       
+		        <div class="carouContent">
+		            <div class="row staticContent">
+					  	<div class="small-12 columns vertWrap fullTabInner">
+					  		<div class="vertElement">
+					  			<h2 class="static"><a href="tel:+448452582711">0845 458 2711</a></h2>
+					  		</div>
+					  	</div>			  	
+					  </div>
+       			</div> 
+  			</div>
+
+		</div>
+	</div>
+	<div class="back">
+		<div class="row">
+			<div class="small-6 columns small-centered vertWrap">
+				<div class="vertElement afterthoughtContainer">
+				<!--
+				{{#if ticketPrice}}
+					{{#if oneTicket}}
+					<a href="/tickets" class="button callToAction"><span class="icon-add-icon pink"></span></a>
+					<span class="buttonLabel">book {{controller.tickets}} ticket</span>
+					{{else}}
+					<a href="/tickets" class="button callToAction"><span class="icon-add-icon pink"></span></a>
+					<span class="buttonLabel">book {{controller.tickets}} tickets</span>
+					{{/if}}
+				{{/if}}
+				-->
+				<span class="afterthought">Your Message has been sent.</span>
+				<span class="afterthought baseliner">We'll be in touch soon.</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
