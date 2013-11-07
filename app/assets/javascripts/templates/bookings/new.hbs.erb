@@ -66,7 +66,7 @@
             {{view Ember.TextField valueBinding="content.contactName" id="contact_name" required=""}}
           </div>
           <div data-field-span="1">
-            <label  id="exhibiting_label" for="exhibiting_name">Exhibiting Name<span class="required">*</span> (<a id="exhibiting_name_copier" class="inlineLink copier">Copy Company Name</a>?)</label><br>
+            <label  id="exhibiting_label" for="exhibiting_name">Exhibiting Name (as to appear in the official Show Guide and Location Plans)<span class="required">*</span> (<a id="exhibiting_name_copier" class="inlineLink copier">Copy Company Name</a>?)</label><br>
             {{view Ember.TextField valueBinding="content.exhibitingName" id="exhibiting_name" required=""}}
           </div>
         </div>
@@ -105,8 +105,8 @@
           </div>
           <div data-row-span="12">
             <div data-field-span="12">
-              <label id="invoice_label" for="invoice_address">Invoice Address<span class="required">*</span> (<a id="invoice_address_copier" class="inlineLink copier">Copy Correspondence Address</a>?)</label><br>
-              {{view Ember.TextField valueBinding="content.invoiceAddress" id="invoice_address" required=""}}
+              <label id="invoice_label" for="invoice_address">Invoice Address, if different to correspondence address<span class="required">*</span> (<a id="invoice_address_copier" class="inlineLink copier">Copy Correspondence Address</a>?)</label><br>
+              {{view Ember.TextField valueBinding="content.invoiceAddress" id="invoice_address"}}
             </div>
           </div>
       </fieldset>

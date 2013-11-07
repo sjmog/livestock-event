@@ -6,7 +6,7 @@ App.UsersNewController = Ember.ObjectController.extend({
     var data = this.getProperties('name', 'email', 'password', 'password_confirmation', 'role')
     var user = this.get('model');
 
-    $.post('http://livestockevent.herokuapp.com/api/users.json', { user: data }, function(results) {
+    $.post('http://livestockevent.co.uk/api/users.json', { user: data }, function(results) {
       App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
       router.transitionTo('bookings.new');
 

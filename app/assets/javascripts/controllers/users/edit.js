@@ -5,7 +5,7 @@ App.UsersEditController = Ember.ObjectController.extend({
     var user = this.get('model');
 
     $.ajax({
-        url: 'http://livestockevent.herokuapp.com/api/users/',
+        url: 'http://livestockevent.co.uk/api/users/',
         data: {user: data},
         type: 'PUT',
         success: function(result) {

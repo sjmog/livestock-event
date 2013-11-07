@@ -60701,7 +60701,7 @@ currentUser: function() {
       console.log(message);
       var data = {name: name, email: email, body: message};
       var self = this;
-      $.post('http://livestockevent.herokuapp.com/api/contact.json', { message: data }, function(results) {
+      $.post('http://livestockevent.co.uk/api/contact.json', { message: data }, function(results) {
         self.set('messageSent', true);
 
       }).fail(function(jqxhr, textStatus, error ) {
@@ -61371,7 +61371,7 @@ App.CheckoutController = Ember.ObjectController.extend({
     pay: function() {
       var router = this.get('target');
 
-      $.post('http://livestockevent.herokuapp.com/api/users.json', { user: data }, function(results) {
+      $.post('http://livestockevent.co.uk/api/users.json', { user: data }, function(results) {
         App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
         router.transitionTo('bookings.new');
 
@@ -61931,7 +61931,7 @@ App.UsersEditController = Ember.ObjectController.extend({
     var user = this.get('model');
 
     $.ajax({
-        url: 'http://livestockevent.herokuapp.com/api/users/',
+        url: 'http://livestockevent.co.uk/api/users/',
         data: {user: data},
         type: 'PUT',
         success: function(result) {
@@ -61959,7 +61959,7 @@ App.UsersNewController = Ember.ObjectController.extend({
     var data = this.getProperties('name', 'email', 'password', 'password_confirmation', 'role')
     var user = this.get('model');
 
-    $.post('http://livestockevent.herokuapp.com/api/users.json', { user: data }, function(results) {
+    $.post('http://livestockevent.co.uk/api/users.json', { user: data }, function(results) {
       App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
       router.transitionTo('bookings.new');
 
@@ -67942,7 +67942,7 @@ function program108(depth0,data) {
     'id': ("contact_name"),
     'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n          </div>\n          <div data-field-span=\"1\">\n            <label  id=\"exhibiting_label\" for=\"exhibiting_name\">Exhibiting Name<span class=\"required\">*</span> (<a id=\"exhibiting_name_copier\" class=\"inlineLink copier\">Copy Company Name</a>?)</label><br>\n            ");
+  data.buffer.push("\n          </div>\n          <div data-field-span=\"1\">\n            <label  id=\"exhibiting_label\" for=\"exhibiting_name\">Exhibiting Name (as to appear in the official Show Guide and Location Plans)<span class=\"required\">*</span> (<a id=\"exhibiting_name_copier\" class=\"inlineLink copier\">Copy Company Name</a>?)</label><br>\n            ");
   hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
@@ -67997,13 +67997,12 @@ function program108(depth0,data) {
     'id': ("correspondence_address"),
     'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            </div>\n          </div>\n          <div data-row-span=\"12\">\n            <div data-field-span=\"12\">\n              <label id=\"invoice_label\" for=\"invoice_address\">Invoice Address<span class=\"required\">*</span> (<a id=\"invoice_address_copier\" class=\"inlineLink copier\">Copy Correspondence Address</a>?)</label><br>\n              ");
-  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
+  data.buffer.push("\n            </div>\n          </div>\n          <div data-row-span=\"12\">\n            <div data-field-span=\"12\">\n              <label id=\"invoice_label\" for=\"invoice_address\">Invoice Address, if different to correspondence address<span class=\"required\">*</span> (<a id=\"invoice_address_copier\" class=\"inlineLink copier\">Copy Correspondence Address</a>?)</label><br>\n              ");
+  hashContexts = {'valueBinding': depth0,'id': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
     'valueBinding': ("content.invoiceAddress"),
-    'id': ("invoice_address"),
-    'required': ("")
+    'id': ("invoice_address")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n            </div>\n          </div>\n      </fieldset>\n      <fieldset>\n        <legend>3. Finance Details</legend>\n        <div data-row-span=\"1\">\n          <div data-field-span=\"1\">\n            <label for=\"finance_contact\">finance contact email address<span class=\"required\">*</span></label><br>\n            ");
   hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
@@ -70778,7 +70777,7 @@ function program3(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "date", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</div>\n  </div>\n</div>\n<h1>payment details</h1>\n<div class=\"paymentsRow\">\n  <div class=\"small-12 columns\">\n    <!--stripe form-->\n    <form action=\"http://livestockevent.herokuapp.com/charges\" method=\"POST\" id=\"payment-form\" class=\"grid-form\">\n      <span class=\"payment-errors\"></span>\n      <fieldset>\n        <div data-row-span=\"2\">\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">Card Number</span>\n              <input type=\"text\" size=\"20\" data-stripe=\"number\"/>\n            </label>\n          </div>\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">CVC <span class=\"afterthought\">(last three digits on the reverse of your card)</span></span>\n              <input type=\"text\" size=\"4\" data-stripe=\"cvc\"/>\n            </label>\n          </div>\n        </div>\n        <div data-row-span=\"2\">\n          <div data-field-span=\"1\">\n           <label>\n             <span class=\"formLabel\">Expiration Month (MM)</span>\n             <input type=\"text\" size=\"2\" data-stripe=\"exp-month\"/>\n           </label>\n          </div>\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">Expiration Year (YYYY)</span>\n              <input type=\"text\" size=\"4\" data-stripe=\"exp-year\"/>\n            </label>\n          </div>\n        </div>\n      </fieldset>\n      ");
+  data.buffer.push("</div>\n  </div>\n</div>\n<h1>payment details</h1>\n<div class=\"paymentsRow\">\n  <div class=\"small-12 columns\">\n    <!--stripe form-->\n    <form action=\"http://livestockevent.co.uk/charges\" method=\"POST\" id=\"payment-form\" class=\"grid-form\">\n      <span class=\"payment-errors\"></span>\n      <fieldset>\n        <div data-row-span=\"2\">\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">Card Number</span>\n              <input type=\"text\" size=\"20\" data-stripe=\"number\"/>\n            </label>\n          </div>\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">CVC <span class=\"afterthought\">(last three digits on the reverse of your card)</span></span>\n              <input type=\"text\" size=\"4\" data-stripe=\"cvc\"/>\n            </label>\n          </div>\n        </div>\n        <div data-row-span=\"2\">\n          <div data-field-span=\"1\">\n           <label>\n             <span class=\"formLabel\">Expiration Month (MM)</span>\n             <input type=\"text\" size=\"2\" data-stripe=\"exp-month\"/>\n           </label>\n          </div>\n          <div data-field-span=\"1\">\n            <label>\n              <span class=\"formLabel\">Expiration Year (YYYY)</span>\n              <input type=\"text\" size=\"4\" data-stripe=\"exp-year\"/>\n            </label>\n          </div>\n        </div>\n      </fieldset>\n      ");
   hashContexts = {'type': depth0,'name': depth0,'valueBinding': depth0};
   hashTypes = {'type': "STRING",'name': "STRING",'valueBinding': "STRING"};
   options = {hash:{
