@@ -13161,6 +13161,9 @@ textarea {
     margin: 0 auto;
     line-height: 104px; }
 
+.payment-errors {
+  color: white !important; }
+
 /*image tiles*/
 /*contact us tile*/
 .contact {

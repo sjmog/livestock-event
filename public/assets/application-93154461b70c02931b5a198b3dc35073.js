@@ -60911,6 +60911,13 @@ App.BookingsNewController = App.BookingsEditController.extend({
         	console.log('stand number ' + value + ' is taken');
         	this.set('standGood', false);
         	this.set('standWarning', true);
+        	if (standArea === 'outdoor' || 'machinery hall') {
+        		$('#frontage').prop('disabled', true);
+        		$('#depth').prop('disabled', true);
+        	} else {
+        		$('#frontage').prop('disabled', false);
+        		$('#depth').prop('disabled', false);
+        	}
          // console.log(stand);
          // console.log(stand.get('number'));
         }
@@ -60940,6 +60947,13 @@ App.BookingsNewController = App.BookingsEditController.extend({
         console.log('stand ' + value + ' does not exist');
         this.set('standGood', false);
         this.set('standWarning', true);
+        if (standArea === 'outdoor' || 'machinery hall') {
+                  	$('#frontage').prop('disabled', true);
+                  	$('#depth').prop('disabled', true);
+                  } else {
+                  	$('#frontage').prop('disabled', false);
+                  	$('#depth').prop('disabled', false);
+                  }
       };
 	},
 
