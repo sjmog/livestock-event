@@ -10554,7 +10554,8 @@ h4 {
     /* Safari 1.x */
     -khtml-opacity: 1;
     /* Good browsers */
-    opacity: 1; }
+    opacity: 1;
+    display: inline-block !important; }
 
 .vertWrap .vertElement span.afterthought {
   font-size: 10px; }
@@ -10571,6 +10572,7 @@ h4 {
   -khtml-opacity: 0;
   /* Good browsers */
   opacity: 0;
+  display: none !important;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out; }
