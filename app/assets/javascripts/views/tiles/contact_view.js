@@ -22,12 +22,14 @@ App.ContactView = Ember.View.extend({
       	$('#contactMessage').focus(function() {
       		if ($('#yourName').val() && $('#yourEmail').val()) {
           		$('.inputRow').animo({animation:'fadeOutUp', duration:0.5, keep: true}, function() {
+          			$('.valueHolder').fadeIn();
           			$('.holderRow').animo({animation: 'fadeInUp', duration:0.5, keep: true});
           			$('.sendRow').animo({animation:'fadeInUp', duration:0.5, keep: true}).animate({top: '-90px'}, 500, function() {});
-          			$('.messageRow').animate({top: '-90px'}, 500, function() {});
+          			$('#sendButton').removeClass('disparu');
+          			$('.messageRow').fadeIn().animate({top: '-90px'}, 500, function() {});
           		})
-          		$('#yourNameHolder').html($('#yourName').val());
-          		$('#yourEmailHolder').html($('#yourEmail').val());
+          		$('#yourNameHolder').animo({animation:'fadeInLeft', duration:0.5, keep: true}).html($('#yourName').val());
+          		$('#yourEmailHolder').animo({animation:'fadeInLeft', duration:0.5, keep: true}).html($('#yourEmail').val());
           		
       		}
       	});
@@ -35,6 +37,7 @@ App.ContactView = Ember.View.extend({
       	$('.valueHolder').click(function() {
       		$('.holderRow').fadeOut();
 			$('.inputRow').fadeIn();
+			$('#sendButton').addClass('disparu');
       	});
       	//for the flipping
       	$('#sendButton').click(function() {

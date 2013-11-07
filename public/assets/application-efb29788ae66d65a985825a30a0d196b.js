@@ -60461,6 +60461,50 @@ App.Booking = DS.Model.extend({
 });
 
 
+App.HalfTile = DS.Model.extend({
+
+	//Does the tile have a tile-title?
+	tileTitle: DS.attr('boolean'),
+
+	//Does the tile have the option to go 'back'?
+	backButton: DS.attr('boolean'),
+		//if so, where does the tile go 'back' to?
+		backPath: DS.attr('string'),
+
+	//What is the tile's title?
+	title: DS.attr('string'),
+
+	//Does the tile flip over?
+	flipTile: DS.attr('boolean'),
+		//if so, does the reverse have a tile-title?
+		backTileTitle: DS.attr('boolean'),
+			//if so, what is the reverse's title?
+			backTitle: DS.attr('string'),
+
+	//Does the tile contain special HTML (it will not be escaped)?
+	contentTile: DS.attr('boolean'),
+		//if so, what is the HTML?
+		content: DS.attr('string'),
+
+	//Is the tile solely for holding buttons (2 or 4)?
+	buttonTile: DS.attr('boolean'),
+		//if so, what are the button icons -
+		button1Icon: DS.attr('string'),
+		button2Icon: DS.attr('string'),
+		button3Icon: DS.attr('string'),
+		button4Icon: DS.attr('string'),
+		// - where does each lead (as an Ember path for a link-to helper) -
+		button1Link: DS.attr('string'),
+		button2Link: DS.attr('string'),
+		button3Link: DS.attr('string'),
+		button4Link: DS.attr('string'),
+		// - and what is the button label for each?
+		button1Text: DS.attr('string'),
+		button2Text: DS.attr('string'),
+		button3Text: DS.attr('string'),
+		button4Text: DS.attr('string'),
+		
+});
 App.Contractor = DS.Model.extend({
 
 	name:DS.attr('string'),
@@ -61342,6 +61386,18 @@ App.CheckoutController = Ember.ObjectController.extend({
 
 });
 
+App.HalfTileController = Ember.ObjectController.extend({
+	
+	init: function() {
+		this._super();
+	},
+
+});
+App.TilesIndexController = Ember.ArrayController.extend({
+	init: function() {
+		this._super();
+	},
+});
 App.ContractorsEditController = Ember.ObjectController.extend({
 
   actions: {
@@ -63296,6 +63352,30 @@ App.AfarView = Ember.View.extend({
 });
 
 
+App.HalfTileView = Ember.View.extend({
+	templateName: 'half-tile',
+	classNames: ['tile tile-half-tall tile-1-wide'],
+	attributeBindings: ['width:data-width', 'height:data-height', 'visitorImportance:data-visitorimportance', 'exhibitorImportance:data-exhibitorimportance', 'generalImportance:data-generalimportance'],
+	visitorImportance: 1,
+	exhibitorImportance: 1,
+	generalImportance: 1,
+	width: 1,
+	height: 0.5,
+	flipped:false,
+	toggleFlip: function() {
+		var view = this;
+		var flipped = view.flipped;
+		if(flipped) {
+			view.set('flipped', false);
+		}
+		else {
+			view.set('flipped', true);
+		}
+	},
+	didInsertElement: function() {
+
+	}
+});
 App.ContactView = Ember.View.extend({
 	templateName: 'contact',
 	classNames: ['tile content-tile tab-tile contact mix visitor exhibitor general_info all tile-1-wide'],
@@ -63320,12 +63400,14 @@ App.ContactView = Ember.View.extend({
       	$('#contactMessage').focus(function() {
       		if ($('#yourName').val() && $('#yourEmail').val()) {
           		$('.inputRow').animo({animation:'fadeOutUp', duration:0.5, keep: true}, function() {
+          			$('.valueHolder').fadeIn();
           			$('.holderRow').animo({animation: 'fadeInUp', duration:0.5, keep: true});
           			$('.sendRow').animo({animation:'fadeInUp', duration:0.5, keep: true}).animate({top: '-90px'}, 500, function() {});
-          			$('.messageRow').animate({top: '-90px'}, 500, function() {});
+          			$('#sendButton').removeClass('disparu');
+          			$('.messageRow').fadeIn().animate({top: '-90px'}, 500, function() {});
           		})
-          		$('#yourNameHolder').html($('#yourName').val());
-          		$('#yourEmailHolder').html($('#yourEmail').val());
+          		$('#yourNameHolder').animo({animation:'fadeInLeft', duration:0.5, keep: true}).html($('#yourName').val());
+          		$('#yourEmailHolder').animo({animation:'fadeInLeft', duration:0.5, keep: true}).html($('#yourEmail').val());
           		
       		}
       	});
@@ -63333,6 +63415,7 @@ App.ContactView = Ember.View.extend({
       	$('.valueHolder').click(function() {
       		$('.holderRow').fadeOut();
 			$('.inputRow').fadeIn();
+			$('#sendButton').addClass('disparu');
       	});
       	//for the flipping
       	$('#sendButton').click(function() {
@@ -68931,6 +69014,31 @@ function program1(depth0,data) {
   return buffer;
   
 });
+Ember.TEMPLATES["compilation/tile-page"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashTypes, hashContexts, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts, options;
+  data.buffer.push("\n	");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.render || depth0.render),stack1 ? stack1.call(depth0, "App.HalfTileView", options) : helperMissing.call(depth0, "render", "App.HalfTileView", options))));
+  data.buffer.push("\n");
+  return buffer;
+  }
+
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.each.call(depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n");
+  return buffer;
+  
+});
 Ember.TEMPLATES["contact"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
@@ -68976,7 +69084,7 @@ function program4(depth0,data) {
     'target': ("controller.controllers.application"),
     'on': ("submit")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">\n					    	<div class=\"row holderRow\">\n					    	  <div class=\"small-6 columns\">\n					    	    <div id=\"yourNameHolder\" class=\"valueHolder\"></div>\n					    	  </div>\n					    	  <div class=\"small-6 columns\">\n					    	    <div id=\"yourEmailHolder\" class=\"valueHolder\"></div>\n					    	  </div>\n					    	</div>\n		                    <div class=\"row inputRow\">\n		                      <div class=\"small-12 columns\">\n		                        <input type=\"text\" id=\"yourName\" placeholder=\"NAME\">\n		                      </div>\n		                    </div>\n		                    <div class=\"row inputRow\">\n		                      <div class=\"small-12 columns\">\n		                        <input type=\"text\" id=\"yourEmail\" placeholder=\"E-MAIL\">\n		                      </div>\n		                    </div>\n		                    <div class=\"row messageRow\">\n		                    	<div class=\"small-12 columns\">\n		                    		<textarea id=\"contactMessage\" placeholder=\"MESSAGE\" rows=\"4\"></textarea>\n		                    	</div>\n		                    </div>\n		                    <div class=\"row sendRow\">\n		                    	<div class=\"small-12 columns\">\n			                    	<button id=\"sendButton\" type=\"submit\" class=\"button callToAction\"><span class=\"\">SEND</span></button>\n			                    	\n		                    	</div>\n		                    </div>\n		                  </form>\n		                  \n				    </div>\n		       </div> \n		    </div>\n		    <div class=\"carouTab\">\n		        <div class=\"carouTabTitle\">\n		       		<span class=\"icon-telephone\"></span>\n		       		<label>call us</label>\n		        </div>\n		       \n		        <div class=\"carouContent\">\n		            <div class=\"row staticContent\">\n					  	<div class=\"small-12 columns vertWrap fullTabInner\">\n					  		<div class=\"vertElement\">\n					  			<h2 class=\"static\"><a class=\"phoneLink\" href=\"tel:+448452582711\">0845 458 2711</a></h2>\n					  		</div>\n					  	</div>			  	\n					  </div>\n       			</div> \n  			</div>\n\n		</div>\n	</div>\n	<div class=\"back\">\n		<div class=\"row\">\n			<div class=\"small-6 columns small-centered vertWrap\">\n				<div class=\"vertElement afterthoughtContainer\">\n				<!--\n				");
+  data.buffer.push(">\n					    	<div class=\"row holderRow\">\n					    	  <div class=\"small-6 columns\">\n					    	    <div id=\"yourNameHolder\" class=\"valueHolder\"></div>\n					    	  </div>\n					    	  <div class=\"small-6 columns\">\n					    	    <div id=\"yourEmailHolder\" class=\"valueHolder\"></div>\n					    	  </div>\n					    	</div>\n		                    <div class=\"row inputRow\">\n		                      <div class=\"small-12 columns\">\n		                        <input type=\"text\" id=\"yourName\" placeholder=\"NAME\">\n		                      </div>\n		                    </div>\n		                    <div class=\"row inputRow\">\n		                      <div class=\"small-12 columns\">\n		                        <input type=\"text\" id=\"yourEmail\" placeholder=\"E-MAIL\">\n		                      </div>\n		                    </div>\n		                    <div class=\"row messageRow\">\n		                    	<div class=\"small-12 columns\">\n		                    		<textarea id=\"contactMessage\" placeholder=\"MESSAGE\" rows=\"4\"></textarea>\n		                    	</div>\n		                    </div>\n		                    <div class=\"row sendRow\">\n		                    	<div class=\"small-12 columns\">\n			                    	<button id=\"sendButton\" type=\"submit\" class=\"button disparu callToAction\"><span class=\"icon-paper-plane\"></span></button>\n			                    	\n		                    	</div>\n		                    </div>\n		                  </form>\n		                  \n				    </div>\n		       </div> \n		    </div>\n		    <div class=\"carouTab\">\n		        <div class=\"carouTabTitle\">\n		       		<span class=\"icon-telephone\"></span>\n		       		<label>call us</label>\n		        </div>\n		       \n		        <div class=\"carouContent\">\n		            <div class=\"row staticContent\">\n					  	<div class=\"small-12 columns vertWrap fullTabInner\">\n					  		<div class=\"vertElement\">\n					  			<h2 class=\"static\"><a class=\"phoneLink\" href=\"tel:+448452582711\">0845 458 2711</a></h2>\n					  		</div>\n					  	</div>			  	\n					  </div>\n       			</div> \n  			</div>\n\n		</div>\n	</div>\n	<div class=\"back\">\n		<div class=\"row\">\n			<div class=\"small-6 columns small-centered vertWrap\">\n				<div class=\"vertElement afterthoughtContainer\">\n				<!--\n				");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers['if'].call(depth0, "ticketPrice", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -69762,6 +69870,284 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push("<div class=\"flipper\">\n	<div class=\"front\">\n		<span class=\"tile-title\">getting here</span>\n		<div class=\"carouTabs carouPanel3 carouBottom\">\n		   <div class=\"carouTab activeCarou\">\n		       <div class=\"carouTabTitle\">\n		       		<span class=\"icon-car\"></span>\n		       		<label>by car</label>\n		        </div>\n		        <div class=\"carouContent\">\n		             <div class=\"row buttonContent\">\n		             	<div class=\"small-6 columns vertWrap fullTabInner\">\n		             		<div class=\"vertElement\">\n		             			<a href=\"https://www.google.co.uk/maps/preview?authuser=0#!q=The+NEC+Birmingham%2C+Birmingham&data=!4m10!1m9!4m8!1m3!1d94065!2d-1.8636315!3d52.4774376!3m2!1i1260!2i929!4f13.1\" target=\"_blank\" class=\"button callToAction\"><span class=\"icon-location\"></span></a>\n		             			<span class=\"buttonLabel\">see a map</span>\n		             		</div>\n		             	</div>\n		             	<div class=\"small-6 columns vertWrap fullTabInner\">\n		             		<div class=\"vertElement\">\n		             			<a href=\"https://maps.google.com/maps?hq=http://maps.google.com/help/maps/directions/driving/mapleft.kml&f=d&dirflg=d\" class=\"button callToAction\" target=\"_blank\" ><span class=\"icon-compass\"></a>\n		             			<span class=\"buttonLabel\">get directions</span>\n		             		</div>\n		             	</div>\n		             	\n		             </div>\n		       </div> \n		    </div>\n		    <div class=\"carouTab\">\n		        <div class=\"carouTabTitle\">\n		       		<span class=\"icon-train\"></span>\n		       		<label>by train</label>\n		        </div>\n		       \n		        <div class=\"carouContent\">\n		            <div class=\"row buttonContent\">\n		            	<div class=\"small-6 columns vertWrap fullTabInner\">\n		            		<div class=\"vertElement\">\n		            			<a target=\"_blank\"  href=\"http://www.thetrainline.com/nearest-station/birmingham-nec\" class=\"button callToAction\"><span class=\"icon-location\"></span></a>\n		            			<span class=\"buttonLabel\">see stations</span>\n		            		</div>\n		            	</div>\n		            	<div class=\"small-6 columns vertWrap fullTabInner\">\n		            		<div class=\"vertElement\">\n		            			<a target=\"_blank\" href=\"http://www.thetrainline.com/Live/arrivals/birmingham-international\" class=\"button callToAction\"><span class=\"icon-clock\"></span></a>\n		            			<span class=\"buttonLabel\">get train times</span>\n		            		</div>\n		            	</div>\n		            	\n		            </div>\n       			</div> \n  			</div>\n		    <div class=\"carouTab\">\n		        <div class=\"carouTabTitle\">\n		       		<span class=\"icon-plane\"></span>\n		       		<label>by plane</label>\n		        </div>\n		       \n		        <div class=\"carouContent\">\n		            <div class=\"row buttonContent\">\n		            	<div class=\"small-6 columns vertWrap fullTabInner\">\n		            		<div class=\"vertElement\">\n		            			<a target=\"_blank\" href=\"http://www.birminghamairport.co.uk/\" class=\"button callToAction\"><span class=\"icon-location\"></span></a>\n		            			<span class=\"buttonLabel\">see airports</span>\n		            		</div>\n		            	</div>\n		            	<div class=\"small-6 columns vertWrap fullTabInner\">\n		            		<div class=\"vertElement\">\n		            			<a target=\"_blank\" href=\"http://uk.flightaware.com/live/\" class=\"button callToAction\"><span class=\"icon-clock\"></span></a>\n		            			<span class=\"buttonLabel\">get flight times</span>\n		            		</div>\n		            	</div>\n		            	\n		            </div>\n       			</div> \n  			</div>\n		</div>\n	</div>\n</div>\n");
+  
+});
+Ember.TEMPLATES["half-tile"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n		<span class=\"tile-title\">\n			");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "backButton", {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n			");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "title", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n			");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "flipTile", {hash:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n		</span>\n	");
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options;
+  data.buffer.push("\n				");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("backbutton")
+  },inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n			");
+  return buffer;
+  }
+function program3(depth0,data) {
+  
+  
+  data.buffer.push("<span class=\"icon-back\"></span>");
+  }
+
+function program5(depth0,data) {
+  
+  var buffer = '', hashContexts, hashTypes;
+  data.buffer.push("\n				<span class=\"flipLink\">\n					<span ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleFlip", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"icon-forward\"></span>\n				</span>\n			");
+  return buffer;
+  }
+
+function program7(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes;
+  data.buffer.push("\n		");
+  hashContexts = {'unescaped': depth0};
+  hashTypes = {'unescaped': "STRING"};
+  stack1 = helpers._triageMustache.call(depth0, "content", {hash:{
+    'unescaped': ("true")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n	");
+  return buffer;
+  }
+
+function program9(depth0,data) {
+  
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options;
+  data.buffer.push("\n		<div class=\"row buttonContent\">\n			<div class=\"small-6 columns vertWrap\">\n				<div class=\"vertElement\">\n					");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction")
+  },inverse:self.noop,fn:self.program(10, program10, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n					<span class=\"buttonLabel\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "button1Text", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n				</div>\n			</div>\n			<div class=\"small-6 columns vertWrap\">\n				<div class=\"vertElement\">\n					");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction")
+  },inverse:self.noop,fn:self.program(12, program12, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n					<span class=\"buttonLabel\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "button2Text", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n				</div>\n			</div>\n		</div>\n	");
+  return buffer;
+  }
+function program10(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n					<span ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button1Icon")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push("></span>\n					");
+  return buffer;
+  }
+
+function program12(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n					<span ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button2Icon")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push("></span>\n					");
+  return buffer;
+  }
+
+function program14(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n			<span class=\"tile-title\">\n				");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "backTitle", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n				");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "flipTile", {hash:{},inverse:self.noop,fn:self.program(15, program15, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n			</span>\n		");
+  return buffer;
+  }
+function program15(depth0,data) {
+  
+  var buffer = '', hashContexts, hashTypes;
+  data.buffer.push("\n					<span class=\"flipLink\">\n						<span ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleFlip", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"icon-back\"></span>\n					</span>\n				");
+  return buffer;
+  }
+
+function program17(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes;
+  data.buffer.push("\n			<div class=\"row\">\n				<div class=\"small-12 columns\">\n					");
+  hashContexts = {'unescaped': depth0};
+  hashTypes = {'unescaped': "STRING"};
+  stack1 = helpers._triageMustache.call(depth0, "content", {hash:{
+    'unescaped': ("true")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n				</div>\n			</div>\n		");
+  return buffer;
+  }
+
+function program19(depth0,data) {
+  
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options;
+  data.buffer.push("\n			<div class=\"row buttonContent\">\n				<div class=\"small-6 columns vertWrap\">\n					<div class=\"vertElement\">\n						");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction")
+  },inverse:self.noop,fn:self.program(20, program20, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n						<span class=\"buttonLabel\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "button3Text", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n					</div>\n				</div>\n				<div class=\"small-6 columns vertWrap\">\n					<div class=\"vertElement\">\n						");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction")
+  },inverse:self.noop,fn:self.program(22, program22, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n						<span class=\"buttonLabel\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "button4Text", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n					</div>\n				</div>\n			</div>\n		");
+  return buffer;
+  }
+function program20(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n						<span ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button3Icon")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push("></span>\n						");
+  return buffer;
+  }
+
+function program22(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n						<span ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button4Icon")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push("></span>\n						");
+  return buffer;
+  }
+
+  data.buffer.push("<div class=\"flipper\">\n	<div ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":front view.flipped:flipped")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">\n	");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "tileTitle", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n	");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "contentTile", {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n	");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "buttonTile", {hash:{},inverse:self.noop,fn:self.program(9, program9, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n	</div>\n	<div ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":back view.flipped:flipped")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">\n		");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "backTileTitle", {hash:{},inverse:self.noop,fn:self.program(14, program14, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n		");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "contentTile", {hash:{},inverse:self.noop,fn:self.program(17, program17, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n		");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "buttonTile", {hash:{},inverse:self.noop,fn:self.program(19, program19, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n	</div>\n</div>\n");
+  return buffer;
   
 });
 Ember.TEMPLATES["header"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
@@ -71812,6 +72198,58 @@ function program8(depth0,data) {
   return buffer;
   
 });
+Ember.TEMPLATES["tile"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n		<span class=\"tile-title\">\n			tickets\n			");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "flip-tile", {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n		</span>\n	");
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = '', hashContexts, hashTypes;
+  data.buffer.push("\n				<span class=\"flipLink\">\n					<span ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleFlip", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"icon-forward\"></span>\n				</span>\n			");
+  return buffer;
+  }
+
+  data.buffer.push("<div class=\"flipper\">\n	<div ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":front view.flipped:flipped")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">\n	");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "tile-title", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n	</div>\n	<div ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":back view.flipped:flipped")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">\n	</div>\n</div>\n");
+  return buffer;
+  
+});
 Ember.TEMPLATES["users"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
@@ -72916,6 +73354,20 @@ if (window.history && window.history.pushState) {
     this.route('payment-success');
     this.route('payment-incomplete');
     this.route('visiting');
+    this.resource('tiles', function() {
+      this.route('index', {
+        path: '/'
+      });
+      this.route('new', {
+        path: '/new'
+      });
+      this.route('show', {
+        path: '/:tile_id'
+      });
+      this.route('edit', {
+        path: '/:tile_id/edit'
+      });
+    });
   });
 
   App.urls || (App.urls = {});
@@ -73140,6 +73592,30 @@ App.BookingsNewRoute = Ember.Route.extend({
 App.BookingsStartRoute = Ember.Route.extend({
 	setupController: function(controller, model) {
 	  this.controller.set('model', User.createRecord());
+	}
+});
+App.TilesIndexRoute = Ember.Route.extend({
+	model: function() {
+		return App.HalfTile.createRecord({
+			tileTitle: true,
+			backButton: true,
+			title: 'daves tile',
+			flipTile: true,
+			backTileTitle: true,
+			backTitle: 'marks side',
+			buttonTile: true,
+			button1Icon: 'icon-help',
+			button2Icon: 'icon-help',
+			button3Icon: 'icon-help',
+			button4Icon: 'icon-help',
+			button1Text: 'yo',
+			button2Text: 'check',
+			button3Text: 'me',
+			button4Text: 'out'
+		})
+	},
+	setupController: function(controller, model) {
+		controller.set('model', model);
 	}
 });
 App.ContractorsEditRoute = Ember.Route.extend({

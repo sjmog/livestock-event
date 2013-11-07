@@ -1,0 +1,16 @@
+<div class="flipper">
+	<div {{bind-attr class=":front view.flipped:flipped"}}>
+	{{#if tile-title}}
+		<span class="tile-title">
+			tickets
+			{{#if flip-tile}}
+				<span class="flipLink">
+					<span {{action toggleFlip target="view"}} class="icon-forward"></span>
+				</span>
+			{{/if}}
+		</span>
+	{{/if}}
+	</div>
+	<div {{bind-attr class=":back view.flipped:flipped"}}>
+	</div>
+</div>

@@ -138,4 +138,18 @@ if (window.history && window.history.pushState) {
     this.route('payment-success');
     this.route('payment-incomplete');
     this.route('visiting');
+    this.resource('tiles', function() {
+      this.route('index', {
+        path: '/'
+      });
+      this.route('new', {
+        path: '/new'
+      });
+      this.route('show', {
+        path: '/:tile_id'
+      });
+      this.route('edit', {
+        path: '/:tile_id/edit'
+      });
+    });
   });
