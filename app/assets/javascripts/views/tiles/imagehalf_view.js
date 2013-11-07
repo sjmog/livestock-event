@@ -48,7 +48,7 @@ App.ImagehalfView = Ember.View.extend({
 		//autoRotation
 		$(document).ready(function() {
 			var count = 1;
-			window.setInterval(function() {
+			var interval = window.setInterval(function() {
 				console.log('rotatingImage');
 				if(count % 2) {
 					view.set('flipped', true);
@@ -58,8 +58,14 @@ App.ImagehalfView = Ember.View.extend({
 					view.moveAlong();
 				};
 				if(count<(imgNumber - 1)) {count++} else {count = 0};
-			},(18000+randomTime));		
+			},(18000+randomTime));
+			view.set('interval', interval);		
 		})
+	},
+	willDestroyElement: function() {
+		var view = this;
+		var interval = view.get('interval');
+		window.clearInterval(interval);
 	}
 });
 

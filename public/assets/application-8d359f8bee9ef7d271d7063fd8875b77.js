@@ -60713,6 +60713,55 @@ currentUser: function() {
     }
   }
 });
+App.ApplicationController = Ember.Controller.extend({
+needs: ['sessionsNew'],
+email: null,
+password: null,
+remember: false,
+currentUser: function() {
+    return App.AuthManager.get('apiKey.user')
+  }.property('App.AuthManager.apiKey'),
+
+  isAuthenticated: function() {
+    return App.AuthManager.isAuthenticated()
+  }.property('App.AuthManager.apiKey'),
+  isIndex: function() {
+  	if(this.get('currentPath') === 'index') {
+  		return true;
+  	} else {
+  		console.log(this.get('currentPath'));
+  		return false;
+  	};
+  }.property('currentPath'),
+  message: {
+    name: null,
+    email: null,
+    body: null,
+  },
+  messageSent: false,
+  actions: {
+    sendMessage: function() {
+      var router = this.get('target');
+      var name = $('#yourName').val();
+      var email = $('#yourEmail').val();
+      var message = $('#contactMessage').val();
+      console.log(name);
+      console.log(email);
+      console.log(message);
+      var data = {name: name, email: email, body: message};
+      var self = this;
+      $.post('http://www.livestockevent.co.uk/api/contact.json', { message: data }, function(results) {
+        self.set('messageSent', true);
+
+      }).fail(function(jqxhr, textStatus, error ) {
+        if (jqxhr.status === 422) {
+          errs = JSON.parse(jqxhr.responseText)
+          user.set('errors', errs.errors);
+        }
+      });
+    }
+  }
+});
 App.ArticlesEditController = Ember.ObjectController.extend({
 
   actions: {
@@ -60840,84 +60889,75 @@ App.BookingsEditController = Ember.ObjectController.extend({
   ],
   selectedZone: null,
 
-});
+  init: function() {
+    this._super();
+    //console.log('controller init');
+    this.set('stands', App.Stand.find());
 
-
-App.BookingsIndexController = Em.ArrayController.extend()
-;
-
-
-// inherit from edit controller
-App.BookingsNewController = App.BookingsEditController.extend({
-	init: function() {
-		this._super();
-		//console.log('controller init');
-		this.set('stands', App.Stand.find());
-
-	},
-	setup:function() {
-		console.log('controller setup');
-		var self = this;
-		//console.log(self.content); //should be same as model from Route
-		//console.log(self.get('content.standNumber'));
-		
-		self.stands = App.Stand.find();
-		self.set('content.standNumber', 0);
-		self.set('standWarning', false);
-		this.set('userHasEnteredData', true);
-		//console.log(self.standNumber); //controller decoration, bound to input
-		//console.log(self.get('standNumber')); //should be same as line above
-		//console.log(self.get('content.standNumber')); //model, unbound
-		Ember.run.later(this, function() {
-			var user = this.controllerFor('application').get('currentUser');
-			console.log(user);
-			self.set('content.user', user);
-		}, 2000)
-	},
-	save: function(booking) {
-	  var currentStand = this.get('stand');
-	  
-	  if (currentStand !== null) {
-	  	var standArea = currentStand.get('area');
-	  	if (standArea !== 'indoor') {
-	  		currentStand.set('taken', true);
-	  	}
-	  }
-	  //console.log(currentUser);
-	  booking.one('didCreate', this, function(){
-	    this.transitionToRoute('bookings.show', booking);
-	  });
-	  this.get('store').commit();
-	},
-	userHasEnteredData:null,
-	span: null,
-	stands: null,
-	standWarning: null,
-	standGood: null,
-	areaTooSmall: function() {
-		if (this.get('content.area') < 9) {
-			return true;
-		} else {
-			return false;
-		};
-	}.property('content.area'),
-	getStand: function() {
-		//console.log('getStand called');
-	  var value = this.get('content.standNumber');
-	  var stand = this.stands.filterBy('number', value)[0];
+  },
+  setup:function() {
+    console.log('controller setup');
+    var self = this;
+    //console.log(self.content); //should be same as model from Route
+    //console.log(self.get('content.standNumber'));
+    
+    self.stands = App.Stand.find();
+    self.set('content.standNumber', 0);
+    self.set('standWarning', false);
+    this.set('userHasEnteredData', true);
+    //console.log(self.standNumber); //controller decoration, bound to input
+    //console.log(self.get('standNumber')); //should be same as line above
+    //console.log(self.get('content.standNumber')); //model, unbound
+    Ember.run.later(this, function() {
+      var user = this.controllerFor('application').get('currentUser');
+      console.log(user);
+      self.set('content.user', user);
+    }, 2000)
+  },
+  save: function(booking) {
+    var currentStand = this.get('stand');
+    
+    if (currentStand !== null) {
+      var standArea = currentStand.get('area');
+      if (standArea !== 'indoor') {
+        currentStand.set('taken', true);
+      }
+    }
+    //console.log(currentUser);
+    booking.one('didCreate', this, function(){
+      this.transitionToRoute('bookings.show', booking);
+    });
+    this.get('store').commit();
+  },
+  userHasEnteredData:null,
+  span: null,
+  stands: null,
+  standWarning: null,
+  standGood: null,
+  areaTooSmall: function() {
+    if (this.get('content.area') < 9) {
+      return true;
+    } else {
+      return false;
+    };
+  }.property('content.area'),
+  getStand: function() {
+    //console.log('getStand called');
+    var value = this.get('content.standNumber');
+    var stand = this.stands.filterBy('number', value)[0];
       if(stand) {
 
         if (stand.get('taken') === true) {
-        	console.log('stand number ' + value + ' is taken');
-        	this.set('standGood', false);
-        	this.set('standWarning', true);
-        	if (standArea === 'outdoor' || 'machinery hall') {
-        		$('#frontage').prop('disabled', true);
-        		$('#depth').prop('disabled', true);
-        	} else {
-        		$('#frontage').prop('disabled', false);
-        		$('#depth').prop('disabled', false);
-        	}
+          console.log('stand number ' + value + ' is taken');
+          this.set('standGood', false);
+          this.set('standWarning', true);
+          if (standArea === 'outdoor' || 'machinery hall') {
+            $('#frontage').prop('disabled', true);
+            $('#depth').prop('disabled', true);
+          } else {
+            $('#frontage').prop('disabled', false);
+            $('#depth').prop('disabled', false);
+          }
          // console.log(stand);
          // console.log(stand.get('number'));
         }
@@ -60933,11 +60973,11 @@ App.BookingsNewController = App.BookingsEditController.extend({
           this.set('standGood', true);
           var standArea = stand.get('area');
           if (standArea === 'outdoor' || 'machinery hall') {
-          	$('#frontage').prop('disabled', true);
-          	$('#depth').prop('disabled', true);
+            $('#frontage').prop('disabled', true);
+            $('#depth').prop('disabled', true);
           } else {
-          	$('#frontage').prop('disabled', false);
-          	$('#depth').prop('disabled', false);
+            $('#frontage').prop('disabled', false);
+            $('#depth').prop('disabled', false);
           }
           return stand;
 
@@ -60948,181 +60988,192 @@ App.BookingsNewController = App.BookingsEditController.extend({
         this.set('standGood', false);
         this.set('standWarning', true);
         if (standArea === 'outdoor' || 'machinery hall') {
-                  	$('#frontage').prop('disabled', true);
-                  	$('#depth').prop('disabled', true);
+                    $('#frontage').prop('disabled', true);
+                    $('#depth').prop('disabled', true);
                   } else {
-                  	$('#frontage').prop('disabled', false);
-                  	$('#depth').prop('disabled', false);
+                    $('#frontage').prop('disabled', false);
+                    $('#depth').prop('disabled', false);
                   }
       };
-	},
+  },
 
-	isSameAs2013: function() {
-		return this.get('content.sameAs2013');
-	}.property('content.sameAs2013'),
+  isSameAs2013: function() {
+    return this.get('content.sameAs2013');
+  }.property('content.sameAs2013'),
 
-	isNotSameAs2013: function() {
-		return !(this.get('content.sameAs2013'));
-	}.property('content.sameAs2013'),
+  isNotSameAs2013: function() {
+    return !(this.get('content.sameAs2013'));
+  }.property('content.sameAs2013'),
 
-	isLivestockHall: function() {
-		if(this.get('content.showArea') === 'livestock hall') {
-			this.set('content.standType', 'clear');
-			this.set('content.position', 'standard');
-			this.set('content.zone', '');
-			$("#zone").prop('disabled', true);
-			$("#stand_type").prop('disabled', true);
-			$("#position").prop('disabled', true);
-		}
+  isLivestockHall: function() {
+    if(this.get('content.showArea') === 'livestock hall') {
+      this.set('content.standType', 'clear');
+      this.set('content.position', 'standard');
+      this.set('content.zone', '');
+      $("#zone").prop('disabled', true);
+      $("#stand_type").prop('disabled', true);
+      $("#position").prop('disabled', true);
+    }
 
-		return this.get('content.showArea') === 'livestock hall';
-	}.property('content.showArea'),
+    return this.get('content.showArea') === 'livestock hall';
+  }.property('content.showArea'),
 
-	isIndoor: function() {
-		if(this.get('content.showArea') === 'indoor') {
-			$("#zone").prop('disabled', false);
-			$("#stand_type").prop('disabled', false);
-			$("#position").prop('disabled', false);
-		}
-		return this.get('content.showArea') === 'indoor';
-	}.property('content.showArea'),
+  isIndoor: function() {
+    if(this.get('content.showArea') === 'indoor') {
+      $("#zone").prop('disabled', false);
+      $("#stand_type").prop('disabled', false);
+      $("#position").prop('disabled', false);
+    }
+    return this.get('content.showArea') === 'indoor';
+  }.property('content.showArea'),
 
-	isOutdoor: function() {
-		if(this.get('content.showArea') === 'outdoor') {
-			this.set('content.standType', 'clear');
-			this.set('content.position', 'standard');
-			this.set('content.zone', '');
-				$("#zone").prop('disabled', true);
-				$("#stand_type").prop('disabled', true);
-				$("#position").prop('disabled', true);
+  isOutdoor: function() {
+    if(this.get('content.showArea') === 'outdoor') {
+      this.set('content.standType', 'clear');
+      this.set('content.position', 'standard');
+      this.set('content.zone', '');
+        $("#zone").prop('disabled', true);
+        $("#stand_type").prop('disabled', true);
+        $("#position").prop('disabled', true);
 
-		};
-		
-		return this.get('content.showArea') === 'outdoor';
-	}.property('content.showArea'),
+    };
+    
+    return this.get('content.showArea') === 'outdoor';
+  }.property('content.showArea'),
 
-	isMachineryHall: function() {
-		if(this.get('content.showArea') === 'machinery hall') {
-			this.set('content.standType', 'clear');
-			this.set('content.position', 'standard');
-			this.set('content.zone', '');
-				$("#zone").prop('disabled', true);
-				$("#stand_type").prop('disabled', true);
-				$("#position").prop('disabled', true);
+  isMachineryHall: function() {
+    if(this.get('content.showArea') === 'machinery hall') {
+      this.set('content.standType', 'clear');
+      this.set('content.position', 'standard');
+      this.set('content.zone', '');
+        $("#zone").prop('disabled', true);
+        $("#stand_type").prop('disabled', true);
+        $("#position").prop('disabled', true);
 
-		};
+    };
 
-		return this.get('content.showArea') === 'machinery hall';
-	}.property('content.showArea'),
+    return this.get('content.showArea') === 'machinery hall';
+  }.property('content.showArea'),
 
-	standTypeIsClear: function() {
-	  return this.get('content.standType') === 'clear';
-	}.property('content.standType'),
+  standTypeIsClear: function() {
+    return this.get('content.standType') === 'clear';
+  }.property('content.standType'),
 
-	standTypeIsShell: function() {
-		if(this.get('content.standType') === 'modular') {
-			return true;
-		};
-		
-	}.property('content.standType'),
+  standTypeIsShell: function() {
+    if(this.get('content.standType') === 'modular') {
+      return true;
+    };
+    
+  }.property('content.standType'),
 
-	standTypeIsNotShell: function() {
-		if(this.get('content.standType') === 'modular') {
-			return false;
-		};
-	}.property('content.standType'),
+  standTypeIsNotShell: function() {
+    if(this.get('content.standType') === 'modular') {
+      return false;
+    };
+  }.property('content.standType'),
 
-	positionIsStandard: function() {
-	  return this.get('content.position') === 'standard';
-	}.property('content.position'),
+  positionIsStandard: function() {
+    return this.get('content.position') === 'standard';
+  }.property('content.position'),
 
-	positionIsCorner: function() {
-	  return this.get('content.position') === 'corner';
-	}.property('content.position'),
+  positionIsCorner: function() {
+    return this.get('content.position') === 'corner';
+  }.property('content.position'),
 
-	positionIsPeninsula: function() {
-	  return this.get('content.position') === 'peninsula';
-	}.property('content.position'),
+  positionIsPeninsula: function() {
+    return this.get('content.position') === 'peninsula';
+  }.property('content.position'),
 
-	positionIsIsland: function() {
-	  return this.get('content.position') === 'island';
-	}.property('content.position'),
+  positionIsIsland: function() {
+    return this.get('content.position') === 'island';
+  }.property('content.position'),
 
-	zoneIsAnimalhealth: function() {
-	  if(this.get('content.zone') === 'animal health') {
-	  	this.set('colorClass', 'animalColor');
-	  };
-	  return this.get('content.zone') === 'animal health';
-	}.property('content.zone'),
+  zoneIsAnimalhealth: function() {
+    if(this.get('content.zone') === 'animal health') {
+      this.set('colorClass', 'animalColor');
+    };
+    return this.get('content.zone') === 'animal health';
+  }.property('content.zone'),
 
-	zoneIsBusinessmanagement: function() {
-		if(this.get('content.zone') === 'business management') {
-		this.set('colorClass', 'businessColor');
-	};
-	  return this.get('content.zone') === 'business management';
-	}.property('content.zone'),
+  zoneIsBusinessmanagement: function() {
+    if(this.get('content.zone') === 'business management') {
+    this.set('colorClass', 'businessColor');
+  };
+    return this.get('content.zone') === 'business management';
+  }.property('content.zone'),
 
-	zoneIsDiversifarmrenewables: function() {
-		if(this.get('content.zone') === 'diversifarm and renewables') {
-	  this.set('colorClass', 'diversifarmColor');
-	};
-	  return this.get('content.zone') === 'diversifarm and renewables';
-	}.property('content.zone'),
+  zoneIsDiversifarmrenewables: function() {
+    if(this.get('content.zone') === 'diversifarm and renewables') {
+    this.set('colorClass', 'diversifarmColor');
+  };
+    return this.get('content.zone') === 'diversifarm and renewables';
+  }.property('content.zone'),
 
-	zoneIsFeedsforage: function() {
-		if(this.get('content.zone') === 'feeds and forage') {
-	  this.set('colorClass', 'feedsColor');
-	};
-	  return this.get('content.zone') === 'feeds and forage';
-	}.property('content.zone'),
+  zoneIsFeedsforage: function() {
+    if(this.get('content.zone') === 'feeds and forage') {
+    this.set('colorClass', 'feedsColor');
+  };
+    return this.get('content.zone') === 'feeds and forage';
+  }.property('content.zone'),
 
-	zoneIsGenetics: function() {
-		if(this.get('content.zone') === 'genetics') {
-	  this.set('colorClass', 'geneticsColor');
-	};
-	  return this.get('content.zone') === 'genetics';
-	}.property('content.zone'),
+  zoneIsGenetics: function() {
+    if(this.get('content.zone') === 'genetics') {
+    this.set('colorClass', 'geneticsColor');
+  };
+    return this.get('content.zone') === 'genetics';
+  }.property('content.zone'),
 
-	zoneIsHousingstorage: function() {
-		if(this.get('content.zone') === 'housing and storage') {
-	  this.set('colorClass', 'housingColor');
-	};
-	  return this.get('content.zone') === 'housing and storage';
-	}.property('content.zone'),
+  zoneIsHousingstorage: function() {
+    if(this.get('content.zone') === 'housing and storage') {
+    this.set('colorClass', 'housingColor');
+  };
+    return this.get('content.zone') === 'housing and storage';
+  }.property('content.zone'),
 
-	zoneIsLivestockequipment: function() {
-		if(this.get('content.zone') === 'livestock equipment and machinery') {
-	  this.set('colorClass', 'livestockColor');
-	};
-	  return this.get('content.zone') === 'livestock equipment and machinery';
-	}.property('content.zone'),
+  zoneIsLivestockequipment: function() {
+    if(this.get('content.zone') === 'livestock equipment and machinery') {
+    this.set('colorClass', 'livestockColor');
+  };
+    return this.get('content.zone') === 'livestock equipment and machinery';
+  }.property('content.zone'),
 
-	zoneIsMilking: function() {
-		if(this.get('content.zone') === 'milking') {
-	  this.set('colorClass', 'milkingColor');
-	};
-	  return this.get('content.zone') === 'milking';
-	}.property('content.zone'),
+  zoneIsMilking: function() {
+    if(this.get('content.zone') === 'milking') {
+    this.set('colorClass', 'milkingColor');
+  };
+    return this.get('content.zone') === 'milking';
+  }.property('content.zone'),
 
-	zoneIsMilkmade: function() {
-		if(this.get('content.zone') === 'milkmade') {
-	  this.set('colorClass', 'milkmadeColor');
-	};
-	  return this.get('content.zone') === 'milkmade';
-	}.property('content.zone'),
+  zoneIsMilkmade: function() {
+    if(this.get('content.zone') === 'milkmade') {
+    this.set('colorClass', 'milkmadeColor');
+  };
+    return this.get('content.zone') === 'milkmade';
+  }.property('content.zone'),
 
-	zoneIsSlurrymuck: function() {
-		if(this.get('content.zone') === 'slurry, muck and irrigation') {
-	  this.set('colorClass', 'slurryColor');
-	};
-	  return this.get('content.zone') === 'slurry, muck and irrigation';
-	}.property('content.zone'),
+  zoneIsSlurrymuck: function() {
+    if(this.get('content.zone') === 'slurry, muck and irrigation') {
+    this.set('colorClass', 'slurryColor');
+  };
+    return this.get('content.zone') === 'slurry, muck and irrigation';
+  }.property('content.zone'),
 
-	breedIsDairy: function() {
-		return this.get('content.breedSociety') === 'dairy';
-	}.property('content.breedSociety'),
+  breedIsDairy: function() {
+    return this.get('content.breedSociety') === 'dairy';
+  }.property('content.breedSociety'),
 
-	colorClass: null,
+  colorClass: null,
+
+});
+
+
+App.BookingsIndexController = Em.ArrayController.extend()
+;
+
+
+// inherit from edit controller
+App.BookingsNewController = App.BookingsEditController.extend({
+	
 
 });
 
@@ -62068,7 +62119,6 @@ App.ApiKeysView = Ember.View.extend({
 App.ApplicationView = Em.View.extend({
 	templateName: 'application',
 	didInsertElement:function() {
-		//any post-load functions here
 		
 	},
 })
@@ -62280,15 +62330,68 @@ App.BookingbarView = Ember.View.extend({
 });
 App.BookingsEditView = Ember.View.extend({
 	templateName: 'bookings/edit',
-	classNames: ['tile content-tile rabdforange mix general_info all tile-8-tall tile-n-wide'],
+	classNames: ['tile content-tile rabdforange scrollTile mix general_info all tile-12-tall tile-n-wide'],
 	attributeBindings: ['width:data-width', 'height:data-height'],
 	width: 'n',
-	height: 2,
+	height: 3,
+	controller: this.controller,
+	pricebar: function() {
+		var view = this;
+		view.createChildView(App.PricebarView).appendTo('body')
+	},
 
+	removePricebar: function() {
+		App.PricebarView.remove();
+	},
+	willDestroyElement: function() {
+		var view = this;
+		
+	},
 	didInsertElement: function() {
-		//sidebar
-		$('.sidebarHolder').animate({height: (this.$().height() + 10)}, 600);
+		window.scrollTo(0,0);
+		//stop submission on enter
+		$('.grid-form').bind("keyup keypress", function(e) {
+		  var code = e.keyCode || e.which; 
+		  if (code  == 13) {               
+		    e.preventDefault();
+		    return false;
+		  }
+		});
 
+		var view = this;
+		//add the price bar
+		view.pricebar();
+		//nullifying styles on select elements
+		//$('.select').dropkick();
+		//hiding and showing sections
+		
+
+		$('.closeFormInfo').click(function() {
+			$('.standTypeRow').fadeOut();
+			$('.zoneRow').fadeOut();
+			$('.positionRow').fadeOut();
+			$('.outdoorRow').fadeOut();
+			$('.machineryHallRow').fadeOut();
+		});
+		$('.copier#exhibiting_name_copier').click(function() {
+			if($('#company_name').val()) {
+				$('#exhibiting_name').val($('#company_name').val());
+				$('#exhibiting_label').text('Exhibiting Name (copied from Company Name)')
+			} else {
+				console.log('fill out the company name first')
+			}
+		});
+		$('.copier#invoice_address_copier').click(function() {
+			if($('#correspondence_address').val()) {
+				$('#invoice_address').val($('#correspondence_address').val());
+				$('#invoice_label').text('Invoice Address (copied from Correspondence Address)')
+			} else {
+				console.log('fill out the correspondence address first')
+			}
+		});
+		Ember.run.scheduleOnce('afterRender', view, function() {
+			Ember.run.sync();
+		})
 	}
 });
 App.BookingsHowView = Ember.View.extend({
@@ -63539,14 +63642,58 @@ App.GettingThereView = Ember.View.extend({
 App.HeaderView = Ember.View.extend({
 	templateName: 'header',
 	didInsertElement: function() {
-		//login/out working
-		$('a.login').click(function() {
-			$('.st-container').addClass('st-menu-open');
-		});
+		 	function hasParentClass( e, classname ) {
+				if(e === document) return false;
+				if( classie.has( e, classname ) ) {
+					return true;
+				}
+				return e.parentNode && hasParentClass( e.parentNode, classname );
+			}
 
-		$('#sidebar-closeButton').click(function() {
-			$('.st-container').removeClass('st-menu-open');
-		});
+			// http://coveroverflow.com/a/11381730/989439
+			function mobilecheck() {
+				var check = false;
+				(function(a){if(/(android|ipad|playbook|silk|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))check = true})(navigator.userAgent||navigator.vendor||window.opera);
+				return check;
+			}
+
+			function init() {
+
+				var container = document.getElementById( 'st-container' ),
+					buttons = Array.prototype.slice.call( document.querySelectorAll( '#st-trigger-effects > a' ) ),
+					// event type (if mobile use touch events)
+					eventtype = mobilecheck() ? 'touchstart' : 'click',
+					resetMenu = function() {
+						classie.remove( container, 'st-menu-open' );
+					},
+					bodyClickFn = function(evt) {
+						if( !hasParentClass( evt.target, 'st-menu' ) ) {
+							resetMenu();
+							document.removeEventListener( eventtype, bodyClickFn );
+						}
+					};
+					console.log(buttons);
+				buttons.forEach( function( el, i ) {
+					var effect = el.getAttribute( 'data-effect' );
+					console.log(effect);
+					el.addEventListener( eventtype, function( ev ) {
+						ev.stopPropagation();
+						ev.preventDefault();
+						container.className = 'st-container'; // clear
+						classie.add( container, effect );
+						setTimeout( function() {
+							classie.add( container, 'st-menu-open' );
+						}, 25 );
+						document.addEventListener( eventtype, bodyClickFn );
+					});
+				} );
+
+			}
+
+			init();
+			$('#sidebar-closeButton').click(function() {
+				$('.st-container').removeClass('st-menu-open');
+			});
 	}
 });
 
@@ -63563,6 +63710,7 @@ App.ImageView = Ember.View.extend({
 	flipped:false,
 	imgArray: [],
 	numberImgs: 6,
+	interval: null,
 	imgFolder: 'https://dl.dropboxusercontent.com/u/57653232/hosted%20files%20for%20rabdf%20do%20not%20delete/images/large/',
 	moveAlong: function() {
 		var self = this;
@@ -63601,7 +63749,7 @@ App.ImageView = Ember.View.extend({
 		//autoRotation
 		$(document).ready(function() {
 			var count = 1;
-			window.setInterval(function() {
+			var interval = window.setInterval(function() {
 				console.log('rotatingImage');
 				if(count % 2) {
 					view.set('flipped', true);
@@ -63611,8 +63759,14 @@ App.ImageView = Ember.View.extend({
 					view.moveAlong();
 				};
 				if(count<(imgNumber - 1)) {count++} else {count = 0};
-			},(18000+randomTime));		
+			},(18000+randomTime));
+			view.set('interval', interval);		
 		})
+	},
+	willDestroyElement: function() {
+		var view = this;
+		var interval = view.get('interval');
+		window.clearInterval(interval);
 	}
 });
 
@@ -63668,7 +63822,7 @@ App.ImagehalfView = Ember.View.extend({
 		//autoRotation
 		$(document).ready(function() {
 			var count = 1;
-			window.setInterval(function() {
+			var interval = window.setInterval(function() {
 				console.log('rotatingImage');
 				if(count % 2) {
 					view.set('flipped', true);
@@ -63678,8 +63832,14 @@ App.ImagehalfView = Ember.View.extend({
 					view.moveAlong();
 				};
 				if(count<(imgNumber - 1)) {count++} else {count = 0};
-			},(18000+randomTime));		
+			},(18000+randomTime));
+			view.set('interval', interval);		
 		})
+	},
+	willDestroyElement: function() {
+		var view = this;
+		var interval = view.get('interval');
+		window.clearInterval(interval);
 	}
 });
 
@@ -64250,7 +64410,7 @@ function program5(depth0,data) {
   hashContexts = {};
   stack1 = helpers['if'].call(depth0, "isAuthenticated", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n<span class=\"menuButton\"><a data-effect=\"st-effect-9\" class=\"link login offset\"><span class=\"icon-menu\"></span><span class=\"buttonLabel\">");
+  data.buffer.push("\n<span id=\"st-trigger-effects\" class=\"menuButton\"><a data-effect=\"st-effect-2\" id=\"st-trigger-effect\" class=\"link login offset\"><span class=\"icon-menu\"></span><span class=\"buttonLabel\">");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers['if'].call(depth0, "isAuthenticated", {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -66794,7 +66954,7 @@ function program60(depth0,data) {
 function program62(depth0,data) {
   
   
-  data.buffer.push("\n             <img src=\"<%= asset_path('shell.jpg') %>\" />\n             ");
+  data.buffer.push("\n             <img src=\"/assets/shell-8c5218a53a1498344eaffef37c876ab2.jpg\" />\n             ");
   }
 
 function program64(depth0,data) {
@@ -66873,19 +67033,19 @@ function program69(depth0,data) {
 function program70(depth0,data) {
   
   
-  data.buffer.push("\n             <img src=\"<%= asset_path('corner.jpg') %>\" />\n             ");
+  data.buffer.push("\n             <img src=\"/assets/corner-f8f74cb0e6dd0078f48f83ee784d609d.jpg\" />\n             ");
   }
 
 function program72(depth0,data) {
   
   
-  data.buffer.push("\n             <img src=\"<%= asset_path('peninsula.jpg') %>\" />\n             ");
+  data.buffer.push("\n             <img src=\"/assets/peninsula-ca4511025a699caab26c61c608199022.jpg\" />\n             ");
   }
 
 function program74(depth0,data) {
   
   
-  data.buffer.push("\n             <img src=\"<%= asset_path('island.jpg') %>\" />\n             ");
+  data.buffer.push("\n             <img src=\"/assets/island-a645c075b3ec16a88c17a77807caba3f.jpg\" />\n             ");
   }
 
 function program76(depth0,data) {
@@ -67129,7 +67289,7 @@ function program108(depth0,data) {
   data.buffer.push("\n               <span class=\"buttonLabel\">apply by post</span>\n             </div>\n           </div>  \n         </div>\n       </div>\n     </div>\n     <div class=\"row instructionsRow\">\n       <div class=\"small-10 small-centered columns\">\n         <h2>To book your stand:</h2>\n         <ul>\n           <li>Complete sections 1-5 of the form below, then</li>\n           <li>Select the show area, type of stand and location (block) you wish to exhibit in from the options and floor plan presented to you.</li>\n           <li>A 30% deposit is required at this stage to confirm your booking.</li>\n           <li>Click 'deposit' and enter your payment details to confirm your order.</li>\n           <li>Fields marked with a '<span class=\"required\">*</span>' are required, and you will not be able to proceed until you have filled them.</li>\n         </ul>\n       </div>\n     </div>\n\n     <form ");
   hashContexts = {'on': depth0};
   hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "save", "model", {hash:{
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "update", "model", {hash:{
     'on': ("submit")
   },contexts:[depth0,depth0],types:["ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push(" class=\"grid-form\">\n       <fieldset>\n         <legend>1. Personal Info</legend>\n         <div data-row-span=\"3\">\n           <div data-field-span=\"1\">\n             <label for=\"company_name\">Company Name<span class=\"required\">*</span></label><br>\n             ");
@@ -68483,7 +68643,7 @@ function program108(depth0,data) {
     'id': ("telephone"),
     'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n          </div>\n          <div data-field-span=\"1\">\n            <label for=\"email\">Contact e-mail address<span class=\"required\">*</span></label><br>\n            ");
+  data.buffer.push("\n          </div>\n          <div data-field-span=\"1\">\n            <label for=\"email\">Contact e-mail address (for our eyes only)<span class=\"required\">*</span></label><br>\n            ");
   hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
@@ -69265,12 +69425,7 @@ function program16(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "financeTelephone", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"large-10 large-centered small-12 columns\">\n            <p>\n              <b>Would you prefer the same position as 2013?</b> ");
-  hashTypes = {};
-  hashContexts = {};
-  stack2 = helpers['if'].call(depth0, "sameAs2013", {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"large-6 small-12 columns\">\n            <p>\n              <b>Show Area:</b> ");
+  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"page-break\"></div>\n\n        <div class=\"row\">\n          <div class=\"large-6 small-12 columns\">\n            <p>\n              <b>Show Area:</b> ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "showArea", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -69319,7 +69474,7 @@ function program16(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "contractorTelephone", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"large-4 small-12 columns\">\n            <p>\n              <b>Do you require leaflets?</b> ");
+  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"page-break\"></div>\n\n        <div class=\"row\">\n          <div class=\"large-4 small-12 columns\">\n            <p>\n              <b>Do you require leaflets?</b> ");
   hashTypes = {};
   hashContexts = {};
   stack2 = helpers['if'].call(depth0, "requiresLeaflets", {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -69401,13 +69556,13 @@ function program16(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "deposit", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            </p>\n          </div>\n        </div>\n        <div class=\"row finalRow\">\n          <div class=\"small-12 columns centerAlign\">\n            \n              <div class=\"vertElement\">\n                ");
+  data.buffer.push("\n            </p>\n          </div>\n        </div>\n        <div style=\"border-bottom: none;\" class=\"row finalRow\">\n          <div class=\"small-12 columns centerAlign\">\n            \n              <div class=\"vertElement\">\n                ");
   hashContexts = {'class': depth0};
   hashTypes = {'class': "STRING"};
   options = {hash:{
     'class': ("button rightButton exhibitor callToAction")
   },inverse:self.noop,fn:self.program(13, program13, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "orders.edit", "model", options) : helperMissing.call(depth0, "link-to", "orders.edit", "model", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "bookings.edit", "model", options) : helperMissing.call(depth0, "link-to", "bookings.edit", "model", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n                <span class=\"buttonLabel\">edit booking</span>\n              </div>\n              \n          </div>\n        </div>\n        \n\n        <div class=\"row finalRow\">\n          <div class=\"small-12 columns centerAlign\">\n            ");
   hashTypes = {};
@@ -70357,19 +70512,14 @@ function program4(depth0,data) {
   hashTypes = {'class': "STRING"};
   options = {hash:{
     'class': ("button callToAction")
-  },inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  },inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "bookings.new", options) : helperMissing.call(depth0, "link-to", "bookings.new", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n						<span class=\"buttonLabel\">my booking</span>\n					</div>\n				</div>\n				");
+  data.buffer.push("\n						<span class=\"buttonLabel\">new booking</span>\n					</div>\n				</div>\n				");
   return buffer;
   }
-function program5(depth0,data) {
-  
-  
-  data.buffer.push("<span class=\"icon-chevron-thick orange\"></span>");
-  }
 
-function program7(depth0,data) {
+function program6(depth0,data) {
   
   
   data.buffer.push("<span class=\"icon-help orange\"></span>");
@@ -70385,7 +70535,7 @@ function program7(depth0,data) {
   hashTypes = {'class': "STRING"};
   options = {hash:{
     'class': ("button callToAction")
-  },inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  },inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "why-exhibit", options) : helperMissing.call(depth0, "link-to", "why-exhibit", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n						<span class=\"buttonLabel\">why exhibit?</span>\n					</div>\n				</div>\n			</div>\n		</div>\n	</div>\n");
@@ -70691,15 +70841,43 @@ function program22(depth0,data) {
 Ember.TEMPLATES["header"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 function program1(depth0,data) {
   
-  var stack1, hashTypes, hashContexts, options;
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n	");
   hashTypes = {};
   hashContexts = {};
-  options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.partial || depth0.partial),stack1 ? stack1.call(depth0, "logo", options) : helperMissing.call(depth0, "partial", "logo", options))));
+  stack1 = helpers['if'].call(depth0, "isIndex", {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n");
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  
+  data.buffer.push("\n	<div class=\"tile logo tile-half-tall\" data-speed=\"750\" data-delay=\"99999999\">\n	    <span class=\"tile-title\"></span>\n	    <div></div>\n	    <div></div>\n	</div>\n	");
+  }
+
+function program4(depth0,data) {
+  
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options;
+  data.buffer.push("\n	<div class=\"tile logo tile-half-tall notIndex\" data-speed=\"750\" data-delay=\"99999999\">\n		<div class=\"row underIndex\">\n			<div class=\"small-4 columns\">\n				");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction small inline")
+  },inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n				<span class=\"buttonLabel inline\">home</span>\n			</div>\n			<div class=\"small-8 columns\">\n				<span class=\"sponsorLabel inline\">principal sponsor</span>\n				<img class=\"sponsoredBy\" src=\"/assets/barclays-white-c74d562e6579795db2eb4d28fb159b5c.png\" />\n			</div>\n		</div>\n	    <div></div>\n	    <div></div>\n	</div>\n	");
+  return buffer;
+  }
+function program5(depth0,data) {
+  
+  
+  data.buffer.push("<span class=\"icon-home\"></span>");
   }
 
   hashContexts = {'classBinding': depth0};
@@ -73041,15 +73219,14 @@ function program7(depth0,data) {
     'class': (":controls errors.name:error")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push(">\n                <label>Full Name</label>\n                ");
-  hashContexts = {'type': depth0,'value': depth0,'placeholder': depth0};
-  hashTypes = {'type': "STRING",'value': "ID",'placeholder': "STRING"};
+  hashContexts = {'type': depth0,'value': depth0};
+  hashTypes = {'type': "STRING",'value': "ID"};
   options = {hash:{
     'type': ("text"),
-    'value': ("name"),
-    'placeholder': ("Full Name")
+    'value': ("name")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n                <small class=\"below\">");
+  data.buffer.push("\n                <small class=\"below regErrors\">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "errors.name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -73060,15 +73237,14 @@ function program7(depth0,data) {
     'class': (":controls errors.email:error")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push(">\n                <label>Email Address</label>\n                ");
-  hashContexts = {'type': depth0,'value': depth0,'placeholder': depth0};
-  hashTypes = {'type': "STRING",'value': "ID",'placeholder': "STRING"};
+  hashContexts = {'type': depth0,'value': depth0};
+  hashTypes = {'type': "STRING",'value': "ID"};
   options = {hash:{
     'type': ("email"),
-    'value': ("email"),
-    'placeholder': ("Email Address")
+    'value': ("email")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n                <small class=\"below\">");
+  data.buffer.push("\n                <small class=\"below regErrors\">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "errors.email", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -73079,15 +73255,14 @@ function program7(depth0,data) {
     'class': (":controls errors.password:error")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push(">\n                <label>Password</label>\n                ");
-  hashContexts = {'type': depth0,'value': depth0,'placeholder': depth0};
-  hashTypes = {'type': "STRING",'value': "ID",'placeholder': "STRING"};
+  hashContexts = {'type': depth0,'value': depth0};
+  hashTypes = {'type': "STRING",'value': "ID"};
   options = {hash:{
     'type': ("password"),
-    'value': ("password"),
-    'placeholder': ("Password")
+    'value': ("password")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n                <small class=\"below\">");
+  data.buffer.push("\n                <small class=\"below regErrors\">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "errors.password", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -73098,19 +73273,18 @@ function program7(depth0,data) {
     'class': (":controls errors.password_confirmation:error")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push(">\n                <label>Confirm Password</label>\n                ");
-  hashContexts = {'type': depth0,'value': depth0,'placeholder': depth0};
-  hashTypes = {'type': "STRING",'value': "ID",'placeholder': "STRING"};
+  hashContexts = {'type': depth0,'value': depth0};
+  hashTypes = {'type': "STRING",'value': "ID"};
   options = {hash:{
     'type': ("password"),
-    'value': ("password_confirmation"),
-    'placeholder': ("Confirm Password")
+    'value': ("password_confirmation")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n                <small class=\"below\">");
+  data.buffer.push("\n                <small class=\"below regErrors\">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "errors.password_confirmation", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</small>\n              </div>\n            </div>\n          </fieldset>\n          <div class=\"form-actions\">\n\n            <span class=\"inlineButtonText\">go</span>\n            <button type=\"submit\" data-icon=\"-\" class=\"inlineButton button forward\"></button>\n          </div>\n        </form>\n      </div>\n    </div>\n    <div class=\"sponsorMessageRow hide-for-small row\">\n      <div class=\"large-12 columns\">\n        <h1>Message from Principal Sponsor</h1>\n        <div class=\"row\">\n          <div class=\"large-6 small-12 columns vertWrap\">\n            <div class=\"imgWrap vertElement\"><span class=\"icon-barclays-logo-full picture\"></span></div>\n          </div>\n          <div class=\"large-6 small-12 columns sponsorMessage\">\n            <p>We are proud to continue our sponsorship of the Livestock Event to demonstrate the continuation of our 300 years of support for UK agriculture and, in this case, the livestock sector in particular.</p>\n            <p>The further development of the program to incorporate a National Dairy Show, the National Charolais show, the National British Blue Show, and the National Lleyn Sheep competition is sure to broaden the appeal of the event to attract more visitors and therefore more exhibitors.</p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"quickActionsRow row\">\n          <div class=\"large-3 small-6 columns vertWrap\">\n            <div class=\"vertElement\">\n              ");
+  data.buffer.push("</small>\n              </div>\n            </div>\n          </fieldset>\n          <div class=\"form-actions\">\n\n            \n            <button type=\"submit\" data-icon=\"-\" class=\"inlineButton button forward\"></button>\n          </div>\n        </form>\n      </div>\n    </div>\n    <div class=\"sponsorMessageRow hide-for-small row\">\n      <div class=\"large-12 columns\">\n        <h1>Message from Principal Sponsor</h1>\n        <div class=\"row\">\n          <div class=\"large-6 small-12 columns vertWrap\">\n            <div class=\"imgWrap vertElement\"><span class=\"icon-barclays-logo-full picture\"></span></div>\n          </div>\n          <div class=\"large-6 small-12 columns sponsorMessage\">\n            <p>We are proud to continue our sponsorship of the Livestock Event to demonstrate the continuation of our 300 years of support for UK agriculture and, in this case, the livestock sector in particular.</p>\n            <p>The further development of the program to incorporate a National Dairy Show, the National Charolais show, the National British Blue Show, and the National Lleyn Sheep competition is sure to broaden the appeal of the event to attract more visitors and therefore more exhibitors.</p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"quickActionsRow row\">\n          <div class=\"large-3 small-6 columns vertWrap\">\n            <div class=\"vertElement\">\n              ");
   hashContexts = {'class': depth0};
   hashTypes = {'class': "STRING"};
   options = {hash:{
@@ -79063,7 +79237,7 @@ var oo=function(a){var b="https://api.oocharts.com/v1/dynamic.jsonp",c=void 0,d=
 	function init() {
 
 		var container = document.getElementById( 'st-container' ),
-			buttons = Array.prototype.slice.call( document.querySelectorAll( '#st-trigger-effects > button' ) ),
+			buttons = Array.prototype.slice.call( document.querySelectorAll( '#st-trigger-effects > a' ) ),
 			// event type (if mobile use touch events)
 			eventtype = mobilecheck() ? 'touchstart' : 'click',
 			resetMenu = function() {
@@ -79078,7 +79252,7 @@ var oo=function(a){var b="https://api.oocharts.com/v1/dynamic.jsonp",c=void 0,d=
 
 		buttons.forEach( function( el, i ) {
 			var effect = el.getAttribute( 'data-effect' );
-
+			console.log(effect);
 			el.addEventListener( eventtype, function( ev ) {
 				ev.stopPropagation();
 				ev.preventDefault();

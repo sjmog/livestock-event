@@ -79,7 +79,7 @@
 <div class="paymentsRow">
   <div class="small-12 columns">
     <!--stripe form-->
-    <form action="http://www.livestockevent.co.uk/charges" method="POST" id="payment-form" class="grid-form">
+    <form action="<%= ENV["BASE_URL"] %>/charges" method="POST" id="payment-form" class="grid-form">
       <span class="payment-errors"></span>
       <fieldset>
         <div data-row-span="2">

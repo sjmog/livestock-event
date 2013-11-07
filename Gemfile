@@ -17,6 +17,7 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby' #stripe integratio
 gem 'activemerchant' #decent payment provider integration
 # gem 'protected_attributes' #make older devise work with new Rails, avoiding strong param requirements
 gem 'encryptor' #better encryption wrapper for OpenSSL
+gem 'figaro' #easy environment-specific variables
 
 group :production do
 	gem 'heroku-deflater', :group => :production #gzips files

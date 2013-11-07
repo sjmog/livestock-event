@@ -9,33 +9,33 @@
             <div data-row-span="2">
               <div data-field-span="1" {{bindAttr class=":controls errors.name:error"}}>
                 <label>Full Name</label>
-                {{input type="text" value=name placeholder="Full Name"}}
-                <small class="below">{{errors.name}}</small>
+                {{input type="text" value=name}}
+                <small class="below regErrors">{{errors.name}}</small>
               </div>
 
               <div data-field-span="1" {{bindAttr class=":controls errors.email:error"}}>
                 <label>Email Address</label>
-                {{input type="email" value=email placeholder="Email Address"}}
-                <small class="below">{{errors.email}}</small>
+                {{input type="email" value=email }}
+                <small class="below regErrors">{{errors.email}}</small>
               </div>
             </div>
             <div data-row-span="2">
               <div data-field-span="1" {{bindAttr class=":controls errors.password:error"}}>
                 <label>Password</label>
-                {{input type="password" value=password placeholder="Password"}}
-                <small class="below">{{errors.password}}</small>
+                {{input type="password" value=password }}
+                <small class="below regErrors">{{errors.password}}</small>
               </div>
 
               <div data-field-span="1" {{bindAttr class=":controls errors.password_confirmation:error"}}>
                 <label>Confirm Password</label>
-                {{input type="password" value=password_confirmation placeholder="Confirm Password"}}
-                <small class="below">{{errors.password_confirmation}}</small>
+                {{input type="password" value=password_confirmation }}
+                <small class="below regErrors">{{errors.password_confirmation}}</small>
               </div>
             </div>
           </fieldset>
           <div class="form-actions">
 
-            <span class="inlineButtonText">go</span>
+            
             <button type="submit" data-icon="-" class="inlineButton button forward"></button>
           </div>
         </form>

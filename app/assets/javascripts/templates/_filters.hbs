@@ -2,7 +2,7 @@
 {{#if isAuthenticated}}
   <span {{bind-attr class=":authNotice isIndex:indexLogin:notIndexLogin"}}><span class="icon-link-icon"></span> {{currentUser.email}}</span>
 {{/if}}
-<span class="menuButton"><a data-effect="st-effect-9" class="link login offset"><span class="icon-menu"></span><span class="buttonLabel">{{#if isAuthenticated}}menu{{else}}log in{{/if}}</span></a></span>
+<span id="st-trigger-effects" class="menuButton"><a data-effect="st-effect-2" id="st-trigger-effect" class="link login offset"><span class="icon-menu"></span><span class="buttonLabel">{{#if isAuthenticated}}menu{{else}}log in{{/if}}</span></a></span>
 
 
 <div {{bind-attr class=":tile :filters :tile-quarter-tall :tile-half-wide :tile-offset-vertical-quarter isIndex:indexFilter:notIndexFilter"}} data-speed="750" data-delay="999999999">

@@ -66,4 +66,16 @@ EmberAuthRailsDemo::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.ember.variant = :production
+
+  #lovely email settings
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            'sam@ghostds.com',
+    password:             'ace55chopper',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
+  
 end

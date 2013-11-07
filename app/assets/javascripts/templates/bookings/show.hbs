@@ -86,13 +86,7 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="large-10 large-centered small-12 columns">
-            <p>
-              <b>Would you prefer the same position as 2013?</b> {{#if sameAs2013 }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
-            </p>
-          </div>
-        </div>
+        <div class="page-break"></div>
 
         <div class="row">
           <div class="large-6 small-12 columns">
@@ -177,6 +171,8 @@
             </p>
           </div>
         </div>
+
+        <div class="page-break"></div>
 
         <div class="row">
           <div class="large-4 small-12 columns">
@@ -285,11 +281,11 @@
             </p>
           </div>
         </div>
-        <div class="row finalRow">
+        <div style="border-bottom: none;" class="row finalRow">
           <div class="small-12 columns centerAlign">
             
               <div class="vertElement">
-                {{#link-to 'orders.edit' model class="button rightButton exhibitor callToAction"}}<span class="icon-settings"></span>{{/link-to}}
+                {{#link-to 'bookings.edit' model class="button rightButton exhibitor callToAction"}}<span class="icon-settings"></span>{{/link-to}}
                 <span class="buttonLabel">edit booking</span>
               </div>
               

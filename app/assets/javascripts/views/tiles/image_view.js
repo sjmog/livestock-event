@@ -9,6 +9,7 @@ App.ImageView = Ember.View.extend({
 	flipped:false,
 	imgArray: [],
 	numberImgs: 6,
+	interval: null,
 	imgFolder: 'https://dl.dropboxusercontent.com/u/57653232/hosted%20files%20for%20rabdf%20do%20not%20delete/images/large/',
 	moveAlong: function() {
 		var self = this;
@@ -47,7 +48,7 @@ App.ImageView = Ember.View.extend({
 		//autoRotation
 		$(document).ready(function() {
 			var count = 1;
-			window.setInterval(function() {
+			var interval = window.setInterval(function() {
 				console.log('rotatingImage');
 				if(count % 2) {
 					view.set('flipped', true);
@@ -57,8 +58,14 @@ App.ImageView = Ember.View.extend({
 					view.moveAlong();
 				};
 				if(count<(imgNumber - 1)) {count++} else {count = 0};
-			},(18000+randomTime));		
+			},(18000+randomTime));
+			view.set('interval', interval);		
 		})
+	},
+	willDestroyElement: function() {
+		var view = this;
+		var interval = view.get('interval');
+		window.clearInterval(interval);
 	}
 });
 

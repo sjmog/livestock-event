@@ -3525,8 +3525,46 @@ form.registration {
 	div.form-actions {
 		margin-top:30px;
 		text-align:right;
-		
+		button.inlineButton.forward {
+			font-size:2.4em;
+			&:after {
+				content:"go";
+				font-family: $font1;
+				display:block;
+				position:absolute;
+				left:-40px;
+				top:0;
+				font-size:1.6rem;
+				height:40px;
+				width:40px;
+				text-align:center;
+				line-height:40px;
+				text-transform:uppercase;
+				font-weight:normal;
+			}
+		}
 	}
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus,
+input:active,
+select:active,
+textarea:active,
+button:active {
+    outline: none !important;
+}
+
+.regErrors {
+	font-size:0.8em;
+	text-align:right;
+	float:right;
+	text-transform:uppercase;
+	color:darken($errorColor, 40%);
+	letter-spacing:1px;
+	width:120px;
 }
 
 .sponsorMessageRow h1 {
@@ -4101,6 +4139,13 @@ div.form-actions {
  		min-height:50px !important;
  	}
  }
+}
+@media all {
+	.page-break	{ display: none; }
+}
+
+@media print {
+	.page-break	{ display: block; page-break-before: always; }
 }
 @media screen and (min-width: 641px) {
 	.largeText {

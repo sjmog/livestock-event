@@ -31,15 +31,15 @@
 
     <%= render "components/cookies" %>
 	
-    <script type="text/javascript" src="assets/modalEffects.js"></script>
-    <script type="text/javascript" src="assets/history.js"></script>
+    <script type="text/javascript" src="<%= ENV["BASE_URL"] %>/assets/modalEffects.js"></script>
+    <script type="text/javascript" src="<%= ENV["BASE_URL"] %>/assets/history.js"></script>
     <script type="text/javascript">
       $( document ).ajaxError(function(event, jqxhr) {
         var status = jqxhr.status;
         var errs = jqxhr.responseText;
         if (status === 401) {
           $( "#modalHeading" ).text( jqxhr.status );
-          $( "#modalContent" ).text( "We're sorry about this, but you're not allowed to access that resource. You might be seeing this error if you accidentally used the wrong password, or if you're trying to log in to an Admin-only area of the site." );
+          $( "#modalContent" ).text( "That's not the password we have for you. Please try again." );
         }
         else if (status == 400) {
           $( "#modalHeading" ).text( jqxhr.status );
@@ -55,7 +55,7 @@
         }
         else if (status === 422) {
           $( "#modalHeading" ).text( jqxhr.status );
-          $( "#modalContent" ).text( "The server sort of understands what you're asking for, but something went missing in translation. Please try whatever you were just doing again." );
+          $( "#modalContent" ).text( "Something's not quite right. Please check for mistakes, and then try whatever you were just doing again." );
         };
         $(".md-content").addClass('errorModal');
         $(".md-trigger.callModal").click();
