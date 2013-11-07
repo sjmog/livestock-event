@@ -1,7 +1,7 @@
 class ContactMailer< ActionMailer::Base
  
-  default :from => "noreply@livestockevent.co.uk"
-  default :to => "livestockevent@rabdf.co.uk"
+  default :from => "thankyou@livestockevent.co.uk"
+  default :to => "office@rabdf.co.uk"
  
   def new_message(message)
     @message = message

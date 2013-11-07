@@ -7,6 +7,7 @@ class Ability
     can :read, [Article, Contractor, Testimonial, Stand, Supporter]
     can :create, User
     can :create, Order
+    can :create, Message
     can :manage, User, :id => user.id if user.role == "standard"
     can :manage, Order, :user => user.id if user.role == "standard"
     can :update, Stand if user.role == "standard"
