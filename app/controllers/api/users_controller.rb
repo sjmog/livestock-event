@@ -5,6 +5,8 @@ module Api
 
     # Returns list of users. This requires authorization
     def index
+      @users = User.all
+      authorize! :index, @users
       render json: User.all
     end
 

@@ -12,6 +12,7 @@ class Ability
     can :manage, Order, :user => user.id if user.role == "standard"
     can :update, Stand if user.role == "standard"
     can :create, Booking if user.role == "standard"
+    can :read, Booking, :user_id => user.id if user.role="standard"
     can :manage, Booking, :user_id => user.id if user.role == "standard"
     can :manage, Article if user.role == "admin"
     can :manage, Testimonial if user.role == "admin"
