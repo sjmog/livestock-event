@@ -62335,6 +62335,14 @@ App.BookingsNewView = Ember.View.extend({
 	},
 	didInsertElement: function() {
 		window.scrollTo(0,0);
+		//stop submission on enter
+		$('.grid-form').bind("keyup keypress", function(e) {
+		  var code = e.keyCode || e.which; 
+		  if (code  == 13) {               
+		    e.preventDefault();
+		    return false;
+		  }
+		});
 
 		var view = this;
 		//add the price bar
@@ -66299,198 +66307,684 @@ function program67(depth0,data) {
 Ember.TEMPLATES["bookings/edit"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this;
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
 
 function program1(depth0,data) {
   
   
-  data.buffer.push("\n         <legend>4a. Stand Details</legend>\n         ");
+  data.buffer.push("<span class=\"icon-back\"></span>");
   }
 
 function program3(depth0,data) {
   
   
-  data.buffer.push("\n         <legend>4. Stand Details</legend>\n         ");
+  data.buffer.push("<span class=\"icon-calendar\"></span>");
   }
 
 function program5(depth0,data) {
   
-  var buffer = '', hashTypes, hashContexts;
-  data.buffer.push("\n         <div class=\"row outdoorRow helperRow\">\n           <div class=\"large-6 small-12 columns mapColumn\">\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.OutdoormapView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div class=\"large-6 small-12 columns\">\n             <label>Pick an Outdoor block</label>\n             <a class=\"closeButton closeFormInfo\" id=\"outdoorRow-closeButton\"><span class=\"icon-close-alt\"></span></a>\n             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n             <div data-row-span=\"1\" class=\"subRow\">\n               <div data-field-span=\"1\" class=\"subField\">\n               <label for=\"stand_number\">stand number</label><br>\n               ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.StandPicker", {hash:{
-    'valueBinding': ("standNumber"),
-    'id': ("stand_number")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n               </div>\n             </div>\n           </div>\n         </div>\n         ");
-  return buffer;
+  
+  data.buffer.push("<span class=\"icon-eye \"></span>");
   }
 
 function program7(depth0,data) {
   
-  var buffer = '', hashTypes, hashContexts;
-  data.buffer.push("\n         <div class=\"row machineryHallRow helperRow\">\n           <div class=\"large-6 small-12 columns mapColumn\">\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.MachinerymapView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div class=\"large-6 small-12 columns\">\n             <label>Pick a block from the Machinery Hall</label>\n             <a class=\"closeButton closeFormInfo\" id=\"machineryHallRow-closeButton\"><span class=\"icon-close-alt\"></span></a>\n             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n             <div data-row-span=\"1\" class=\"subRow\">\n               <div data-field-span=\"1\" class=\"subField\">\n               <label for=\"stand_number\">stand number</label><br>\n               ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.StandPicker", {hash:{
-    'valueBinding': ("standNumber"),
-    'id': ("stand_number")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n               </div>\n             </div>\n           </div>\n         </div>\n         ");
-  return buffer;
+  
+  data.buffer.push("<span class=\"icon-envelope\"></span>");
   }
 
 function program9(depth0,data) {
   
-  var buffer = '', hashTypes, hashContexts;
-  data.buffer.push("\n         <div class=\"row zoneRow helperRow\">\n           <div class=\"large-6 small-12 columns mapColumn\">\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.IndoormapView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div class=\"large-6 small-12 columns\">\n             <label>Pick a block from ");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "zone", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</label>\n             <a class=\"closeButton closeFormInfo\" id=\"zoneRow-closeButton\"><span class=\"icon-close-alt\"></span></a>\n             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n             <div data-row-span=\"1\" class=\"subRow\">\n               <div data-field-span=\"1\" class=\"subField\">\n               <label for=\"stand_number\">stand number</label><br>\n               ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.StandPicker", {hash:{
-    'valueBinding': ("standNumber"),
-    'id': ("stand_number")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n               </div>\n             </div>\n           </div>\n         </div>\n         ");
-  return buffer;
+  
+  data.buffer.push("\n         <legend>4a. Stand Details</legend>\n         ");
   }
 
 function program11(depth0,data) {
   
   
-  data.buffer.push("\n             <img src=\"http://placehold.it/300x300\" />\n             ");
+  data.buffer.push("\n         <legend>4. Stand Details</legend>\n         ");
   }
 
 function program13(depth0,data) {
   
+  var buffer = '', stack1, stack2, hashTypes, hashContexts, options;
+  data.buffer.push("\n           <div class=\"row outdoorRow helperRow\">\n           <div class=\"large-4 small-12 columns pricingColumn\">\n             <h1>pricing</h1>\n             <ul>\n               <li>Clear Stand Space only 0-99sqm  £16/sqm</li>\n               <li>Clear Stand Space only 100-199sqm £15/sqm</li>\n               <li>Clear Stand Space only 200+sqm  £14/sqm</li>\n               <li>These prices are early bird stand rates. <i>Please note these will increase on 1st January 2014.</i></li>\n             </ul>\n           </div>\n             <div class=\"large-4 small-12 columns mapColumn\">\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.OutdoorMapView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n             </div>\n             <div class=\"large-4 small-12 columns\">\n               <h1>Pick an Outdoor stand</h1>\n               <p>The NEC's Outdoor arena is a bustling mix of trade, B2C, and B2B suppliers. The wide open space, which surrounds the Machinery Hall, is perfect for stand-holders who need a little more room without unnecessarily escalating costs.</p>\n               <p><i>If you're trying to book the same stand that you had at the 2013 show & it's marked as unavailable, then please proceed and book this option - The Livestock Event team will do its best to reward your loyalty.</i></p>\n               <div data-row-span=\"1\" class=\"subRow\">\n                 <div data-field-span=\"1\" ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":subField standWarning:warning standGood:good")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">\n                 <label for=\"stand_number\">stand number</label><br>\n                 ");
+  hashContexts = {'valueBinding': depth0,'id': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.standNumber"),
+    'id': ("stand_number")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n                 <span ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "getStand", {hash:{
+    'target': ("controller")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"checker icon-help\"></span>\n                 <span ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "getStand", {hash:{
+    'target': ("controller")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"undercheck afterthought\">check stand availability & dimensions</span>\n                 ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "content.stand", {hash:{},inverse:self.noop,fn:self.program(14, program14, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n                 </div>\n               </div>\n             </div>\n           </div>\n           ");
+  return buffer;
+  }
+function program14(depth0,data) {
   
-  data.buffer.push("\n             <p>'Open', or 'clear', stand space is sold without carpet or electrics. Benefits include:</p>\n             <ul>\n               <li>Entry into the Show Guide</li>\n               <li>FREE Parking</li>\n             </ul>\n             ");
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n                 <br />\n                 <span class=\"afterthought\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "content.frontage", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("m x ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "content.depth", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("m (total area: ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "content.area", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("sqm)</span>\n                 ");
+  return buffer;
   }
 
-function program15(depth0,data) {
+function program16(depth0,data) {
   
-  
-  data.buffer.push("\n             <p>A 'shell', or 'modular', system comes as one-metre modules and can be build to just about any size. Benefits include:</p>\n             <ul>\n               <li>Modular shell scheme</li>\n               <li>White <a class=\"inlineLink\" href=\"http://www.par-group.co.uk/engineering-plastics/Foamex-Foam-PVC.aspx\">Foamex</a> infill panels</li>\n               <li>Fascia Name Board</li>\n               <li>Electrical Socket and Lighting Package</li>\n               <li>Carpet</li>\n               <li>Entry into the Show Guide</li>\n               <li>FREE Parking</li>\n             </ul>\n             ");
+  var buffer = '', stack1, stack2, hashTypes, hashContexts, options;
+  data.buffer.push("\n           <div class=\"row machineryHallRow helperRow\">\n             <div class=\"large-4 small-12 columns pricingColumn\">\n               <h1>pricing</h1>\n               <ul>\n                 <li>Clear Stand Space only 0-99sqm  £18/sqm</li>\n                 <li>Clear Stand Space only 100-199sqm £17/sqm</li>\n                 <li>Clear Stand Space only 200+sqm  £16/sqm</li>\n                 <li>These prices are early bird stand rates. <i>Please note these will increase on 1st January 2014.</i></li>\n               </ul>\n             </div>\n             <div class=\"large-4 small-12 columns mapColumn\">\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.MachineryMapView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n             </div>\n             <div class=\"large-4 small-12 columns\">\n               <h1 class=\"machineryColor\">Pick a stand from the Machinery Hall</h1>\n               <p>This hall is the UK’s largest dedicated undercover Machinery area.  Exhibitors include John Deere and Land Rover.</p>\n               <p><i>If you're trying to book the same stand that you had at the 2013 show & it's marked as unavailable, then please proceed and book this option - The Livestock Event team will do its best to reward your loyalty.</i></p>\n               <div data-row-span=\"1\" class=\"subRow\">\n                 <div data-field-span=\"1\" ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":subField standWarning:warning standGood:good")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">\n                 <label for=\"stand_number\">stand number</label><br>\n                 ");
+  hashContexts = {'valueBinding': depth0,'id': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.standNumber"),
+    'id': ("stand_number")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n                 <span ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "getStand", {hash:{
+    'target': ("controller")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"checker icon-help\"></span>\n                 <span ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "getStand", {hash:{
+    'target': ("controller")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"undercheck afterthought\">check stand availability & dimensions</span>\n                 ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "content.stand", {hash:{},inverse:self.noop,fn:self.program(14, program14, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n                 </div>\n               </div>\n             </div>\n           </div>\n           ");
+  return buffer;
   }
 
-function program17(depth0,data) {
+function program18(depth0,data) {
   
-  
-  data.buffer.push("\n             <img src=\"<%= asset_path('corner.jpg') %>\" />\n             ");
+  var buffer = '', stack1, hashTypes, hashContexts, options;
+  data.buffer.push("\n           <div class=\"row zoneRow helperRow\">\n             <div class=\"large-4 small-12 columns pricingColumn\">\n               <h1>pricing</h1>\n               <ul>\n                 <li>Clear Stand Space only 0-199sqm £45/sqm</li>\n                 <li>Clear Stand Space only 200+sqm  £42/sqm</li>\n                 <li>Modular Shell Scheme £100/sqm</li>\n                 <li>These prices are early bird stand rates. <i>Please note these will increase on 1st January 2014.</i></li>\n               </ul>\n             </div>\n             <div class=\"large-4 small-12 columns mapColumn\">\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zone", {hash:{},inverse:self.program(21, program21, data),fn:self.program(19, program19, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsAnimalhealth", {hash:{},inverse:self.noop,fn:self.program(23, program23, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsBusinessmanagement", {hash:{},inverse:self.noop,fn:self.program(25, program25, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsDiversifarmrenewables", {hash:{},inverse:self.noop,fn:self.program(27, program27, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsFeedsforage", {hash:{},inverse:self.noop,fn:self.program(25, program25, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsGenetics", {hash:{},inverse:self.noop,fn:self.program(23, program23, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsHousingstorage", {hash:{},inverse:self.noop,fn:self.program(23, program23, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsLivestockequipment", {hash:{},inverse:self.noop,fn:self.program(27, program27, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsMilking", {hash:{},inverse:self.noop,fn:self.program(27, program27, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsMilkmade", {hash:{},inverse:self.noop,fn:self.program(27, program27, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsSlurrymuck", {hash:{},inverse:self.noop,fn:self.program(27, program27, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n             </div>\n             <div class=\"large-4 small-12 columns\">\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zone", {hash:{},inverse:self.program(21, program21, data),fn:self.program(29, program29, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsAnimalhealth", {hash:{},inverse:self.noop,fn:self.program(31, program31, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsBusinessmanagement", {hash:{},inverse:self.noop,fn:self.program(33, program33, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsDiversifarmrenewables", {hash:{},inverse:self.noop,fn:self.program(35, program35, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsFeedsforage", {hash:{},inverse:self.noop,fn:self.program(37, program37, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsGenetics", {hash:{},inverse:self.noop,fn:self.program(39, program39, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsHousingstorage", {hash:{},inverse:self.noop,fn:self.program(41, program41, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsLivestockequipment", {hash:{},inverse:self.noop,fn:self.program(43, program43, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsMilking", {hash:{},inverse:self.noop,fn:self.program(45, program45, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsMilkmade", {hash:{},inverse:self.noop,fn:self.program(47, program47, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "zoneIsSlurrymuck", {hash:{},inverse:self.noop,fn:self.program(49, program49, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n               <div data-row-span=\"1\" class=\"subRow\">\n                 <div data-field-span=\"1\" ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":subField standGood:good")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">\n                 <label for=\"stand_number\">block number</label><br>\n                 ");
+  hashContexts = {'valueBinding': depth0,'id': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.standNumber"),
+    'id': ("stand_number")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n                 </div>\n               </div>\n             </div>\n           </div>\n           ");
+  return buffer;
   }
-
 function program19(depth0,data) {
   
-  
-  data.buffer.push("\n             <img src=\"<%= asset_path('peninsula.jpg') %>\" />\n             ");
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n               <h1 style=\"margin-bottom:0 !important\" ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("colorClass")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">block map: ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "zone", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</h1>\n               ");
+  return buffer;
   }
 
 function program21(depth0,data) {
   
   
-  data.buffer.push("\n             <img src=\"<%= asset_path('island.jpg') %>\" />\n             ");
+  data.buffer.push("\n               <h1>pick a zone above</h1>\n               ");
   }
 
 function program23(depth0,data) {
   
-  
-  data.buffer.push("\n             <p>One side open, with no surcharge or minimum stand area.</p>\n             ");
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n                 ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.IndoorBView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n               ");
+  return buffer;
   }
 
 function program25(depth0,data) {
   
-  
-  data.buffer.push("\n             <p>Two sides open, with a surcharge of 10% applied to the base stand price. No minimum stand area.</p>\n             ");
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n                 ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.IndoorAView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n               ");
+  return buffer;
   }
 
 function program27(depth0,data) {
   
-  
-  data.buffer.push("\n             <p>Three sides open, with a surcharge of 15% applied to the base stand price. A minimum stand area of 64 sqm.</p>\n             ");
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n                 ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.IndoorCView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n               ");
+  return buffer;
   }
 
 function program29(depth0,data) {
   
-  
-  data.buffer.push("\n             <p>Four sides open, with a surcharge of 20% applied to the base stand price. A minimum stand area of 100 sqm.</p>\n             ");
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n               <h1 ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("colorClass")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">Pick a block from ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "zone", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</h1>\n               ");
+  return buffer;
   }
 
 function program31(depth0,data) {
   
+  
+  data.buffer.push("\n               <p>This zone will feature animal health and veterinary product manufacturers and distributors.</p>\n               ");
+  }
+
+function program33(depth0,data) {
+  
+  
+  data.buffer.push("\n               <p>Exhibitors will include consultants, financial providers, insurance, IT, education, training and recruitment, trade associations, publishers and quality assurance.</p>\n               ");
+  }
+
+function program35(depth0,data) {
+  
+  
+  data.buffer.push("\n               <p>This exhibition zone attracts farmers looking to generate additional income from existing land and farm assets.</p>\n               <p><i>Please note that the only block for open space stands within this zone is 126.  All other blocks within this zone will only accommodate shell scheme bookings.</i></p>\n               ");
+  }
+
+function program37(depth0,data) {
+  
+  
+  data.buffer.push("\n               <p>Companies in this zone will cover feeds, seeds, fertilisers, chemicals, silage and feed additives, soil and forage products.</p>\n               ");
+  }
+
+function program39(depth0,data) {
+  
+  
+  data.buffer.push("\n               <p>This is a dedicated zone for all breeding AI companies and breed societies.</p>\n               ");
+  }
+
+function program41(depth0,data) {
+  
+  
+  data.buffer.push("\n               <p>Exhibitors will include animal housing, building and materials cubicles, bins and bedding products.</p>\n               ");
+  }
+
+function program43(depth0,data) {
+  
+  
+  data.buffer.push("\n               <p>This zone will cover Equipment for feeding, identification, handling, livestock fencing, tractors, telehandlers, machinery, attachments and spare parts.</p>\n               ");
+  }
+
+function program45(depth0,data) {
+  
+  
+  data.buffer.push("\n               <p>For all aspects of milking, including parlours, cooling equipment, spares, hygiene products, clothing and milk testing.</p>\n               ");
+  }
+
+function program47(depth0,data) {
+  
+  
+  data.buffer.push("\n               <p>This zone attracts farmers looking to add value to their milk, whether this be through securing new milk contracts or looking at processing their own milk into cheese, ice cream, yoghurt and other dairy products.</p>\n               ");
+  }
+
+function program49(depth0,data) {
+  
+  
+  data.buffer.push("\n               <p>For companies involved in the handling and storage of slurry and water, environmental products and advisory services.</p>\n               ");
+  }
+
+function program51(depth0,data) {
+  
   var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n         <div data-row-span=\"1\">\n           <div data-field-span=\"1\">\n             <label for=\"breed_society\">Breed society</label><br>\n             ");
+  data.buffer.push("\n         <div data-row-span=\"1\">\n           <div data-field-span=\"1\">\n             <p>This zone will feature classes from the National Dairy Show, the National Charolais show, the National British Blue Show and the National Lleyn Sheep competition.</p>\n             <h2>Livestock Hall stand particulars</h2>\n             <ul>\n               <li><strong>Dairy</strong> - Upon application - Please call the event office on <a href=\"tel:08454582711\" class=\"inlineLink\">0845 458 2711</a></li>\n               <li><strong>Sheep Breed Society</strong> - 6m x 3m total area - includes two 1.5m x 1.5m pens and straw and a clear stand space of 3m x 3m</li>\n               <li><strong>Beef Breed Society</strong> - 11m x 4m total area - includes two 4m x 4m pens with sleeper base and straw and a clear stand space of 3m x 4m</li>\n             </ul>\n\n           </div>\n         </div>\n         <div data-row-span=\"1\">\n           <div data-field-span=\"1\">\n             <label for=\"breed_society\">Breed society</label><br>\n             ");
   hashContexts = {'contentBinding': depth0,'optionValuePath': depth0,'optionLabelPath': depth0,'valueBinding': depth0,'id': depth0};
   hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Select", {hash:{
     'contentBinding': ("breedSocieties"),
     'optionValuePath': ("content.value"),
     'optionLabelPath': ("content.fullName"),
-    'valueBinding': ("breedSociety"),
+    'valueBinding': ("content.breedSociety"),
     'id': ("breed_society")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n         </div>\n         ");
   return buffer;
   }
 
-function program33(depth0,data) {
+function program53(depth0,data) {
+  
+  
+  data.buffer.push("\n           <div data-row-span=\"1\">\n             <div data-field-span=\"1\">\n               <h1>Dairy Exhibitors: please call the office on <a class=\"whiteLink inlineLink\" href=\"tel:+448454582711\">0845 458 2711</a>.</h1>\n             </div>\n           </div>\n         ");
+  }
+
+function program55(depth0,data) {
+  
+  var buffer = '', hashContexts, hashTypes;
+  data.buffer.push("\n\n           <div id=\"position_field\" data-field-span=\"1\">\n             <label for=\"position\">Stand Type</label><br>\n             ");
+  hashContexts = {'contentBinding': depth0,'optionValuePath': depth0,'optionLabelPath': depth0,'valueBinding': depth0,'id': depth0};
+  hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Select", {hash:{
+    'contentBinding': ("positionsAlt"),
+    'optionValuePath': ("content.value"),
+    'optionLabelPath': ("content.fullName"),
+    'valueBinding': ("content.position"),
+    'id': ("position")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n           </div>\n\n           ");
+  return buffer;
+  }
+
+function program57(depth0,data) {
+  
+  var buffer = '', hashContexts, hashTypes;
+  data.buffer.push("\n\n           <div id=\"position_field\" data-field-span=\"1\">\n             <label for=\"position\">Stand Type</label><br>\n             ");
+  hashContexts = {'contentBinding': depth0,'optionValuePath': depth0,'optionLabelPath': depth0,'valueBinding': depth0,'id': depth0};
+  hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Select", {hash:{
+    'contentBinding': ("positions"),
+    'optionValuePath': ("content.value"),
+    'optionLabelPath': ("content.fullName"),
+    'valueBinding': ("content.position"),
+    'id': ("position")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n           </div>\n\n           ");
+  return buffer;
+  }
+
+function program59(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n         <div class=\"row standTypeRow helperRow\">\n           <div class=\"large-6 small-12 columns\">\n             ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "standTypeIsClear", {hash:{},inverse:self.program(62, program62, data),fn:self.program(60, program60, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n           </div>\n           <div class=\"large-6 small-12 columns\">\n             ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "standTypeIsClear", {hash:{},inverse:self.program(66, program66, data),fn:self.program(64, program64, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n           </div>\n         </div>\n         ");
+  return buffer;
+  }
+function program60(depth0,data) {
+  
+  
+  data.buffer.push("\n             \n             ");
+  }
+
+function program62(depth0,data) {
+  
+  
+  data.buffer.push("\n             <img src=\"<%= asset_path('shell.jpg') %>\" />\n             ");
+  }
+
+function program64(depth0,data) {
+  
+  
+  data.buffer.push("\n             <label>About Clear Stands</label>\n             <a class=\"closeButton closeFormInfo\" id=\"standTypeRow-closeButton\"><span class=\"icon-close-alt\"></span></a>\n             \n             <p>'Open', or 'clear', stand space is sold without carpet or electrics. Benefits include:</p>\n             <ul>\n               <li>Entry into the Show Guide</li>\n               <li>FREE Parking</li>\n               <li>9-199sqm = £45 per sqm</li>\n               <li>200sqm+ = £43 per sqm</li>\n\n             </ul>\n             ");
+  }
+
+function program66(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n               ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "standTypeIsShell", {hash:{},inverse:self.noop,fn:self.program(67, program67, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n             ");
+  return buffer;
+  }
+function program67(depth0,data) {
+  
+  
+  data.buffer.push("\n             <label>About Shell Stands</label>\n             <a class=\"closeButton closeFormInfo\" id=\"standTypeRow-closeButton\"><span class=\"icon-close-alt\"></span></a>\n             <p>A 'shell', or 'modular', system comes as one-metre modules and can be build to just about any size. Benefits include:</p>\n             <ul>\n               <li>Modular shell scheme</li>\n               <li>White <a class=\"inlineLink\" href=\"http://www.par-group.co.uk/engineering-plastics/Foamex-Foam-PVC.aspx\" target=\"_blank\">Foamex</a> infill panels</li>\n               <li>Fascia Name Board</li>\n               <li>Electrical Socket and Lighting Package</li>\n               <li>Carpet</li>\n               <li>Entry into the Show Guide</li>\n               <li>FREE Parking</li>\n               <li>9sqm+ = £100 per sqm</li>\n             </ul>\n               ");
+  }
+
+function program69(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n         \n         <div class=\"row positionRow helperRow\">\n           <div class=\"large-6 small-12 columns\">\n             ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "positionIsStandard", {hash:{},inverse:self.noop,fn:self.program(60, program60, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n             ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "positionIsCorner", {hash:{},inverse:self.noop,fn:self.program(70, program70, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n             ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "positionIsPeninsula", {hash:{},inverse:self.noop,fn:self.program(72, program72, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n             ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "positionIsIsland", {hash:{},inverse:self.noop,fn:self.program(74, program74, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n             \n           </div>\n           <div class=\"large-6 small-12 columns\">\n             <label>About ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "position", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" Stands</label>\n             <a class=\"closeButton closeFormInfo\" id=\"positionRow-closeButton\"><span class=\"icon-close-alt\"></span></a>\n             ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "positionIsStandard", {hash:{},inverse:self.noop,fn:self.program(76, program76, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n             ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "positionIsCorner", {hash:{},inverse:self.noop,fn:self.program(78, program78, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n             ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "positionIsPeninsula", {hash:{},inverse:self.noop,fn:self.program(80, program80, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n             ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "positionIsIsland", {hash:{},inverse:self.noop,fn:self.program(82, program82, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n           </div>\n         </div>\n\n         ");
+  return buffer;
+  }
+function program70(depth0,data) {
+  
+  
+  data.buffer.push("\n             <img src=\"<%= asset_path('corner.jpg') %>\" />\n             ");
+  }
+
+function program72(depth0,data) {
+  
+  
+  data.buffer.push("\n             <img src=\"<%= asset_path('peninsula.jpg') %>\" />\n             ");
+  }
+
+function program74(depth0,data) {
+  
+  
+  data.buffer.push("\n             <img src=\"<%= asset_path('island.jpg') %>\" />\n             ");
+  }
+
+function program76(depth0,data) {
+  
+  
+  data.buffer.push("\n             <p>One side open, with no surcharge or minimum stand area.</p>\n             ");
+  }
+
+function program78(depth0,data) {
+  
+  
+  data.buffer.push("\n             <p>Two sides open, with a surcharge of 10% applied to the base stand price. No minimum stand area.</p>\n             ");
+  }
+
+function program80(depth0,data) {
+  
+  
+  data.buffer.push("\n             <p>Three sides open, with a surcharge of 15% applied to the base stand price. A minimum stand area of 64 sqm.</p>\n             ");
+  }
+
+function program82(depth0,data) {
+  
+  
+  data.buffer.push("\n             <p>Four sides open, with a surcharge of 20% applied to the base stand price. A minimum stand area of 100 sqm.</p>\n             ");
+  }
+
+function program84(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n         <div ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":afterHelpRow areaTooSmall:areaWarning")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(" data-row-span=\"2\">\n           <div data-field-span=\"1\">\n             <label for=\"frontage\">Frontage/m<span class=\"required\">*</span></label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.frontage"),
+    'id': ("frontage"),
+    'required': ("")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n           </div>\n           \n           <div data-field-span=\"1\">\n             <label for=\"depth\">Depth/m<span class=\"required\">*</span></label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.depth"),
+    'id': ("depth"),
+    'required': ("")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n           </div>\n         </div>\n         ");
+  return buffer;
+  }
+
+function program86(depth0,data) {
   
   var buffer = '', hashContexts, hashTypes;
   data.buffer.push("\n         <fieldset>\n           <legend>4b. Contractor Details (if Stand Format is 'Clear')</legend>\n           <div data-row-span=\"2\">\n             <div data-field-span=\"1\">\n               <label for=\"contractor_company_name\">contractor company name</label><br>\n               ");
   hashContexts = {'valueBinding': depth0,'id': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("contractorCompanyName"),
+    'valueBinding': ("content.contractorCompanyName"),
     'id': ("contractor_company_name")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n             </div>\n             <div data-field-span=\"1\">\n               <label for=\"contractor_contact_name\">contractor contact name</label><br>\n               ");
   hashContexts = {'valueBinding': depth0,'id': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("contractorContactName"),
+    'valueBinding': ("content.contractorContactName"),
     'id': ("contractor_contact_name")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n             </div>\n           </div>\n           <div data-row-span=\"12\">\n             <div data-field-span=\"12\">\n               <label for=\"contractor_address\">Contractor Address</label><br>\n               ");
   hashContexts = {'valueBinding': depth0,'id': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("contractorAddress"),
+    'valueBinding': ("content.contractorAddress"),
     'id': ("contractor_address")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n             </div>\n           </div>\n           <div data-row-span=\"2\">\n           <div data-field-span=\"1\">\n             <label for=\"contractor_email\">Contractor e-mail address</label><br>\n             ");
   hashContexts = {'valueBinding': depth0,'id': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("contractorEmail"),
+    'valueBinding': ("content.contractorEmail"),
     'id': ("contractor_email")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n             <div data-field-span=\"1\">\n               <label for=\"contractor_telephone\">Contractor Telephone Number</label><br>\n               ");
   hashContexts = {'valueBinding': depth0,'id': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("contractorTelephone"),
+    'valueBinding': ("content.contractorTelephone"),
     'id': ("contractor_telephone")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n             </div>\n           </div>\n           </fieldset>\n         ");
   return buffer;
   }
 
-function program35(depth0,data) {
+function program88(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
   data.buffer.push("\n           <p id=\"theBasePrice\">£");
@@ -66501,13 +66995,13 @@ function program35(depth0,data) {
   return buffer;
   }
 
-function program37(depth0,data) {
+function program90(depth0,data) {
   
   
   data.buffer.push("\n           <p class=\"ellipsis\">...</p>\n         ");
   }
 
-function program39(depth0,data) {
+function program92(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
   data.buffer.push("\n             <p >£");
@@ -66518,13 +67012,13 @@ function program39(depth0,data) {
   return buffer;
   }
 
-function program41(depth0,data) {
+function program94(depth0,data) {
   
   
   data.buffer.push("\n               <p class=\"ellipsis\">...</p>\n             ");
   }
 
-function program43(depth0,data) {
+function program96(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
   data.buffer.push("\n             <p id=\"theSubtotal\">£");
@@ -66535,7 +67029,7 @@ function program43(depth0,data) {
   return buffer;
   }
 
-function program45(depth0,data) {
+function program98(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
   data.buffer.push("\n             <p id=\"theFullPrice\">£");
@@ -66546,7 +67040,7 @@ function program45(depth0,data) {
   return buffer;
   }
 
-function program47(depth0,data) {
+function program100(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
   data.buffer.push("\n             <p>£");
@@ -66557,13 +67051,13 @@ function program47(depth0,data) {
   return buffer;
   }
 
-function program49(depth0,data) {
+function program102(depth0,data) {
   
   
   data.buffer.push("\n             <p class=\"ellipsis\">...</p>\n           ");
   }
 
-function program51(depth0,data) {
+function program104(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
   data.buffer.push("\n               <p id=\"theDeposit\">£");
@@ -66574,7 +67068,7 @@ function program51(depth0,data) {
   return buffer;
   }
 
-function program53(depth0,data) {
+function program106(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
   data.buffer.push("\n           <label class=\"afterthought\">You will be invoiced for the remaining balance of £");
@@ -66585,61 +67079,106 @@ function program53(depth0,data) {
   return buffer;
   }
 
-function program55(depth0,data) {
+function program108(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
   data.buffer.push("\n           <label class=\"afterthought\">You qualify for ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "freeTickets", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" complimentary admission tickets.</label>\n\n           ");
+  data.buffer.push(" admission tickets.</label>\n\n           ");
   return buffer;
   }
 
-  data.buffer.push(" <div class=\"flipper\">\n   <div class=\"front\">\n   <span class=\"tile-title\">edit booking for ");
+  data.buffer.push(" <div class=\"flipper\">\n   <div class=\"front\">\n   <span class=\"tile-title\">");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("backbutton")
+  },inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "bookings.show", "model", options) : helperMissing.call(depth0, "link-to", "bookings.show", "model", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("edit booking for ");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "companyName", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</span>\n   <div class=\"row\">\n     <div class=\"small-12 columns\">\n    \n\n     <form ");
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "content.companyName", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n   <div class=\"row\">\n     <div class=\"small-12 columns\">\n     <div class=\"row\">\n       <div class=\"large-6 small-12 columns\">\n         <p class=\"introductoryParagraph\">To simplify the task of allocating stand space, we have created a floor plan showing the blocks available to accommodate stands. These blocks can be sub-divided or, depending on your stand requirements, increased to accommodate larger stands. Please note that for Outdoor and Machinery Hall areas, blocks will be sold as described and cannot be sub-divided.</p>\n       </div>\n       <div class=\"large-6 small-12 columns quickActionColumn\">\n         <div class=\"row buttonContent fourButtons\">\n           <div class=\"small-6 columns vertWrap\">\n             <div class=\"vertElement\">\n               ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction rabdforange")
+  },inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "bookings.how", options) : helperMissing.call(depth0, "link-to", "bookings.how", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n               <span class=\"buttonLabel\">how to apply</span>\n             </div>\n           </div>\n           <div class=\"small-6 columns vertWrap\">\n             <div class=\"vertElement\">\n               <a href=\"#\" class=\"button callToAction disabled rabdforange\"><span class=\"icon-card-user\"></span></a>\n               <span class=\"buttonLabel\">exhibitor list (coming soon)</span>\n             </div>\n           </div>\n          \n           \n         </div>\n         <div class=\"row buttonContent\">\n           <div class=\"small-6 columns vertWrap\">\n             <div class=\"vertElement\">\n               ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction rabdforange")
+  },inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "contractors.index", options) : helperMissing.call(depth0, "link-to", "contractors.index", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n               <span class=\"buttonLabel\">contractor list</span>\n             </div>\n           </div>\n           <div class=\"small-6 columns vertWrap\">\n             <div class=\"vertElement\">\n               ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction")
+  },inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "bookings.post", options) : helperMissing.call(depth0, "link-to", "bookings.post", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n               <span class=\"buttonLabel\">apply by post</span>\n             </div>\n           </div>  \n         </div>\n       </div>\n     </div>\n     <div class=\"row instructionsRow\">\n       <div class=\"small-10 small-centered columns\">\n         <h2>To book your stand:</h2>\n         <ul>\n           <li>Complete sections 1-5 of the form below, then</li>\n           <li>Select the show area, type of stand and location (block) you wish to exhibit in from the options and floor plan presented to you.</li>\n           <li>A 30% deposit is required at this stage to confirm your booking.</li>\n           <li>Click 'deposit' and enter your payment details to confirm your order.</li>\n           <li>Fields marked with a '<span class=\"required\">*</span>' are required, and you will not be able to proceed until you have filled them.</li>\n         </ul>\n       </div>\n     </div>\n\n     <form ");
   hashContexts = {'on': depth0};
   hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "update", "model", {hash:{
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "save", "model", {hash:{
     'on': ("submit")
   },contexts:[depth0,depth0],types:["ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" class=\"grid-form\">\n       <fieldset>\n         <legend>1. Personal Info</legend>\n         <div data-row-span=\"3\">\n           <div data-field-span=\"1\">\n             <label for=\"company_name\">Company Name</label><br>\n             ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push(" class=\"grid-form\">\n       <fieldset>\n         <legend>1. Personal Info</legend>\n         <div data-row-span=\"3\">\n           <div data-field-span=\"1\">\n             <label for=\"company_name\">Company Name<span class=\"required\">*</span></label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("companyName"),
-    'id': ("company_name")
+    'valueBinding': ("content.companyName"),
+    'id': ("company_name"),
+    'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"contact_name\">Contact Name</label><br>\n             ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"contact_name\">Contact Name<span class=\"required\">*</span></label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("contactName"),
-    'id': ("contact_name")
+    'valueBinding': ("content.contactName"),
+    'id': ("contact_name"),
+    'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label  id=\"exhibiting_label\" for=\"exhibiting_name\">Exhibiting Name (<a id=\"exhibiting_name_copier\" class=\"inlineLink copier\">Copy Company Name</a>?)</label><br>\n             ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label  id=\"exhibiting_label\" for=\"exhibiting_name\">Exhibiting Name (as to appear in the official Show Guide and Location Plans)<span class=\"required\">*</span> (<a id=\"exhibiting_name_copier\" class=\"inlineLink copier\">Copy Company Name</a>?)</label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("exhibitingName"),
-    'id': ("exhibiting_name")
+    'valueBinding': ("content.exhibitingName"),
+    'id': ("exhibiting_name"),
+    'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n         </div>\n         <div data-row-span=\"2\">\n           <div data-field-span=\"1\">\n             <label for=\"telephone\">Contact telephone number</label><br>\n             ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push("\n           </div>\n         </div>\n         <div data-row-span=\"3\">\n           <div data-field-span=\"1\">\n             <label for=\"telephone\">Contact telephone number<span class=\"required\">*</span></label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("telephone"),
-    'id': ("telephone")
+    'valueBinding': ("content.telephone"),
+    'id': ("telephone"),
+    'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"email\">Contact e-mail address</label><br>\n             ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"email\">Contact e-mail address<span class=\"required\">*</span></label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("email"),
-    'id': ("email")
+    'valueBinding': ("content.email"),
+    'id': ("email"),
+    'required': ("")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"website\">Company website<span class=\"required\">*</span></label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.website"),
+    'id': ("website"),
+    'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n         </div>\n         <div data-row-span=\"2\">\n           <div data-field-span=\"1\">\n           <label for=\"corporate_membership\">Do you have RABDF Corporate Membership?</label><br>\n           ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
@@ -66648,282 +67187,254 @@ function program55(depth0,data) {
     'checkedBinding': ("corporateMembership"),
     'id': ("corporate_membership")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"tc_agreed\">Do you agree to the <a href=\"/bookings/tcs\" target=\"_blank\" class=\"inlineLink\">Terms and Conditions</a>?</label><br>\n             ");
-  hashContexts = {'checkedBinding': depth0,'id': depth0};
-  hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
+  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"tc_agreed\">Do you agree to the <a href=\"/bookings/tcs\" target=\"_blank\" class=\"inlineLink\">Terms and Conditions</a>?<span class=\"required\">*</span></label><br>\n             ");
+  hashContexts = {'checkedBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'checkedBinding': "STRING",'id': "STRING",'required': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
     'checkedBinding': ("tcAgreed"),
-    'id': ("tc_agreed")
+    'id': ("tc_agreed"),
+    'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n         </div>\n       </fieldset>\n       <fieldset>\n         <legend>2. Address Details</legend>\n           <div data-row-span=\"12\">\n             <div data-field-span=\"12\">\n               <label for=\"correspondence_address\">Correspondence Address</label><br>\n               ");
+  data.buffer.push("\n           </div>\n         </div>\n       </fieldset>\n       <fieldset>\n         <legend>2. Address Details</legend>\n           <div data-row-span=\"12\">\n             <div data-field-span=\"12\">\n               <label for=\"correspondence_address\">Correspondence Address<span class=\"required\">*</span></label><br>\n               ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.correspondenceAddress"),
+    'id': ("correspondence_address"),
+    'required': ("")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n             </div>\n           </div>\n           <div data-row-span=\"12\">\n             <div data-field-span=\"12\">\n               <label id=\"invoice_label\" for=\"invoice_address\">Invoice Address, if different to correspondence address<span class=\"required\">*</span> (<a id=\"invoice_address_copier\" class=\"inlineLink copier\">Copy Correspondence Address</a>?)</label><br>\n               ");
   hashContexts = {'valueBinding': depth0,'id': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("correspondenceAddress"),
-    'id': ("correspondence_address")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n             </div>\n           </div>\n           <div data-row-span=\"12\">\n             <div data-field-span=\"12\">\n               <label id=\"invoice_label\" for=\"invoice_address\">Invoice Address (<a id=\"invoice_address_copier\" class=\"inlineLink copier\">Copy Correspondence Address</a>?)</label><br>\n               ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("invoiceAddress"),
+    'valueBinding': ("content.invoiceAddress"),
     'id': ("invoice_address")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n             </div>\n           </div>\n       </fieldset>\n       <fieldset>\n         <legend>3. Finance Details</legend>\n         <div data-row-span=\"1\">\n           <div data-field-span=\"1\">\n             <label for=\"finance_contact\">finance contact email address</label><br>\n             ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push("\n             </div>\n           </div>\n       </fieldset>\n       <fieldset>\n         <legend>3. Finance Details</legend>\n         <div data-row-span=\"1\">\n           <div data-field-span=\"1\">\n             <label for=\"finance_contact\">finance contact email address<span class=\"required\">*</span></label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("financeContact"),
-    'id': ("finance_contact")
+    'valueBinding': ("content.financeContact"),
+    'id': ("finance_contact"),
+    'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n         </div>\n         <div data-row-span=\"2\">\n           <div data-field-span=\"1\">\n             <label for=\"po_number\">PO number</label><br>\n             ");
   hashContexts = {'valueBinding': depth0,'id': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("poNumber"),
+    'valueBinding': ("content.poNumber"),
     'id': ("po_number")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"finance_telephone\">finance telephone number</label><br>\n             ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"finance_telephone\">finance telephone number<span class=\"required\">*</span></label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING",'required': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("financeTelephone"),
-    'id': ("finance_telephone")
+    'valueBinding': ("content.financeTelephone"),
+    'id': ("finance_telephone"),
+    'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n         </div>\n       </fieldset>\n       \n       <fieldset>\n         ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "standTypeIsClear", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n         <div data-row-span=\"1\">\n           <div data-field-span=\"1\">\n           <label for=\"same_as2013\">Would you prefer the same position as 2013?</label><br>\n           ");
+  stack2 = helpers['if'].call(depth0, "standTypeIsClear", {hash:{},inverse:self.program(11, program11, data),fn:self.program(9, program9, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n         <!--\n         <div data-row-span=\"1\">\n           <div data-field-span=\"1\">\n           <label for=\"same_as2013\">Would you prefer the same position as 2013?</label><br>\n           ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
     'checkedBinding': ("sameAs2013"),
     'id': ("same_as2013")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n         </div>\n         \n         <div data-row-span=\"4\">\n           <div id=\"showArea_field\" data-field-span=\"1\">\n             <label for=\"show_area\">Show Area</label><br>\n             ");
+  data.buffer.push("\n           </div>\n         </div>\n         -->\n         \n         <div data-row-span=\"2\">\n           <div id=\"showArea_field\" data-field-span=\"1\">\n             <label for=\"show_area\">Show Area</label><br>\n             ");
   hashContexts = {'contentBinding': depth0,'optionValuePath': depth0,'optionLabelPath': depth0,'valueBinding': depth0,'id': depth0,'classNames': depth0,'disabledBinding': depth0};
-  hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING",'classNames': "STRING",'disabledBinding': "ID"};
+  hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING",'classNames': "STRING",'disabledBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Select", {hash:{
     'contentBinding': ("showAreas"),
     'optionValuePath': ("content.value"),
     'optionLabelPath': ("content.fullName"),
-    'valueBinding': ("showArea"),
+    'valueBinding': ("content.showArea"),
     'id': ("show_area"),
     'classNames': ("select"),
-    'disabledBinding': ("isSameAs2013")
+    'disabledBinding': ("'sameAs2013'")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div id=\"zone_field\" data-field-span=\"1\">\n             <label for=\"zone\">Zone</label><span class=\"help\">?</span><br>\n             ");
+  data.buffer.push("\n           </div>\n           <div id=\"zone_field\" data-field-span=\"1\">\n             <label for=\"zone\">Zone</label><br>\n             ");
   hashContexts = {'contentBinding': depth0,'optionValuePath': depth0,'optionLabelPath': depth0,'valueBinding': depth0,'id': depth0,'disabledBinding': depth0};
-  hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING",'disabledBinding': "ID"};
+  hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING",'disabledBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Select", {hash:{
     'contentBinding': ("zones"),
     'optionValuePath': ("content.value"),
     'optionLabelPath': ("content.fullName"),
-    'valueBinding': ("zone"),
+    'valueBinding': ("content.zone"),
     'id': ("zone"),
     'disabledBinding': ("sameAs2013")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div id=\"standType_field\" data-field-span=\"1\">\n             <label for=\"stand_type\">Stand Format</label><span class=\"help\">?</span><br>\n             ");
+  data.buffer.push("\n           </div>\n           \n         </div>\n         <div class=\"helperWrap\">\n           ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "isOutdoor", {hash:{},inverse:self.noop,fn:self.program(13, program13, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n           ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "isMachineryHall", {hash:{},inverse:self.noop,fn:self.program(16, program16, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n\n           ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "isIndoor", {hash:{},inverse:self.noop,fn:self.program(18, program18, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n         </div> <!--end helper wrap-->\n         \n         ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "isLivestockHall", {hash:{},inverse:self.noop,fn:self.program(51, program51, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n         ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers['if'].call(depth0, "breedIsDairy", {hash:{},inverse:self.noop,fn:self.program(53, program53, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n         <div data-row-span=\"2\">\n           <div id=\"standType_field\" data-field-span=\"1\">\n             <label for=\"stand_type\">Stand Format</label><br>\n             ");
   hashContexts = {'contentBinding': depth0,'optionValuePath': depth0,'optionLabelPath': depth0,'valueBinding': depth0,'id': depth0};
   hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Select", {hash:{
     'contentBinding': ("standTypes"),
     'optionValuePath': ("content.value"),
     'optionLabelPath': ("content.fullName"),
-    'valueBinding': ("standType"),
+    'valueBinding': ("content.standType"),
     'id': ("stand_type")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n\n           <div id=\"position_field\" data-field-span=\"1\">\n             <label for=\"position\">Stand Type</label><span class=\"help\">?</span><br>\n             ");
-  hashContexts = {'contentBinding': depth0,'optionValuePath': depth0,'optionLabelPath': depth0,'valueBinding': depth0,'id': depth0};
-  hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Select", {hash:{
-    'contentBinding': ("positions"),
-    'optionValuePath': ("content.value"),
-    'optionLabelPath': ("content.fullName"),
-    'valueBinding': ("position"),
-    'id': ("position")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n         </div>\n         ");
+  data.buffer.push("\n           </div>\n\n           ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "isOutdoor", {hash:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n         ");
+  stack2 = helpers['if'].call(depth0, "standTypeIsShell", {hash:{},inverse:self.program(57, program57, data),fn:self.program(55, program55, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n         </div>\n         ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "isMachineryHall", {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  stack2 = helpers['if'].call(depth0, "standType", {hash:{},inverse:self.noop,fn:self.program(59, program59, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n\n         ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "isIndoor", {hash:{},inverse:self.noop,fn:self.program(9, program9, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n         <div class=\"row standTypeRow helperRow\">\n           <div class=\"large-6 small-12 columns\">\n             ");
+  stack2 = helpers['if'].call(depth0, "position", {hash:{},inverse:self.noop,fn:self.program(69, program69, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("  \n\n         ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "standTypeIsClear", {hash:{},inverse:self.program(11, program11, data),fn:self.program(11, program11, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n           </div>\n           <div class=\"large-6 small-12 columns\">\n             <label>About ");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "standType", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" Stands</label>\n             <a class=\"closeButton closeFormInfo\" id=\"standTypeRow-closeButton\"><span class=\"icon-close-alt\"></span></a>\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "standTypeIsClear", {hash:{},inverse:self.program(15, program15, data),fn:self.program(13, program13, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n           </div>\n         </div>\n         <div class=\"row positionRow helperRow\">\n           <div class=\"large-6 small-12 columns\">\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "positionIsStandard", {hash:{},inverse:self.noop,fn:self.program(11, program11, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "positionIsCorner", {hash:{},inverse:self.noop,fn:self.program(17, program17, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "positionIsPeninsula", {hash:{},inverse:self.noop,fn:self.program(19, program19, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "positionIsIsland", {hash:{},inverse:self.noop,fn:self.program(21, program21, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n             \n           </div>\n           <div class=\"large-6 small-12 columns\">\n             <label>About ");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "position", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" Stands</label>\n             <a class=\"closeButton closeFormInfo\" id=\"positionRow-closeButton\"><span class=\"icon-close-alt\"></span></a>\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "positionIsStandard", {hash:{},inverse:self.noop,fn:self.program(23, program23, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "positionIsCorner", {hash:{},inverse:self.noop,fn:self.program(25, program25, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "positionIsPeninsula", {hash:{},inverse:self.noop,fn:self.program(27, program27, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n             ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "positionIsIsland", {hash:{},inverse:self.noop,fn:self.program(29, program29, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n           </div>\n         </div>\n         <div class=\"afterHelpRow\" data-row-span=\"2\">\n           <div data-field-span=\"1\">\n             <label for=\"frontage\">Frontage/m</label><br>\n             ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("frontage"),
-    'id': ("frontage")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           \n           <div data-field-span=\"1\">\n             <label for=\"depth\">Depth/m</label><br>\n             ");
-  hashContexts = {'valueBinding': depth0,'id': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("depth"),
-    'id': ("depth")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n         </div>\n         ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "isLivestockHall", {hash:{},inverse:self.noop,fn:self.program(31, program31, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  stack2 = helpers.unless.call(depth0, "isLivestockHall", {hash:{},inverse:self.noop,fn:self.program(84, program84, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n         </fieldset>\n         ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "standTypeIsClear", {hash:{},inverse:self.noop,fn:self.program(33, program33, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  stack2 = helpers['if'].call(depth0, "standTypeIsClear", {hash:{},inverse:self.noop,fn:self.program(86, program86, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n       <fieldset>\n         <legend>5. Other Details</legend>\n         <div data-row-span=\"1\">\n           <div data-field-span=\"1\">\n             <label for=\"requires_leaflets\">do you require any free event leaflets advertising the event to send to your customers? <span class=\"afterthought\">hard copies are limited to uk-based companies only.</span></label><br>\n             ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
-    'checkedBinding': ("requiresLeaflets"),
+    'checkedBinding': ("content.requiresLeaflets"),
     'id': ("requires_leaflets")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n         </div>\n         <div data-row-span=\"2\">\n           <div data-field-span=\"1\">\n             <label for=\"number_leaflets\">if so, how many do you require?</label><br>\n             ");
   hashContexts = {'valueBinding': depth0,'id': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("numberLeaflets"),
+    'valueBinding': ("content.numberLeaflets"),
     'id': ("number_leaflets")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"pdf_leaflet\">do you require a <a class=\"inlineLink\" target=\"_blank\" href=\"http://www.adobe.com/uk/products/acrobat/adobepdf.html\">pdf copy</a> of the leaflet?</label><br>\n             ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
-    'checkedBinding': ("pdfLeaflet"),
+    'checkedBinding': ("content.pdfLeaflet"),
     'id': ("pdf_leaflet")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n         </div>\n         <div data-row-span=\"2\">\n           <div data-field-span=\"1\">\n             <label for=\"machinery_motion\">do you intend to exhibit machinery in motion?</label><br>\n             ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
-    'checkedBinding': ("machineryMotion"),
+    'checkedBinding': ("content.machineryMotion"),
     'id': ("machinery_motion")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"mobile_unit\">do you intend to bring a mobile unit as part of your stand?</label><br>\n             ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
-    'checkedBinding': ("mobileUnit"),
+    'checkedBinding': ("content.mobileUnit"),
     'id': ("mobile_unit")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n         </div>\n         <div data-row-span=\"2\">\n           <div data-field-span=\"1\">\n             <label for=\"livestock_stand\">do you intend to exhibit livestock on your stand?</label><br>\n             ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
-    'checkedBinding': ("livestockStand"),
+    'checkedBinding': ("content.livestockStand"),
     'id': ("livestock_stand")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n            <label for=\"new_products\">do you intend to launch new products at the event? <span class=\"afterthought\">you will be given the opportunity to launch your products at the event and to the press at a briefing held in May.</span></label><br>\n             ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
-    'checkedBinding': ("newProducts"),
+    'checkedBinding': ("content.newProducts"),
     'id': ("new_products")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n         </div>\n         <div data-row-span=\"2\">\n           <div data-field-span=\"1\">\n             <label for=\"philip_award\">do you intend to enter the <a href=\"/awards\" target=\"_blank\" class=\"inlineLink\">2014 prince philip award</a>?</label><br>\n             ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
-    'checkedBinding': ("philipAward"),
+    'checkedBinding': ("content.philipAward"),
     'id': ("philip_award")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n            <label for=\"livestock_award\">do you intend to enter the <a href=\"/awards\" target=\"_blank\" class=\"inlineLink\">2014 livestock machinery and equipment award</a>?</label><br>\n             ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
-    'checkedBinding': ("livestockAward"),
+    'checkedBinding': ("content.livestockAward"),
     'id': ("livestock_award")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n         </div>\n         <div data-row-span=\"2\">\n           <div data-field-span=\"1\">\n             <label for=\"exports\">do you export products from the uk?</label><br>\n             ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
-    'checkedBinding': ("exports"),
+    'checkedBinding': ("content.exports"),
     'id': ("exports")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"placements\">do you offer work placements?</label><br>\n             ");
+  data.buffer.push("\n           </div>\n           <div data-field-span=\"1\">\n             <label for=\"placements\">do you offer work placements? <span class=\"afterthought\">Livestock Event will be promoting work placements and apprenticeships as part of the Careers in Agriculture feature. If you offer work placements or apprenticeships, or would like to be involved, please tick the box below.</span></label><br>\n             \n             ");
   hashContexts = {'checkedBinding': depth0,'id': depth0};
   hashTypes = {'checkedBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
-    'checkedBinding': ("placements"),
+    'checkedBinding': ("content.placements"),
     'id': ("placements")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n           </div>\n         </div>\n         <div data-row-span=\"1\">\n           <div data-field-span=\"1\">\n             <label for \"exhibitor_list\">Are you happy to be included on the public exhibitor list?<span class=\"required\">*</span></label>\n             <label>\n                 ");
+  hashContexts = {'name': depth0,'id': depth0,'selectionBinding': depth0,'value': depth0};
+  hashTypes = {'name': "STRING",'id': "STRING",'selectionBinding': "STRING",'value': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.RadioButton", {hash:{
+    'name': ("exhibitor_list"),
+    'id': ("exhibitor_list1"),
+    'selectionBinding': ("content.exhibitorList"),
+    'value': ("true")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n                 Yes\n             </label>\n             \n             <label>\n                 ");
+  hashContexts = {'name': depth0,'id': depth0,'selectionBinding': depth0,'value': depth0};
+  hashTypes = {'name': "STRING",'id': "STRING",'selectionBinding': "STRING",'value': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.RadioButton", {hash:{
+    'name': ("exhibitor_list"),
+    'id': ("exhibitor_list2"),
+    'selectionBinding': ("content.exhibitorList"),
+    'value': ("false")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n                 No\n             </label>\n           </div>\n         </div>\n         <div data-row-span=\"1\">\n           <div data-field-span=\"1\">\n             <label for=\"requirements\">Do you have any special requirements regarding your exhibition location or booking?</label><br>\n             ");
+  hashContexts = {'valueBinding': depth0,'id': depth0};
+  hashTypes = {'valueBinding': "STRING",'id': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextArea", {hash:{
+    'valueBinding': ("content.requirements"),
+    'id': ("requirements")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n           </div>\n         </div>\n       </fieldset>\n       <fieldset>\n         <legend>6. Totals</legend>\n       <div class=\"row totalsRow\">\n       <div class=\"small-3 columns labelCol\">\n         <label>base price (excl. vat)</label>\n         <div class=\"totalHolder\">\n         ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "price", {hash:{},inverse:self.program(37, program37, data),fn:self.program(35, program35, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  stack2 = helpers['if'].call(depth0, "price", {hash:{},inverse:self.program(90, program90, data),fn:self.program(88, program88, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n         </div>\n       </div>\n       <div class=\"small-3 columns labelCol\">\n           \n           <label>Surcharge for Stand Type: ");
   hashTypes = {};
   hashContexts = {};
@@ -66931,38 +67442,38 @@ function program55(depth0,data) {
   data.buffer.push("</label>\n           <div class=\"totalHolder\">\n           ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "surcharge", {hash:{},inverse:self.program(41, program41, data),fn:self.program(39, program39, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  stack2 = helpers['if'].call(depth0, "surcharge", {hash:{},inverse:self.program(94, program94, data),fn:self.program(92, program92, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n           </div>\n           \n         \n         \n       </div>\n       <div class=\"small-3 columns labelCol\">\n           <label>subtotal (excl. VAT)</label>\n           <div class=\"totalHolder\">\n           ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "total", {hash:{},inverse:self.program(41, program41, data),fn:self.program(43, program43, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  stack2 = helpers['if'].call(depth0, "total", {hash:{},inverse:self.program(94, program94, data),fn:self.program(96, program96, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n           </div>\n       </div>\n\n       <div class=\"small-3 columns labelCol\">\n           <label>total (inc. VAT at 20%)</label>\n           <div class=\"totalHolder\">\n           ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "totalIncVat", {hash:{},inverse:self.program(41, program41, data),fn:self.program(45, program45, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  stack2 = helpers['if'].call(depth0, "totalIncVat", {hash:{},inverse:self.program(94, program94, data),fn:self.program(98, program98, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n           </div>\n       </div>\n       </div>\n       \n       \n       <div class=\"row totalsRow\">\n       <div class=\"large-4 columns labelCol\">\n         <label>30% non-refundable deposit (excl. VAT)</label>\n         <div class=\"totalHolder\">\n           ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "depositExVat", {hash:{},inverse:self.program(49, program49, data),fn:self.program(47, program47, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  stack2 = helpers['if'].call(depth0, "depositExVat", {hash:{},inverse:self.program(102, program102, data),fn:self.program(100, program100, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n         </div>\n       </div>\n         <div class=\"large-4 columns labelCol\">\n           <label>30% non-refundable deposit (inc. VAT at 20%)</label>\n           <div class=\"totalHolder\">\n             ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "deposit", {hash:{},inverse:self.program(41, program41, data),fn:self.program(51, program51, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  stack2 = helpers['if'].call(depth0, "deposit", {hash:{},inverse:self.program(94, program94, data),fn:self.program(104, program104, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n           </div>\n             ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "deposit", {hash:{},inverse:self.noop,fn:self.program(53, program53, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n         </div>\n         <div class=\"large-4 columns\">\n           <button class=\"button callToAction\" type=\"submit\"><span class=\"icon-chevron-thick\"></span></button>\n           <span class=\"buttonLabel\">save & continue</span>\n           ");
+  stack2 = helpers['if'].call(depth0, "deposit", {hash:{},inverse:self.noop,fn:self.program(106, program106, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n         </div>\n         <div class=\"large-4 columns\">\n           <div class=\"vertElement\">\n             <button class=\"button callToAction\" type=\"submit\"><span class=\"icon-chevron-thick\"></span></button>\n             <span class=\"buttonLabel\">save & continue</span>\n           </div>\n           \n           ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "freeTickets", {hash:{},inverse:self.noop,fn:self.program(55, program55, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  stack2 = helpers['if'].call(depth0, "freeTickets", {hash:{},inverse:self.noop,fn:self.program(108, program108, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n         </div>\n       </div>\n       </fieldset>\n\n     </form>\n   </div>\n </div>\n </div>\n <div class=\"back\">\n   \n </div>\n </div>\n\n");
   return buffer;
   
@@ -68663,6 +69174,12 @@ function program11(depth0,data) {
 
 function program13(depth0,data) {
   
+  
+  data.buffer.push("<span class=\"icon-settings\"></span>");
+  }
+
+function program15(depth0,data) {
+  
   var buffer = '', stack1, stack2, hashTypes, hashContexts, options;
   data.buffer.push("\n              <span class=\"afterthought warning\">Your booking is not confirmed until you have made your deposit of £");
   hashTypes = {};
@@ -68674,13 +69191,13 @@ function program13(depth0,data) {
   options = {hash:{
     'class': ("button rightButton exhibitor callToAction"),
     'type': ("submit")
-  },inverse:self.noop,fn:self.program(14, program14, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  },inverse:self.noop,fn:self.program(16, program16, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "orders.new", options) : helperMissing.call(depth0, "link-to", "orders.new", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n                <span class=\"buttonLabel\">make deposit</span>\n              </div>\n              \n            ");
   return buffer;
   }
-function program14(depth0,data) {
+function program16(depth0,data) {
   
   
   data.buffer.push("<span class=\"icon-tick\"></span>");
@@ -68884,10 +69401,18 @@ function program14(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "deposit", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        \n\n        <div class=\"row finalRow\">\n          <div class=\"small-12 columns centerAlign\">\n            ");
+  data.buffer.push("\n            </p>\n          </div>\n        </div>\n        <div class=\"row finalRow\">\n          <div class=\"small-12 columns centerAlign\">\n            \n              <div class=\"vertElement\">\n                ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button rightButton exhibitor callToAction")
+  },inverse:self.noop,fn:self.program(13, program13, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "orders.edit", "model", options) : helperMissing.call(depth0, "link-to", "orders.edit", "model", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n                <span class=\"buttonLabel\">edit booking</span>\n              </div>\n              \n          </div>\n        </div>\n        \n\n        <div class=\"row finalRow\">\n          <div class=\"small-12 columns centerAlign\">\n            ");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers.unless.call(depth0, "depositPaid", {hash:{},inverse:self.noop,fn:self.program(13, program13, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers.unless.call(depth0, "depositPaid", {hash:{},inverse:self.noop,fn:self.program(15, program15, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"back\">\n  \n  </div>\n</div>\n");
   return buffer;

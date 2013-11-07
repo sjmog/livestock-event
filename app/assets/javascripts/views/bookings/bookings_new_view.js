@@ -19,6 +19,14 @@ App.BookingsNewView = Ember.View.extend({
 	},
 	didInsertElement: function() {
 		window.scrollTo(0,0);
+		//stop submission on enter
+		$('.grid-form').bind("keyup keypress", function(e) {
+		  var code = e.keyCode || e.which; 
+		  if (code  == 13) {               
+		    e.preventDefault();
+		    return false;
+		  }
+		});
 
 		var view = this;
 		//add the price bar
