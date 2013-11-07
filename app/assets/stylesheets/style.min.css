@@ -13163,9 +13163,11 @@ textarea {
 
 /*image tiles*/
 /*contact us tile*/
-.contact .back .row {
-  position: relative;
-  top: 140px; }
+.contact {
+  display: none !important; }
+  .contact .back .row {
+    position: relative;
+    top: 140px; }
 
 /*footer tile*/
 .footer {
