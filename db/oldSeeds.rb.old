@@ -1,7 +1,7 @@
 User.create([
   { email: 's_morgan@me.com', password: 'password' , role: 'admin'},
-  { email: 'admin@livestockevent.co.uk', password: 'ForAllTheCows123', role: 'admin'},
-  { email: 'admin2@livestockevent.co.uk', password: 'ForAllTheCows123', role: 'admin'},
+  { email: 'admin@www.livestockevent.co.uk', password: 'ForAllTheCows123', role: 'admin'},
+  { email: 'admin2@www.livestockevent.co.uk', password: 'ForAllTheCows123', role: 'admin'},
   { email: 'bar@example.com', password: 'barpassword', role: 'standard' }
 ])
 Article.create([

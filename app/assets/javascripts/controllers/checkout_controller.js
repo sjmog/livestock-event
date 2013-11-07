@@ -4,7 +4,7 @@ App.CheckoutController = Ember.ObjectController.extend({
     pay: function() {
       var router = this.get('target');
 
-      $.post('http://livestockevent.co.uk/api/users.json', { user: data }, function(results) {
+      $.post('http://www.livestockevent.co.uk/api/users.json', { user: data }, function(results) {
         App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
         router.transitionTo('bookings.new');
 
