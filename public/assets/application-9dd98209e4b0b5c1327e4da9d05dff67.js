@@ -60889,6 +60889,14 @@ App.BookingsEditController = Ember.ObjectController.extend({
   ],
   selectedZone: null,
 
+  frontage: function() {
+    return parseInt(this.get('content.frontage'));
+  },
+
+  depth: function() {
+    return parseInt(this.get('content.depth'));
+  },
+
   init: function() {
     this._super();
     //console.log('controller init');
@@ -73840,11 +73848,16 @@ App.AuthManager = Ember.Object.extend({
   // Authenticate the user. Once they are authenticated, set the access token to be submitted with all
   // future AJAX requests to the server.
   authenticate: function(accessToken, userId) {
+    console.log('authenticating...');
+    console.log(accessToken);
+    console.log(userId);
     var self = this;
     $.ajaxSetup({
       headers: { 'Authorization': 'Bearer ' + accessToken }
     });
-    User.find(userId).then(function(user) {
+    App.User.find(userId).then(function(user) {
+      console.log('setting API key on user');
+      console.log(user);
       self.set('apiKey', App.ApiKey.create({
         accessToken: accessToken,
         user: user
@@ -73869,9 +73882,11 @@ App.AuthManager = Ember.Object.extend({
   // the user when the browser is refreshed.
   apiKeyObserver: function() {
     if (Ember.isEmpty(this.get('apiKey'))) {
+      console.log('removing API key');
       $.removeCookie('access_token');
       $.removeCookie('auth_user');
     } else {
+      console.log('setting API key');
       $.cookie('access_token', this.get('apiKey.accessToken'));
       $.cookie('auth_user', this.get('apiKey.user.id'));
     }

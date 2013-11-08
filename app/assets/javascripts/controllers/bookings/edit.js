@@ -56,6 +56,14 @@ App.BookingsEditController = Ember.ObjectController.extend({
   ],
   selectedZone: null,
 
+  frontage: function() {
+    return parseInt(this.get('content.frontage'));
+  },
+
+  depth: function() {
+    return parseInt(this.get('content.depth'));
+  },
+
   init: function() {
     this._super();
     //console.log('controller init');
