@@ -6,6 +6,7 @@ class ChargesController < ApplicationController
 	  # Amount in cents
 	  @order = Order.find(params[:order_id])
 	  @order.status = 'deposit paid'
+	  @order.save
 	  @user_id = @order.user_id
 	  @user = User.find(@user_id)
 

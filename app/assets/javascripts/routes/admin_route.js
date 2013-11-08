@@ -4,6 +4,7 @@ App.AdminRoute = Ember.Route.extend({
 		var statsController = this.controllerFor('stats');
 		var bookingsIndexController = this.controllerFor('bookings.index');
 		var usersIndexController = this.controllerFor('users.index');
+		var ordersIndexController = this.controllerFor('orders.index');
 		this.render('admin', {
 			into: 'application',
 			controller: adminController
@@ -23,6 +24,11 @@ App.AdminRoute = Ember.Route.extend({
 			outlet: 'users',
 			controller: usersIndexController
 		});
+		this.render('orders.index', {
+			into:'admin',
+			outlet:'orders',
+			controller: ordersIndexController
+		});
 
 	},
 	setupController: function() {
@@ -31,5 +37,7 @@ App.AdminRoute = Ember.Route.extend({
 		bookingsIndexController.set('model', this.get('store').find('booking'));
 		var usersIndexController = this.controllerFor('users.index');
 		usersIndexController.set('model', this.get('store').find('user'));
+		var ordersIndexController = this.controllerFor('orders.index');
+		ordersIndexController.set('model', this.get('store').find('order'));
 	}
 });

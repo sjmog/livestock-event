@@ -45,14 +45,14 @@ class Order < ActiveRecord::Base
 		'Livestock Event 2014 Stand Booking'
 	end
 	def successurl
-		'<%= ENV["BASE_URL"] %>/payment-success'
+		ENV["BASE_URL"] + '/payment-success'
 	end
 	def failureurl
-		'<%= ENV["BASE_URL"] %>/payment-incomplete'
+		ENV["BASE_URL"] + '/payment-incomplete'
 	end
 	def crypt
 		unencrypted = "VendorTxCode=#{vendortxcode}&Amount=#{amount}&Currency=#{currency}&Description=#{description}&SuccessURL=#{successurl}&FailureUrl=#{failureurl}&BillingSurname=#{billing_surname}&BillingFirstNames=#{billing_firstnames}&BillingAddress1=#{billing_address}&BillingCity=#{billing_city}&BillingPostcode=#{billing_postcode}&BillingCountry=#{billing_country}&DeliverySurname=#{delivery_surname}&DeliveryFirstNames=#{delivery_firstnames}&DeliveryAddress1=#{delivery_address}&DeliveryCity=#{delivery_city}&DeliveryPostcode=#{delivery_postcode}&DeliveryCountry=#{delivery_country}"
-		puts unencrypted #logged to the server console
+		# puts unencrypted #logged to the server console
 		encoded = wrappedencryptandencode(unencrypted)
 		return encoded
 	end

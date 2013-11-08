@@ -61652,6 +61652,18 @@ App.OrdersEditController = Ember.ObjectController.extend({
 
 
 // inherit from edit controller
+App.OrdersIndexController = Ember.ArrayController.extend({
+	init: function() {
+		this._super();
+	},
+	
+
+});
+
+
+
+
+// inherit from edit controller
 App.OrdersNewController = App.BookingsEditController.extend({
 	init: function() {
 		this._super();
@@ -62960,6 +62972,16 @@ App.NumberField = Ember.TextField.extend({
   attributeBindings: ['min', 'max', 'step']
 })
 ;
+App.OrdersIndexView = Ember.View.extend({
+	templateName: 'orders/index',
+	classNames: ['tile innerTile content-tile rabdforange exhibitor all tile-2-tall tile-n-wide'],
+	attributeBindings: ['width:data-width', 'height:data-height'],
+	width: 'n',
+	height: 4,
+	controller: this.controller,
+	didInsertElement: function() {
+	}
+});
 App.OrdersNewView = Ember.View.extend({
 	templateName: 'orders/new',
 	classNames: ['tile innerTile content-tile rabdforange exhibitor all tile-4-tall tile-n-wide'],
@@ -65088,6 +65110,11 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.outlet || depth0.outlet),stack1 ? stack1.call(depth0, "booking", options) : helperMissing.call(depth0, "outlet", "booking", options))));
+  data.buffer.push("\n");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || depth0.outlet),stack1 ? stack1.call(depth0, "orders", options) : helperMissing.call(depth0, "outlet", "orders", options))));
   data.buffer.push("\n");
   hashTypes = {};
   hashContexts = {};
@@ -71219,6 +71246,66 @@ function program4(depth0,data) {
   return buffer;
   
 });
+Ember.TEMPLATES["orders/index"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options;
+  data.buffer.push("\n    <tr>\n      <td>");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("darkLink")
+  },inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "users.show", "user", options) : helperMissing.call(depth0, "linkTo", "users.show", "user", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("</td>\n      <td>");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("darkLink")
+  },inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "bookings.show", "booking", options) : helperMissing.call(depth0, "linkTo", "bookings.show", "booking", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("</td>\n      <td>\n        ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "amount", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      </td>\n      <td>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "status", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</td>\n    </tr>\n    ");
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var hashTypes, hashContexts;
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "user", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  }
+
+function program4(depth0,data) {
+  
+  var hashTypes, hashContexts;
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "booking", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  }
+
+  data.buffer.push("<div class=\"flipper\">\n  <div class=\"front\">\n  <span class=\"tile-title\">all orders</span>\n  <div class=\"row\">\n    <div class=\"small-12 columns\">\n\n    <table class=\"ordersTable\" id=\"ordersTable\">\n  <thead>\n    <th>User</th>\n    <th>Booking</th>\n    <th>Amount</th>\n    <th>Status</th>\n  </thead>\n  <tbody>\n    ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.each.call(depth0, "content", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n  </tbody>\n</table>\n\n  </div>\n</div>\n</div>\n<div class=\"back\">\n  \n</div>\n</div>\n");
+  return buffer;
+  
+});
 Ember.TEMPLATES["orders/new"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
@@ -74115,6 +74202,7 @@ App.AdminRoute = Ember.Route.extend({
 		var statsController = this.controllerFor('stats');
 		var bookingsIndexController = this.controllerFor('bookings.index');
 		var usersIndexController = this.controllerFor('users.index');
+		var ordersIndexController = this.controllerFor('orders.index');
 		this.render('admin', {
 			into: 'application',
 			controller: adminController
@@ -74134,6 +74222,11 @@ App.AdminRoute = Ember.Route.extend({
 			outlet: 'users',
 			controller: usersIndexController
 		});
+		this.render('orders.index', {
+			into:'admin',
+			outlet:'orders',
+			controller: ordersIndexController
+		});
 
 	},
 	setupController: function() {
@@ -74142,6 +74235,8 @@ App.AdminRoute = Ember.Route.extend({
 		bookingsIndexController.set('model', this.get('store').find('booking'));
 		var usersIndexController = this.controllerFor('users.index');
 		usersIndexController.set('model', this.get('store').find('user'));
+		var ordersIndexController = this.controllerFor('orders.index');
+		ordersIndexController.set('model', this.get('store').find('order'));
 	}
 });
 App.ApplicationRoute = Ember.Route.extend({
