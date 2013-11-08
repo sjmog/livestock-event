@@ -14,10 +14,10 @@
   <tbody>
     {{#each content}}
     <tr>
-      <td>{{#linkTo "users.show" user class="darkLink"}}{{ user }}{{/linkTo}}</td>
+      <td>{{#linkTo "users.show" user class="darkLink"}}{{ user.email }}{{/linkTo}}</td>
       <td>{{#linkTo "bookings.show" booking class="darkLink"}}{{ booking }}{{/linkTo}}</td>
       <td>
-        {{amount}}
+        £{{amount}}
       </td>
       <td>{{status}}</td>
     </tr>

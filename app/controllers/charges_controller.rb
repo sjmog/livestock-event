@@ -17,6 +17,8 @@ class ChargesController < ApplicationController
 	    :card  => params[:stripeToken]
 	  )
 
+	  puts @amount
+
 	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
 	    :amount      => @amount,
