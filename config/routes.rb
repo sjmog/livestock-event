@@ -23,7 +23,7 @@ post 'charges' => 'charges#create'
   namespace :api do
     resources :posts, only: [:index, :show]
     resources :stands
-    resources :users #, except: [:new, :edit, :destroy], :constraints => FormatTest.new(:json)
+    resources :users
     resources :articles
     resources :bookings
     resources :orders
