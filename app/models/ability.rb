@@ -27,6 +27,7 @@ class Ability
     can :manage, Supporter if user.role == "admin"
     can :create, Supporter if user.role == "admin"
     can :manage, User if user.role == "admin"
+    can :create, Article
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

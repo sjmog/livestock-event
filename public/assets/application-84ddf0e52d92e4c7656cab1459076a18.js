@@ -67842,6 +67842,10 @@ function program3(depth0,data) {
   data.buffer.push("</td>\n      <td>");
   hashTypes = {};
   hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "zone", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</td>\n      <td>");
+  hashTypes = {};
+  hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "standNumber", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("</td>\n      <td>");
   hashTypes = {};
@@ -67904,7 +67908,7 @@ function program8(depth0,data) {
   },inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("all bookings</span>\n  <div class=\"row\">\n    <div class=\"small-12 columns\">\n\n    <table class=\"bookingsTable\" id=\"bookingsTable\">\n  <thead>\n    <th>Company Name</th>\n    <th>RABDF Membership?</th>\n    <th>Tel.</th>\n    <th>Order</th>\n    <th>T&Cs</th>\n    <th>Show Area</th>\n    <th>Stand Number</th>\n    <th>Stand Type</th>\n    <th>Frontage</th>\n    <th>Depth</th>\n    <th><span class=\"icon-pound-icon\"></span></th>\n    <th>Deposit Paid?</th>\n    <th>Total Paid?</th>\n    <th>Breed Society</th>\n  </thead>\n  <tbody>\n    ");
+  data.buffer.push("all bookings</span>\n  <div class=\"row\">\n    <div class=\"small-12 columns\">\n\n    <table class=\"bookingsTable\" id=\"bookingsTable\">\n  <thead>\n    <th>Company Name</th>\n    <th>RABDF Membership?</th>\n    <th>Tel.</th>\n    <th>Order</th>\n    <th>T&Cs</th>\n    <th>Show Area</th>\n    <th>Zone</th>\n    <th>Block Number</th>\n    <th>Stand Type</th>\n    <th>Frontage</th>\n    <th>Depth</th>\n    <th><span class=\"icon-pound-icon\"></span></th>\n    <th>Deposit Paid?</th>\n    <th>Total Paid?</th>\n    <th>Breed Society</th>\n  </thead>\n  <tbody>\n    ");
   hashTypes = {};
   hashContexts = {};
   stack2 = helpers.each.call(depth0, "controller", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
