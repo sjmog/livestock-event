@@ -22,6 +22,7 @@ class Ability
     can :manage, Testimonial if user.role == "admin"
     can :manage, Contractor if user.role == "admin"
     can :manage, Booking if user.role == "admin"
+    can :read, Booking if user.role == "admin"
     can :manage, Order if user.role == "admin"
     can :manage, Stand if user.role == "admin"
     can :manage, Supporter if user.role == "admin"
