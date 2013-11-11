@@ -34,8 +34,7 @@ App.OrdersNewRoute = Ember.Route.extend({
   	controller.set('model', model);
   //	console.log(controller.get('content')); //should be same as previous line
   //	console.log('syncing');
-  	Ember.run.sync();
-  	controller.setup();
+  	
   },
   
   

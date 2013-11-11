@@ -9,11 +9,7 @@ App.ApplicationRoute = Ember.Route.extend({
 	      App.AuthManager.reset();
 	      this.transitionTo('index');
 		},
-		error: function(error, transition) {
-		  // handle the error
-		  console.log(error);
-		  
-		}
+		
 	},
 
 	init: function() {

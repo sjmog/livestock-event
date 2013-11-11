@@ -126,6 +126,14 @@
         {{/if}}
 
         <div class="row">
+          <div class="large-10 large-centered small-12 small-uncentered columns">
+            <p>
+              <b>Stand Number:</b> {{standNumber}}
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
           <div class="large-6 small-12 columns">
             <p>
               <b>Frontage:</b> {{ frontage }}m
@@ -187,7 +195,7 @@
           </div>
           <div class="large-4 small-12 columns">
             <p>
-              <b>Do you need a PDF version?</b> {{ pdfLeaflet }}
+              <b>Do you need a PDF version?</b> {{#if pdfLeaflets }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}
             </p>
           </div>
         </div>

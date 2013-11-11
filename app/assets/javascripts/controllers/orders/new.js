@@ -1,26 +1,29 @@
 
 
 // inherit from edit controller
-App.OrdersNewController = App.BookingsEditController.extend({
+App.OrdersNewController = Ember.Controller.extend({
+	needs: ['application'],
 	init: function() {
 		this._super();
-	},
-	setup:function() {
-		console.log('controller setup');
 		var self = this;
 		Ember.run.later(function() {
-
-			var user = self.controllerFor('application').get('currentUser');
+			var user = App.AuthManager.get('apiKey.user');
 			console.log(user);
 			self.set('content.user', user);
 			userBookings = user.get('bookings');
+			console.log(userBookings);
 			firstBooking = userBookings.objectAt(0);
+			console.log(firstBooking);
 			self.set('bookings', userBookings);
 			self.set('content.status', 'pending payment');
 			self.set('content.booking', firstBooking);
 			self.set('content.amount', firstBooking.get('deposit'));
-			self.set('content.billingAddress',firstBooking.get('invoiceAddress'));
-		}, 800);
+		}, 2000);
+	},
+	setup:function() {
+		console.log('controller setup');
+		var self = this;
+		
 	},
 	bookings: null,
 	selectedBooking: null,
@@ -41,19 +44,18 @@ App.OrdersNewController = App.BookingsEditController.extend({
 	
 
 	bookingDidChange: function() {
+		console.log('booking changed');
 		var self = this;
-		//set booking
 		var booking = self.get('selectedBooking');
-		self.set('content.booking', self.selectedBooking);
+		console.log(booking);
+		//set booking
 		//re-set user
-		var user = self.controllerFor('application').get('currentUser');
-		console.log(user);
-		self.set('content.user', user);
+		var user = self.get('content.user');
 		//set fields (less copy-pasting for the user)
+		self.set('content.booking', booking);
 		self.set('content.amount', booking.get('deposit'));
-		self.set('content.billingAddress', booking.get('invoiceAddress'));
 
-	}.property('selectedBooking'),
+	}.observes('selectedBooking'),
 
 	link: function() {
 		if(this.get('linked') == false) {

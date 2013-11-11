@@ -6,7 +6,7 @@
             <div class="row bookingDetails">
                   <div class="large-4 columns">
                         <h2>select a booking</h2>
-                        {{view Ember.Select contentBinding="bookings" optionValuePath="content" optionLabelPath="content.companyName" valueBinding="content.booking" id="bookings" classNames="select"}}
+                        {{view Ember.Select contentBinding="bookings" optionValuePath="content" optionLabelPath="content.companyName" valueBinding="selectedBooking" id="bookings" classNames="select"}}
                   </div>
                   <div class="large-8 columns">
                         {{#if content.booking}}
@@ -38,27 +38,27 @@
       		  	    <div class="field">
       		  	      <label for="billing_firstnames">First name(s)<span class="required">*</span></label>
 
-      		  	      {{view Ember.TextField valueBinding='billingFirstnames'}}
+      		  	      {{view Ember.TextField valueBinding='content.billingFirstnames'}}
       		  	    </div>
       		  	    <div class="field">
       		  	      <label for="billing_surname">Surname<span class="required">*</span></label>
-      		  	      {{view Ember.TextField valueBinding='billingSurname'}}
+      		  	      {{view Ember.TextField valueBinding='content.billingSurname'}}
       		  	    </div>
       		  	    <div class="field">
       		  	      <label for="billing_address">Address<span class="required">*</span></label>
-      		  	      {{view Ember.TextField valueBinding='billingAddress'}}
+      		  	      {{view Ember.TextField valueBinding='content.billingAddress'}}
       		  	    </div>
       		  	    <div class="field">
       		  	      <label for="billing_city">City<span class="required">*</span></label>
-      		  	      {{view Ember.TextField valueBinding='billingCity'}}
+      		  	      {{view Ember.TextField valueBinding='content.billingCity'}}
       		  	    </div>
       		  	    <div class="field">
       		  	      <label for="billing_postcode">Postcode<span class="required">*</span></label>
-      		  	      {{view Ember.TextField valueBinding='billingPostcode'}}
+      		  	      {{view Ember.TextField valueBinding='content.billingPostcode'}}
       		  	    </div>
       		  	    <div class="field">
       		  	      <label for="billing_country">Country<span class="required">*</span></label>
-      		  	      {{view Ember.TextField valueBinding='billingCountry'}}
+      		  	      {{view Ember.TextField valueBinding='content.billingCountry'}}
       		  	    </div>
 
 
@@ -80,27 +80,27 @@
       		  	    <div class="field">
       		  	      <label for="delivery_firstnames">First name(s)<span class="required">*</span></label>
 
-      		  	      {{view Ember.TextField valueBinding='deliveryFirstnames'}}
+      		  	      {{view Ember.TextField valueBinding='content.deliveryFirstnames'}}
       		  	    </div>
       		  	    <div class="field">
       		  	      <label for="delivery_surname">Surname<span class="required">*</span></label>
-      		  	      {{view Ember.TextField valueBinding='deliverySurname'}}
+      		  	      {{view Ember.TextField valueBinding='content.deliverySurname'}}
       		  	    </div>
       		  	    <div class="field">
       		  	      <label for="delivery_address">Address<span class="required">*</span></label>
-      		  	      {{view Ember.TextField valueBinding='deliveryAddress'}}
+      		  	      {{view Ember.TextField valueBinding='content.deliveryAddress'}}
       		  	    </div>
       		  	    <div class="field">
       		  	      <label for="delivery_city">City<span class="required">*</span></label>
-      		  	      {{view Ember.TextField valueBinding='deliveryCity'}}
+      		  	      {{view Ember.TextField valueBinding='content.deliveryCity'}}
       		  	    </div>
       		  	    <div class="field">
       		  	      <label for="delivery_postcode">Postcode<span class="required">*</span></label>
-      		  	      {{view Ember.TextField valueBinding='deliveryPostcode'}}
+      		  	      {{view Ember.TextField valueBinding='content.deliveryPostcode'}}
       		  	    </div>
       		  	    <div class="field">
       		  	      <label for="delivery_country">Country<span class="required">*</span></label>
-      		  	      {{view Ember.TextField valueBinding='deliveryCountry'}}
+      		  	      {{view Ember.TextField valueBinding='content.deliveryCountry'}}
       		  	    </div>
 
 

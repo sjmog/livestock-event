@@ -6,13 +6,13 @@
 
     <table class="bookingsTable" id="bookingsTable">
   <thead>
-    <th>Company Name & Registration</th>
+    <th>Company Name</th>
     <th>RABDF Membership?</th>
-    <th>Correspondence Address</th>
-    <th>Invoice Address</th>
+    <th>Tel.</th>
+    <th>Order</th>
     <th>T&Cs</th>
     <th>Show Area</th>
-    <th>Same as 2013?</th>
+    <th>Stand Number</th>
     <th>Stand Type</th>
     <th>Frontage</th>
     <th>Depth</th>
@@ -24,13 +24,13 @@
   <tbody>
     {{#each controller}}
     <tr>
-      <td>{{#linkTo "bookings.show" this }}{{ companyName }}{{/linkTo}}<br /><small>{{ companyReg }}</small></td>
+      <td>{{#linkTo "bookings.show" this }}{{ companyName }}{{/linkTo}}<br /><small>{{ contactName }}</small><br /><small><a {{bind-attr href="website"}}>{{website}}</a></small></td>
       <td>{{#if corporateMembership }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
-      <td>{{ correspondenceAddress }}</td>
-      <td>{{ invoiceAddress }}</td>
+      <td>{{ telephone }}</td>
+      <td>{{ order }}</td>
       <td>{{#if tcAgreed }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
       <td>{{ showArea }}</td>
-      <td>{{#if sameAs2013 }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+      <td>{{ standNumber }}</td>
       <td>{{ standType }}</td>
       <td>{{ frontage }}m</td>
       <td>{{ depth }}m</td>

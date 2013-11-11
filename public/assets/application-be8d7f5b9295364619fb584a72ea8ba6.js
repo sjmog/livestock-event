@@ -61637,14 +61637,84 @@ App.NumberFieldController = Ember.ObjectController.extend({
 		return this.get('tickets')*15;
 	}.observes('tickets')
 });
-App.OrdersEditController = Ember.ObjectController.extend({
-  needs: ['application'],
-  update: function(order) {
-    order.one('didUpdate', this, function(){
-      this.transitionToRoute('orders.show', order);
-    });
-    this.get('store').commit();
-  },
+
+App.OrdersEditController = Ember.Controller.extend({
+	needs: ['application'],
+	init: function() {
+		this._super();
+		var self = this;
+		Ember.run.later(function() {
+			var user = App.AuthManager.get('apiKey.user');
+			console.log(user);
+			self.set('content.user', user);
+			userBookings = user.get('bookings');
+			console.log(userBookings);
+			firstBooking = userBookings.objectAt(0);
+			console.log(firstBooking);
+			self.set('bookings', userBookings);
+			self.set('content.status', 'pending payment');
+			self.set('content.booking', firstBooking);
+			self.set('content.amount', firstBooking.get('deposit'));
+		}, 2000);
+	},
+	setup:function() {
+		console.log('controller setup');
+		var self = this;
+		
+	},
+	bookings: null,
+	selectedBooking: null,
+	actions: {
+		update: function(order) {
+		  var d = new Date();
+		     var curr_date = d.getDate();
+		     var curr_month = d.getMonth() + 1; //Months are zero based
+		     var curr_year = d.getFullYear();
+		     var today = (curr_date + "/" + curr_month + "/" + curr_year);
+		     order.set('date', today);
+		  order.one('didUpdate', this, function(){
+		    this.transitionToRoute('orders.show', order);
+		  });
+		  this.get('store').commit();
+		},
+	},
+	
+
+	bookingDidChange: function() {
+		console.log('booking changed');
+		var self = this;
+		var booking = self.get('selectedBooking');
+		console.log(booking);
+		//set booking
+		//re-set user
+		var user = self.get('content.user');
+		//set fields (less copy-pasting for the user)
+		self.set('content.booking', booking);
+		self.set('content.amount', booking.get('deposit'));
+
+	}.observes('selectedBooking'),
+
+	link: function() {
+		if(this.get('linked') == false) {
+			this.set('linked', true);
+			console.log('link set to true');
+		} else {
+			this.set('linked', false)
+		}
+	},
+
+	linked: false,
+
+	linkUp: function() {
+		if(this.get('linked') == true) {
+			this.set('content.deliveryFirstnames', this.get('content.billingFirstnames'));
+			this.set('content.deliverySurname', this.get('content.billingSurname'));
+			this.set('content.deliveryAddress', this.get('content.billingAddress'));
+			this.set('content.deliveryCity', this.get('content.billingCity'));
+			this.set('content.deliveryPostcode', this.get('content.billingPostcode'));
+			this.set('content.deliveryCountry', this.get('content.billingCountry'));
+		} else {}
+	}.observes('content.billingFirstnames', 'content.billingSurname', 'content.billingAddress', 'content.billingCity', 'content.billingPostcode', 'content.billingCountry')
 
 });
 
@@ -61664,26 +61734,29 @@ App.OrdersIndexController = Ember.ArrayController.extend({
 
 
 // inherit from edit controller
-App.OrdersNewController = App.BookingsEditController.extend({
+App.OrdersNewController = Ember.Controller.extend({
+	needs: ['application'],
 	init: function() {
 		this._super();
-	},
-	setup:function() {
-		console.log('controller setup');
 		var self = this;
 		Ember.run.later(function() {
-
-			var user = self.controllerFor('application').get('currentUser');
+			var user = App.AuthManager.get('apiKey.user');
 			console.log(user);
 			self.set('content.user', user);
 			userBookings = user.get('bookings');
+			console.log(userBookings);
 			firstBooking = userBookings.objectAt(0);
+			console.log(firstBooking);
 			self.set('bookings', userBookings);
 			self.set('content.status', 'pending payment');
 			self.set('content.booking', firstBooking);
 			self.set('content.amount', firstBooking.get('deposit'));
-			self.set('content.billingAddress',firstBooking.get('invoiceAddress'));
-		}, 800);
+		}, 2000);
+	},
+	setup:function() {
+		console.log('controller setup');
+		var self = this;
+		
 	},
 	bookings: null,
 	selectedBooking: null,
@@ -61704,19 +61777,18 @@ App.OrdersNewController = App.BookingsEditController.extend({
 	
 
 	bookingDidChange: function() {
+		console.log('booking changed');
 		var self = this;
-		//set booking
 		var booking = self.get('selectedBooking');
-		self.set('content.booking', self.selectedBooking);
+		console.log(booking);
+		//set booking
 		//re-set user
-		var user = self.controllerFor('application').get('currentUser');
-		console.log(user);
-		self.set('content.user', user);
+		var user = self.get('content.user');
 		//set fields (less copy-pasting for the user)
+		self.set('content.booking', booking);
 		self.set('content.amount', booking.get('deposit'));
-		self.set('content.billingAddress', booking.get('invoiceAddress'));
 
-	}.property('selectedBooking'),
+	}.observes('selectedBooking'),
 
 	link: function() {
 		if(this.get('linked') == false) {
@@ -62972,6 +63044,16 @@ App.NumberField = Ember.TextField.extend({
   attributeBindings: ['min', 'max', 'step']
 })
 ;
+App.OrdersEditView = Ember.View.extend({
+	templateName: 'orders/edit',
+	classNames: ['tile innerTile content-tile rabdforange exhibitor all tile-4-tall tile-n-wide'],
+	attributeBindings: ['width:data-width', 'height:data-height'],
+	width: 'n',
+	height: 4,
+	didInsertElement: function() {
+		window.scrollTo(0,0);
+	}
+});
 App.OrdersIndexView = Ember.View.extend({
 	templateName: 'orders/index',
 	classNames: ['tile innerTile content-tile rabdforange exhibitor all tile-2-tall tile-n-wide'],
@@ -67724,8 +67806,19 @@ function program3(depth0,data) {
   data.buffer.push("<br /><small>");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "companyReg", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</small></td>\n      <td>");
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "contactName", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</small><br /><small><a ");
+  hashContexts = {'href': depth0};
+  hashTypes = {'href': "STRING"};
+  options = {hash:{
+    'href': ("website")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "website", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</a></small></td>\n      <td>");
   hashTypes = {};
   hashContexts = {};
   stack2 = helpers['if'].call(depth0, "corporateMembership", {hash:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -67733,11 +67826,11 @@ function program3(depth0,data) {
   data.buffer.push("</td>\n      <td>");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "correspondenceAddress", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "telephone", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("</td>\n      <td>");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "invoiceAddress", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "order", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("</td>\n      <td>");
   hashTypes = {};
   hashContexts = {};
@@ -67750,8 +67843,7 @@ function program3(depth0,data) {
   data.buffer.push("</td>\n      <td>");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers['if'].call(depth0, "sameAs2013", {hash:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "standNumber", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("</td>\n      <td>");
   hashTypes = {};
   hashContexts = {};
@@ -67813,7 +67905,7 @@ function program8(depth0,data) {
   },inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("all bookings</span>\n  <div class=\"row\">\n    <div class=\"small-12 columns\">\n\n    <table class=\"bookingsTable\" id=\"bookingsTable\">\n  <thead>\n    <th>Company Name & Registration</th>\n    <th>RABDF Membership?</th>\n    <th>Correspondence Address</th>\n    <th>Invoice Address</th>\n    <th>T&Cs</th>\n    <th>Show Area</th>\n    <th>Same as 2013?</th>\n    <th>Stand Type</th>\n    <th>Frontage</th>\n    <th>Depth</th>\n    <th><span class=\"icon-pound-icon\"></span></th>\n    <th>Deposit Paid?</th>\n    <th>Total Paid?</th>\n    <th>Breed Society</th>\n  </thead>\n  <tbody>\n    ");
+  data.buffer.push("all bookings</span>\n  <div class=\"row\">\n    <div class=\"small-12 columns\">\n\n    <table class=\"bookingsTable\" id=\"bookingsTable\">\n  <thead>\n    <th>Company Name</th>\n    <th>RABDF Membership?</th>\n    <th>Tel.</th>\n    <th>Order</th>\n    <th>T&Cs</th>\n    <th>Show Area</th>\n    <th>Stand Number</th>\n    <th>Stand Type</th>\n    <th>Frontage</th>\n    <th>Depth</th>\n    <th><span class=\"icon-pound-icon\"></span></th>\n    <th>Deposit Paid?</th>\n    <th>Total Paid?</th>\n    <th>Breed Society</th>\n  </thead>\n  <tbody>\n    ");
   hashTypes = {};
   hashContexts = {};
   stack2 = helpers.each.call(depth0, "controller", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -69481,7 +69573,11 @@ function program16(depth0,data) {
   hashContexts = {};
   stack2 = helpers['if'].call(depth0, "isLivestockHall", {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n\n        <div class=\"row\">\n          <div class=\"large-6 small-12 columns\">\n            <p>\n              <b>Frontage:</b> ");
+  data.buffer.push("\n\n        <div class=\"row\">\n          <div class=\"large-10 large-centered small-12 small-uncentered columns\">\n            <p>\n              <b>Stand Number:</b> ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "standNumber", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"large-6 small-12 columns\">\n            <p>\n              <b>Frontage:</b> ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "frontage", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -69521,7 +69617,8 @@ function program16(depth0,data) {
   data.buffer.push("\n            </p>\n          </div>\n          <div class=\"large-4 small-12 columns\">\n            <p>\n              <b>Do you need a PDF version?</b> ");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "pdfLeaflet", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  stack2 = helpers['if'].call(depth0, "pdfLeaflets", {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"large-4 small-12 columns\">\n            <p>\n              <b>Exhibiting Machinery in Motion?</b> ");
   hashTypes = {};
   hashContexts = {};
@@ -71246,6 +71343,212 @@ function program4(depth0,data) {
   return buffer;
   
 });
+Ember.TEMPLATES["orders/edit"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n                              ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['with'].call(depth0, "content.booking", {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n                        ");
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n                              <h2>Booking details</h2>\n                              <p>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "companyName", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>\n                              <p>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "contactName", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>\n                              <p>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "telephone", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>\n                              <p>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "email", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>\n                              <p>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "showArea", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>\n                              <p>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "zone", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>\n                              <p>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "standType", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>\n                              <p>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "frontage", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("m x ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "depth", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("m (total area ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "area", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("sqm)</p>\n                              <p>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "notes", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>\n                              <p>Total payable: £");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "totalIncVat", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>\n                              <p>Payable today: £");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "deposit", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>\n                              ");
+  return buffer;
+  }
+
+function program4(depth0,data) {
+  
+  
+  data.buffer.push("\n                        <p>Select a booking from the dropdown to the left.</p>\n                        ");
+  }
+
+function program6(depth0,data) {
+  
+  
+  data.buffer.push("\n      		  	    <span class=\"icon-unlink\"></span>\n                            ");
+  }
+
+function program8(depth0,data) {
+  
+  
+  data.buffer.push("\n                            <span class=\"icon-link\"></span>\n                            ");
+  }
+
+  data.buffer.push("\n  <div class=\"flipper\">\n    <div class=\"front\">\n      <span class=\"tile-title\">edit order #");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "id", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n      <div class=\"tile-content\">\n            <div class=\"row bookingDetails\">\n                  <div class=\"large-4 columns\">\n                        <h2>select a booking</h2>\n                        ");
+  hashContexts = {'contentBinding': depth0,'optionValuePath': depth0,'optionLabelPath': depth0,'valueBinding': depth0,'id': depth0,'classNames': depth0};
+  hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING",'classNames': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Select", {hash:{
+    'contentBinding': ("bookings"),
+    'optionValuePath': ("content"),
+    'optionLabelPath': ("content.companyName"),
+    'valueBinding': ("selectedBooking"),
+    'id': ("bookings"),
+    'classNames': ("select")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n                  </div>\n                  <div class=\"large-8 columns\">\n                        ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "content.booking", {hash:{},inverse:self.program(4, program4, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n                  </div>\n            </div>\n      	<form ");
+  hashContexts = {'on': depth0};
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "update", "model", {hash:{
+    'on': ("submit")
+  },contexts:[depth0,depth0],types:["ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n      		<div class=\"row orderForm\">\n      		  <div class=\"large-6 small-12 columns\">\n      		  	    <h1>Billing Details</h1>\n\n\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_firstnames\">First name(s)<span class=\"required\">*</span></label>\n\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.billingFirstnames")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_surname\">Surname<span class=\"required\">*</span></label>\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.billingSurname")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_address\">Address<span class=\"required\">*</span></label>\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.billingAddress")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_city\">City<span class=\"required\">*</span></label>\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.billingCity")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_postcode\">Postcode<span class=\"required\">*</span></label>\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.billingPostcode")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_country\">Country<span class=\"required\">*</span></label>\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.billingCountry")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n\n\n      		  	  </div>\n      		  	  <div class=\"large-6 small-12 columns\">\n      		  	  <div class=\"copier\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "link", {hash:{
+    'target': ("controller")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" id=\"orderCopier\">\n      		  	    <span class=\"copierLabel\">billing & delivery addresses the same?</span>\n                            ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.unless.call(depth0, "linked", {hash:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n      		  	  </div>\n      		  	  \n\n      		  	    <h1>Delivery Details</h1>\n\n\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_firstnames\">First name(s)<span class=\"required\">*</span></label>\n\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.deliveryFirstnames")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_surname\">Surname<span class=\"required\">*</span></label>\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.deliverySurname")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_address\">Address<span class=\"required\">*</span></label>\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.deliveryAddress")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_city\">City<span class=\"required\">*</span></label>\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.deliveryCity")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_postcode\">Postcode<span class=\"required\">*</span></label>\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.deliveryPostcode")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_country\">Country<span class=\"required\">*</span></label>\n      		  	      ");
+  hashContexts = {'valueBinding': depth0};
+  hashTypes = {'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'valueBinding': ("content.deliveryCountry")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      		  	    </div>\n\n\n      		  	  </div>\n      		  	</div>\n      		  	<div class=\"actions orderActions\">\n      	    <button class=\"button callToAction\" type=\"submit\">Save</button>\n      	  </div>\n      	</form>\n\n</div>\n</div>\n</div>\n");
+  return buffer;
+  
+});
 Ember.TEMPLATES["orders/index"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
@@ -71270,7 +71573,7 @@ function program1(depth0,data) {
   },inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "bookings.show", "booking", options) : helperMissing.call(depth0, "linkTo", "bookings.show", "booking", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("</td>\n      <td>\n        ");
+  data.buffer.push("</td>\n      <td>\n        £");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "amount", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -71286,7 +71589,7 @@ function program2(depth0,data) {
   var hashTypes, hashContexts;
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "user", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "user.email", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   }
 
 function program4(depth0,data) {
@@ -71406,7 +71709,7 @@ function program8(depth0,data) {
     'contentBinding': ("bookings"),
     'optionValuePath': ("content"),
     'optionLabelPath': ("content.companyName"),
-    'valueBinding': ("content.booking"),
+    'valueBinding': ("selectedBooking"),
     'id': ("bookings"),
     'classNames': ("select")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -71425,37 +71728,37 @@ function program8(depth0,data) {
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("billingFirstnames")
+    'valueBinding': ("content.billingFirstnames")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_surname\">Surname<span class=\"required\">*</span></label>\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("billingSurname")
+    'valueBinding': ("content.billingSurname")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_address\">Address<span class=\"required\">*</span></label>\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("billingAddress")
+    'valueBinding': ("content.billingAddress")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_city\">City<span class=\"required\">*</span></label>\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("billingCity")
+    'valueBinding': ("content.billingCity")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_postcode\">Postcode<span class=\"required\">*</span></label>\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("billingPostcode")
+    'valueBinding': ("content.billingPostcode")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"billing_country\">Country<span class=\"required\">*</span></label>\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("billingCountry")
+    'valueBinding': ("content.billingCountry")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n\n\n      		  	  </div>\n      		  	  <div class=\"large-6 small-12 columns\">\n      		  	  <div class=\"copier\" ");
   hashContexts = {'target': depth0};
@@ -71472,37 +71775,37 @@ function program8(depth0,data) {
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("deliveryFirstnames")
+    'valueBinding': ("content.deliveryFirstnames")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_surname\">Surname<span class=\"required\">*</span></label>\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("deliverySurname")
+    'valueBinding': ("content.deliverySurname")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_address\">Address<span class=\"required\">*</span></label>\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("deliveryAddress")
+    'valueBinding': ("content.deliveryAddress")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_city\">City<span class=\"required\">*</span></label>\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("deliveryCity")
+    'valueBinding': ("content.deliveryCity")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_postcode\">Postcode<span class=\"required\">*</span></label>\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("deliveryPostcode")
+    'valueBinding': ("content.deliveryPostcode")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_country\">Country<span class=\"required\">*</span></label>\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("deliveryCountry")
+    'valueBinding': ("content.deliveryCountry")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      		  	    </div>\n\n\n      		  	  </div>\n      		  	</div>\n      		  	<div class=\"actions orderActions\">\n      	    <button class=\"button callToAction\" type=\"submit\">Save</button>\n      	  </div>\n      	</form>\n\n</div>\n</div>\n</div>\n");
   return buffer;
@@ -74250,11 +74553,7 @@ App.ApplicationRoute = Ember.Route.extend({
 	      App.AuthManager.reset();
 	      this.transitionTo('index');
 		},
-		error: function(error, transition) {
-		  // handle the error
-		  console.log(error);
-		  
-		}
+		
 	},
 
 	init: function() {
@@ -74540,6 +74839,44 @@ App.NewTestimonialRoute = Ember.Route.extend({
   }
 
 });
+App.OrdersEditRoute = Ember.Route.extend({
+
+  actions: {
+    willTransition: function (transition) {
+          var model = this.get('currentModel');
+
+          if (model && model.get('isDirty')) {
+            if (confirm("You have unsaved changes. Click OK to stay on the current page. Click cancel to discard these changes and move to the requested page.")) {
+              //Stay on same page and continue editing
+              transition.abort();
+            } else {
+              //Rollback modifications
+              var author = this.get('currentModel');
+              author.rollback();
+              // Bubble the `willTransition` event so that parent routes can decide whether or not to abort.
+              return true;
+            }
+          } else {
+            // Bubble the `willTransition` event so that parent routes can decide whether or not to abort.
+            return true;
+          }
+        }
+    },
+  
+  
+  setupController: function(controller, model) {
+  //	console.log('setupController');
+
+  	controller.set('model', model);
+  //	console.log(controller.get('content')); //should be same as previous line
+  //	console.log('syncing');
+  	
+  },
+  
+  
+});
+
+
 App.OrdersNewRoute = Ember.Route.extend({
 
   actions: {
@@ -74576,8 +74913,7 @@ App.OrdersNewRoute = Ember.Route.extend({
   	controller.set('model', model);
   //	console.log(controller.get('content')); //should be same as previous line
   //	console.log('syncing');
-  	Ember.run.sync();
-  	controller.setup();
+  	
   },
   
   

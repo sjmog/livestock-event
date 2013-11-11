@@ -9,7 +9,8 @@ class Ability
     can :create, Order
     can :create, Message
     can :manage, User, :id => user.id if user.role == "standard"
-    can :manage, Order, :user => user.id if user.role == "standard"
+    can :manage, Order, :user_id => user.id if user.role == "standard"
+    can :update, Order, :user_id => user.id if user.role == "standard"
     can :update, Stand if user.role == "standard"
     can :create, Booking if user.role == "standard"
     can :read, Booking, :user_id => user.id if user.role="standard"
