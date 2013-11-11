@@ -1,6 +1,7 @@
 class OrderSerializer < ActiveModel::Serializer
   attributes :id, :status, :amount, :date
   attribute :user_id
+  attribute :booking_id
   has_one :booking
   has_one :user
   attribute :crypt

@@ -25,6 +25,7 @@ class Ability
     can :manage, Order if user.role == "admin"
     can :manage, Stand if user.role == "admin"
     can :manage, Supporter if user.role == "admin"
+    can :create, Supporter if user.role == "admin"
     can :manage, User if user.role == "admin"
     # Define abilities for the passed in user here. For example:
     #
