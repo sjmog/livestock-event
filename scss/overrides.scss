@@ -4153,7 +4153,7 @@ div.form-actions {
 
 @media print { 
  /* All your print styles go here */
- .sidebarHolder, .logo, .filters, .footer, .notIndexLogin, .backbutton, .centerAlign, .firstRow {
+ .sidebarHolder, .logo, .filters, .footer, .notIndexLogin, .backbutton, .centerAlign, .firstRow, .cookieBar {
  	display:none !important;
  }
  .tile {
@@ -4174,8 +4174,14 @@ div.form-actions {
  		border-top:none !important;
  		border-right:none !important;
  		border-left:none !important;
- 		border-bottom:1px solid rgba($rabdfLightGray, 0.5);
+ 		border-bottom:none !important;
  		min-height:50px !important;
+ 		&.printHalf {
+ 			width:48% !important;
+ 		}
+ 		&.printThird {
+ 			width:31% !important;
+ 		}
  	}
  }
 }

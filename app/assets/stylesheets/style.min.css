@@ -14287,7 +14287,7 @@ div.form-actions {
 /*printing*/
 @media print {
   /* All your print styles go here */
-  .sidebarHolder, .logo, .filters, .footer, .notIndexLogin, .backbutton, .centerAlign, .firstRow {
+  .sidebarHolder, .logo, .filters, .footer, .notIndexLogin, .backbutton, .centerAlign, .firstRow, .cookieBar {
     display: none !important; }
 
   .tile {
@@ -14308,8 +14308,12 @@ div.form-actions {
       border-top: none !important;
       border-right: none !important;
       border-left: none !important;
-      border-bottom: 1px solid rgba(151, 151, 153, 0.5);
-      min-height: 50px !important; } }
+      border-bottom: none !important;
+      min-height: 50px !important; }
+      html body .tile .front .row .columns.printHalf {
+        width: 48% !important; }
+      html body .tile .front .row .columns.printThird {
+        width: 31% !important; } }
 @media all {
   .page-break {
     display: none; } }
