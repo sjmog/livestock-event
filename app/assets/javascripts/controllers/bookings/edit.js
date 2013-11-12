@@ -4,7 +4,7 @@ App.BookingsEditController = Ember.ObjectController.extend({
     booking.one('didUpdate', this, function(){
       this.transitionToRoute('bookings.show', booking);
     });
-    this.get('store').commit();
+    booking.save();
   },
 
   showAreas: [

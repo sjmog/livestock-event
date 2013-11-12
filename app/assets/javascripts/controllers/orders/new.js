@@ -10,7 +10,7 @@ App.OrdersNewController = Ember.Controller.extend({
 			var user = App.AuthManager.get('apiKey.user');
 			console.log(user);
 			self.set('content.user', user);
-			userBookings = App.Booking.find({user: user});
+			userBookings = user.get('bookings');
 			console.log(userBookings);
 			firstBooking = userBookings.objectAt(0);
 			console.log(firstBooking);

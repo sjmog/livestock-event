@@ -60837,7 +60837,7 @@ App.BookingsEditController = Ember.ObjectController.extend({
     booking.one('didUpdate', this, function(){
       this.transitionToRoute('bookings.show', booking);
     });
-    this.get('store').commit();
+    booking.save();
   },
 
   showAreas: [
@@ -61410,12 +61410,7 @@ App.BookingsPostController = App.BookingsEditController.extend({
 
 App.BookingsShowController = Ember.ObjectController.extend({
 
-  destroy: function() {
-    if (!confirm('Are you sure?')) return;
-    this.get('model').deleteRecord();
-    this.get('store').commit();
-    this.get('target.router').transitionTo('bookings');
-  }
+
 
 });
 
@@ -61655,6 +61650,7 @@ App.OrdersEditController = Ember.Controller.extend({
 			self.set('content.status', 'pending payment');
 			self.set('content.booking', firstBooking);
 			self.set('content.amount', firstBooking.get('deposit'));
+			self.set('updated', false);
 		}, 2000);
 	},
 	setup:function() {
@@ -61666,18 +61662,29 @@ App.OrdersEditController = Ember.Controller.extend({
 	selectedBooking: null,
 	actions: {
 		update: function(order) {
+		  var self = this;
+		  console.log('order attempting to update...');
 		  var d = new Date();
 		     var curr_date = d.getDate();
 		     var curr_month = d.getMonth() + 1; //Months are zero based
 		     var curr_year = d.getFullYear();
 		     var today = (curr_date + "/" + curr_month + "/" + curr_year);
 		     order.set('date', today);
-		  order.one('didUpdate', this, function(){
-		    this.transitionToRoute('orders.show', order);
+
+		    order.one('didUpdate', this, function(){
+		    console.log('order updated');
+		    console.log(order);
+		   	self.set('updated', true);
+		  
+		      self.get('target').transitionToRoute('orders.show', order);
+		    
+		    
 		  });
 		  this.get('store').commit();
 		},
 	},
+
+	updated: null,
 	
 
 	bookingDidChange: function() {
@@ -61743,7 +61750,7 @@ App.OrdersNewController = Ember.Controller.extend({
 			var user = App.AuthManager.get('apiKey.user');
 			console.log(user);
 			self.set('content.user', user);
-			userBookings = App.Booking.find({user: user});
+			userBookings = user.get('bookings');
 			console.log(userBookings);
 			firstBooking = userBookings.objectAt(0);
 			console.log(firstBooking);
@@ -62086,11 +62093,13 @@ App.UsersEditController = Ember.ObjectController.extend({
     var router = this.get('target');
     var data = this.getProperties('id', 'name', 'email', 'password', 'password_confirmation');
     var user = this.get('model');
+    var id = user.get('id');
 
     $.ajax({
-        url: 'http://www.livestockevent.co.uk/api/users/',
+        url: 'http://www.livestockevent.co.uk/api/users/' + id,
         data: {user: data},
         type: 'PUT',
+        dataType: 'json',
         success: function(result) {
             router.transitionTo('users.show', user);
         }
@@ -68812,7 +68821,7 @@ function program108(depth0,data) {
     'id': ("correspondence_address"),
     'required': ("")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            </div>\n          </div>\n          <div data-row-span=\"12\">\n            <div data-field-span=\"12\">\n              <label id=\"invoice_label\" for=\"invoice_address\">Invoice Address, if different to correspondence address<span class=\"required\">*</span> (<a id=\"invoice_address_copier\" class=\"inlineLink copier\">Copy Correspondence Address</a>?)</label><br>\n              ");
+  data.buffer.push("\n            </div>\n          </div>\n          <div data-row-span=\"12\">\n            <div data-field-span=\"12\">\n              <label id=\"invoice_label\" for=\"invoice_address\">Invoice Address, if different to correspondence address (<a id=\"invoice_address_copier\" class=\"inlineLink copier\">Copy Correspondence Address</a>?)</label><br>\n              ");
   hashContexts = {'valueBinding': depth0,'id': depth0};
   hashTypes = {'valueBinding': "STRING",'id': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
@@ -71349,7 +71358,7 @@ function program4(depth0,data) {
 Ember.TEMPLATES["orders/edit"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this;
+  var buffer = '', stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
 
 function program1(depth0,data) {
   
@@ -71439,10 +71448,36 @@ function program8(depth0,data) {
   data.buffer.push("\n                            <span class=\"icon-link\"></span>\n                            ");
   }
 
+function program10(depth0,data) {
+  
+  
+  data.buffer.push("\n      	    <button class=\"button callToAction orange\" type=\"submit\">Save</button>\n                ");
+  }
+
+function program12(depth0,data) {
+  
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options;
+  data.buffer.push("\n                ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("button callToAction orange")
+  },inverse:self.noop,fn:self.program(13, program13, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "orders.show", "model", options) : helperMissing.call(depth0, "link-to", "orders.show", "model", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n                ");
+  return buffer;
+  }
+function program13(depth0,data) {
+  
+  
+  data.buffer.push("<span class=\"icon-forward\"></span>");
+  }
+
   data.buffer.push("\n  <div class=\"flipper\">\n    <div class=\"front\">\n      <span class=\"tile-title\">edit order #");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "id", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "content.id", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("</span>\n      <div class=\"tile-content\">\n            <div class=\"row bookingDetails\">\n                  <div class=\"large-4 columns\">\n                        <h2>select a booking</h2>\n                        ");
   hashContexts = {'contentBinding': depth0,'optionValuePath': depth0,'optionLabelPath': depth0,'valueBinding': depth0,'id': depth0,'classNames': depth0};
   hashTypes = {'contentBinding': "STRING",'optionValuePath': "STRING",'optionLabelPath': "STRING",'valueBinding': "STRING",'id': "STRING",'classNames': "STRING"};
@@ -71548,7 +71583,12 @@ function program8(depth0,data) {
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
     'valueBinding': ("content.deliveryCountry")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n      		  	    </div>\n\n\n      		  	  </div>\n      		  	</div>\n      		  	<div class=\"actions orderActions\">\n      	    <button class=\"button callToAction\" type=\"submit\">Save</button>\n      	  </div>\n      	</form>\n\n</div>\n</div>\n</div>\n");
+  data.buffer.push("\n      		  	    </div>\n\n\n      		  	  </div>\n      		  	</div>\n      		  	<div class=\"actions orderActions\">\n                        ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.unless.call(depth0, "updated", {hash:{},inverse:self.program(12, program12, data),fn:self.program(10, program10, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n      	  </div>\n      	</form>\n\n</div>\n</div>\n</div>\n");
   return buffer;
   
 });
@@ -71769,12 +71809,12 @@ function program8(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "link", {hash:{
     'target': ("controller")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" id=\"orderCopier\">\n      		  	    <span class=\"copierLabel\">billing & delivery addresses the same?</span>\n                            ");
+  data.buffer.push(" id=\"orderCopier\">\n      		  	    <span class=\"copierLabel\">billing & invoice addresses the same?</span>\n                            ");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.unless.call(depth0, "linked", {hash:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n      		  	  </div>\n      		  	  \n\n      		  	    <h1>Delivery Details</h1>\n\n\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_firstnames\">First name(s)<span class=\"required\">*</span></label>\n\n      		  	      ");
+  data.buffer.push("\n      		  	  </div>\n      		  	  \n\n      		  	    <h1>Invoice Details</h1>\n\n\n      		  	    <div class=\"field\">\n      		  	      <label for=\"delivery_firstnames\">First name(s)<span class=\"required\">*</span></label>\n\n      		  	      ");
   hashContexts = {'valueBinding': depth0};
   hashTypes = {'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
@@ -71826,6 +71866,12 @@ function program1(depth0,data) {
   }
 
 function program3(depth0,data) {
+  
+  
+  data.buffer.push("\n        <span class=\"icon-close-alt orange\"></span>\n      ");
+  }
+
+function program5(depth0,data) {
   
   
   data.buffer.push("\n        <span class=\"icon-gears orange\"></span>\n      ");
@@ -71921,7 +71967,7 @@ function program3(depth0,data) {
   hashTypes = {'class': "STRING"};
   options = {hash:{
     'class': ("button callToAction")
-  },inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  },inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n      <span class=\"buttonLabel\">cancel</span>\n    </div>\n  </div>\n</div>\n\n\n<!-- \nSAGEPAY FORM\n\n\n<div class=\"row actionsRow\">\n  <div class=\"large-4 small-12 columns vertWrap\">\n   <div class=\"vertElement\"> \n   ");
@@ -71941,7 +71987,7 @@ function program3(depth0,data) {
   hashTypes = {'class': "STRING"};
   options = {hash:{
     'class': ("button callToAction")
-  },inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  },inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n      <span class=\"buttonLabel\">cancel</span>\n    </div>\n  </div>\n</div>\n</div>\n\n<! This creates the button. When it is selected in the browser, the form submits the purchase details to us. -->\n\n\n\n\n<!-- The version of the SagePay protocol, default to 3.00 as of 10/2013 \n<input type=\"hidden\" name=\"VPSProtocol\" value=\"3.00\">\n\n< The transfer type (PAYMENT, DEFERRED, or AUTHENTICATE)\n<input type=\"hidden\" name=\"TxType\" value=\"PAYMENT\">\n\n The SagePay vendor login name\n<input type=\"hidden\" name=\"Vendor\" value=\"dairyevent123ls\">\n\n The Crypt field, built in real-time for each order. Encrypted and encoded. \n<input type=\"hidden\" name=\"Crypt\" value=\"");
@@ -73727,11 +73773,23 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   var buffer = '', stack1, stack2, hashTypes, hashContexts, options;
-  data.buffer.push("\n          <tr>\n            <td>");
+  data.buffer.push("\n          <tr class=\"single-booking\">\n            <td>");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "bookings.show", "", options) : helperMissing.call(depth0, "linkTo", "bookings.show", "", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "bookings.show", "", options) : helperMissing.call(depth0, "link-to", "bookings.show", "", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("</td>\n            <td>");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "bookings.show", "", options) : helperMissing.call(depth0, "link-to", "bookings.show", "", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("</td>\n            <td>");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(8, program8, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "bookings.show", "", options) : helperMissing.call(depth0, "link-to", "bookings.show", "", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("<br /><small>");
   hashTypes = {};
@@ -73740,7 +73798,7 @@ function program3(depth0,data) {
   data.buffer.push("</small></td>\n            <td>");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers['if'].call(depth0, "corporateMembership", {hash:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers['if'].call(depth0, "corporateMembership", {hash:{},inverse:self.program(12, program12, data),fn:self.program(10, program10, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</td>\n            <td>");
   hashTypes = {};
@@ -73753,18 +73811,13 @@ function program3(depth0,data) {
   data.buffer.push("</td>\n            <td>");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers['if'].call(depth0, "tcAgreed", {hash:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers['if'].call(depth0, "tcAgreed", {hash:{},inverse:self.program(12, program12, data),fn:self.program(10, program10, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</td>\n            <td>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "showArea", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</td>\n            <td>");
-  hashTypes = {};
-  hashContexts = {};
-  stack2 = helpers['if'].call(depth0, "sameAs2013", {hash:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("</td>\n            <td>");
+  data.buffer.push("</td>\n            \n            <td>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "standType", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -73783,12 +73836,12 @@ function program3(depth0,data) {
   data.buffer.push("</td>\n            <td>");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers['if'].call(depth0, "depositPaid", {hash:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers['if'].call(depth0, "depositPaid", {hash:{},inverse:self.program(12, program12, data),fn:self.program(10, program10, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</td>\n            <td>");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers['if'].call(depth0, "totalPaid", {hash:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers['if'].call(depth0, "totalPaid", {hash:{},inverse:self.program(12, program12, data),fn:self.program(10, program10, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</td>\n            <td>");
   hashTypes = {};
@@ -73799,38 +73852,58 @@ function program3(depth0,data) {
   }
 function program4(depth0,data) {
   
+  
+  data.buffer.push("<span class=\"icon-forward\"></span>");
+  }
+
+function program6(depth0,data) {
+  
+  var hashTypes, hashContexts;
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "id", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  }
+
+function program8(depth0,data) {
+  
   var hashTypes, hashContexts;
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "companyName", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   }
 
-function program6(depth0,data) {
+function program10(depth0,data) {
   
   
   data.buffer.push("<span class=\"icon-tick-alt\"></span>");
   }
 
-function program8(depth0,data) {
+function program12(depth0,data) {
   
   
   data.buffer.push("<span class=\"icon-close-alt-2\"></span>");
   }
 
-function program10(depth0,data) {
+function program14(depth0,data) {
   
   
   data.buffer.push("\n          <span class=\"afterthought\">You have not made any bookings yet.</span>\n        ");
   }
 
-function program12(depth0,data) {
+function program16(depth0,data) {
   
   var buffer = '', stack1, stack2, hashTypes, hashContexts, options;
-  data.buffer.push("\n          <tr>\n            <td>");
+  data.buffer.push("\n          <tr class=\"single-order\">\n            <td>");
   hashTypes = {};
   hashContexts = {};
-  options = {hash:{},inverse:self.noop,fn:self.program(13, program13, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "orders.show", "", options) : helperMissing.call(depth0, "linkTo", "orders.show", "", options));
+  options = {hash:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "orders.show", "", options) : helperMissing.call(depth0, "link-to", "orders.show", "", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("</td>\n            <td>");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "orders.show", "", options) : helperMissing.call(depth0, "link-to", "orders.show", "", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("<br /><small>");
   hashTypes = {};
@@ -73847,7 +73920,7 @@ function program12(depth0,data) {
   data.buffer.push("</td>\n            <td>");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "booking", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "booking.id", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("</td>\n            <td>");
   hashTypes = {};
   hashContexts = {};
@@ -73855,33 +73928,26 @@ function program12(depth0,data) {
   data.buffer.push("</td>\n          </tr>\n        ");
   return buffer;
   }
-function program13(depth0,data) {
-  
-  var hashTypes, hashContexts;
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "id", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  }
 
-function program15(depth0,data) {
+function program18(depth0,data) {
   
   
   data.buffer.push("\n          <span class=\"afterthought\">You have not placed any orders yet.</span>\n        ");
   }
 
-function program17(depth0,data) {
+function program20(depth0,data) {
   
   
   data.buffer.push("<span class=\"icon-gears\"></span>");
   }
 
-function program19(depth0,data) {
+function program22(depth0,data) {
   
   
   data.buffer.push("<span class=\"icon-exhibitions-alt\"></span>");
   }
 
-function program21(depth0,data) {
+function program24(depth0,data) {
   
   
   data.buffer.push("<span class=\"icon-add-icon\"></span>");
@@ -73907,43 +73973,43 @@ function program21(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("'s bookings</h1>\n      <table class=\"usersTable\" id=\"personalTable\">\n        <thead>\n          <th>Company Name & Registration</th>\n          <th>RABDF Membership?</th>\n          <th>Correspondence Address</th>\n          <th>Invoice Address</th>\n          <th>T&Cs</th>\n          <th>Show Area</th>\n          <th>Same as 2013?</th>\n          <th>Stand Type</th>\n          <th>Frontage</th>\n          <th>Depth</th>\n          <th><span class=\"icon-pound-icon\"></span></th>\n          <th>Deposit Paid?</th>\n          <th>Total Paid?</th>\n          <th>Breed Society</th>\n        </thead>\n        <tbody>\n    		");
+  data.buffer.push("'s bookings</h1>\n      <table class=\"usersTable\" id=\"personalTable\">\n        <thead>\n          <th>Go to Booking</th>\n          <th>Booking ID</th>\n          <th>Company Name</th>\n          <th>RABDF Membership?</th>\n          <th>Correspondence Address</th>\n          <th>Invoice Address</th>\n          <th>T&Cs</th>\n          <th>Show Area</th>\n          \n          <th>Stand Type</th>\n          <th>Frontage</th>\n          <th>Depth</th>\n          <th><span class=\"icon-pound-icon\"></span></th>\n          <th>Deposit Paid?</th>\n          <th>Total Paid?</th>\n          <th>Breed Society</th>\n        </thead>\n        <tbody>\n    		");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers.each.call(depth0, "bookings", {hash:{},inverse:self.program(10, program10, data),fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers.each.call(depth0, "bookings", {hash:{},inverse:self.program(14, program14, data),fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n        </tbody>\n      </table>\n  	</div>\n  </div>\n\n  <div class=\"row userOrdersRow\">\n    <div class=\"small-12 columns\">\n      <h1>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("'s past purchases</h1>\n      <table class=\"usersTable\" id=\"personalTable\">\n        <thead>\n          <th>Order ID</th>\n          <th>Amount</th>\n          <th>Order Date</th>\n          <th>Booking</th>\n          <th>Order Status</th>\n        </thead>\n        <tbody>\n        ");
+  data.buffer.push("'s past purchases</h1>\n      <table class=\"usersTable\" id=\"personalTable\">\n        <thead>\n          <th>Go to Order</th>\n          <th>Order ID</th>\n          <th>Amount</th>\n          <th>Order Date</th>\n          <th>Booking ID</th>\n          <th>Order Status</th>\n        </thead>\n        <tbody>\n        ");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers.each.call(depth0, "orders", {hash:{},inverse:self.program(15, program15, data),fn:self.program(12, program12, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers.each.call(depth0, "orders", {hash:{},inverse:self.program(18, program18, data),fn:self.program(16, program16, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n        </tbody>\n      </table>\n    </div>\n  </div>\n  \n  <div class=\"row actionsRow\">\n    <div class=\"large-4 small-12 columns vertWrap\">\n     <div class=\"vertElement\"> ");
   hashContexts = {'class': depth0};
   hashTypes = {'class': "STRING"};
   options = {hash:{
     'class': ("button callToAction")
-  },inverse:self.noop,fn:self.program(17, program17, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "users.edit", "model", options) : helperMissing.call(depth0, "linkTo", "users.edit", "model", options));
+  },inverse:self.noop,fn:self.program(20, program20, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "users.edit", "model", options) : helperMissing.call(depth0, "link-to", "users.edit", "model", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("<span class=\"buttonLabel\">change something</span></div>\n    </div>\n    <div class=\"large-4 small-12 columns vertWrap\">\n      <div class=\"vertElement\">\n        ");
   hashContexts = {'class': depth0};
   hashTypes = {'class': "STRING"};
   options = {hash:{
     'class': ("button callToAction")
-  },inverse:self.noop,fn:self.program(19, program19, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "bookings.problems", options) : helperMissing.call(depth0, "linkTo", "bookings.problems", options));
+  },inverse:self.noop,fn:self.program(22, program22, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "bookings.problems", options) : helperMissing.call(depth0, "link-to", "bookings.problems", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("<span class=\"buttonLabel\">problems?</span>\n      </div>\n    </div>\n    <div class=\"large-4 small-12 columns vertWrap\">\n      <div class=\"vertElement\">");
   hashContexts = {'class': depth0};
   hashTypes = {'class': "STRING"};
   options = {hash:{
     'class': ("button callToAction")
-  },inverse:self.noop,fn:self.program(21, program21, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "bookings.new", options) : helperMissing.call(depth0, "linkTo", "bookings.new", options));
+  },inverse:self.noop,fn:self.program(24, program24, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "bookings.new", options) : helperMissing.call(depth0, "link-to", "bookings.new", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("<span class=\"buttonLabel\">new booking</span></div>\n    </div>\n  </div>\n</div>\n<div class=\"back\">\n  \n</div>\n</div>\n\n");
   return buffer;
@@ -74644,13 +74710,6 @@ App.AuthenticatedRoute = Ember.Route.extend({
 });
 App.BookingsEditRoute = Ember.Route.extend({
 
-
-  deactivate: function() {
-    var model = this.get('controller.model');
-    if (!model.get('isSaving')) {
-      model.deleteRecord();
-    }
-  },
   renderTemplate: function() {
   	var bookingsEditController = this.controllerFor('bookings.edit');
   	this.render('bookings/edit', {
@@ -74710,6 +74769,21 @@ App.BookingsNewRoute = Ember.Route.extend({
   	controller.setup();
   },
   
+  
+});
+
+
+
+App.BookingsShowRoute = Ember.Route.extend({
+
+  actions: {
+
+    },
+  
+  beforeModel: function() {
+    this._super();
+    
+  }
   
 });
 
@@ -74845,25 +74919,7 @@ App.NewTestimonialRoute = Ember.Route.extend({
 App.OrdersEditRoute = Ember.Route.extend({
 
   actions: {
-    willTransition: function (transition) {
-          var model = this.get('currentModel');
-
-          if (model && model.get('isDirty')) {
-            if (confirm("You have unsaved changes. Click OK to stay on the current page. Click cancel to discard these changes and move to the requested page.")) {
-              //Stay on same page and continue editing
-              transition.abort();
-            } else {
-              //Rollback modifications
-              var author = this.get('currentModel');
-              author.rollback();
-              // Bubble the `willTransition` event so that parent routes can decide whether or not to abort.
-              return true;
-            }
-          } else {
-            // Bubble the `willTransition` event so that parent routes can decide whether or not to abort.
-            return true;
-          }
-        }
+      
     },
   
   
@@ -74919,6 +74975,11 @@ App.OrdersNewRoute = Ember.Route.extend({
   	
   },
   
+  
+});
+
+App.OrdersShowRoute = Ember.Route.extend({
+ 
   
 });
 

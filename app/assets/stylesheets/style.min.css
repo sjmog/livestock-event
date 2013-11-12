@@ -13641,6 +13641,13 @@ table {
 .userDetailsRow {
   margin-top: 20px; }
 
+#personalTable .single-booking td, #personalTable .single-order td {
+  text-align: center;
+  text-transform: capitalize !important; }
+
+th {
+  text-align: center !important; }
+
 .userBookingsRow {
   margin-top: 20px;
   text-align: center; }
@@ -13903,6 +13910,8 @@ div.form-actions {
 #analyticsTimeline svg > rect {
   fill: none; }
 
+.admin-actions .buttonContent.verticalButtons .vertWrap:first-of-type {
+  margin-top: 20px !important; }
 .admin-actions .row:first-of-type {
   margin-top: 50px; }
 

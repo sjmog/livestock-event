@@ -18,13 +18,15 @@
       <h1>{{name}}'s bookings</h1>
       <table class="usersTable" id="personalTable">
         <thead>
-          <th>Company Name & Registration</th>
+          <th>Go to Booking</th>
+          <th>Booking ID</th>
+          <th>Company Name</th>
           <th>RABDF Membership?</th>
           <th>Correspondence Address</th>
           <th>Invoice Address</th>
           <th>T&Cs</th>
           <th>Show Area</th>
-          <th>Same as 2013?</th>
+          
           <th>Stand Type</th>
           <th>Frontage</th>
           <th>Depth</th>
@@ -35,14 +37,16 @@
         </thead>
         <tbody>
     		{{#each bookings}}
-          <tr>
-            <td>{{#linkTo "bookings.show" this }}{{ companyName }}{{/linkTo}}<br /><small>{{ companyReg }}</small></td>
+          <tr class="single-booking">
+            <td>{{#link-to "bookings.show" this }}<span class="icon-forward"></span>{{/link-to}}</td>
+            <td>{{#link-to "bookings.show" this }}{{id}}{{/link-to}}</td>
+            <td>{{#link-to "bookings.show" this }}{{ companyName }}{{/link-to}}<br /><small>{{ companyReg }}</small></td>
             <td>{{#if corporateMembership }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
             <td>{{ correspondenceAddress }}</td>
             <td>{{ invoiceAddress }}</td>
             <td>{{#if tcAgreed }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
             <td>{{ showArea }}</td>
-            <td>{{#if sameAs2013 }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+            
             <td>{{ standType }}</td>
             <td>{{ frontage }}m</td>
             <td>{{ depth }}m</td>
@@ -64,19 +68,21 @@
       <h1>{{name}}'s past purchases</h1>
       <table class="usersTable" id="personalTable">
         <thead>
+          <th>Go to Order</th>
           <th>Order ID</th>
           <th>Amount</th>
           <th>Order Date</th>
-          <th>Booking</th>
+          <th>Booking ID</th>
           <th>Order Status</th>
         </thead>
         <tbody>
         {{#each orders}}
-          <tr>
-            <td>{{#linkTo "orders.show" this }}{{ id }}{{/linkTo}}<br /><small>{{ companyReg }}</small></td>
+          <tr class="single-order">
+            <td>{{#link-to "orders.show" this }}<span class="icon-forward"></span>{{/link-to}}</td>
+            <td>{{#link-to "orders.show" this }}{{ id }}{{/link-to}}<br /><small>{{ companyReg }}</small></td>
             <td>£{{ amount }}</td>
             <td>{{ date }}</td>
-            <td>{{ booking }}</td>
+            <td>{{ booking.id }}</td>
             <td>{{ status }}</td>
           </tr>
         {{else}}
@@ -89,15 +95,15 @@
   
   <div class="row actionsRow">
     <div class="large-4 small-12 columns vertWrap">
-     <div class="vertElement"> {{#linkTo "users.edit" model class="button callToAction"}}<span class="icon-gears"></span>{{/linkTo}}<span class="buttonLabel">change something</span></div>
+     <div class="vertElement"> {{#link-to "users.edit" model class="button callToAction"}}<span class="icon-gears"></span>{{/link-to}}<span class="buttonLabel">change something</span></div>
     </div>
     <div class="large-4 small-12 columns vertWrap">
       <div class="vertElement">
-        {{#linkTo "bookings.problems" class="button callToAction"}}<span class="icon-exhibitions-alt"></span>{{/linkTo}}<span class="buttonLabel">problems?</span>
+        {{#link-to "bookings.problems" class="button callToAction"}}<span class="icon-exhibitions-alt"></span>{{/link-to}}<span class="buttonLabel">problems?</span>
       </div>
     </div>
     <div class="large-4 small-12 columns vertWrap">
-      <div class="vertElement">{{#linkTo "bookings.new" class="button callToAction"}}<span class="icon-add-icon"></span>{{/linkTo}}<span class="buttonLabel">new booking</span></div>
+      <div class="vertElement">{{#link-to "bookings.new" class="button callToAction"}}<span class="icon-add-icon"></span>{{/link-to}}<span class="buttonLabel">new booking</span></div>
     </div>
   </div>
 </div>

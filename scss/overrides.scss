@@ -3323,6 +3323,22 @@ table {
 	margin-top:20px;
 }
 
+#personalTable {
+	.single-booking, .single-order {
+		td {
+			text-align:center;
+			text-transform:capitalize !important;
+		}
+		
+	}
+}
+
+
+
+th {
+	text-align:center !important;
+}
+
 .userBookingsRow {
 	margin-top:20px;
 	text-align:center;
@@ -3658,6 +3674,9 @@ div.form-actions {
 	}
 }
 .admin-actions {
+	.buttonContent.verticalButtons .vertWrap:first-of-type {
+		margin-top:20px !important;
+	}
 	.row:first-of-type {
 		margin-top:50px;
 	}

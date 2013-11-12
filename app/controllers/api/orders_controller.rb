@@ -63,7 +63,7 @@ module Api
       respond_to do |format|
         if @order.update_attributes(params[:order])
           format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-          format.json { head :ok }
+          format.json { render json: @order, status: 200 }
         else
           format.html { render action: "edit" }
           format.json { render json: @order.errors, status: :unprocessable_entity }

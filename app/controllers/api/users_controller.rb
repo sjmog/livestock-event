@@ -23,9 +23,13 @@ module Api
 
       respond_to do |format|
         if @user.update_attributes(params[:user])
-          render json: @user, status: 201
+          format.html # new.html.erb
+          format.json { render json: @user, status: 201 }
+          
         else
-          render json: @user.errors, status: :unprocessable_entity
+          format.html # new.html.erb
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+          
         end
       end
     end

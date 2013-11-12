@@ -1,7 +1,7 @@
 
   <div class="flipper">
     <div class="front">
-      <span class="tile-title">edit order #{{id}}</span>
+      <span class="tile-title">edit order #{{content.id}}</span>
       <div class="tile-content">
             <div class="row bookingDetails">
                   <div class="large-4 columns">
@@ -107,7 +107,11 @@
       		  	  </div>
       		  	</div>
       		  	<div class="actions orderActions">
-      	    <button class="button callToAction" type="submit">Save</button>
+                        {{#unless updated}}
+      	    <button class="button callToAction orange" type="submit">Save</button>
+                {{else}}
+                {{#link-to 'orders.show' model class="button callToAction orange"}}<span class="icon-forward"></span>{{/link-to}}
+                {{/unless}}
       	  </div>
       	</form>
 

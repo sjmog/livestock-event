@@ -3,11 +3,13 @@ App.UsersEditController = Ember.ObjectController.extend({
     var router = this.get('target');
     var data = this.getProperties('id', 'name', 'email', 'password', 'password_confirmation');
     var user = this.get('model');
+    var id = user.get('id');
 
     $.ajax({
-        url: '<%= ENV["BASE_URL"] %>/api/users/',
+        url: '<%= ENV["BASE_URL"] %>/api/users/' + id,
         data: {user: data},
         type: 'PUT',
+        dataType: 'json',
         success: function(result) {
             router.transitionTo('users.show', user);
         }

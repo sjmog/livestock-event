@@ -16,6 +16,22 @@ module Api
       end
     end
 
+    # PUT /bookings/1
+    # PUT /bookings/1.json
+    def update
+      @booking = Booking.find(params[:id])
+      
+      respond_to do |format|
+        if @booking.update_attributes(params[:booking])
+          format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+          format.json { render json: @booking, status: 200 }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @booking.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+
     protected
 
       def permitted_params
