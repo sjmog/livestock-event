@@ -13647,6 +13647,14 @@ table {
 #personalTable .single-booking td, #personalTable .single-order td {
   text-align: center;
   text-transform: capitalize !important; }
+  #personalTable .single-booking td.noCaps, #personalTable .single-order td.noCaps {
+    text-transform: none !important; }
+
+.single-booking td, .single-order td {
+  text-align: center;
+  text-transform: capitalize !important; }
+  .single-booking td.noCaps, .single-order td.noCaps {
+    text-transform: none !important; }
 
 th {
   text-align: center !important; }

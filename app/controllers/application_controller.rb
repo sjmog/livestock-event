@@ -1,12 +1,13 @@
 class ApplicationController < ActionController::Base
   include ActionController::MimeResponds
   include ActionController::ImplicitRender
-
   before_filter do
     resource = controller_name.singularize.to_sym
     method = "#{resource}_params"
     params[resource] &&= send(method) if respond_to?(method, true)
   end
+
+  
 
   protected
 
@@ -26,6 +27,7 @@ class ApplicationController < ActionController::Base
   def current_user
     api_key = ApiKey.active.where(access_token: token).first
     if api_key
+      puts api_key.user.id
       return api_key.user
     else
       return nil

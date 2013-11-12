@@ -3,35 +3,25 @@ class Ability
 
   def initialize(user)
     user ||= User.new
+    puts user.id
     # can :manage, [Article, Testimonial, Contractor, Booking, Stand, User, Order, Supporter]
     can :read, [Article, Contractor, Testimonial, Stand, Supporter]
     can :create, User
     can :create, Order
     can :create, Message
-    can :manage, User, :id => user.id if user.role == "standard"
-    can :manage, Order, :user_id => user.id if user.role == "standard"
-    can :update, Order, :user_id => user.id if user.role == "standard"
-    can :update, Stand if user.role == "standard"
     can :create, Booking
-    can :update, Booking
-    can :read, Booking, :user_id => user.id if user.role="standard"
-    can :read, Booking if user.role == "admin"
-    can :show, User, :id => user.id
-    can :read, Order if user.role == "admin"
-    can :manage, Booking, :user_id => user.id if user.role == "standard"
-    can :manage, Article if user.role == "admin"
-    can :manage, Testimonial if user.role == "admin"
-    can :manage, Contractor if user.role == "admin"
-    can :manage, Booking if user.role == "admin"
-    can :read, Booking if user.role == "admin"
-    can :index, Booking if user.role == "admin"
-    can :manage, Order if user.role == "admin"
-    can :manage, Stand if user.role == "admin"
-    can :manage, Supporter if user.role == "admin"
-    can :create, Supporter if user.role == "admin"
-    can :manage, User if user.role == "admin"
-    can :index, User if user.role == "admin"
-    can :read, User if user.role == "admin"
+    if user.role == "standard"
+        can :manage, User, :id => user.id
+        can :manage, Order, :user_id => user.id
+        can :manage, Booking, :user_id => user.id
+        can :read, User, :id => user.id
+        can :read, Booking, :user_id => user.id
+        can :index, Order, :user_id => user.id
+        can :show, Order, :user_id => user.id
+        can :update, Stand
+    elsif user.role == "admin"
+        can :manage, :all
+    end
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

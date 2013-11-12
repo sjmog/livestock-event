@@ -6,20 +6,26 @@
 
     <table class="ordersTable" id="ordersTable">
   <thead>
+    <th>Go to Order</th>
+    <th>Order ID</th>
     <th>User</th>
     <th>Booking</th>
     <th>Amount</th>
-    <th>Status</th>
+    <th>Order Status</th>
+    <th>Order Date</th>
   </thead>
   <tbody>
     {{#each content}}
-    <tr>
-      <td>{{#linkTo "users.show" user class="darkLink"}}{{ user.email }}{{/linkTo}}</td>
-      <td>{{#linkTo "bookings.show" booking class="darkLink"}}{{ booking }}{{/linkTo}}</td>
+    <tr class="single-order">
+      <td>{{#link-to "orders.show" this }}<span class="icon-forward"></span>{{/link-to}}</td>
+      <td>{{#link-to "orders.show" this }}{{ id }}{{/link-to}}</td>
+      <td class="noCaps">{{#linkTo "users.show" user }}{{ user.email }}{{/linkTo}}</td>
+      <td>{{#linkTo "bookings.show" booking }}{{ booking.id }}{{/linkTo}}</td>
       <td>
         £{{amount}}
       </td>
       <td>{{status}}</td>
+      <td>{{date}}</td>
     </tr>
     {{/each}}
   </tbody>

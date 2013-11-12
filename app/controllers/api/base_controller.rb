@@ -1,8 +1,14 @@
 module Api
   class BaseController < InheritedResources::Base
     respond_to :json
-    before_filter :default_json
+    include CanCan::ControllerAdditions
     
+    before_filter do
+      :default_json
+      resource = controller_name.singularize.to_sym
+      method = "#{resource}_params"
+      params[resource] &&= send(method) if respond_to?(method, true)
+    end
 
     def collection
       get_collection_ivar || begin
@@ -10,6 +16,17 @@ module Api
         coll = c.respond_to?(:scoped) ? c.scoped : c
         coll = params[:ids] ? coll.find(params[:ids]) : coll.all
         set_collection_ivar(coll)
+      end
+    end
+
+    # Returns the active user associated with the access token if available
+    def current_user
+      api_key = ApiKey.active.where(access_token: token).first
+      if api_key
+        puts api_key.user.id
+        return api_key.user
+      else
+        return nil
       end
     end
 

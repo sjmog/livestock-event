@@ -6,7 +6,10 @@
 
     <table class="bookingsTable" id="bookingsTable">
   <thead>
+    <th>Go to Booking</th>
+    <th>Booking ID</th>
     <th>Company Name</th>
+    <th>PO No.</th>
     <th>RABDF Membership?</th>
     <th>Tel.</th>
     <th>Order</th>
@@ -24,8 +27,11 @@
   </thead>
   <tbody>
     {{#each controller}}
-    <tr>
+    <tr class="single-booking">
+      <td>{{#link-to "bookings.show" this }}<span class="icon-forward"></span>{{/link-to}}</td>
+      <td>{{#link-to "bookings.show" this }}{{id}}{{/link-to}}</td>
       <td>{{#linkTo "bookings.show" this }}{{ companyName }}{{/linkTo}}<br /><small>{{ contactName }}</small><br /><small><a {{bind-attr href="website"}}>{{website}}</a></small></td>
+      <td>{{ poNumber }}</td>
       <td>{{#if corporateMembership }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
       <td>{{ telephone }}</td>
       <td>{{ order }}</td>

@@ -3332,10 +3332,24 @@ table {
 		td {
 			text-align:center;
 			text-transform:capitalize !important;
+			&.noCaps {
+				text-transform:none !important;
+			}
 		}
 		
 	}
 }
+
+.single-booking, .single-order {
+		td {
+			text-align:center;
+			text-transform:capitalize !important;
+			&.noCaps {
+				text-transform:none !important;
+			}
+		}
+		
+	}
 
 
 
