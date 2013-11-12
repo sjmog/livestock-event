@@ -1,7 +1,9 @@
 <div class="flipper">
 	<div class="front">
 		<span class="tile-title">{{#link-to 'articles' class="backbutton"}}<span class="icon-back"></span>{{/link-to}} news</span>
+		{{#if title}}
 		<h1>{{title}}</h1>
+		{{/if}}
 		{{#if image}}
 		<div class="fullBleedHolder">
 			<img {{bind-attr src=image}} class="fullBleed"></img>

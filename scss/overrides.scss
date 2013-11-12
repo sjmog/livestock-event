@@ -2469,7 +2469,7 @@ textarea {
 .news {
 	img.fullBleed {
 		margin-top:-12px;
-		margin-bottom: $tile-margin;
+		margin-bottom: 20px;
 	}
 	a {
 		color:white(1);
@@ -3687,8 +3687,10 @@ div.form-actions {
 
 /*articles*/
 .fullBleed {
-	height: 310px;
-	width: 620px;
+	height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 .imageUploader {
 	position:absolute;
@@ -3696,7 +3698,7 @@ div.form-actions {
 	left:0;
 	background:rgba($rabdfGray, 0.8);
 	width:100%;
-	height:310px;
+	height:200px;
 	opacity:0;
 	cursor:pointer !important;
 	@include transition(all 0.4s);
