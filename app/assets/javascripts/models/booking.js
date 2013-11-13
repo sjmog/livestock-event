@@ -166,7 +166,10 @@ App.Booking = DS.Model.extend({
         else {price = 0}
         break;
     }
-    return Math.round(price);
+    if(price) {
+      return price;
+    }
+    else { return 0 };
   }.property('standType', 'showArea', 'area', 'breedSociety'),
 
   surcharge: function() {
@@ -180,13 +183,13 @@ App.Booking = DS.Model.extend({
                 surcharge = 0
                 break;
               case 'corner':
-                surcharge =  Math.round(this.get('price')*0.1)
+                surcharge =  (this.get('price')*0.1)
                 break;
               case 'peninsula':
-                surcharge = Math.round(this.get('price')*0.15)
+                surcharge = (this.get('price')*0.15)
                 break;
               case 'island':
-                surcharge = Math.round(this.get('price')*0.2)
+                surcharge = (this.get('price')*0.2)
                 break;
             }
             break;
@@ -200,35 +203,39 @@ App.Booking = DS.Model.extend({
             surcharge = 0
             break;
         };
-    return surcharge;
+        if(surcharge) {
+          return surcharge.toFixed(2);
+        }
+        else { return 0 };
+    
   }.property('price', 'position'),
 
   total: function() {
-    return Math.round(this.get('price') + this.get('surcharge'))
+    return (this.get('price') + this.get('surcharge'));
   }.property('price', 'surcharge'),
 
   totalIncVat: function() {
-    var theTotal = Math.round((this.get('price') + this.get('surcharge'))*1.2);
+    var theTotal = ((this.get('price') + this.get('surcharge'))*1.2);
     this.set('theTotal', theTotal);
-    return theTotal;
+    return theTotal.toFixed(2);
   }.property('price', 'surcharge'),
 
   depositExVat: function() {
-    return Math.round(this.get('total')*0.3);
+    return (this.get('total')*0.3).toFixed(2);
   }.property('total'),
 
   deposit: function() {
-    theDeposit = Math.round((this.get('total')*0.3*1.2)); //including VAT at 20%
+    theDeposit = ((this.get('total')*0.3*1.2)).toFixed(2); //including VAT at 20%
     this.set('theDeposit', theDeposit);
     return theDeposit;
   }.property('total'),
 
   balanceExVat: function() {
-    return Math.round(this.get('total') - this.get('depositExVat')); //excluding VAT
+    return (this.get('total') - this.get('depositExVat')); //excluding VAT
   }.property('total'),
 
   balance: function() {
-    return Math.round((this.get('total') - this.get('depositExVat'))*1.2); //including VAT
+    return ((this.get('total') - this.get('depositExVat'))*1.2).toFixed(2); //including VAT
   }.property('total'),
 
 
