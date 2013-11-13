@@ -28,11 +28,15 @@
 	function init() {
 
 		var container = document.getElementById( 'st-container' ),
+		    cookieButton = document.getElementById( 'cookieButton' ),
 			buttons = Array.prototype.slice.call( document.querySelectorAll( '#st-trigger-effects > a' ) ),
 			// event type (if mobile use touch events)
 			eventtype = mobilecheck() ? 'touchstart' : 'click',
 			resetMenu = function() {
 				classie.remove( container, 'st-menu-open' );
+				classie.remove( cookieButton, 'disparu' );
+				classie.remove( cookieButton, 'enOut' );
+				console.log('menu reset');
 			},
 			bodyClickFn = function(evt) {
 				if( !hasParentClass( evt.target, 'st-menu' ) ) {
@@ -49,8 +53,10 @@
 				ev.preventDefault();
 				container.className = 'st-container'; // clear
 				classie.add( container, effect );
-				setTimeout( function() {
+				classie.add( cookieButton, 'enOut' )
+				requestTimeout( function() {
 					classie.add( container, 'st-menu-open' );
+					classie.add( cookieButton, 'disparu' );
 				}, 25 );
 				document.addEventListener( eventtype, bodyClickFn );
 			});

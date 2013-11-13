@@ -1,5 +1,5 @@
 
-<div class="cookieBar">
+<div id="cookieBar" class="cookieBar">
 	<div class="row">
 		<div class="small-12 columns">
 			<p>This site uses <a href="http://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" class="inlineLink">cookies</a>. By using this site, we assume this is OK with you. Find out more in our <a href="/privacy" class="inlineLink">Privacy Policy</a>.</p>
@@ -14,12 +14,6 @@
 			var $button = $('#cookieButton > span');
 			$('.cookieBar').toggleClass('in');
 			$(this).toggleClass('in');
-			if ($button.hasClass('icon-down')) {
-				$button.removeClass('icon-down').addClass('icon-up')
-			}
-			else {
-				$button.removeClass('icon-up').addClass('icon-down')
-			}
 		});
 	});
 </script>

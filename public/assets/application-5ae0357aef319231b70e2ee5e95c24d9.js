@@ -60743,6 +60743,13 @@ currentUser: function() {
   		return false;
   	};
   }.property('currentPath'),
+  isInnerPage: function() {
+    if(this.get('currentPath') !== 'index') {
+      return true;
+    } else {
+      return false;
+    };
+  },
   message: {
     name: null,
     email: null,
@@ -62347,7 +62354,7 @@ App.ArticlesNewView = Ember.View.extend({
 });
 App.ArticlesShowView = Ember.View.extend({
 	templateName: 'articles/show',
-	classNames: ['tile innerTile content-tile scrollTile news general_info all tile-2-tall tile-2-wide'],
+	classNames: ['tile variableHeightTile innerTile content-tile scrollTile news general_info all tile-2-tall tile-2-wide'],
 	attributeBindings: ['width:data-width', 'height:data-height'],
 	width: 2,
 	height: 2,
@@ -65291,7 +65298,7 @@ function program1(depth0,data) {
 Ember.TEMPLATES["application"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, hashTypes, hashContexts, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
 
 function program1(depth0,data) {
   
@@ -65338,12 +65345,24 @@ function program8(depth0,data) {
   data.buffer.push("My Account");
   }
 
+function program10(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts, options;
+  data.buffer.push("\n						\n					<div class=\"sidebarHolder\">\n						");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.render || depth0.render),stack1 ? stack1.call(depth0, "sidebar", options) : helperMissing.call(depth0, "render", "sidebar", options))));
+  data.buffer.push("\n					</div>\n\n					");
+  return buffer;
+  }
+
   data.buffer.push("<div id=\"st-container\" class=\"st-container st-effect-2\">\n	<nav class=\"st-menu st-effect-2\" id=\"menu-2\">\n		");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.unless.call(depth0, "isAuthenticated", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n		<a class=\"closeButton\" id=\"sidebar-closeButton\"><span class=\"icon-close-alt\"></span></a>\n		");
+  data.buffer.push("\n		");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.unless.call(depth0, "isAuthenticated", {hash:{},inverse:self.program(7, program7, data),fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -65356,12 +65375,12 @@ function program8(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n						\n					<div class=\"sidebarHolder\">\n						");
+  data.buffer.push("\n\n					");
   hashTypes = {};
   hashContexts = {};
-  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.render || depth0.render),stack1 ? stack1.call(depth0, "sidebar", options) : helperMissing.call(depth0, "render", "sidebar", options))));
-  data.buffer.push("\n					</div>\n						\n					");
+  stack1 = helpers['if'].call(depth0, "isInnerPage", {hash:{},inverse:self.noop,fn:self.program(10, program10, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n						\n					");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.FooterView", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -75619,6 +75638,39 @@ window.clearRequestInterval = function(handle) {
     window.msCancelRequestAnimationFrame ? msCancelRequestAnimationFrame(handle.value) :
     clearInterval(handle);
 };
+
+//better setTimeout
+
+window.requestTimeout = function(fn, delay) {
+    if( !window.requestAnimationFrame       && 
+        !window.webkitRequestAnimationFrame && 
+        !window.mozRequestAnimationFrame    && 
+        !window.oRequestAnimationFrame      && 
+        !window.msRequestAnimationFrame)
+            return window.setTimeout(fn, delay);
+
+    var start = new Date().getTime(),
+        handle = new Object();
+
+    function loop(){
+        var current = new Date().getTime(),
+        delta = current - start;
+
+        delta >= delay ? fn.call() : handle.value = requestAnimFrame(loop);
+    };
+
+    handle.value = requestAnimFrame(loop);
+    return handle;
+};
+
+window.clearRequestTimeout = function(handle) {
+    window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
+    window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value)   :
+    window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
+    window.oCancelRequestAnimationFrame ? window.oCancelRequestAnimationFrame(handle.value) :
+    window.msCancelRequestAnimationFrame ? msCancelRequestAnimationFrame(handle.value) :
+    clearTimeout(handle);
+};
 /*!
  * classie - class helper functions
  * from bonzo https://github.com/ded/bonzo
@@ -79888,11 +79940,15 @@ var oo=function(a){var b="https://api.oocharts.com/v1/dynamic.jsonp",c=void 0,d=
 	function init() {
 
 		var container = document.getElementById( 'st-container' ),
+		    cookieButton = document.getElementById( 'cookieButton' ),
 			buttons = Array.prototype.slice.call( document.querySelectorAll( '#st-trigger-effects > a' ) ),
 			// event type (if mobile use touch events)
 			eventtype = mobilecheck() ? 'touchstart' : 'click',
 			resetMenu = function() {
 				classie.remove( container, 'st-menu-open' );
+				classie.remove( cookieButton, 'disparu' );
+				classie.remove( cookieButton, 'enOut' );
+				console.log('menu reset');
 			},
 			bodyClickFn = function(evt) {
 				if( !hasParentClass( evt.target, 'st-menu' ) ) {
@@ -79909,8 +79965,10 @@ var oo=function(a){var b="https://api.oocharts.com/v1/dynamic.jsonp",c=void 0,d=
 				ev.preventDefault();
 				container.className = 'st-container'; // clear
 				classie.add( container, effect );
-				setTimeout( function() {
+				classie.add( cookieButton, 'enOut' )
+				requestTimeout( function() {
 					classie.add( container, 'st-menu-open' );
+					classie.add( cookieButton, 'disparu' );
 				}, 25 );
 				document.addEventListener( eventtype, bodyClickFn );
 			});

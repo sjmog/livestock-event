@@ -5,7 +5,6 @@
 		{{else}}
 		<h2 class="">Quick Links</h2>
 		{{/unless}}
-		<a class="closeButton" id="sidebar-closeButton"><span class="icon-close-alt"></span></a>
 		{{#unless isAuthenticated}}
 		<div class="row">
 			<div class="small-12 columns">
@@ -30,10 +29,14 @@
 					{{view App.HeaderView}}
 					
 					{{outlet}}
+
+					{{#if isInnerPage}}
 						
 					<div class="sidebarHolder">
 						{{render sidebar}}
 					</div>
+
+					{{/if}}
 						
 					{{view App.FooterView}}
 				</div>
