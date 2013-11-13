@@ -167,7 +167,7 @@ App.Booking = DS.Model.extend({
         break;
     }
     if(price) {
-      return price;
+      return price.toFixed(2);
     }
     else { return 0 };
   }.property('standType', 'showArea', 'area', 'breedSociety'),
@@ -211,7 +211,10 @@ App.Booking = DS.Model.extend({
   }.property('price', 'position'),
 
   total: function() {
-    return (this.get('price') + this.get('surcharge'));
+    var total = (this.get('price') + this.get('surcharge'));
+    if (total) {
+      return Number(total).toFixed(2)
+    } else { return 0 };
   }.property('price', 'surcharge'),
 
   totalIncVat: function() {
