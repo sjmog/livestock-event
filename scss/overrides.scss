@@ -1271,20 +1271,51 @@ div div .inlineButton.button {
 
 /*cookie bar*/
 
+.cookieButton {
+	position:absolute;
+	bottom:-20px;
+	right:0;
+	background: $rabdfLightGray;
+	@include opacity(0.4);
+	height: 20px;
+	width: 40px;
+	line-height: 0px;
+	text-align: center;
+	font-size: 2em;
+	z-index:99999999;
+	@include transition(all 0.4s ease-in-out);
+	&.in {
+		@include opacity(1);
+		background: rgba($rabdfBlue, 0.7);
+		span {
+			color: white(1);
+		}
+		
+	}
+	
+	span {
+		color: $rabdfGray;
+	}
+
+}
+
 .cookieBar {
-	background:$rabdfBlue;
-	position:fixed;
-	bottom:0;
-	display:block;
-	z-index:999999999;
-	margin:0 auto;
-	width:100%;
-	border-top:1px solid $rabdfGray;
+	background: rgba($rabdfLightGray, 0.4);
+	position: absolute;
+	top:-65px;
+	@media screen and (max-width:840px) {
+		top:-90px;
+	}
+	display: block;
+	z-index: 999999999;
+	margin: 0 auto;
+	width: 100%;
 	@include transition(all 0.4s ease-in-out);
 	.row {
 		max-width:960px !important;
 		p:first-of-type {
 			margin-top:1.25em;
+			text-align:center;
 		}
 	}
 	.buttonLabel {
@@ -1305,8 +1336,9 @@ div div .inlineButton.button {
 			color:white(1);
 		}
 	}
-	&.downOut {
-		bottom:-200px;
+	&.in {
+		top: 0;
+		background: rgba($rabdfBlue, 0.7);
 	}
 }
 

@@ -60385,7 +60385,7 @@ App.Booking = DS.Model.extend({
         break;
     }
     if(price) {
-      return price.toFixed(2);
+      return (Math.round(price * 100) / 100)
     }
     else { return 0 };
   }.property('standType', 'showArea', 'area', 'breedSociety'),
@@ -60422,7 +60422,7 @@ App.Booking = DS.Model.extend({
             break;
         };
         if(surcharge) {
-          return surcharge.toFixed(2);
+          return (Math.round(surcharge * 100) / 100)
         }
         else { return 0 };
     
@@ -60431,22 +60431,22 @@ App.Booking = DS.Model.extend({
   total: function() {
     var total = (this.get('price') + this.get('surcharge'));
     if (total) {
-      return Number(total).toFixed(2)
+      return (Math.round(total * 100) / 100)
     } else { return 0 };
   }.property('price', 'surcharge'),
 
   totalIncVat: function() {
     var theTotal = ((this.get('price') + this.get('surcharge'))*1.2);
     this.set('theTotal', theTotal);
-    return theTotal.toFixed(2);
+    return (Math.round(theTotal * 100) / 100)
   }.property('price', 'surcharge'),
 
   depositExVat: function() {
-    return (this.get('total')*0.3).toFixed(2);
+    return (Math.round((this.get('total')*0.3) * 100) / 100);
   }.property('total'),
 
   deposit: function() {
-    theDeposit = ((this.get('total')*0.3*1.2)).toFixed(2); //including VAT at 20%
+    theDeposit = (Math.round(((this.get('total')*0.3*1.2)) * 100) / 100); //including VAT at 20%
     this.set('theDeposit', theDeposit);
     return theDeposit;
   }.property('total'),
@@ -60456,7 +60456,7 @@ App.Booking = DS.Model.extend({
   }.property('total'),
 
   balance: function() {
-    return ((this.get('total') - this.get('depositExVat'))*1.2).toFixed(2); //including VAT
+    return (Math.round(((this.get('total') - this.get('depositExVat'))*1.2) * 100) / 100); //including VAT
   }.property('total'),
 
 
