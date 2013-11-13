@@ -63867,9 +63867,9 @@ App.ImageView = Ember.View.extend({
 		view.set('currentImage', view.get('imgArray')[randomIndex]);
 		view.set('nextImage', view.get('imgArray')[randomIndex2]);
 		//autoRotation
-		$(document).ready(function() {
+		
 			var count = 1;
-			var interval = window.setInterval(function() {
+			var interval = window.requestInterval(function() {
 				console.log('rotatingImage');
 				if(count % 2) {
 					view.set('flipped', true);
@@ -63881,12 +63881,12 @@ App.ImageView = Ember.View.extend({
 				if(count<(imgNumber - 1)) {count++} else {count = 0};
 			},(18000+randomTime));
 			view.set('interval', interval);		
-		})
+		
 	},
 	willDestroyElement: function() {
 		var view = this;
 		var interval = view.get('interval');
-		window.clearInterval(interval);
+		window.clearRequestInterval(interval);
 	}
 });
 
@@ -63942,7 +63942,7 @@ App.ImagehalfView = Ember.View.extend({
 		//autoRotation
 		$(document).ready(function() {
 			var count = 1;
-			var interval = window.setInterval(function() {
+			var interval = window.requestInterval(function() {
 				console.log('rotatingImage');
 				if(count % 2) {
 					view.set('flipped', true);
@@ -63959,7 +63959,7 @@ App.ImagehalfView = Ember.View.extend({
 	willDestroyElement: function() {
 		var view = this;
 		var interval = view.get('interval');
-		window.clearInterval(interval);
+		window.clearRequestInterval(interval);
 	}
 });
 
@@ -64038,7 +64038,7 @@ App.TestimonialsTileView = Ember.View.extend({
 		//autoRotation
 		var view = this;
 		var count = 1;
-		var interval = window.setInterval(function() {
+		var interval = window.requestInterval(function() {
 			console.log('rotatingCarou');
 			$('#' + count).addClass('activeCarou').siblings('.activeCarou').removeClass('activeCarou');
 			if(count<13) {count++} else {count = 0};
@@ -64048,7 +64048,7 @@ App.TestimonialsTileView = Ember.View.extend({
 	willDestroyElement: function() {
 		var view = this;
 		var interval = view.get('interval');
-		window.clearInterval(interval);
+		window.clearRequestInterval(interval);
 	}
 });
 
@@ -75561,6 +75561,54 @@ Ember.View.reopen({
   };
 
 })( jQuery, window, document );
+//Paul Irish's requestAnimFrame
+// shim layer with setTimeout fallback
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+
+
+//better setInterval
+window.requestInterval = function(fn, delay) {
+    if( !window.requestAnimationFrame       && 
+        !window.webkitRequestAnimationFrame && 
+        !window.mozRequestAnimationFrame    && 
+        !window.oRequestAnimationFrame      && 
+        !window.msRequestAnimationFrame)
+            return window.setInterval(fn, delay);
+
+    var start = new Date().getTime(),
+    handle = new Object();
+
+    function loop() {
+        var current = new Date().getTime(),
+        delta = current - start;
+
+        if(delta >= delay) {
+            fn.call();
+            start = new Date().getTime();
+        }
+
+        handle.value = requestAnimFrame(loop);
+    };
+
+    handle.value = requestAnimFrame(loop);
+    return handle;
+}
+
+window.clearRequestInterval = function(handle) {
+    window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
+    window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value)   :
+    window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
+    window.oCancelRequestAnimationFrame ? window.oCancelRequestAnimationFrame(handle.value) :
+    window.msCancelRequestAnimationFrame ? msCancelRequestAnimationFrame(handle.value) :
+    clearInterval(handle);
+};
 /*!
  * classie - class helper functions
  * from bonzo https://github.com/ded/bonzo

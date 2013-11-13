@@ -48,7 +48,7 @@ App.ImagehalfView = Ember.View.extend({
 		//autoRotation
 		$(document).ready(function() {
 			var count = 1;
-			var interval = window.setInterval(function() {
+			var interval = window.requestInterval(function() {
 				console.log('rotatingImage');
 				if(count % 2) {
 					view.set('flipped', true);
@@ -65,7 +65,7 @@ App.ImagehalfView = Ember.View.extend({
 	willDestroyElement: function() {
 		var view = this;
 		var interval = view.get('interval');
-		window.clearInterval(interval);
+		window.clearRequestInterval(interval);
 	}
 });
 

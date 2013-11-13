@@ -12,7 +12,7 @@ App.TestimonialsTileView = Ember.View.extend({
 		//autoRotation
 		var view = this;
 		var count = 1;
-		var interval = window.setInterval(function() {
+		var interval = window.requestInterval(function() {
 			console.log('rotatingCarou');
 			$('#' + count).addClass('activeCarou').siblings('.activeCarou').removeClass('activeCarou');
 			if(count<13) {count++} else {count = 0};
@@ -22,7 +22,7 @@ App.TestimonialsTileView = Ember.View.extend({
 	willDestroyElement: function() {
 		var view = this;
 		var interval = view.get('interval');
-		window.clearInterval(interval);
+		window.clearRequestInterval(interval);
 	}
 });
 

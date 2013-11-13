@@ -46,9 +46,9 @@ App.ImageView = Ember.View.extend({
 		view.set('currentImage', view.get('imgArray')[randomIndex]);
 		view.set('nextImage', view.get('imgArray')[randomIndex2]);
 		//autoRotation
-		$(document).ready(function() {
+		
 			var count = 1;
-			var interval = window.setInterval(function() {
+			var interval = window.requestInterval(function() {
 				console.log('rotatingImage');
 				if(count % 2) {
 					view.set('flipped', true);
@@ -60,12 +60,12 @@ App.ImageView = Ember.View.extend({
 				if(count<(imgNumber - 1)) {count++} else {count = 0};
 			},(18000+randomTime));
 			view.set('interval', interval);		
-		})
+		
 	},
 	willDestroyElement: function() {
 		var view = this;
 		var interval = view.get('interval');
-		window.clearInterval(interval);
+		window.clearRequestInterval(interval);
 	}
 });
 
