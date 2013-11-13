@@ -7,9 +7,23 @@ App.TestimonialsTileView = Ember.View.extend({
 	generalImportance: 1,
 	width: 1,
 	height: 1,
+	interval: null,
 	didInsertElement: function() {
-	
+		//autoRotation
+		var view = this;
+		var count = 1;
+		var interval = window.setInterval(function() {
+			console.log('rotatingCarou');
+			$('#' + count).addClass('activeCarou').siblings('.activeCarou').removeClass('activeCarou');
+			if(count<13) {count++} else {count = 0};
+		},12000);
+		view.set('interval', interval);		
 	},
+	willDestroyElement: function() {
+		var view = this;
+		var interval = view.get('interval');
+		window.clearInterval(interval);
+	}
 });
 
 

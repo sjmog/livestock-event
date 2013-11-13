@@ -1765,6 +1765,7 @@ textarea {
 .tile {
 	overflow:hidden !important;
 	background-color: transparent;
+	
 	&.scrollTile .front {
 		overflow-y:scroll !important;
 		form {
