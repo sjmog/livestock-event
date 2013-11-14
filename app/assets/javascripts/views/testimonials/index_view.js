@@ -5,6 +5,9 @@ App.TestimonialsIndexView = Ember.View.extend({
 	width: 'n',
 	height: 2,
 	didInsertElement: function() {
-
+		var $table = this.$().find('table');
+		Ember.run.later(function() {
+			$table.dataTable();
+		}, 1000);
 	}
 });

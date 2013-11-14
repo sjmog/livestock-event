@@ -6,46 +6,38 @@
 
     <table class="bookingsTable" id="bookingsTable">
   <thead>
-    <th>Go to Booking</th>
+    <th class="preHead"></th>
     <th>Booking ID</th>
+    <th><span class="icon-pound-icon"></span></th>
+    <th>Deposit Paid?</th>
+    <th>Total Paid?</th>
     <th>Company Name</th>
-    <th>PO No.</th>
-    <th>RABDF Membership?</th>
     <th>Tel.</th>
-    <th>Order</th>
-    <th>T&Cs</th>
     <th>Show Area</th>
     <th>Zone</th>
     <th>Block Number</th>
     <th>Stand Type</th>
     <th>Frontage</th>
     <th>Depth</th>
-    <th><span class="icon-pound-icon"></span></th>
-    <th>Deposit Paid?</th>
-    <th>Total Paid?</th>
-    <th>Breed Society</th>
+    <th class="postHead"></th>
   </thead>
   <tbody>
     {{#each controller}}
     <tr class="single-booking">
-      <td>{{#link-to "bookings.show" this }}<span class="icon-forward"></span>{{/link-to}}</td>
-      <td>{{#link-to "bookings.show" this }}{{id}}{{/link-to}}</td>
-      <td>{{#linkTo "bookings.show" this }}{{ companyName }}{{/linkTo}}<br /><small>{{ contactName }}</small><br /><small><a {{bind-attr href="website"}}>{{website}}</a></small></td>
-      <td>{{ poNumber }}</td>
-      <td>{{#if corporateMembership }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
-      <td>{{ telephone }}</td>
-      <td>{{ order }}</td>
-      <td>{{#if tcAgreed }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
-      <td>{{ showArea }}</td>
-      <td>{{ zone }}</td>
-      <td>{{ standNumber }}</td>
-      <td>{{ standType }}</td>
+      <td class="preRow">{{#if errors}}{{#link-to "bookings.show" this }}{{errors}}{{/link-to}}{{/if}}</td>
+      <td class="c">{{#link-to "bookings.show" this }}{{id}}{{/link-to}}</td>
+      <td class="l">£{{ total }}</td>
+      <td class="c">{{#if depositPaid }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+      <td class="c">{{#if totalPaid }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+      <td class="l">{{#linkTo "bookings.show" this }}{{ companyName }}{{/linkTo}}<br /><small>{{ contactName }}</small><br /><small><a {{bind-attr href="website"}}>{{website}}</a></small></td>
+      <td class="c">{{ telephone }}</td>
+      <td class="l">{{ showArea }}</td>
+      <td class="l">{{ zone }}</td>
+      <td class="c">{{ standNumber }}</td>
+      <td class="l">{{ standType }}</td>
       <td>{{ frontage }}m</td>
       <td>{{ depth }}m</td>
-      <td>£{{ total }}</td>
-      <td>{{#if depositPaid }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
-      <td>{{#if totalPaid }}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
-      <td>{{ breedSociety }}</td>
+      <td class="postRow">{{#link-to "bookings.show" this }}<span class="icon-forward"></span>{{/link-to}}</td>
     </tr>
     {{/each}}
   </tbody>

@@ -6,5 +6,9 @@ App.OrdersIndexView = Ember.View.extend({
 	height: 4,
 	controller: this.controller,
 	didInsertElement: function() {
+		var $table = this.$().find('table');
+		Ember.run.later(function() {
+			$table.dataTable();
+		}, 1000);
 	}
 });

@@ -3313,12 +3313,92 @@ form.grid-form {
 	display: block;
 	margin: 20px 0px 0px 0px;
 }
+.dataTables_length {
+	width:49%;
+	float:left;
+	label {
+		color:white(1);
+		text-transform:uppercase;
+		letter-spacing:1px;
+		margin-left:30px;
+		margin-top:20px;
+	}
+	select {
+		width:60px;
+	}
+}
+.dataTables_filter {
+	width:49%;
+	float:right;
+	height:55px;
+	label {
+		color:white(1);
+		text-transform:uppercase;
+		letter-spacing:1px;
+		margin-right: 22px;
+		margin-top:15px;
+		text-align:right;
+	}
+	input {
+		width:80%;
+		display:inline-block !important;
+		text-align:left;
+		margin-left:10px;
+		position: relative;
+		border:1px solid darken($rabdfOrange, 8%) !important;
+		border-bottom: 1px solid lighten($rabdfOrange, 8%);
+	}
+}
+.dataTables_info {
+	text-align:center;
+	margin-top:20px;
+	text-transform:uppercase;
+	letter-spacing:1px;
+	color:white(0.7);
+	font-size:0.8em;
+}
+.dataTables_paginate {
+	text-align:center;
+	margin-top:20px;
+	a {
+		position:relative;
+		color:white(0.7) !important;
+		text-transform:uppercase;
+		letter-spacing:1px;
+		font-size:0.8em;
+		@include transform(0.1s ease-in-out);
+		&:hover {
+			color:white(1) !important;
+		}
+	}
+	
+	a:first-of-type {
+		margin-right:20px;
+		&:before {
+			display:inline-block;
+			content: "<";
+			position:relative;
+			top:0;
+			right:20px;
+		}
+	}
+	a:last-of-type {
+		margin-left:20px;
+		&:after {
+			display:inline-block;
+			content: ">";
+			position:relative;
+			top:0;
+			left:20px;
+		}
+	}
+}
 table {
 	width: 95%;
 	display: block;
 	overflow: scroll;
 	margin: 0 auto;
-	height:600px;
+	height:500px;
 	margin-top: 20px;
 	font-size:0.8em;
 	&.bookingsTable {
@@ -3346,6 +3426,12 @@ table {
 	thead {
 		th {
 			font-weight:600;
+			&.preHead {
+
+			}
+			&.postHead {
+
+			}
 		}
 	}
 	tbody {
@@ -3359,7 +3445,32 @@ table {
 			}
 		}
 		td {
+			height:50px !important;
 			text-transform: capitalize;
+			&.l {
+				text-align:left !important;
+			}
+			&.c {
+				text-align:center !important;
+			}
+			&.r {text-align:right !important;}
+			&.preRow {
+
+			}
+			&.postRow {
+				position:absolute;
+				right:5px;
+				font-size:2em;
+				line-height: 50px;
+				padding:0;
+				span {
+					color:white(0.7) !important;
+					@include transition(all 0.2s ease-in-out);
+					&:hover {
+						color:white(1) !important;
+					}
+				}
+			}
 		}
 	}
 }

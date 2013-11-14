@@ -13653,12 +13653,85 @@ form.grid-form .ellipsis {
   display: block;
   margin: 20px 0px 0px 0px; }
 
+.dataTables_length {
+  width: 49%;
+  float: left; }
+  .dataTables_length label {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 30px;
+    margin-top: 20px; }
+  .dataTables_length select {
+    width: 60px; }
+
+.dataTables_filter {
+  width: 49%;
+  float: right;
+  height: 55px; }
+  .dataTables_filter label {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 22px;
+    margin-top: 15px;
+    text-align: right; }
+  .dataTables_filter input {
+    width: 80%;
+    display: inline-block !important;
+    text-align: left;
+    margin-left: 10px;
+    position: relative;
+    border: 1px solid #f17f0c !important;
+    border-bottom: 1px solid #f7a758; }
+
+.dataTables_info {
+  text-align: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8em; }
+
+.dataTables_paginate {
+  text-align: center;
+  margin-top: 20px; }
+  .dataTables_paginate a {
+    position: relative;
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8em;
+    -webkit-transform: 0.1s ease-in-out;
+    -moz-transform: 0.1s ease-in-out;
+    -ms-transform: 0.1s ease-in-out;
+    -o-transform: 0.1s ease-in-out;
+    transform: 0.1s ease-in-out; }
+    .dataTables_paginate a:hover {
+      color: white !important; }
+  .dataTables_paginate a:first-of-type {
+    margin-right: 20px; }
+    .dataTables_paginate a:first-of-type:before {
+      display: inline-block;
+      content: "<";
+      position: relative;
+      top: 0;
+      right: 20px; }
+  .dataTables_paginate a:last-of-type {
+    margin-left: 20px; }
+    .dataTables_paginate a:last-of-type:after {
+      display: inline-block;
+      content: ">";
+      position: relative;
+      top: 0;
+      left: 20px; }
+
 table {
   width: 95%;
   display: block;
   overflow: scroll;
   margin: 0 auto;
-  height: 600px;
+  height: 500px;
   margin-top: 20px;
   font-size: 0.8em; }
   table.bookingsTable {
@@ -13686,7 +13759,27 @@ table {
     table tbody span.icon-close-alt-2 {
       color: red; }
   table tbody td {
+    height: 50px !important;
     text-transform: capitalize; }
+    table tbody td.l {
+      text-align: left !important; }
+    table tbody td.c {
+      text-align: center !important; }
+    table tbody td.r {
+      text-align: right !important; }
+    table tbody td.postRow {
+      position: absolute;
+      right: 5px;
+      font-size: 2em;
+      line-height: 50px;
+      padding: 0; }
+      table tbody td.postRow span {
+        color: rgba(255, 255, 255, 0.7) !important;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out; }
+        table tbody td.postRow span:hover {
+          color: white !important; }
 
 /*payment details page*/
 .paymentsRow form span {

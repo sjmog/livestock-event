@@ -25,6 +25,26 @@
   </head>
   <body>
 
+  <!--some IE catching-->
+
+  <script type="text/javascript">
+
+  if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) { //test for MSIE x.x;
+   var ieversion=new Number(RegExp.$1) // capture x.x portion and store as a number
+   if (ieversion==8)
+    document.write("<div class='ieWarning'>Sorry about this, but your browser is too outdated to use this site. <b>It's OK!</b> You can download Google Chrome: a fast, modern browser. It's <b>free of charge</b>, and <b>built by Google<b>. Download it from <a class='inlineLink' href='http://www.google.com/chrome'>here</a>.<br />Once you've downloaded Google Chrome, your Internet will work faster, and you'll be able to see this site.</div>")
+   else if (ieversion>=7)
+    document.write("<div class='ieWarning'>Sorry about this, but your browser is too outdated to use this site. <b>It's OK!</b> You can download Google Chrome: a fast, modern browser. It's <b>free of charge</b>, and <b>built by Google<b>. Download it from <a class='inlineLink' href='http://www.google.com/chrome'>here</a>.<br />Once you've downloaded Google Chrome, your Internet will work faster, and you'll be able to see this site.</div>")
+   else if (ieversion>=6)
+    document.write("<div class='ieWarning'>Sorry about this, but your browser is too outdated to use this site. <b>It's OK!</b> You can download Google Chrome: a fast, modern browser. It's <b>free of charge</b>, and <b>built by Google<b>. Download it from <a class='inlineLink' href='http://www.google.com/chrome'>here</a>.<br />Once you've downloaded Google Chrome, your Internet will work faster, and you'll be able to see this site.</div>")
+   else if (ieversion>=5)
+    document.write("<div class='ieWarning'>Sorry about this, but your browser is too outdated to use this site. <b>It's OK!</b> You can download Google Chrome: a fast, modern browser. It's <b>free of charge</b>, and <b>built by Google<b>. Download it from <a class='inlineLink' href='http://www.google.com/chrome'>here</a>.<br />Once you've downloaded Google Chrome, your Internet will work faster, and you'll be able to see this site.</div>")
+  }
+  else
+   {}
+
+  </script>
+
     <!--site-wide modal window-->
 
     <%= render "components/modal" %>
