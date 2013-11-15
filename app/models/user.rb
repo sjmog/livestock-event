@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
+  resourcify
   ROLES = %w[admin standard banned]
   has_many :api_keys
   has_many :bookings, inverse_of: :user

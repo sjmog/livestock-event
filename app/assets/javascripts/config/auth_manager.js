@@ -23,6 +23,9 @@ App.AuthManager = Ember.Object.extend({
     console.log('authenticating...');
     console.log(accessToken);
     console.log(userId);
+    var date = new Date();
+    var minutes = 240; //4 hour expiry
+    date.setTime(date.getTime() + (minutes * 60 * 1000));
     var self = this;
     $.ajaxSetup({
       headers: { 'Authorization': 'Bearer ' + accessToken }
@@ -32,7 +35,8 @@ App.AuthManager = Ember.Object.extend({
       console.log(user);
       self.set('apiKey', App.ApiKey.create({
         accessToken: accessToken,
-        user: user
+        user: user,
+        expiredAt: date, 
       }));
     });
     
@@ -59,8 +63,8 @@ App.AuthManager = Ember.Object.extend({
       $.removeCookie('auth_user');
     } else {
       console.log('setting API key');
-      $.cookie('access_token', this.get('apiKey.accessToken'));
-      $.cookie('auth_user', this.get('apiKey.user.id'));
+      $.cookie('access_token', this.get('apiKey.accessToken'), {expires: this.get('apiKey.expiredAt')});
+      $.cookie('auth_user', this.get('apiKey.user.id'), {expires: this.get('apiKey.expiredAt')});
     }
   }.observes('apiKey')
 });

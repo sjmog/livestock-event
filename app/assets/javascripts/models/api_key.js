@@ -2,7 +2,8 @@
   App.ApiKey = Ember.Object.extend({
     
     accessToken: '',
-    user: null
+    user: null,
+    expiredAt: '',
 
   });
 
