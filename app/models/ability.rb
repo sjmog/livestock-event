@@ -16,8 +16,7 @@ class Ability
         can :manage, Booking, :user_id => user.id
         can :read, User, :id => user.id
         can :read, Booking, :user_id => user.id
-        can :index, Order, :user_id => user.id
-        can :show, Order, :user_id => user.id
+        can :read, Order, :user_id => user.id
         can :update, Stand
     elsif user.role == "admin"
         can :manage, :all

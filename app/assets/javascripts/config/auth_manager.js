@@ -9,6 +9,8 @@ App.AuthManager = Ember.Object.extend({
     var authUserId  = $.cookie('auth_user');
     if (!Ember.isEmpty(accessToken) && !Ember.isEmpty(authUserId)) {
       this.authenticate(accessToken, authUserId);
+    } else {
+      this.resetWithoutRedirecting();
     }
   },
 
@@ -47,6 +49,16 @@ App.AuthManager = Ember.Object.extend({
     App.__container__.lookup("route:application").transitionTo('index');
     Ember.run.sync();
     Ember.run.next(this, function(){
+      this.set('apiKey', null);
+      $.ajaxSetup({
+        headers: { 'Authorization': 'Bearer none' }
+      });
+    });
+  },
+
+  //just reset the api key
+  resetWithoutRedirecting: function() {
+    Ember.run.next(this, function() {
       this.set('apiKey', null);
       $.ajaxSetup({
         headers: { 'Authorization': 'Bearer none' }

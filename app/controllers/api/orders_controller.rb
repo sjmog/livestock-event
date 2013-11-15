@@ -5,7 +5,7 @@ module Api
     # GET /orders.json
     def index
       @orders = Order.all
-
+      authorize! :read, @orders.each
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @orders }
@@ -16,7 +16,7 @@ module Api
     # GET /orders/1.json
     def show
       @order = Order.find(params[:id])
-
+      authorize! :read, @order
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @order }
