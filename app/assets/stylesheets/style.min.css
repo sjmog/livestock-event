@@ -12090,17 +12090,6 @@ a.backbutton {
   left: 0px;
   font-size: 2em;
   opacity: 1; }
-  a.backbutton:after {
-    content: attr(href);
-    opacity: 0;
-    font-size: 0.5em;
-    position: absolute;
-    left: 40px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: left;
-    font-size: 10px;
-    color: white; }
   a.backbutton span {
     color: rgba(255, 255, 255, 0.6) !important; }
   a.backbutton:hover span {
@@ -12115,17 +12104,6 @@ a.forwardbutton {
   right: 20px;
   font-size: 2em;
   opacity: 1; }
-  a.forwardbutton:after {
-    content: attr(href);
-    opacity: 0;
-    font-size: 0.5em;
-    position: absolute;
-    right: 40px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: left;
-    font-size: 10px;
-    color: white; }
   a.forwardbutton span {
     color: rgba(255, 255, 255, 0.6) !important; }
   a.forwardbutton:hover span {
@@ -13189,6 +13167,7 @@ textarea {
 
 /*contractors index*/
 .row.singleContractor {
+  overflow: hidden;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -13212,12 +13191,18 @@ textarea {
     border-bottom: none !important; }
   .row.singleContractor div {
     text-align: center;
-    line-height: 104px;
+    line-height: 1em;
     color: white; }
+    .row.singleContractor div.small-7 {
+      padding-top: 40px; }
+    .row.singleContractor div.small-3 {
+      line-height: 104px; }
   .row.singleContractor img {
     display: inline-block;
     margin: 0 auto;
-    line-height: 104px; }
+    line-height: 104px;
+    max-height: 100%;
+    max-width: 100%; }
 
 .payment-errors {
   color: white !important; }
@@ -14432,11 +14417,21 @@ div.form-actions {
   margin: 40px auto;
   display: block; }
 
+.bookingsShow .row .row .lowercase p {
+  text-transform: lowercase !important; }
+
 /*printing*/
 @media print {
   /* All your print styles go here */
   .sidebarHolder, .logo, .filters, .footer, .notIndexLogin, .backbutton, .centerAlign, .firstRow, .cookieBar {
     display: none !important; }
+
+  .bookingsShow .row .row .leftAlign p {
+    text-align: center !important; }
+
+  .bookingsShow .row .row p b {
+    opacity: 0.5;
+    filter: alpha(opacity=50); }
 
   .tile {
     width: 100% !important; }

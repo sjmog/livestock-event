@@ -1369,18 +1369,6 @@ a.backbutton {
 	left:0px;
 	font-size:2em;
 	opacity:1;
-	&:after {
-		content: attr(href);
-		opacity:0;
-		font-size:0.5em;
-		position:absolute;
-		left:40px;
-		letter-spacing: 1px;
-		text-transform: uppercase;
-		text-align: left;
-		font-size: 10px;
-		color: white;
-	}
 	span {
 		color:white(0.6) !important;
 	}
@@ -1401,18 +1389,6 @@ a.forwardbutton {
 	right:20px;
 	font-size:2em;
 	opacity:1;
-	&:after {
-		content: attr(href);
-		opacity:0;
-		font-size:0.5em;
-		position:absolute;
-		right:40px;
-		letter-spacing: 1px;
-		text-transform: uppercase;
-		text-align: left;
-		font-size: 10px;
-		color: white;
-	}
 	span {
 		color:white(0.6) !important;
 	}
@@ -2734,7 +2710,7 @@ textarea {
 /*contractors index*/
 
 .row.singleContractor {
-
+	overflow:hidden;
 	a {
 		color:white(1);
 	}
@@ -2764,13 +2740,21 @@ textarea {
 	}
 	div {
 		text-align:center;
-		line-height:($tile-height - 48px)/3;
+		line-height:1em;
 		color:white(1);
+		&.small-7 {
+			padding-top:40px;
+		}
+		&.small-3 {
+			line-height:($tile-height - 48px)/3;
+		}
 	}
 	img {
 		display:inline-block;
 		margin:0 auto;
 		line-height:($tile-height - 48px)/3;
+		max-height:100%;
+		max-width:100%;
 	}
 }
 
@@ -4313,6 +4297,11 @@ div.form-actions {
 	display:block;
 }
 
+  .bookingsShow .row .row .lowercase p {
+ 	text-transform:lowercase !important;
+ }
+
+
 /*printing*/
 
 @media print { 
@@ -4320,6 +4309,13 @@ div.form-actions {
  .sidebarHolder, .logo, .filters, .footer, .notIndexLogin, .backbutton, .centerAlign, .firstRow, .cookieBar {
  	display:none !important;
  }
+ .bookingsShow .row .row .leftAlign p {
+ 	text-align:center !important;
+ }
+ .bookingsShow .row .row p b {
+ 	@include opacity(0.5);
+ }
+
  .tile {
  	width:100% !important;
  }

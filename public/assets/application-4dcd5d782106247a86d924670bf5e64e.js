@@ -69643,7 +69643,7 @@ function program16(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "telephone", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            </p>\n          </div>\n          <div class=\"large-6 small-12 columns printHalf\">\n            <p>\n              <b>Contact email:</b> ");
+  data.buffer.push("\n            </p>\n          </div>\n          <div class=\"large-6 small-12 columns printHalf lowercase\">\n            <p>\n              <b>Contact email:</b> ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "email", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -69698,15 +69698,15 @@ function program16(depth0,data) {
   hashContexts = {};
   stack2 = helpers['if'].call(depth0, "isLivestockHall", {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n\n        <div class=\"row\">\n          <div class=\"large-10 large-centered small-12 small-uncentered columns\">\n            <p>\n              <b>Stand Number:</b> ");
+  data.buffer.push("\n\n        <div class=\"row\">\n          <div class=\"large-10 large-centered small-12 small-uncentered columns\">\n            <p>\n              <b>Block Number:</b> ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "standNumber", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"large-6 small-12 columns printHalf\">\n            <p>\n              <b>Frontage:</b> ");
+  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"large-6 small-12 columns printHalf leftAlign\">\n            <p>\n              <b>Frontage:</b> ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "frontage", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("m\n            </p>\n          </div>\n          <div class=\"large-6 small-12 columns printHalf\">\n            <p>\n              <b>Depth:</b> ");
+  data.buffer.push("m\n            </p>\n          </div>\n          <div class=\"large-6 small-12 columns printHalf leftAlign\">\n            <p>\n              <b>Depth:</b> ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "depth", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -69722,7 +69722,7 @@ function program16(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "contractorAddress", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"large-6 small-12 columns printHalf\">\n            <p>\n              <b>Contractor Email:</b> ");
+  data.buffer.push("\n            </p>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"large-6 small-12 columns printHalf lowercase\">\n            <p>\n              <b>Contractor Email:</b> ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "contractorEmail", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
