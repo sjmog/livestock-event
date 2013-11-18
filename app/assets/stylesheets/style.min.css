@@ -10470,13 +10470,6 @@ h4 {
   text-align: left;
   padding: 5px 0px; }
 
-.variableHeightTile {
-  height: auto !important; }
-  .variableHeightTile .flipper {
-    height: auto !important; }
-    .variableHeightTile .flipper .front {
-      height: auto !important; }
-
 .vertWrap {
   display: table !important; }
   .vertWrap .vertElement {
@@ -13191,11 +13184,11 @@ textarea {
   .row.singleContractor div {
     text-align: center;
     line-height: 1em;
-    color: white; }
-    .row.singleContractor div.small-7 {
-      padding-top: 40px; }
-    .row.singleContractor div.small-3 {
-      line-height: 104px; }
+    color: white;
+    height: 100%; }
+    .row.singleContractor div.small-2 {
+      height: 100%;
+      background: white !important; }
   .row.singleContractor img {
     display: inline-block;
     margin: 0 auto;

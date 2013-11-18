@@ -92,15 +92,6 @@ h4 {
 	padding:5px 0px;
 }
 
-.variableHeightTile {
-	height:auto !important;
-	.flipper {
-		height:auto !important;
-		.front {
-			height:auto !important;
-		}
-	}
-}
 
 .vertWrap {
 	display:table !important;
@@ -2741,11 +2732,10 @@ textarea {
 		text-align:center;
 		line-height:1em;
 		color:white(1);
-		&.small-7 {
-			padding-top:40px;
-		}
-		&.small-3 {
-			line-height:($tile-height - 48px)/3;
+		height:100%;
+		&.small-2 {
+			height:100%;
+			background:white(1) !important;
 		}
 	}
 	img {

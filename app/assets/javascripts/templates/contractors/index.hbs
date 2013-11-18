@@ -1,6 +1,6 @@
 <div class="flipper">
 	<div class="front">
-		<span class="tile-title">contractor list</span>
+		<span class="tile-title">{{#link-to 'index' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}contractor list</span>
 		{{#each controller.sortedContractors}}
 			{{#link-to 'contractors.show' this class="ninjaLink"}}
 			<div class="row singleContractor">
@@ -11,8 +11,16 @@
 					</div>
 					{{/if}}
 				</div>
-				<div class="small-7 columns">{{name}}</div>
-				<div class="small-3 columns">{{category}}</div>
+				<div class="small-7 columns vertWrap">
+					<div class="vertElement">
+						{{name}}
+					</div>
+				</div>
+				<div class="small-3 columns vertWrap">
+					<div class="vertElement">
+						{{category}}
+					</div>
+				</div>
 			</div>
 			{{/link-to}}
 		{{/each}}
