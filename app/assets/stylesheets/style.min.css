@@ -13154,7 +13154,6 @@ textarea {
   .contractors .back .closeButton:hover {
     color: white; }
 .contractors .fullBleed {
-  width: 310px;
   margin: 0 auto !important;
   display: block; }
 .contractors .imageUploader {

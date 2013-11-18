@@ -63427,7 +63427,7 @@ App.SupportersEditView = Ember.View.extend({
 });
 App.SupportersIndexView = Ember.View.extend({
 	templateName: 'supporters/index',
-	classNames: ['tile innerTile content-tile supporters list-tile general_info all tile-2-tall tile-2-wide'],
+	classNames: ['tile innerTile content-tile supporters scrollTile list-tile general_info all tile-2-tall tile-2-wide'],
 	attributeBindings: ['width:data-width', 'height:data-height'],
 	width: 'n',
 	height: 2,
@@ -63477,7 +63477,7 @@ App.SupportersNewView = Ember.View.extend({
 });
 App.SupportersShowView = Ember.View.extend({
 	templateName: 'supporters/show',
-	classNames: ['tile innerTile content-tile supporters general_info all tile-2-tall tile-2-wide'],
+	classNames: ['tile innerTile content-tile supporters scrollTile general_info all tile-2-tall tile-2-wide'],
 	attributeBindings: ['width:data-width', 'height:data-height'],
 	width: 2,
 	height: 2,
@@ -70352,7 +70352,7 @@ function program1(depth0,data) {
 function program2(depth0,data) {
   
   var buffer = '', stack1, hashTypes, hashContexts;
-  data.buffer.push("\n			<div class=\"row singleContractor\">\n				<div class=\"small-2 columns\">\n					");
+  data.buffer.push("\n			<div class=\"row singleContractor\">\n				<div class=\"small-2 columns vertWrap\">\n					");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers['if'].call(depth0, "image", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -70371,14 +70371,14 @@ function program2(depth0,data) {
 function program3(depth0,data) {
   
   var buffer = '', stack1, hashContexts, hashTypes, options;
-  data.buffer.push("\n					<img ");
+  data.buffer.push("\n					<div class=\"vertElement\">\n						<img ");
   hashContexts = {'src': depth0};
   hashTypes = {'src': "ID"};
   options = {hash:{
     'src': ("image")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
-  data.buffer.push(" class=\"avatarImage\" />\n					");
+  data.buffer.push(" class=\"avatarImage\" />\n					</div>\n					");
   return buffer;
   }
 
@@ -70509,7 +70509,7 @@ function program7(depth0,data) {
 Ember.TEMPLATES["contractors/show"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, hashTypes, hashContexts, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  var buffer = '', stack1, hashTypes, hashContexts, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 function program1(depth0,data) {
   
@@ -70598,11 +70598,18 @@ function program6(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "explanation", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</p>\n			</div>\n		</div>\n		<div class=\"row\">\n			<div class=\"small-12 columns\">\n				<h1>Contractor Address Details</h1>\n				<p>");
+  data.buffer.push("</p>\n			</div>\n		</div>\n		<div class=\"row\">\n			<div class=\"small-12 columns\">\n				<h1>Contractor Web Details</h1>\n				<p><a class=\"inlineLink\" ");
+  hashContexts = {'href': depth0};
+  hashTypes = {'href': "STRING"};
+  options = {hash:{
+    'href': ("address")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "address", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</p>\n			</div>\n		</div>\n		\n		\n	</div>\n	<div class=\"back\">\n		\n	</div>\n</div>\n");
+  data.buffer.push("</a></p>\n			</div>\n		</div>\n		\n		\n	</div>\n	<div class=\"back\">\n		\n	</div>\n</div>\n");
   return buffer;
   
 });
@@ -72742,7 +72749,7 @@ function program3(depth0,data) {
 function program4(depth0,data) {
   
   var buffer = '', stack1, hashTypes, hashContexts;
-  data.buffer.push("\n			<div class=\"row singleContractor\">\n				<div class=\"small-2 columns\">\n					");
+  data.buffer.push("\n			<div class=\"row singleContractor\">\n				<div class=\"small-2 columns vertWrap\">\n					");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers['if'].call(depth0, "image", {hash:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -72761,14 +72768,14 @@ function program4(depth0,data) {
 function program5(depth0,data) {
   
   var buffer = '', stack1, hashContexts, hashTypes, options;
-  data.buffer.push("\n					<img ");
+  data.buffer.push("\n					<div class=\"vertElement\">\n						<img ");
   hashContexts = {'src': depth0};
   hashTypes = {'src': "ID"};
   options = {hash:{
     'src': ("image")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
-  data.buffer.push(" class=\"avatarImage\" />\n					");
+  data.buffer.push(" class=\"avatarImage\" />\n					</div>\n					");
   return buffer;
   }
 

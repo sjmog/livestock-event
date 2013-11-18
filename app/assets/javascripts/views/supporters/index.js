@@ -1,6 +1,6 @@
 App.SupportersIndexView = Ember.View.extend({
 	templateName: 'supporters/index',
-	classNames: ['tile innerTile content-tile supporters list-tile general_info all tile-2-tall tile-2-wide'],
+	classNames: ['tile innerTile content-tile supporters scrollTile list-tile general_info all tile-2-tall tile-2-wide'],
 	attributeBindings: ['width:data-width', 'height:data-height'],
 	width: 'n',
 	height: 2,
