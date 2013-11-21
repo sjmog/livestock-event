@@ -1,0 +1,48 @@
+App.MapView = Ember.View.extend({
+	controller: App.MapController,
+	templateName: 'svgmap',
+	classNames: ['row'],
+	currentObject: null,
+	newObj: null,
+	imageUrl: "<%= asset_path('map.svg') %>",
+	didInsertElement: function() {
+		var view = this;
+		$('#map').mapSvg({
+		    source: view.imageUrl,
+		    loadingText : 'Loading floorplan...', 
+		    colors: {
+		    	base: "rgb(46,46,49)",
+		    	background: "rgb(28,29,31)",
+		    	hover: "rgb(61,65,76)",
+		    	stroke: "rgb(28,29,31)"
+		    },
+		    cursor:'pointer',
+		    zoom: true, 
+		    zoomLimit: [0,5],
+		    zoomDelta: 1.2,
+		    zoomButtons: {'show': true, 'location': 'left'},
+		    pan: true, 
+		    panLimit: true,
+		    responsive: true,
+		    onClick: function(event, mapsvg){ 
+		    	var newName = prompt('What is the name?');
+		    	var path = this;
+		    	view.newObj = {
+		    		name: newName, 
+		    		node: path.node
+		    	};
+		    	console.log(view.newObj);
+		    },
+		    mouseOver: function(event, mapsvg){ 
+		    	this.toFront();
+		    	this.attr({stroke: 'rgb(37,206,152)', 'stroke-width': 2});
+		    	view.currentObject =  this;
+		    	
+		    },
+		    mouseOut:  function(event, mapsvg){
+		    	this.attr({stroke: "rgb(28,29,31)", 'stroke-width': 1});
+		    }
+		});
+	}
+
+});

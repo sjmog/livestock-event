@@ -1,0 +1,18 @@
+<div id="bottomBar" class="bottomBar in">
+	<div class="row">
+		<div class="small-12 columns">
+			<p><a href="/users/new" class="inlineLink">Book exhibition stands</a> before 31st December 2013 and receive the Early Bird stand rates - Stand rates are held at last year's prices until 1st January 2014.</p>
+		</div>
+	</div>
+	<div id="bottomButton" class="bottomButton in"><span style="position: relative;
+	top: -8px;" class="icon-up"></span></div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#bottomButton').click(function() {
+			var $button = $('#bottomButton > span');
+			$('.bottomBar').toggleClass('in');
+			$(this).toggleClass('in');
+		});
+	});
+</script>

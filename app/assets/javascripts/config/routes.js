@@ -8,6 +8,7 @@ if (window.history && window.history.pushState) {
   });
 
   App.Router.map(function() {
+    this.route('svgmap');
     this.resource('contractors', function() {
       this.route('index', {
         path: '/'

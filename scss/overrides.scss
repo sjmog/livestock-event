@@ -1317,6 +1317,15 @@ div div .inlineButton.button {
 	@media screen and (max-width:840px) {
 		top:-90px;
 	}
+	@media screen and (max-width:640px) {
+		top:-90px;
+	}
+	@media screen and (max-width: 500px) {
+		top:-115px;
+	}
+	@media screen and (max-width:330px) {
+		top:-144px;
+	}
 	display: block;
 	z-index: 999999999;
 	margin: 0 auto;
@@ -1350,6 +1359,94 @@ div div .inlineButton.button {
 	&.in {
 		top: 0;
 		background: rgba($rabdfBlue, 0.7);
+	}
+}
+
+/*bottom bar*/
+.bottomButton {
+	position:absolute;
+	top:-20px;
+	left:0;
+	background: $rabdfLightGray;
+	@include opacity(0.4);
+	height: 20px;
+	width: 40px;
+	line-height: 0px;
+	text-align: center;
+	font-size: 2em;
+	z-index:99999999;
+	@include transition(all 0.4s ease-in-out);
+	&.in {
+		@include transform(rotate(180deg));
+		@include transition(all 0.4s ease-in-out);
+		@include opacity(1);
+		background: rgba($rabdfOrange, 0.7);
+		span {
+			color: white(1);
+			
+		}
+		
+	}
+	
+	span {
+		color: $rabdfGray;
+	}
+	&.enOut {
+		@include transform(translateY(-20px));
+	}
+
+}
+
+.bottomBar {
+	background: rgba($rabdfLightGray, 0.4);
+	position: fixed;
+	bottom:0;
+	@include transform(translateY(90px));
+	@media screen and (max-width:840px) {
+		@include transform(translateY(90px));
+	}
+	@media screen and (max-width:640px) {
+		@include transform(translateY(120px));
+	}
+	@media screen and (max-width:460px) {
+		@include transform(translateY(140px));
+	}
+	@media screen and (max-width:330px) {
+		@include transform(translateY(170px));
+	}
+	display: block;
+	z-index: 999999999;
+	margin: 0 auto;
+	width: 100%;
+	@include transition(all 0.4s ease-in-out);
+	.row {
+		max-width:960px !important;
+		p:first-of-type {
+			margin-top:1.25em;
+			text-align:center;
+		}
+	}
+	.buttonLabel {
+		position:absolute;
+		right:15px;
+		bottom:-20px;
+		text-align:center;
+
+	}
+	.closeButton {
+		position:absolute;
+		color:white(0.4);
+		right:30px;
+		font-size:2em;
+		top:10px;
+		@include transition(all 0.3s ease-in-out);
+		&:hover {
+			color:white(1);
+		}
+	}
+	&.in {
+		@include transform(translateY(0px));
+		background: rgba($rabdfOrange, 0.7);
 	}
 }
 

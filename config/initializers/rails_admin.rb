@@ -17,6 +17,10 @@ RailsAdmin.config do |config|
   # If you want to track changes on your models:
   # config.audit_with :history, 'Administrator'
 
+  config.authenticate_with do
+    authenticate_administrator!
+  end
+
   # Or with a PaperTrail: (you need to install it first)
   # config.audit_with :paper_trail, 'Admin'
 
