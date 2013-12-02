@@ -20,6 +20,7 @@ class Ability
         can :update, Stand
     elsif user.role == "admin"
         can :manage, :all
+        can :manage, User
     end
     # Define abilities for the passed in user here. For example:
     #

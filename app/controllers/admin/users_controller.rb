@@ -1,5 +1,5 @@
 module Admin
-  class UsersController < ApplicationController
+  class UsersController < BaseController
     layout "admin"
     load_and_authorize_resource
     def index
