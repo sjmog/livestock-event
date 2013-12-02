@@ -18,6 +18,9 @@ gem 'activemerchant' #decent payment provider integration
 # gem 'protected_attributes' #make older devise work with new Rails, avoiding strong param requirements
 gem 'encryptor' #better encryption wrapper for OpenSSL
 gem 'figaro' #easy environment-specific variables
+gem 'simple_form' #super-simple form scaffolding
+gem 'formtastic' #slightly more powerful (and namespaced) rails forms
+
 
 group :production do
 	gem 'heroku-deflater', :group => :production #gzips files

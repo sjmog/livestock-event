@@ -1,0 +1,53 @@
+<!--form for new testimonial-->
+	<%= simple_form_for [:admin, @testimonial], :html => { class: 'form-horizontal' }, defaults: { input_html: { class: 'form-control' }, label_html: { class: 'control-label '} } do |f| %>
+<div class="block">
+	<div class="block-title">
+		<h2>Simple</h2>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-12"><%= f.input :category %></div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-6"><%= f.input :attribution, label: 'Testifier' %></div>
+		<div class="col-md-6"><%= f.input :location, label: 'Job title' %></div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-12"><%= f.input :quote, :as => :text, hint: 'Keep it under 90 words.' %></div>
+	</div>
+	<div class="form-group">
+
+		<div class="col-md-6">
+		
+			  <%= f.input :call_route, label: 'Call to Action endpoint' %>
+  
+		</div>
+		<div class="col-md-6">
+		
+			<%= f.input :call_icon, label: 'Call to Action icon' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-12"><%= f.input :quote, as: :text, input_html: {rows: "3", class: "form-control textarea-editor"} %></div>
+	</div>
+</div>
+<div class="block">
+	<div class="block-title">
+		<h2>Advanced</h2>
+	</div>
+	<div class="form-group">
+		<div class="col-md-6">
+			<%= f.input :created_at %>
+		</div>
+		<div class="col-md-6">
+			<%= f.input :updated_at %>
+		</div>		
+	</div>
+	
+</div>
+<div class="block full">
+	<%= f.button :submit %>
+	<% end %>
+</div>
+
+<!--END form for new testimonial-->

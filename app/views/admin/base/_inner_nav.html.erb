@@ -1,0 +1,20 @@
+<div class="block full line-top">
+	<div class="row">
+		<div class="col-md-6">
+			
+				<%= link_to back_path, class: "btn btn-primary pull-left" do %>
+				<i class="fa fa-arrow-left"></i> All <%= model_name.pluralize %>
+				<% end %>
+			
+			
+		</div>
+		<div class="col-md-6">
+			
+				<%= link_to new_path, class: "btn btn-primary pull-right" do %>
+				New <%= model_name %> <i class="fa fa-arrow-right"></i>
+				<% end %>
+			
+			
+		</div>
+	</div>
+</div>

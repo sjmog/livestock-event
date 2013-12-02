@@ -1,6 +1,7 @@
 EmberAuthRailsDemo::Application.routes.draw do
   
   devise_for :administrators, :controllers => {:sessions => "adminsessions"}
+
   mount RailsAdmin::Engine => '/backoffice', :as => 'rails_admin'
   class FormatTest
     attr_accessor :mime_type
@@ -35,13 +36,44 @@ post 'charges' => 'charges#create'
     post 'session' => 'session#create'
   end
 
+  #the Admin area
+
+  namespace :admin do
+      resources :posts
+      resources :stands
+      resources :users
+      resources :articles
+      resources :bookings
+      resources :orders
+      resources :testimonials
+      resources :contractors
+      resources :supporters
+      
+      #fix simple_form's updating (which goes via POST instead of PUT for some reason)
+      post 'posts/:id' => 'posts#update'
+      post 'stands/:id' => 'stands#update'
+      post 'users/:id' => 'users#update'
+      post 'articles/:id' => 'articles#update'
+      post 'bookings/:id' => 'bookings#update'
+      post 'orders/:id' => 'orders#update'
+      post 'testimonials/:id' => 'testimonials#update'
+      post 'contractors/:id' => 'contractors#update'
+      post 'supporters/:id' => 'supporters#update'
+      post 'session' => 'session#create'
+  end
+
 
   root to: 'home#index'
 
-  get '*foo', :to => 'home#index', :constraints => FormatTest.new(:html)
   get '/', :to => 'home#index', :constraints => FormatTest.new(:html)
 
   get '/paid', :to => 'backends#sagepay_return'
+
+  get '/admin', :to => 'admin#main'
+
+  get '/admin/login', :to => 'admin#login'
+
+
 
 
   # The priority is based upon order of creation:

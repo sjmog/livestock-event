@@ -1,0 +1,63 @@
+<!--BEGIN datatable-->
+<div class="table-responsive">
+    <table id="example-datatable" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th>Date</th>
+                <th>User</th>
+                <th>Booking</th>
+                <th>Amount</th>
+                <th>Status</th>
+
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% model.each do |item| %>
+            <% booking = Booking.find(item.booking_id) rescue nil %>
+            <% user = User.find(item.user_id) rescue nil %>
+            <tr>
+                <td class="text-center"><%= item.id %></td>
+                <td><%= item.created_at %></td>
+                <td>
+                    <% if(user.nil?) %>
+                        No User
+                    <% else %>
+                        <%= link_to admin_user_path(user) do %>
+                            <%= user.name %>
+                        <% end %>
+                    <% end %>
+                </td>
+                 <td>
+                    <% if(booking.nil?) %>
+                        No Booking
+                    <% else %>
+                        <%= link_to admin_booking_path(booking) do %>
+                            <%= booking.company_name %>
+                        <% end %>
+                    <% end %>
+                </td>
+                <td>£<%= item.amount.to_i %></td>
+                <td><%= item.status %></td>
+                
+                
+                <td class="text-center">
+                    <div class="btn-group">
+                    <%= link_to admin_order_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "View" do %>
+                        <i class="fa fa-eye"></i>
+                    <% end %>
+                        <%= link_to edit_admin_order_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Edit" do %>
+                            <i class="fa fa-pencil"></i>
+                        <% end %>
+                        <%= link_to admin_order_path(item), method: :delete, data: { confirm: "Are you sure you want to delete this order?" }, :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Delete", :remote => true do %>
+                            <i class="fa fa-times"></i>
+                        <% end %>
+                    </div>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<!--END datatable-->

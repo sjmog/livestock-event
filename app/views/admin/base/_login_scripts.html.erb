@@ -1,0 +1,31 @@
+<script>
+    var authenticate = function(accessToken, userId) {
+        console.log('authenticating...');
+        console.log(accessToken);
+        console.log(userId);
+        var date = new Date();
+        var minutes = 240; //4 hour expiry
+        date.setTime(date.getTime() + (minutes * 60 * 1000));
+        var self = this;
+        $.ajaxSetup({
+          headers: { 'Authorization': 'Bearer ' + accessToken }
+        });
+    };
+    $(document).ready(function() {
+        $('#form-login').submit(function(event) {
+            event.preventDefault();
+            var self = this;
+            var email = $(this).find('#login-email').val();
+            var password = $(this).find('#login-password').val();
+            var remember = $(this).find('#login-remember').val();
+            var data = {email: email, password: password, remember_me: remember};
+
+            $.post('/admin/session', data, function(results) {
+
+            }).fail(function(results) {
+              $("#flash_notice").html("Please sign in as an administrator first.");
+              $("#flash_notice_wrap").show(300);
+            });
+        });
+    });
+</script>

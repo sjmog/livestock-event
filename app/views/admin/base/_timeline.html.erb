@@ -1,0 +1,84 @@
+<!-- Recent Updates Block -->
+<div class="block full">
+    <!-- Recent Updates Title -->
+    <div class="block-title">
+        <h2><i class="fa fa-rss"></i> News</h2>
+    </div>
+    <!-- END Recent Updates Title -->
+
+    <!-- Update Status Form -->
+    <form action="index.html" method="post" class="profile-status block-top" onsubmit="return false;">
+        <textarea id="status-update" name="status-update" rows="3" class="form-control" placeholder="How are you? (Try posting something)"></textarea>
+        <div class="clearfix">
+            <button type="submit" id="status-update-btn" class="btn btn-primary pull-right"><i class="fa fa-angle-right"></i> Post</button>
+            <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom" title="Add Location"><i class="fa fa-location-arrow"></i></a>
+            <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom" title="Record Voice"><i class="fa fa-microphone"></i></a>
+            <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom" title="Take Photo"><i class="fa fa-camera"></i></a>
+            <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom" title="Upload File"><i class="fa fa-cloud-upload"></i></a>
+        </div>
+    </form>
+    <!-- END Update Status Form -->
+
+    <!-- Updates -->
+    <div class="timeline-con">
+        <ul class="timeline remove-margin">
+            <li class="alt-color">
+                <div class="timeline-item">
+                    <h4 class="timeline-title"><small class="timeline-meta">3 min ago</small><i class="fa fa-plus"></i> Friend Request</h4>
+                    <div class="timeline-content">
+                        <p class="clearfix">
+                            <img src="<%= asset_path "admin/avatar.png" %>" alt="avatar" class="img-circle pull-right">
+                            <a href="page_special_user_profile.html">John</a> would like to become friends!
+                        </p>
+                        <a href="javascript:void(0)" class="btn btn-xs btn-success" id="accept-request"><i class="fa fa-check"></i> Accept</a>
+                    </div>
+                </div>
+            </li>
+            <li class="text-right">
+                <div class="timeline-item">
+                    <h4 class="timeline-title"><small class="timeline-meta">20 min ago</small><i class="fa fa-file"></i> Status</h4>
+                    <div class="timeline-content">Today is a good day!</div>
+                </div>
+            </li>
+            <li class="text-right">
+                <div class="timeline-item">
+                    <h4 class="timeline-title"><small class="timeline-meta">1 hour ago</small><i class="fa fa-cloud-upload"></i> Image Upload</h4>
+                    <div class="timeline-content">
+                        <p>
+                            <a href="page_special_user_profile.html">Michael</a> just uploaded an image in <a href="javascript:void(0)" class="btn btn-xs btn-primary">Secret Project</a>
+                        </p>
+                        <a href="img/placeholders/image_720x450_dark.png" data-toggle="lightbox-image">
+                            <img src="<%= asset_path "admin/image_160x120_dark.png" %>" alt="image">
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="alt-color">
+                <div class="timeline-item">
+                    <h4 class="timeline-title"><small class="timeline-meta">2 hours ago</small><i class="fa fa-cog"></i> System Update</h4>
+                    <div class="timeline-content"><strong>Application</strong> updated to version 3.0! Check out the <a href="javascript:void(0)">documentation</a> to learn about the new features!</div>
+                </div>
+            </li>
+            <li class="text-right">
+                <div class="timeline-item">
+                    <h4 class="timeline-title"><small class="timeline-meta">3 hours ago</small><i class="fa fa-magic"></i> Special Offer</h4>
+                    <div class="timeline-content"><a href="page_ready_pricing_tables.html">Upgrade your plan</a> and get 1 year for free!</div>
+                </div>
+            </li>
+            <li class="text-right">
+                <div class="timeline-item">
+                    <h4 class="timeline-title"><small class="timeline-meta">1 day ago</small><i class="fa fa-file"></i> Status</h4>
+                    <div class="timeline-content">Just finished the project, check it out <a href="javascript:void(0)">live</a>!</div>
+                </div>
+            </li>
+            <li class="alt-color">
+                <div class="timeline-item">
+                    <h4 class="timeline-title"><small class="timeline-meta">2 days ago</small><i class="fa fa-hdd-o"></i> Server Update</h4>
+                    <div class="timeline-content"><strong>Server #1</strong> updated successfully!</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- END Updates -->
+</div>
+<!-- END Recent Updates Block -->

@@ -1,0 +1,58 @@
+<!-- Register Form -->
+<form action="page_special_login.html" method="post" id="form-register" class="form-horizontal display-none" onsubmit="return false;">
+    <div class="form-group">
+        <div class="col-xs-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                <input type="text" id="register-username" name="register-username" class="form-control input-lg" placeholder="Username">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <input type="text" id="register-email" name="register-email" class="form-control input-lg" placeholder="Email">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-asterisk fa-fw"></i></span>
+                <input type="password" id="register-password" name="register-password" class="form-control input-lg" placeholder="Password">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-asterisk fa-fw"></i></span>
+                <input type="password" id="register-password-verify" name="register-password-verify" class="form-control input-lg" placeholder="Verify Password">
+            </div>
+
+            <!--
+            Hidden checkbox. Its checked property will be toggled every time the terms (#btn-terms) button is clicked (js code at the bottom)
+            You can add the checked property by default (the button will be enabled automatically)
+            -->
+            <input type="checkbox" id="register-terms" name="register-terms" hidden>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-8">
+            <div class="btn-group">
+                <a href="#modal-terms" class="btn btn-sm btn-primary" data-toggle="modal">Terms</a>
+                <button type="button" class="btn btn-sm btn-default" data-toggle="button" id="btn-terms"><i class="fa fa-check"></i> Agree</button>
+            </div>
+        </div>
+        <div class="col-xs-4 text-right">
+            <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-angle-right"></i> Register</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <p class="text-center remove-margin"><small>Oops, you have an account?</small> <a href="javascript:void(0)" id="link-register"><small>Login!</small></a></p>
+        </div>
+    </div>
+</form>
+<!-- END Register Form -->

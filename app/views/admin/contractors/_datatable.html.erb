@@ -1,0 +1,42 @@
+<!--BEGIN datatable-->
+<div class="table-responsive">
+    <table id="example-datatable" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">Image</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Created</th>
+                <th>Category</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% model.each do |item| %>
+            <tr>
+                <td class="text-center">
+                <%= image_tag(item.image, :size => "80x80", :alt => ("Contractor image for " + item.name)) %>
+                </td>
+                <td><a href="javascript:void(0)"><%= item.name %></td>
+                <td><%= item.company_name %></td>
+                <td><%= item.created_at %></td>
+                <td class="text-center"><%= item.category %></td>
+                <td class="text-center">
+                    <div class="btn-group">
+                    <%= link_to admin_contractor_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "View" do %>
+                        <i class="fa fa-eye"></i>
+                    <% end %>
+                        <%= link_to edit_admin_contractor_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Edit" do %>
+                            <i class="fa fa-pencil"></i>
+                        <% end %>
+                        <%= link_to admin_contractor_path(item), method: :delete, data: { confirm: "Are you sure you want to remove this contractor?" }, :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Remove", :remote => true do %>
+                            <i class="fa fa-times"></i>
+                        <% end %>
+                    </div>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<!--END datatable-->

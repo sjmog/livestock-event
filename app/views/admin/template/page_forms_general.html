@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>FreshUI - Premium Web App and Admin Template</title>
+
+        <meta name="description" content="FreshUI is a Premium Web App and Admin Template created by pixelcave and published on Themeforest.">
+        <meta name="author" content="pixelcave">
+        <meta name="robots" content="noindex, nofollow">
+
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+        <!-- Icons -->
+        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="apple-touch-icon" href="img/icon57.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="img/icon72.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="img/icon76.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="img/icon114.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="img/icon120.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="img/icon144.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="img/icon152.png" sizes="152x152">
+        <!-- END Icons -->
+
+        <!-- Stylesheets -->
+        <!-- The Open Sans font is included from Google Web Fonts -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,700,700italic">
+
+        <!-- Bootstrap is included in its original form, unaltered -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+
+        <!-- Related styles of various icon packs and javascript plugins -->
+        <link rel="stylesheet" href="css/plugins.css">
+
+        <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+
+        <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+        <link rel="stylesheet" href="css/themes.css">
+        <!-- END Stylesheets -->
+
+        <!-- Modernizr (Browser feature detection library) & Respond.js (Enable responsive CSS code on browsers that don't support it, eg IE8) -->
+        <script src="js/vendor/modernizr-2.6.2-respond-1.3.0.min.js"></script>
+    </head>
+
+    <!-- Body -->
+    <!-- In the PHP version you can set the following options from the config file -->
+    <!--
+        Add one of the following classes to the body element for the desirable feature:
+        'sidebar-left-pinned'                         for a left pinned sidebar (always visible > 1200px)
+        'sidebar-right-pinned'                        for a right pinned sidebar (always visible > 1200px)
+        'sidebar-left-pinned sidebar-right-pinned'    for both sidebars pinned (always visible > 1200px)
+    -->
+    <body class="header-fixed-top">
+        <!-- Left Sidebar -->
+        <!-- In the PHP version you can set the following options from the config file -->
+        <!-- If you add the class .enable-hover, then a small portion of left sidebar will be visible and it can be opened with a mouse hover (> 1200px) (may affect website performance) -->
+        <div id="sidebar-left" class="enable-hover">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+                <!-- Search Form -->
+                <form action="page_ready_search_results.html" method="post" class="sidebar-search">
+                    <input type="text" id="sidebar-search-term" name="sidebar-search-term" placeholder="Search..">
+                </form>
+                <!-- END Search Form -->
+
+                <!-- Wrapper for scrolling functionality -->
+                <div class="sidebar-left-scroll">
+                    <!-- Sidebar Navigation -->
+                    <ul class="sidebar-nav">
+                        <li>
+                            <h2 class="sidebar-header">Welcome</h2>
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-coffee"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <h2 class="sidebar-header">User Interface</h2>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-rocket"></i>Elements</a>
+                            <ul>
+                                <li>
+                                    <a href="page_elements_typography.html">Typography</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_blocks_grid.html">Blocks - Grid</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_navigation_extras.html">Navigation - Extras</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_buttons_dropdowns.html">Buttons - Dropdowns</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_progress_loading.html">Progress - Loading</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-th"></i>Tables</a>
+                            <ul>
+                                <li>
+                                    <a href="page_tables_styles.html">Styles</a>
+                                </li>
+                                <li>
+                                    <a href="page_tables_datatables.html">Datatables</a>
+                                </li>
+                                <li>
+                                    <a href="page_tables_editable.html">Editable</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a href="#" class="menu-link"><i class="fa fa-pencil-square-o"></i>Forms</a>
+                            <ul>
+                                <li>
+                                    <a href="page_forms_general.html" class=" active">General</a>
+                                </li>
+                                <li>
+                                    <a href="page_forms_components.html">Components</a>
+                                </li>
+                                <li>
+                                    <a href="page_forms_validation.html">Validation</a>
+                                </li>
+                                <li>
+                                    <a href="page_forms_wizard.html">Wizard</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-gift"></i>Icon Packs</a>
+                            <ul>
+                                <li>
+                                    <a href="page_icons_fontawesome.html">Font Awesome</a>
+                                </li>
+                                <li>
+                                    <a href="page_icons_glyphicons_pro.html">Glyphicons Pro</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2 class="sidebar-header">Extras</h2>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-gear"></i>Components</a>
+                            <ul>
+                                <li>
+                                    <a href="page_comp_animations.html">Animations</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_carousel.html">Carousel</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_gallery.html">Gallery</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_calendar.html">Calendar</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_charts.html">Charts</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_syntax_highlighting.html">Syntax Highlighting</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_maps.html">Maps</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-file"></i>Pages</a>
+                            <ul>
+                                <li>
+                                    <a href="page_ready_blank.html">Blank</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_404.html">404 Error</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_search_results.html">Search Results</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_pricing_tables.html">Pricing Tables</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_faq.html">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_invoice.html">Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_article.html">Article</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_forum.html">Forum</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="glyphicon-tint"></i>3 Level Menu</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="submenu-link">Submenu 1</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="submenu-link">Submenu 2</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2 class="sidebar-header">Special</h2>
+                        </li>
+                        <li>
+                            <a href="page_special_timeline.html"><i class="fa fa-clock-o"></i>Timeline</a>
+                        </li>
+                        <li>
+                            <a href="page_special_user_profile.html"><i class="fa fa-pencil-square"></i>User Profile</a>
+                        </li>
+                        <li>
+                            <a href="page_special_message_center.html"><i class="fa fa-envelope-o"></i>Message Center</a>
+                        </li>
+                        <li>
+                            <a href="page_special_login.html"><i class="fa fa-power-off"></i>Login &amp; Register</a>
+                        </li>
+                    </ul>
+                    <!-- END Sidebar Navigation -->
+                </div>
+                <!-- END Wrapper for scrolling functionality -->
+            </div>
+            <!-- END Sidebar Content -->
+        </div>
+        <!-- END Left Sidebar -->
+
+        <!-- Right Sidebar -->
+        <!-- In the PHP version you can set the following options from the config file -->
+        <!-- If you add the class .enable-hover, then a small portion of right sidebar will be visible and it can be opened with a mouse hover (> 1200px) (may affect website performance) -->
+        <div id="sidebar-right">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+                <!-- User Info -->
+                <div class="user-info">
+                    <div class="user-details"><a href="page_special_user_profile.html">pixelcave</a><br><em>Web Designer</em></div>
+                    <img src="img/template/avatar.png" alt="Avatar">
+                </div>
+                <!-- END User Info -->
+
+                <!-- Wrapper for scrolling functionality -->
+                <div class="sidebar-right-scroll">
+                    <!-- Color Themes -->
+                    <div class="sidebar-section">
+                        <h2 class="sidebar-header">Color Themes</h2>
+                        <!-- Change Color Theme functionality can be found in main.js - templateOptions() -->
+                        <ul class="theme-colors clearfix">
+                            <li class="active">
+                                <a href="javascript:void(0)" class="themed-background-default themed-border-default" data-theme="default" data-toggle="tooltip" title="Default"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-river themed-border-river" data-theme="css/themes/river.css" data-toggle="tooltip" title="River"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-amethyst themed-border-amethyst" data-theme="css/themes/amethyst.css" data-toggle="tooltip" title="Amethyst"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-dragon themed-border-dragon" data-theme="css/themes/dragon.css" data-toggle="tooltip" title="Dragon"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-emerald themed-border-emerald" data-theme="css/themes/emerald.css" data-toggle="tooltip" title="Emerald"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-grass themed-border-grass" data-theme="css/themes/grass.css" data-toggle="tooltip" title="Grass"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END Color Themes -->
+
+                    <!-- User Menu -->
+                    <ul class="sidebar-nav">
+                        <li>
+                            <h2 class="sidebar-header">Explore</h2>
+                        </li>
+                        <li>
+                            <a href="page_special_timeline.html"><i class="fa fa-clock-o"></i> Updates</a>
+                        </li>
+                        <li>
+                            <a href="page_special_user_profile.html"><i class="fa fa-pencil-square"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="page_special_message_center.html"><i class="fa fa-envelope-o"></i> Messages</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><i class="fa fa-cog"></i> Settings</a>
+                        </li>
+                        <li>
+                            <a href="page_special_login.html"><i class="fa fa-power-off"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- END User Menu -->
+
+                    <!-- Notifications -->
+                    <div class="sidebar-section">
+                        <h2 class="sidebar-header">Notifications</h2>
+                        <div class="alert alert-success alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <small><em>2 hours ago</em></small><br>
+                            PHP version updated successfully on <a href="javascript:void(0)">Server #5</a>
+                        </div>
+                        <div class="alert alert-danger alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <small><em>3 hours ago</em></small><br>
+                            <a href="javascript:void(0)">Game Server</a> crashed but restored!
+                        </div>
+                        <div class="alert alert-warning alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <small><em>5 hours ago</em></small><br>
+                            <a href="javascript:void(0)">FTP Server</a> went down for maintenance!
+                        </div>
+                    </div>
+                    <!-- END Notifications -->
+
+                    <!-- Messages -->
+                    <div class="sidebar-section">
+                        <h2 class="sidebar-header">Messages</h2>
+                        <div class="alert alert-info">
+                            <small><a href="page_special_user_profile.html">Claire</a>, 2 minutes ago</small><br>
+                            Hi John, I just wanted to let you know that.. <a href="page_special_message_center.html">more</a>
+                        </div>
+                        <div class="alert alert-info">
+                            <small><a href="page_special_user_profile.html">Michael</a>, 5 minutes ago</small><br>
+                            The project is moving along just fine and we.. <a href="page_special_message_center.html">more</a>
+                        </div>
+                    </div>
+                    <!-- END Messages -->
+                </div>
+                <!-- END Wrapper for scrolling functionality -->
+            </div>
+            <!-- END Sidebar Content -->
+        </div>
+        <!-- END Right Sidebar -->
+
+        <!-- Page Container -->
+        <!-- In the PHP version you can set the following options from the config file -->
+        <!-- Add the class .full-width for a full width page (100%, 1920px max width) -->
+        <div id="page-container">
+            <!-- Header -->
+            <!-- In the PHP version you can set the following options from the config file -->
+            <!-- Add the class .navbar-default or .navbar-inverse for a light or dark header respectively -->
+            <!-- Add the class .navbar-fixed-top or .navbar-fixed-bottom for a fixed header on top or bottom respectively -->
+            <!-- If you add the class .navbar-fixed-top remember to add the class .header-fixed-top to <body> element -->
+            <!-- If you add the class .navbar-fixed-bottom remember to add the class .header-fixed-bottom to <body> element -->
+            <header class="navbar navbar-default navbar-fixed-top">
+                <!-- Right Header Navigation -->
+                <ul class="nav header-nav pull-right">
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-cogs"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-custom pull-right">
+                            <li class="dropdown-header text-center">HEADER</li>
+                            <li>
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-default">Default</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-inverse">Inverse</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-top">Top</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-bottom">Bottom</a>
+                                </div>
+                            </li>
+                            <li class="hidden-xs hidden-sm dropdown-header text-center">FULL WIDTH PAGE</li>
+                            <li class="hidden-xs hidden-sm">
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-fw-disable">Disable</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-fw-enable">Enable</a>
+                                </div>
+                            </li>
+                            <li class="visible-lg dropdown-header text-center">PIN SIDEBARS</li>
+                            <li class="visible-lg">
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-pin-left">Pin Left</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-pin-right">Pin Right</a>
+                                </div>
+                            </li>
+                            <li class="visible-lg dropdown-header text-center">SIDEBARS MOUSE HOVER</li>
+                            <li class="visible-lg">
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-hover-left">Left</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-hover-right">Right</a>
+                                </div>
+                            </li>
+                            <li class="visible-lg hidden-lt-ie9 dropdown-header text-center">EFFECT WHEN SIDEBARS OPEN</li>
+                            <li class="visible-lg hidden-lt-ie9 text-center">
+                                <div class="btn-group-vertical btn-group-sm" id="option-effects">
+                                    <button class="btn btn-default" data-fx="fx-none">None</button>
+                                    <button class="btn btn-default" data-fx="fx-opacity">Opacity</button>
+                                    <button class="btn btn-default" data-fx="fx-move">Move</button>
+                                    <button class="btn btn-default" data-fx="fx-push">Push</button>
+                                    <button class="btn btn-default" data-fx="fx-rotate">Rotate</button>
+                                    <button class="btn btn-default" data-fx="fx-push-move">Push and Move</button>
+                                    <button class="btn btn-default" data-fx="fx-push-rotate">Push and Rotate</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="sidebar-right-toggle">
+                            <strong>5</strong> <i class="fa fa-user"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END Right Header Navigation -->
+
+                <!-- Left Header Navigation -->
+                <ul class="nav header-nav pull-left">
+                    <li>
+                        <a href="javascript:void(0)" id="sidebar-left-toggle">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END Left Header Navigation -->
+
+                <!-- Header Brand -->
+                <a href="index.html" class="navbar-brand">
+                    <img src="img/template/drop.png" alt="FreshUI">
+                    <span>FreshUI</span>
+                </a>
+                <!-- END Header Brand -->
+            </header>
+            <!-- END Header -->
+
+            <!-- FX Container -->
+            <!-- In the PHP version you can set the following options from the config file -->
+            <!--
+                All effects apply in resolutions larger than 1200px width
+                Add one of the following classes to #fx-container for setting an effect to main content when one of the sidebars are opened
+                'fx-none'           remove all effects (better website performance)
+                'fx-opacity'        opacity effect
+                'fx-move'           move effect
+                'fx-push'           push effect
+                'fx-rotate'         rotate effect
+                'fx-push-move'      push-move effect
+                'fx-push-rotate'    push-rotate effect
+            -->
+            <div id="fx-container" class="fx-opacity">
+                <!-- Page content -->
+                <div id="page-content" class="block">
+                    <!-- Forms General Header -->
+                    <div class="block-header">
+                        <!-- If you do not want a link in the header, instead of .header-title-link you can use a div with the class .header-section -->
+                        <a href="" class="header-title-link">
+                            <h1>
+                                <i class="fa fa-wrench animation-expandUp"></i>Form General Elements<br><small>Any form element you need, you will find it here!</small>
+                            </h1>
+                        </a>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><i class="fa fa-pencil-square-o"></i></li>
+                        <li>Forms</li>
+                        <li><a href="">General</a></li>
+                    </ul>
+                    <!-- END Forms General Header -->
+
+                    <!-- Basic Form Elements Block -->
+                    <div class="block">
+                        <!-- Basic Form Elements Title -->
+                        <div class="block-title">
+                            <h2>Basic Form Elements</h2>
+                        </div>
+                        <!-- END Form Elements Title -->
+
+                        <!-- Basic Form Elements Content -->
+                        <form action="page_forms_general.html" method="post" enctype="multipart/form-data" class="form-horizontal" onsubmit="return false;">
+                            <h4 class="sub-header">Text Inputs</h4>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Static</label>
+                                <div class="col-md-10">
+                                    <p class="form-control-static">Username</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-text-input">Text Input</label>
+                                <div class="col-md-3">
+                                    <input type="text" id="example-text-input" name="example-text-input" class="form-control" placeholder="Text">
+                                    <span class="help-block">This is a help text</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-password-input">Password</label>
+                                <div class="col-md-3">
+                                    <input type="password" id="example-password-input" name="example-password-input" class="form-control" placeholder="Password">
+                                    <span class="help-block">Please enter a complex password</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-disabled-input">Disabled Input</label>
+                                <div class="col-md-3">
+                                    <input type="text" id="example-disabled-input" name="example-disabled-input" class="form-control" placeholder="Disabled" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-textarea-input">Textarea</label>
+                                <div class="col-md-5">
+                                    <textarea id="example-textarea-input" name="example-textarea-input" rows="4" class="form-control" placeholder="Content.."></textarea>
+                                </div>
+                            </div>
+                            <h4 class="sub-header">Selects, Radios and Checkboxes</h4>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-select">Select</label>
+                                <div class="col-md-2">
+                                    <select id="example-select" name="example-select" class="form-control" size="1">
+                                        <option value="0">Please select</option>
+                                        <option value="1">Option #1</option>
+                                        <option value="2">Option #2</option>
+                                        <option value="3">Option #3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-multiple-select">Multiple select</label>
+                                <div class="col-md-2">
+                                    <select id="example-multiple-select" name="example-multiple-select" class="form-control" size="5" multiple>
+                                        <option value="1">Option #1</option>
+                                        <option value="2">Option #2</option>
+                                        <option value="3">Option #3</option>
+                                        <option value="4">Option #4</option>
+                                        <option value="5">Option #5</option>
+                                        <option value="6">Option #6</option>
+                                        <option value="7">Option #7</option>
+                                        <option value="8">Option #8</option>
+                                        <option value="9">Option #9</option>
+                                        <option value="10">Option #10</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Radios</label>
+                                <div class="col-md-10">
+                                    <div class="radio">
+                                        <label for="example-radio1">
+                                            <input type="radio" id="example-radio1" name="example-radios" value="option1"> Option 1
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label for="example-radio2">
+                                            <input type="radio" id="example-radio2" name="example-radios" value="option2"> Option 2
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label for="example-radio3">
+                                            <input type="radio" id="example-radio3" name="example-radios" value="option3"> Option 3
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Inline Radios</label>
+                                <div class="col-md-10">
+                                    <label class="radio-inline" for="example-inline-radio1">
+                                        <input type="radio" id="example-inline-radio1" name="example-inline-radios" value="option1"> One
+                                    </label>
+                                    <label class="radio-inline" for="example-inline-radio2">
+                                        <input type="radio" id="example-inline-radio2" name="example-inline-radios" value="option2"> Two
+                                    </label>
+                                    <label class="radio-inline" for="example-inline-radio3">
+                                        <input type="radio" id="example-inline-radio3" name="example-inline-radios" value="option3"> Three
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Checkboxes</label>
+                                <div class="col-md-10">
+                                    <div class="checkbox">
+                                        <label for="example-checkbox1">
+                                            <input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"> Option 1
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label for="example-checkbox2">
+                                            <input type="checkbox" id="example-checkbox2" name="example-checkbox2" value="option2"> Option 2
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label for="example-checkbox3">
+                                            <input type="checkbox" id="example-checkbox3" name="example-checkbox3" value="option3"> Option 3
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Inline Checkboxes</label>
+                                <div class="col-md-10">
+                                    <label class="checkbox-inline" for="example-inline-checkbox1">
+                                        <input type="checkbox" id="example-inline-checkbox1" name="example-inline-checkbox1" value="option1"> One
+                                    </label>
+                                    <label class="checkbox-inline" for="example-inline-checkbox2">
+                                        <input type="checkbox" id="example-inline-checkbox2" name="example-inline-checkbox2" value="option2"> Two
+                                    </label>
+                                    <label class="checkbox-inline" for="example-inline-checkbox3">
+                                        <input type="checkbox" id="example-inline-checkbox3" name="example-inline-checkbox3" value="option3"> Three
+                                    </label>
+                                </div>
+                            </div>
+                            <h4 class="sub-header">File Upload Inputs</h4>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-file-input">File input</label>
+                                <div class="col-md-5">
+                                    <input type="file" id="example-file-input" name="example-file-input">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-file-multiple-input">Multiple File input</label>
+                                <div class="col-md-5">
+                                    <input type="file" id="example-file-multiple-input" name="example-file-multiple-input" multiple>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-5 col-md-offset-2">
+                                    <button type="reset" class="btn btn-default"><i class="fa fa-times"></i> Reset</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END Basic Form Elements Content -->
+                    </div>
+                    <!-- END Basic Form Elements Block -->
+
+                    <!-- Bordered Form Block -->
+                    <div class="block">
+                        <!-- Bordered Form Title -->
+                        <div class="block-title">
+                            <h2>Bordered Form <small><code>.form-horizontal</code> <code>.form-bordered</code></small></h2>
+                        </div>
+                        <!-- END Bordered Form Title -->
+
+                        <!-- Bordered Form Content -->
+                        <form action="page_forms_general.html" method="post" class="form-horizontal form-bordered" onsubmit="return false;">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="bordered-username">Username</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="bordered-username" name="bordered-username" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="bordered-password-input">Password</label>
+                                <div class="col-sm-4">
+                                    <input type="password" id="bordered-password-input" name="bordered-password-input" class="form-control">
+                                    <span class="help-block">Please enter a complex password</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="bordered-bio">Bio</label>
+                                <div class="col-sm-4">
+                                    <textarea id="bordered-bio" name="bordered-bio" rows="4" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="example-select">Options</label>
+                                <div class="col-sm-2">
+                                    <select id="bordered-select" name="bordered-select" class="form-control" size="1">
+                                        <option value="0">Please select</option>
+                                        <option value="1">Option #1</option>
+                                        <option value="2">Option #2</option>
+                                        <option value="3">Option #3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">More Options</label>
+                                <div class="col-sm-10">
+                                    <div class="checkbox">
+                                        <label for="bordered-checkbox1">
+                                            <input type="checkbox" id="bordered-checkbox1" name="bordered-checkbox1" value="option1"> Option 1
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label for="bordered-checkbox2">
+                                            <input type="checkbox" id="bordered-checkbox2" name="bordered-checkbox2" value="option2"> Option 2
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label for="bordered-checkbox3">
+                                            <input type="checkbox" id="bordered-checkbox3" name="bordered-checkbox3" value="option3"> Option 3
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <button type="reset" class="btn btn-sm btn-default"><i class="fa fa-times"></i> Reset</button>
+                                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-arrow-right"></i> Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END Bordered Form Content -->
+                    </div>
+                    <!-- END Bordered Form Block -->
+
+                    <!-- Input Groups Row -->
+                    <div class="row gutter30">
+                        <div class="col-sm-4">
+                            <!-- Input Groups - Icons/Text Block -->
+                            <div class="block">
+                                <!-- Input Groups - Icons/Text Title -->
+                                <div class="block-title">
+                                    <h2>Groups - Icons/Text</h2>
+                                </div>
+                                <!-- END Input Groups - Icons/Text Title -->
+
+                                <!-- Input Groups Content -->
+                                <form action="page_forms_general.html" method="post" class="form-horizontal" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input type="text" id="example-input1-group1" name="example-input1-group1" class="form-control" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="email" id="example-input2-group1" name="example-input2-group1" class="form-control" placeholder="Email">
+                                            <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                        </div>
+                                    </div><div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                                            <input type="text" id="example-input3-group1" name="example-input3-group1" class="form-control" placeholder="..">
+                                            <span class="input-group-addon">.00</span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- END Input Groups - Icons/Text Content -->
+                            </div>
+                            <!-- END Input Groups - Icons/Text Block -->
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- Input Groups - Buttons Block -->
+                            <div class="block">
+                                <!-- Input Groups - Buttons Title -->
+                                <div class="block-title">
+                                    <h2>Groups - Buttons</h2>
+                                </div>
+                                <!-- END Input Groups - Buttons Title -->
+
+                                <!-- Input Groups - Buttons Content -->
+                                <form action="page_forms_general.html" method="post" class="form-horizontal" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default"><i class="fa fa-search"></i> Search</button>
+                                            </span>
+                                            <input type="text" id="example-input1-group2" name="example-input1-group2" class="form-control" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="email" id="example-input2-group2" name="example-input2-group2" class="form-control" placeholder="Email">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default">Submit</button>
+                                            </span>
+                                        </div>
+                                    </div><div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-info"><i class="fa fa-facebook"></i> Facebook</button>
+                                            </span>
+                                            <input type="text" id="example-input3-group2" name="example-input3-group2" class="form-control" placeholder="Search">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-info"><i class="fa fa-twitter"></i> Twitter</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- END Input Groups - Buttons Content -->
+                            </div>
+                            <!-- END Input Groups - Buttons Block -->
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- Input Groups - Dropdowns Block -->
+                            <div class="block">
+                                <!-- Input Groups - Dropdowns Title -->
+                                <div class="block-title">
+                                    <h2>Groups - Dropdowns</h2>
+                                </div>
+                                <!-- END Input Groups - Dropdowns Title -->
+
+                                <!-- Input Groups - Dropdowns Content -->
+                                <form action="page_forms_general.html" method="post" class="form-horizontal" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="javascript:void(0)">Action</a></li>
+                                                    <li><a href="javascript:void(0)">Another action</a></li>
+                                                    <li><a href="javascript:void(0)">Something else here</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="javascript:void(0)">Separated link</a></li>
+                                                </ul>
+                                            </div>
+                                            <input type="text" id="example-input1-group3" name="example-input1-group3" class="form-control" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="email" id="example-input2-group3" name="example-input2-group3" class="form-control" placeholder="Email">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                                <ul class="dropdown-menu pull-right">
+                                                    <li><a href="javascript:void(0)">Action</a></li>
+                                                    <li><a href="javascript:void(0)">Another action</a></li>
+                                                    <li><a href="javascript:void(0)">Something else here</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="javascript:void(0)">Separated link</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div><div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn btn-default">Action</button>
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="javascript:void(0)">Action</a></li>
+                                                    <li><a href="javascript:void(0)">Another action</a></li>
+                                                    <li><a href="javascript:void(0)">Something else here</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="javascript:void(0)">Separated link</a></li>
+                                                </ul>
+                                            </div>
+                                            <input type="text" id="example-input3-group3" name="example-input3-group3" class="form-control" placeholder="..">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                                <ul class="dropdown-menu pull-right">
+                                                    <li><a href="javascript:void(0)">Action</a></li>
+                                                    <li><a href="javascript:void(0)">Another action</a></li>
+                                                    <li><a href="javascript:void(0)">Something else here</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="javascript:void(0)">Separated link</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- END Input Groups - Dropdowns Content -->
+                            </div>
+                            <!-- END Input Groups - Dropdowns Block -->
+                        </div>
+                    </div>
+                    <!-- END Input Groups Row -->
+
+                    <!-- Form Example with Blocks in the Grid -->
+                    <div class="row gutter30">
+                        <div class="col-sm-4">
+                            <!-- Example Form Block -->
+                            <div class="block">
+                                <!-- Example Form Title -->
+                                <div class="block-title">
+                                    <h2>Example Form</h2>
+                                </div>
+                                <!-- END Example Form Title -->
+
+                                <!-- Example Form Content -->
+                                <form action="page_forms_general.html" method="post" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input type="text" id="example-username" name="example-username" class="form-control" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                            <input type="email" id="example-email" name="example-email" class="form-control" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                            <input type="password" id="example-password" name="example-password" class="form-control" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-power-off"></i> Register</button>
+                                    </div>
+                                </form>
+                                <!-- END Example Form Content -->
+                            </div>
+                            <!-- END Example Form Block -->
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- Example Form Block -->
+                            <div class="block">
+                                <!-- Example Form Title -->
+                                <div class="block-title">
+                                    <h2>Example Form</h2>
+                                </div>
+                                <!-- END Example Form Title -->
+
+                                <!-- Example Form Content -->
+                                <form action="page_forms_general.html" method="post" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="text" id="example-username2" name="example-username2" class="form-control" placeholder="Username">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="email" id="example-email2" name="example-email2" class="form-control" placeholder="Email">
+                                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="password" id="example-password2" name="example-password2" class="form-control" placeholder="Password">
+                                            <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-lock"></i> Register</button>
+                                    </div>
+                                </form>
+                                <!-- END Example Form Content -->
+                            </div>
+                            <!-- END Example Form Block -->
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- Example Form Block -->
+                            <div class="block">
+                                <!-- Example Form Title -->
+                                <div class="block-title">
+                                    <h2>Example Form</h2>
+                                </div>
+                                <!-- END Example Form Title -->
+
+                                <!-- Example Form Content -->
+                                <form action="page_forms_general.html" method="post" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input type="text" id="example-username3" name="example-username3" class="form-control">
+                                            <span class="input-group-addon">Username</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                            <input type="email" id="example-email3" name="example-email3" class="form-control">
+                                            <span class="input-group-addon">Email</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                            <input type="password" id="example-password3" name="example-password3" class="form-control">
+                                            <span class="input-group-addon">Password</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Register</button>
+                                    </div>
+                                </form>
+                                <!-- END Example Form Content -->
+                            </div>
+                            <!-- END Example Form Block -->
+                        </div>
+                    </div>
+                    <!-- END Form Example with Blocks in the Grid -->
+
+                    <!-- Input Sizes Block -->
+                    <div class="block">
+                        <!-- Input Sizes Title -->
+                        <div class="block-title">
+                            <h2>Input Sizes</h2>
+                        </div>
+                        <!-- END Input Sizes Title -->
+
+                        <!-- Input Sizes Content -->
+                        <form action="page_forms_general.html" method="post" class="form-horizontal" onsubmit="return false;">
+                            <h4 class="sub-header">Small, Normal and Large</h4>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-input-small">Small Input</label>
+                                <div class="col-md-3">
+                                    <input type="text" id="example-input-small" name="example-input-small" class="form-control input-sm" placeholder=".input-sm">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-input-normal">Normal Input</label>
+                                <div class="col-md-3">
+                                    <input type="text" id="example-input-normal" name="example-input-normal" class="form-control" placeholder="Normal">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="example-input-large">Large Input</label>
+                                <div class="col-md-3">
+                                    <input type="text" id="example-input-large" name="example-input-large" class="form-control input-lg" placeholder=".input-lg">
+                                </div>
+                            </div>
+                            <h4 class="sub-header">User grid classes to create any width size you want</h4>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Grid Inputs</label>
+                                <div class="col-sm-1">
+                                    <input type="text" class="form-control" placeholder=".col-sm-1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-sm-offset-2">
+                                    <input type="text" class="form-control" placeholder=".col-sm-2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-3 col-sm-offset-2">
+                                    <input type="text" class="form-control" placeholder=".col-sm-3">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <input type="text" class="form-control" placeholder=".col-sm-4">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-5 col-sm-offset-2">
+                                    <input type="text" class="form-control" placeholder=".col-sm-5">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6 col-sm-offset-2">
+                                    <input type="text" class="form-control" placeholder=".col-sm-6">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-7 col-sm-offset-2">
+                                    <input type="text" class="form-control" placeholder=".col-sm-7">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <input type="text" class="form-control" placeholder=".col-sm-8">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-9 col-sm-offset-2">
+                                    <input type="text" class="form-control" placeholder=".col-sm-9">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <input type="text" class="form-control" placeholder=".col-sm-10">
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END Input Sizes Content -->
+                    </div>
+                    <!-- END Input Sizes Block -->
+
+                    <!-- Input Grid Row -->
+                    <div class="row gutter30">
+                        <div class="col-md-6">
+                            <!-- Input Grid Block -->
+                            <div class="block">
+                                <!-- Input Grid Title -->
+                                <div class="block-title">
+                                    <h2>Use the grid for any layout! <small><code>.col-lg-*</code> <code>.col-md-*</code> <code>.col-sm-*</code></small></h2>
+                                </div>
+                                <!-- END Input Grid Title -->
+
+                                <!-- Input Grid Content -->
+                                <form action="page_forms_general.html" method="post" class="form-horizontal form-grid" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" placeholder=".col-md-7">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" placeholder=".col-md-5">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" placeholder=".col-md-6">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" placeholder=".col-md-6">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" placeholder=".col-md-3">
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder=".col-md-9">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" placeholder=".col-md-8">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" placeholder=".col-md-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" placeholder=".col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" placeholder=".col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" placeholder=".col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" placeholder=".col-md-3">
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- END Input Grid Content -->
+                            </div>
+                            <!-- END Input Grid Block -->
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Input Grid Block -->
+                            <div class="block">
+                                <!-- Input Grid Title -->
+                                <div class="block-title">
+                                    <h2>Input Grid for small devices <small>The grid will remain intact <code>.col-xs-*</code></small></h2>
+                                </div>
+                                <!-- END Input Grid Title -->
+
+                                <!-- Input Grid Content -->
+                                <form action="page_forms_general.html" method="post" class="form-horizontal form-grid">
+                                    <div class="form-group">
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control" placeholder=".col-xs-7">
+                                        </div>
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control" placeholder=".col-xs-5">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <input type="text" class="form-control" placeholder=".col-xs-6">
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <input type="text" class="form-control" placeholder=".col-xs-6">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-8">
+                                            <input type="text" class="form-control" placeholder=".col-xs-8">
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <input type="text" class="form-control" placeholder=".col-xs-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-3">
+                                            <input type="text" class="form-control" placeholder=".col-xs-3">
+                                        </div>
+                                        <div class="col-xs-9">
+                                            <input type="text" class="form-control" placeholder=".col-xs-9">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control" placeholder=".col-xs-5">
+                                        </div>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control" placeholder=".col-xs-7">
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- END Input Grid Content -->
+                            </div>
+                            <!-- END Input Grid Block -->
+                        </div>
+                    </div>
+                    <!-- END Input Grid Row -->
+                </div>
+                <!-- END Page Content -->
+
+                <!-- Footer -->
+                <footer class="clearfix">
+                    <div class="pull-right">
+                        Crafted with <i class="fa fa-heart"></i> by <a href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
+                    </div>
+                    <div class="pull-left">
+                        <span id="year-copy"></span> &copy; <a href="javascript:void(0)" target="_blank">FreshUI 1.4</a>
+                    </div>
+                </footer>
+                <!-- END Footer -->
+            </div>
+            <!-- END FX Container -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Scroll to top link, check main.js - scrollToTop() -->
+        <a href="javascript:void(0)" id="to-top"><i class="fa fa-angle-up"></i></a>
+
+        <!-- Get Jquery library from Google but if something goes wrong get Jquery from local file - Remove 'http:' if you have SSL -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>!window.jQuery && document.write(unescape('%3Cscript src="js/vendor/jquery-1.10.2.min.js"%3E%3C/script%3E'));</script>
+
+        <!-- Bootstrap.js, Jquery plugins and custom Javascript code -->
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

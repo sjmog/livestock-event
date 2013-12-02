@@ -1,0 +1,21 @@
+<!--sidebar opening script-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#sidebar-left-toggle').click(function() {
+            $('#sidebar-right-toggle').toggleClass('lowpaque');
+            $('body').toggleClass('sidebar-left-open');
+            $('#fx-container').click(function() {
+                $('#sidebar-right-toggle').removeClass('lowpaque');
+                $('body').removeClass('sidebar-left-open');
+            })
+        })
+        $('#sidebar-right-toggle').click(function() {
+            $('#sidebar-left-toggle').toggleClass('lowpaque');
+            $('body').toggleClass('sidebar-right-open');
+            $('#fx-container').click(function() {
+                $('#sidebar-left-toggle').removeClass('lowpaque');
+                $('body').removeClass('sidebar-right-open');
+            })
+        })
+    })
+</script>

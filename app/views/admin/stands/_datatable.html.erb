@@ -1,0 +1,69 @@
+<!--BEGIN datatable-->
+<div class="table-responsive">
+    <table id="example-datatable" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">Number</th>
+                <th>Frontage</th>
+                <th>Depth</th>
+                <th>Available?</th>
+                <th>User</th>
+                <th>Booking</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% model.each do |item| %>
+            <% booking = Booking.find(item.booking_id) rescue nil %>
+            <% user = User.find(booking.user) rescue nil %>
+            <tr>
+                <td class="text-center"><%= item.number %></td>
+                <td><%= item.frontage %></td>
+                <td><%= item.depth %></td>
+                <td class="text-center">
+                <% if item.taken %>
+                <a href="javascript:void(0)" data-toggle="tooltip" title="Unavailable" class="cross"><i class="fa fa-times"></i></a>
+                <% else %>
+                <a href="javascript:void(0)" data-toggle="tooltip" title="Available" class="tick"><i class="fa fa-check"></i></a>
+                <% end %>
+                </td>
+                <td>
+                    <% if(user.nil?) %>
+                        No User
+                    <% else %>
+                        <%= link_to admin_user_path(user) do %>
+                            <%= user.name %>
+                        <% end %>
+                    <% end %>
+                </td>
+                 <td>
+                    <% if(booking.nil?) %>
+                        No Booking
+                    <% else %>
+                        <%= link_to admin_booking_path(booking) do %>
+                            <%= booking.company_name %>
+                        <% end %>
+                    <% end %>
+                </td>
+
+                
+                
+                <td class="text-center">
+                    <div class="btn-group">
+                    <%= link_to admin_stand_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "View" do %>
+                        <i class="fa fa-eye"></i>
+                    <% end %>
+                        <%= link_to edit_admin_stand_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Edit" do %>
+                            <i class="fa fa-pencil"></i>
+                        <% end %>
+                        <%= link_to admin_stand_path(item), method: :delete, data: { confirm: "Are you sure you want to delete this stand?" }, :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Delete", :remote => true do %>
+                            <i class="fa fa-times"></i>
+                        <% end %>
+                    </div>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<!--END datatable-->

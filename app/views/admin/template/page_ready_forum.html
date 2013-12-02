@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>FreshUI - Premium Web App and Admin Template</title>
+
+        <meta name="description" content="FreshUI is a Premium Web App and Admin Template created by pixelcave and published on Themeforest.">
+        <meta name="author" content="pixelcave">
+        <meta name="robots" content="noindex, nofollow">
+
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+        <!-- Icons -->
+        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="apple-touch-icon" href="img/icon57.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="img/icon72.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="img/icon76.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="img/icon114.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="img/icon120.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="img/icon144.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="img/icon152.png" sizes="152x152">
+        <!-- END Icons -->
+
+        <!-- Stylesheets -->
+        <!-- The Open Sans font is included from Google Web Fonts -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,700,700italic">
+
+        <!-- Bootstrap is included in its original form, unaltered -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+
+        <!-- Related styles of various icon packs and javascript plugins -->
+        <link rel="stylesheet" href="css/plugins.css">
+
+        <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+
+        <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+        <link rel="stylesheet" href="css/themes.css">
+        <!-- END Stylesheets -->
+
+        <!-- Modernizr (Browser feature detection library) & Respond.js (Enable responsive CSS code on browsers that don't support it, eg IE8) -->
+        <script src="js/vendor/modernizr-2.6.2-respond-1.3.0.min.js"></script>
+    </head>
+
+    <!-- Body -->
+    <!-- In the PHP version you can set the following options from the config file -->
+    <!--
+        Add one of the following classes to the body element for the desirable feature:
+        'sidebar-left-pinned'                         for a left pinned sidebar (always visible > 1200px)
+        'sidebar-right-pinned'                        for a right pinned sidebar (always visible > 1200px)
+        'sidebar-left-pinned sidebar-right-pinned'    for both sidebars pinned (always visible > 1200px)
+    -->
+    <body class="header-fixed-top">
+        <!-- Left Sidebar -->
+        <!-- In the PHP version you can set the following options from the config file -->
+        <!-- If you add the class .enable-hover, then a small portion of left sidebar will be visible and it can be opened with a mouse hover (> 1200px) (may affect website performance) -->
+        <div id="sidebar-left" class="enable-hover">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+                <!-- Search Form -->
+                <form action="page_ready_search_results.html" method="post" class="sidebar-search">
+                    <input type="text" id="sidebar-search-term" name="sidebar-search-term" placeholder="Search..">
+                </form>
+                <!-- END Search Form -->
+
+                <!-- Wrapper for scrolling functionality -->
+                <div class="sidebar-left-scroll">
+                    <!-- Sidebar Navigation -->
+                    <ul class="sidebar-nav">
+                        <li>
+                            <h2 class="sidebar-header">Welcome</h2>
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-coffee"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <h2 class="sidebar-header">User Interface</h2>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-rocket"></i>Elements</a>
+                            <ul>
+                                <li>
+                                    <a href="page_elements_typography.html">Typography</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_blocks_grid.html">Blocks - Grid</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_navigation_extras.html">Navigation - Extras</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_buttons_dropdowns.html">Buttons - Dropdowns</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_progress_loading.html">Progress - Loading</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-th"></i>Tables</a>
+                            <ul>
+                                <li>
+                                    <a href="page_tables_styles.html">Styles</a>
+                                </li>
+                                <li>
+                                    <a href="page_tables_datatables.html">Datatables</a>
+                                </li>
+                                <li>
+                                    <a href="page_tables_editable.html">Editable</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-pencil-square-o"></i>Forms</a>
+                            <ul>
+                                <li>
+                                    <a href="page_forms_general.html">General</a>
+                                </li>
+                                <li>
+                                    <a href="page_forms_components.html">Components</a>
+                                </li>
+                                <li>
+                                    <a href="page_forms_validation.html">Validation</a>
+                                </li>
+                                <li>
+                                    <a href="page_forms_wizard.html">Wizard</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-gift"></i>Icon Packs</a>
+                            <ul>
+                                <li>
+                                    <a href="page_icons_fontawesome.html">Font Awesome</a>
+                                </li>
+                                <li>
+                                    <a href="page_icons_glyphicons_pro.html">Glyphicons Pro</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2 class="sidebar-header">Extras</h2>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-gear"></i>Components</a>
+                            <ul>
+                                <li>
+                                    <a href="page_comp_animations.html">Animations</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_carousel.html">Carousel</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_gallery.html">Gallery</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_calendar.html">Calendar</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_charts.html">Charts</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_syntax_highlighting.html">Syntax Highlighting</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_maps.html">Maps</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a href="#" class="menu-link"><i class="fa fa-file"></i>Pages</a>
+                            <ul>
+                                <li>
+                                    <a href="page_ready_blank.html">Blank</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_404.html">404 Error</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_search_results.html">Search Results</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_pricing_tables.html">Pricing Tables</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_faq.html">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_invoice.html">Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_article.html">Article</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_forum.html" class=" active">Forum</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="glyphicon-tint"></i>3 Level Menu</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="submenu-link">Submenu 1</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="submenu-link">Submenu 2</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2 class="sidebar-header">Special</h2>
+                        </li>
+                        <li>
+                            <a href="page_special_timeline.html"><i class="fa fa-clock-o"></i>Timeline</a>
+                        </li>
+                        <li>
+                            <a href="page_special_user_profile.html"><i class="fa fa-pencil-square"></i>User Profile</a>
+                        </li>
+                        <li>
+                            <a href="page_special_message_center.html"><i class="fa fa-envelope-o"></i>Message Center</a>
+                        </li>
+                        <li>
+                            <a href="page_special_login.html"><i class="fa fa-power-off"></i>Login &amp; Register</a>
+                        </li>
+                    </ul>
+                    <!-- END Sidebar Navigation -->
+                </div>
+                <!-- END Wrapper for scrolling functionality -->
+            </div>
+            <!-- END Sidebar Content -->
+        </div>
+        <!-- END Left Sidebar -->
+
+        <!-- Right Sidebar -->
+        <!-- In the PHP version you can set the following options from the config file -->
+        <!-- If you add the class .enable-hover, then a small portion of right sidebar will be visible and it can be opened with a mouse hover (> 1200px) (may affect website performance) -->
+        <div id="sidebar-right">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+                <!-- User Info -->
+                <div class="user-info">
+                    <div class="user-details"><a href="page_special_user_profile.html">pixelcave</a><br><em>Web Designer</em></div>
+                    <img src="img/template/avatar.png" alt="Avatar">
+                </div>
+                <!-- END User Info -->
+
+                <!-- Wrapper for scrolling functionality -->
+                <div class="sidebar-right-scroll">
+                    <!-- Color Themes -->
+                    <div class="sidebar-section">
+                        <h2 class="sidebar-header">Color Themes</h2>
+                        <!-- Change Color Theme functionality can be found in main.js - templateOptions() -->
+                        <ul class="theme-colors clearfix">
+                            <li class="active">
+                                <a href="javascript:void(0)" class="themed-background-default themed-border-default" data-theme="default" data-toggle="tooltip" title="Default"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-river themed-border-river" data-theme="css/themes/river.css" data-toggle="tooltip" title="River"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-amethyst themed-border-amethyst" data-theme="css/themes/amethyst.css" data-toggle="tooltip" title="Amethyst"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-dragon themed-border-dragon" data-theme="css/themes/dragon.css" data-toggle="tooltip" title="Dragon"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-emerald themed-border-emerald" data-theme="css/themes/emerald.css" data-toggle="tooltip" title="Emerald"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-grass themed-border-grass" data-theme="css/themes/grass.css" data-toggle="tooltip" title="Grass"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END Color Themes -->
+
+                    <!-- User Menu -->
+                    <ul class="sidebar-nav">
+                        <li>
+                            <h2 class="sidebar-header">Explore</h2>
+                        </li>
+                        <li>
+                            <a href="page_special_timeline.html"><i class="fa fa-clock-o"></i> Updates</a>
+                        </li>
+                        <li>
+                            <a href="page_special_user_profile.html"><i class="fa fa-pencil-square"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="page_special_message_center.html"><i class="fa fa-envelope-o"></i> Messages</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><i class="fa fa-cog"></i> Settings</a>
+                        </li>
+                        <li>
+                            <a href="page_special_login.html"><i class="fa fa-power-off"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- END User Menu -->
+
+                    <!-- Notifications -->
+                    <div class="sidebar-section">
+                        <h2 class="sidebar-header">Notifications</h2>
+                        <div class="alert alert-success alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <small><em>2 hours ago</em></small><br>
+                            PHP version updated successfully on <a href="javascript:void(0)">Server #5</a>
+                        </div>
+                        <div class="alert alert-danger alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <small><em>3 hours ago</em></small><br>
+                            <a href="javascript:void(0)">Game Server</a> crashed but restored!
+                        </div>
+                        <div class="alert alert-warning alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <small><em>5 hours ago</em></small><br>
+                            <a href="javascript:void(0)">FTP Server</a> went down for maintenance!
+                        </div>
+                    </div>
+                    <!-- END Notifications -->
+
+                    <!-- Messages -->
+                    <div class="sidebar-section">
+                        <h2 class="sidebar-header">Messages</h2>
+                        <div class="alert alert-info">
+                            <small><a href="page_special_user_profile.html">Claire</a>, 2 minutes ago</small><br>
+                            Hi John, I just wanted to let you know that.. <a href="page_special_message_center.html">more</a>
+                        </div>
+                        <div class="alert alert-info">
+                            <small><a href="page_special_user_profile.html">Michael</a>, 5 minutes ago</small><br>
+                            The project is moving along just fine and we.. <a href="page_special_message_center.html">more</a>
+                        </div>
+                    </div>
+                    <!-- END Messages -->
+                </div>
+                <!-- END Wrapper for scrolling functionality -->
+            </div>
+            <!-- END Sidebar Content -->
+        </div>
+        <!-- END Right Sidebar -->
+
+        <!-- Page Container -->
+        <!-- In the PHP version you can set the following options from the config file -->
+        <!-- Add the class .full-width for a full width page (100%, 1920px max width) -->
+        <div id="page-container">
+            <!-- Header -->
+            <!-- In the PHP version you can set the following options from the config file -->
+            <!-- Add the class .navbar-default or .navbar-inverse for a light or dark header respectively -->
+            <!-- Add the class .navbar-fixed-top or .navbar-fixed-bottom for a fixed header on top or bottom respectively -->
+            <!-- If you add the class .navbar-fixed-top remember to add the class .header-fixed-top to <body> element -->
+            <!-- If you add the class .navbar-fixed-bottom remember to add the class .header-fixed-bottom to <body> element -->
+            <header class="navbar navbar-default navbar-fixed-top">
+                <!-- Right Header Navigation -->
+                <ul class="nav header-nav pull-right">
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-cogs"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-custom pull-right">
+                            <li class="dropdown-header text-center">HEADER</li>
+                            <li>
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-default">Default</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-inverse">Inverse</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-top">Top</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-bottom">Bottom</a>
+                                </div>
+                            </li>
+                            <li class="hidden-xs hidden-sm dropdown-header text-center">FULL WIDTH PAGE</li>
+                            <li class="hidden-xs hidden-sm">
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-fw-disable">Disable</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-fw-enable">Enable</a>
+                                </div>
+                            </li>
+                            <li class="visible-lg dropdown-header text-center">PIN SIDEBARS</li>
+                            <li class="visible-lg">
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-pin-left">Pin Left</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-pin-right">Pin Right</a>
+                                </div>
+                            </li>
+                            <li class="visible-lg dropdown-header text-center">SIDEBARS MOUSE HOVER</li>
+                            <li class="visible-lg">
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-hover-left">Left</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-hover-right">Right</a>
+                                </div>
+                            </li>
+                            <li class="visible-lg hidden-lt-ie9 dropdown-header text-center">EFFECT WHEN SIDEBARS OPEN</li>
+                            <li class="visible-lg hidden-lt-ie9 text-center">
+                                <div class="btn-group-vertical btn-group-sm" id="option-effects">
+                                    <button class="btn btn-default" data-fx="fx-none">None</button>
+                                    <button class="btn btn-default" data-fx="fx-opacity">Opacity</button>
+                                    <button class="btn btn-default" data-fx="fx-move">Move</button>
+                                    <button class="btn btn-default" data-fx="fx-push">Push</button>
+                                    <button class="btn btn-default" data-fx="fx-rotate">Rotate</button>
+                                    <button class="btn btn-default" data-fx="fx-push-move">Push and Move</button>
+                                    <button class="btn btn-default" data-fx="fx-push-rotate">Push and Rotate</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="sidebar-right-toggle">
+                            <strong>5</strong> <i class="fa fa-user"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END Right Header Navigation -->
+
+                <!-- Left Header Navigation -->
+                <ul class="nav header-nav pull-left">
+                    <li>
+                        <a href="javascript:void(0)" id="sidebar-left-toggle">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END Left Header Navigation -->
+
+                <!-- Header Brand -->
+                <a href="index.html" class="navbar-brand">
+                    <img src="img/template/drop.png" alt="FreshUI">
+                    <span>FreshUI</span>
+                </a>
+                <!-- END Header Brand -->
+            </header>
+            <!-- END Header -->
+
+            <!-- FX Container -->
+            <!-- In the PHP version you can set the following options from the config file -->
+            <!--
+                All effects apply in resolutions larger than 1200px width
+                Add one of the following classes to #fx-container for setting an effect to main content when one of the sidebars are opened
+                'fx-none'           remove all effects (better website performance)
+                'fx-opacity'        opacity effect
+                'fx-move'           move effect
+                'fx-push'           push effect
+                'fx-rotate'         rotate effect
+                'fx-push-move'      push-move effect
+                'fx-push-rotate'    push-rotate effect
+            -->
+            <div id="fx-container" class="fx-opacity">
+                <!-- Page content -->
+                <div id="page-content" class="block">
+                    <!-- Blank Header -->
+                    <div class="block-header">
+                        <!-- If you do not want a link in the header, instead of .header-title-link you can use a div with the class .header-section -->
+                        <a href="" class="header-title-link">
+                            <h1>
+                                <i class="glyphicon-comments animation-expandUp"></i>Forum<br><small>Ready to use UI to create your forum!</small>
+                            </h1>
+                        </a>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><i class=" fa fa-file-o"></i></li>
+                        <li>Pages</li>
+                        <li><a href="">Forum</a></li>
+                    </ul>
+                    <!-- END Blank Header -->
+
+                    <!-- Forum Content -->
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs push" data-toggle="tabs">
+                        <li class="active"><a href="#forum-cats">Categories</a></li>
+                        <li><a href="#forum-topics">Topics</a></li>
+                        <li><a href="#forum-discussion">Discussion</a></li>
+                    </ul>
+                    <!-- END Tabs -->
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- Forum -->
+                        <div class="tab-pane active" id="forum-cats">
+                            <!-- Intro Category -->
+                            <table class="table forum remove-margin">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Introduction</th>
+                                        <th class="cell-stat text-center hidden-xs hidden-sm">Topics</th>
+                                        <th class="cell-stat text-center hidden-xs hidden-sm">Posts</th>
+                                        <th class="cell-stat-2x hidden-xs hidden-sm">Last Post</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="cell-small text-center"><i class="glyphicon-flag fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">Welcome</a> <br><small>New members feel free to come inside and introduce yourself</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">6532</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">152123</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">Bill</a><br><small>20:09 - September 12, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><i class="glyphicon-pen fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">Forum Rules</a> <br><small>Please read our forum rules and everything should be fine</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">10</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">10</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">admin</a><br><small>14:42 - July 10, 2013</small></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- END Intro Category -->
+
+                            <!-- Web Design and Development Category -->
+                            <table class="table forum remove-margin">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Web Design and Development</th>
+                                        <th class="cell-stat text-center hidden-xs hidden-sm">Topics</th>
+                                        <th class="cell-stat text-center hidden-xs hidden-sm">Posts</th>
+                                        <th class="cell-stat-2x hidden-xs hidden-sm">Last Post</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="cell-small text-center"><i class="glyphicon-brush fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">Inspiration</a> <br><small>Getting inspired? This is the right place</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">6221</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">121235</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">John Doe</a><br><small>10:15 - September 25, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><i class="glyphicon-tint fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">Photoshop</a> <br><small>Tutorials, Freebies and Resources</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">8652</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">165232</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">Michael</a><br><small>12:16 - September 26, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><i class="glyphicon-embed_close fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">Text Editors and IDEs</a> <br><small>Find out the best of the best out there</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">2571</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">56891</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">Estelle</a><br><small>18:43 - September 23, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><i class="glyphicon-heart_empty fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">HTML, CSS and Javascript</a> <br><small>Tutorials, best practices, tips and news</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">12611</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">168753</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">Mike</a><br><small>19:31 - September 24, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><i class="glyphicon-tower fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">Server Side Scripting Languages</a> <br><small>PHP, ASP, Ruby, Perl, Python and even more, they are all here</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">18611</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">178369</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">admin</a><br><small>23:25 - September 26, 2013</small></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- END Web Design and Development Category -->
+
+                            <!-- Support Category -->
+                            <table class="table forum">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Support</th>
+                                        <th class="cell-stat text-center hidden-xs hidden-sm">Topics</th>
+                                        <th class="cell-stat text-center hidden-xs hidden-sm">Posts</th>
+                                        <th class="cell-stat-2x hidden-xs hidden-sm">Last Post</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="cell-small text-center"><i class="glyphicon-circle_question_mark fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">Help</a> <br><small>Got stuck somewhere and need help? We are here</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">3251</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">52561</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">John Doe</a><br><small>09:17 - September 27, 2013</small></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- END Support Category -->
+                        </div>
+                        <!-- END Forum -->
+
+                        <!-- Topics -->
+                        <div class="tab-pane" id="forum-topics">
+                            <div class="push clearfix">
+                                <div class="pull-right">
+                                    <ul class="pagination pagination-sm remove-margin">
+                                        <li class="disabled"><a href="javascript:void(0)">Prev</a></li>
+                                        <li class="active"><a href="javascript:void(0)">1</a></li>
+                                        <li><a href="javascript:void(0)">2</a></li>
+                                        <li><a href="javascript:void(0)">...</a></li>
+                                        <li><a href="javascript:void(0)">Next</a></li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:void(0)" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> New</a>
+                            </div>
+                            <table class="table forum">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Forum Category</th>
+                                        <th class="cell-stat text-center hidden-xs hidden-sm">Replies</th>
+                                        <th class="cell-stat text-center hidden-xs hidden-sm">Views</th>
+                                        <th class="cell-stat-2x hidden-xs hidden-sm">Last Post</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="active">
+                                        <td class="text-center cell-small sticky"><i class="glyphicon-construction_cone fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">admin</a>, September 20, 2013, 16:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">admin</a><br><small>19:40 - September 25, 2013</small></td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td class="text-center"><i class="glyphicon-construction_cone fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">admin</a>, September 20, 2013, 16:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">admin</a><br><small>15:58 - September 28, 2013</small></td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td class="text-center"><i class="glyphicon-construction_cone fa-2x themed-color"></i></td>
+                                        <td>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">admin</a>, September 20, 2013, 16:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">admin</a><br><small>10:30 - September 30, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <ul class="pagination pagination-sm pull-right remove-margin">
+                                                <li><a href="javascript:void(0)">1</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">...</a></li>
+                                                <li><a href="javascript:void(0)">5</a></li>
+                                            </ul>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">username</a>, November 18, 2013, 12:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">user</a><br><small>12:00 - September 01, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <ul class="pagination pagination-sm pull-right remove-margin">
+                                                <li><a href="javascript:void(0)">1</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">...</a></li>
+                                                <li><a href="javascript:void(0)">5</a></li>
+                                            </ul>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">username</a>, November 18, 2013, 12:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">user</a><br><small>12:00 - September 01, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <ul class="pagination pagination-sm pull-right remove-margin">
+                                                <li><a href="javascript:void(0)">1</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">...</a></li>
+                                                <li><a href="javascript:void(0)">5</a></li>
+                                            </ul>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">username</a>, November 18, 2013, 12:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">user</a><br><small>12:00 - September 01, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <ul class="pagination pagination-sm pull-right remove-margin">
+                                                <li><a href="javascript:void(0)">1</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">...</a></li>
+                                                <li><a href="javascript:void(0)">5</a></li>
+                                            </ul>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">username</a>, November 18, 2013, 12:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">user</a><br><small>12:00 - September 01, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <ul class="pagination pagination-sm pull-right remove-margin">
+                                                <li><a href="javascript:void(0)">1</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">...</a></li>
+                                                <li><a href="javascript:void(0)">5</a></li>
+                                            </ul>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">username</a>, November 18, 2013, 12:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">user</a><br><small>12:00 - September 01, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <ul class="pagination pagination-sm pull-right remove-margin">
+                                                <li><a href="javascript:void(0)">1</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">...</a></li>
+                                                <li><a href="javascript:void(0)">5</a></li>
+                                            </ul>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">username</a>, November 18, 2013, 12:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">user</a><br><small>12:00 - September 01, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <ul class="pagination pagination-sm pull-right remove-margin">
+                                                <li><a href="javascript:void(0)">1</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">...</a></li>
+                                                <li><a href="javascript:void(0)">5</a></li>
+                                            </ul>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">username</a>, November 18, 2013, 12:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">user</a><br><small>12:00 - September 01, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <ul class="pagination pagination-sm pull-right remove-margin">
+                                                <li><a href="javascript:void(0)">1</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">...</a></li>
+                                                <li><a href="javascript:void(0)">5</a></li>
+                                            </ul>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">username</a>, November 18, 2013, 12:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">user</a><br><small>12:00 - September 01, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <ul class="pagination pagination-sm pull-right remove-margin">
+                                                <li><a href="javascript:void(0)">1</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">...</a></li>
+                                                <li><a href="javascript:void(0)">5</a></li>
+                                            </ul>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">username</a>, November 18, 2013, 12:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">user</a><br><small>12:00 - September 01, 2013</small></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <ul class="pagination pagination-sm pull-right remove-margin">
+                                                <li><a href="javascript:void(0)">1</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">...</a></li>
+                                                <li><a href="javascript:void(0)">5</a></li>
+                                            </ul>
+                                            <h4><a href="javascript:void(0)">Topic Title</a> <br><small>by <a href="page_special_user_profile.html">username</a>, November 18, 2013, 12:00</small></h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">25</a></td>
+                                        <td class="text-center hidden-xs hidden-sm"><a href="javascript:void(0)">356</a></td>
+                                        <td class="hidden-xs hidden-sm">by <a href="page_special_user_profile.html">user</a><br><small>12:00 - September 01, 2013</small></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-right">
+                                <ul class="pagination pagination-sm">
+                                    <li class="disabled"><a href="javascript:void(0)">Prev</a></li>
+                                    <li class="active"><a href="javascript:void(0)">1</a></li>
+                                    <li><a href="javascript:void(0)">2</a></li>
+                                    <li><a href="javascript:void(0)">...</a></li>
+                                    <li><a href="javascript:void(0)">Next</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- END Topics -->
+
+                        <!-- Discussion -->
+                        <div class="tab-pane" id="forum-discussion">
+                            <table class="table forum">
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center"><a href="page_special_user_profile.html">John Doe</a></th>
+                                        <th>Topic, <small>December 1, 15:00</small></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="forum-avatar text-center">
+                                            <a href="page_special_user_profile.html"><img src="img/placeholders/image_64x64_dark.png" class="img-circle" alt="avatar"></a>
+                                            <br><br><small><em>Level 12</em></small><br><small>1364 Posts</small>
+                                        </td>
+                                        <td class="forum-post">
+                                            <p>Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor. Vestibulum ullamcorper, odio sed rhoncus imperdiet, enim elit sollicitudin orci, eget dictum leo mi nec lectus. Nam commodo turpis id lectus scelerisque vulputate. Integer sed dolor erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus? Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit.</p>
+                                            <div class="forum-sign">
+                                                <small><em>User's Signature!</em></small>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center"><a href="page_special_user_profile.html">John Doe</a></th>
+                                        <th>RE: Topic, <small>December 1, 15:00</small></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="forum-avatar text-center">
+                                            <a href="page_special_user_profile.html"><img src="img/placeholders/image_64x64_dark.png" class="img-circle" alt="avatar"></a>
+                                            <br><br><small><em>Level 12</em></small><br><small>1364 Posts</small>
+                                        </td>
+                                        <td class="forum-post">
+                                            <p>Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor. Vestibulum ullamcorper, odio sed rhoncus imperdiet, enim elit sollicitudin orci, eget dictum leo mi nec lectus. Nam commodo turpis id lectus scelerisque vulputate. Integer sed dolor erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus? Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit.</p>
+                                            <div class="forum-sign">
+                                                <small><em>User's Signature!</em></small>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center"><a href="page_special_user_profile.html">John Doe</a></th>
+                                        <th>RE: Topic, <small>December 1, 15:00</small></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="forum-avatar text-center">
+                                            <a href="page_special_user_profile.html"><img src="img/placeholders/image_64x64_dark.png" class="img-circle" alt="avatar"></a>
+                                            <br><br><small><em>Level 12</em></small><br><small>1364 Posts</small>
+                                        </td>
+                                        <td class="forum-post">
+                                            <p>Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor. Vestibulum ullamcorper, odio sed rhoncus imperdiet, enim elit sollicitudin orci, eget dictum leo mi nec lectus. Nam commodo turpis id lectus scelerisque vulputate. Integer sed dolor erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus? Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit.</p>
+                                            <div class="forum-sign">
+                                                <small><em>User's Signature!</em></small>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center"><a href="page_special_user_profile.html">John Doe</a></th>
+                                        <th>RE: Topic, <small>December 1, 15:00</small></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="forum-avatar text-center">
+                                            <a href="page_special_user_profile.html"><img src="img/placeholders/image_64x64_dark.png" class="img-circle" alt="avatar"></a>
+                                            <br><br><small><em>Level 12</em></small><br><small>1364 Posts</small>
+                                        </td>
+                                        <td class="forum-post">
+                                            <p>Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor. Vestibulum ullamcorper, odio sed rhoncus imperdiet, enim elit sollicitudin orci, eget dictum leo mi nec lectus. Nam commodo turpis id lectus scelerisque vulputate. Integer sed dolor erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus? Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit.</p>
+                                            <div class="forum-sign">
+                                                <small><em>User's Signature!</em></small>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center"><a href="page_special_user_profile.html">John Doe</a></th>
+                                        <th>RE: Topic, <small>December 1, 15:00</small></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="forum-avatar text-center">
+                                            <a href="page_special_user_profile.html"><img src="img/placeholders/image_64x64_dark.png" class="img-circle" alt="avatar"></a>
+                                            <br><br><small><em>Level 12</em></small><br><small>1364 Posts</small>
+                                        </td>
+                                        <td class="forum-post">
+                                            <p>Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor. Vestibulum ullamcorper, odio sed rhoncus imperdiet, enim elit sollicitudin orci, eget dictum leo mi nec lectus. Nam commodo turpis id lectus scelerisque vulputate. Integer sed dolor erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus? Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit.</p>
+                                            <div class="forum-sign">
+                                                <small><em>User's Signature!</em></small>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center"><a href="page_special_user_profile.html">You</a></th>
+                                        <th>Reply</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="forum-avatar text-center">
+                                            <a href="page_special_user_profile.html"><img src="img/template/avatar2.jpg" class="img-circle" alt="avatar"></a>
+                                        </td>
+                                        <td class="forum-post">
+                                            <form action="page_ready_forum.html" method="post" class="form-horizontal" onsubmit="return false;">
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <textarea id="textarea-wysiwyg" name="textarea-wysiwyg" rows="15" class="form-control textarea-editor"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <button type="submit" class="btn btn-sm btn-info"><i class="fa fa-reply"></i> Reply</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-right">
+                                <ul class="pagination pagination-sm">
+                                    <li class="disabled"><a href="javascript:void(0)">Prev</a></li>
+                                    <li class="active"><a href="javascript:void(0)">1</a></li>
+                                    <li><a href="javascript:void(0)">2</a></li>
+                                    <li><a href="javascript:void(0)">...</a></li>
+                                    <li><a href="javascript:void(0)">Next</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- END Discussion -->
+                    </div>
+                    <!-- END Tab Content -->
+                    <!-- END Forum Content -->
+                </div>
+                <!-- END Page Content -->
+
+                <!-- Footer -->
+                <footer class="clearfix">
+                    <div class="pull-right">
+                        Crafted with <i class="fa fa-heart"></i> by <a href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
+                    </div>
+                    <div class="pull-left">
+                        <span id="year-copy"></span> &copy; <a href="javascript:void(0)" target="_blank">FreshUI 1.4</a>
+                    </div>
+                </footer>
+                <!-- END Footer -->
+            </div>
+            <!-- END FX Container -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Scroll to top link, check main.js - scrollToTop() -->
+        <a href="javascript:void(0)" id="to-top"><i class="fa fa-angle-up"></i></a>
+
+        <!-- Get Jquery library from Google but if something goes wrong get Jquery from local file - Remove 'http:' if you have SSL -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>!window.jQuery && document.write(unescape('%3Cscript src="js/vendor/jquery-1.10.2.min.js"%3E%3C/script%3E'));</script>
+
+        <!-- Bootstrap.js, Jquery plugins and custom Javascript code -->
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

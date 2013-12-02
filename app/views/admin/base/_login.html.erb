@@ -1,0 +1,52 @@
+<!-- Login Container -->
+<div id="login-container">
+    <!-- Page Content -->
+    <div id="page-content" class="block remove-margin animation-bigEntrance">
+        <!-- Login Title -->
+        <div class="block-header">
+            <div class="header-section">
+                <h1 class="text-center">Livestock Event Admin<br><small>Please Log in</small></h1>
+            </div>
+        </div>
+        <!-- END Login Title -->
+
+        <!-- Login Form -->
+        <%= form_tag 'session', class: "form-horizontal" do %>
+            <!-- log in with facebook or twitter -->
+            <% # render 'admin/base/social_login' %>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <%= text_field_tag 'email', nil, class: "form-control input-lg", placeholder: "Email" %>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <%= password_field_tag 'password', nil, class: "form-control input-lg", placeholder: "Password" %>
+
+                    <!--
+                    Hidden checkbox. Its checked property will be toggled every time the remember me (#btn-remember) button is clicked (js code at the bottom)
+                    You can add the checked property by default (the button will be enabled automatically)
+                    -->
+                    <%= hidden_field_tag 'remember', 1 %>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-default disabled">Remember me?</button>
+                        <button type="button" class="btn btn-sm btn-default" data-toggle="button" id="btn-remember"><i class="fa fa-check"></i></button>
+                    </div>
+                </div>
+                <div class="col-xs-4 text-right">
+                    <%= submit_tag "Log in", class: "btn btn-sm btn-primary" do %>
+                    <i class="fa fa-angle-right"></i> Login
+                    <% end %>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <p class="text-center remove-margin"><small>Not sure what you're doing here?</small> <a href="/" id="link-login"><small>Go to the homepage!</small></a></p>
+                </div>
+            </div>
+        <% end %>
+        <!-- END Login Form -->

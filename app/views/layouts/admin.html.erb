@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>Livestock Event | Admin</title>
+
+        <meta name="description" content="The Livestock Event is held annually at the NEC in Birmingham. It is the premier event for anyone involved in the Livestock trade worldwide, with around 20,000 attendees per year.">
+        <meta name="author" content="Sam Morgan">
+        <meta name="robots" content="noindex, nofollow">
+
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+        <!-- Icons -->
+        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160" />
+        <meta name="msapplication-TileColor" content="#43afe3" />
+        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+        <meta name="msapplication-square70x70logo" content="/mstile-70x70.png" />
+        <meta name="msapplication-square150x150logo" content="/mstile-150x150.png" />
+        <meta name="msapplication-wide310x150logo" content="/mstile-310x150.png" />
+        <meta name="msapplication-square310x310logo" content="/mstile-310x310.png" />
+        <!-- END Icons -->
+
+        <!-- Stylesheets, which are included through the Rails pipeline -->
+        <!-- The Open Sans font is included from Google Web Fonts -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,700,700italic">
+
+        <!-- Bootstrap is included in its original form, unaltered -->
+        <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+
+        <!-- Related styles of various icon packs and javascript plugins -->
+        <!-- <link rel="stylesheet" href="css/plugins.css"> -->
+
+        <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+        <!-- <link rel="stylesheet" href="css/main.css"> -->
+
+        <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+
+        <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+        <!-- <link rel="stylesheet" href="css/themes.css"> -->
+        <!-- END Stylesheets -->
+
+        <!-- Modernizr (Browser feature detection library) & Respond.js (Enable responsive CSS code on browsers that don't support it, eg IE8) -->
+        <!--<script src="js/vendor/modernizr-2.6.2-respond-1.3.0.min.js"></script>-->
+
+        <!-- Google Maps API -->
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+        <!--scripts via asset pipeline-->
+
+        <%= stylesheet_link_tag    "admin", :media => "all" %>
+        <%= javascript_include_tag "admin" %>
+        <%= csrf_meta_tag %>
+
+        <!--end scripts via asset pipeline -->
+
+        <link href="//www.google-analytics.com" rel="dns-prefetch">
+        <link href="//ajax.googleapis.com" rel="dns-prefetch">
+
+        <!--payment scripts-->
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+        <!--end payment scripts-->
+
+        <!-- making terrible browsers a bit less terrible -->
+
+        <!--[if lt IE 8]>
+        <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+        <![endif]-->
+    </head>
+
+    <!-- Body -->
+    <!-- In the PHP version you can set the following options from the config file -->
+    <!--
+        Add one of the following classes to the body element for the desirable feature:
+        'sidebar-left-pinned'                         for a left pinned sidebar (always visible > 1200px)
+        'sidebar-right-pinned'                        for a right pinned sidebar (always visible > 1200px)
+        'sidebar-left-pinned sidebar-right-pinned'    for both sidebars pinned (always visible > 1200px)
+    -->
+    <body class="header-fixed-top">
+
+    <div id="flash_notice_wrap" style="display:none">
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <small><em>Just now</em></small><br>
+            <span id="flash_notice"></span>
+        </div>
+    </div>
+
+    <!--start content-->
+    
+        <%= yield %>
+
+    <!-- end content -->
+
+        <!-- Scroll to top link, check main.js - scrollToTop() -->
+        <a href="javascript:void(0)" id="to-top"><i class="fa fa-angle-up"></i></a>
+
+
+
+        <!-- Get Jquery library from Google but if something goes wrong get Jquery from local file - Remove 'http:' if you have SSL -->
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                <script>!window.jQuery && document.write(unescape('%3Cscript src="js/vendor/jquery-1.10.2.min.js"%3E%3C/script%3E'));</script> -->
+
+        <!-- Bootstrap.js, Jquery plugins and custom Javascript code -->
+        <!--<script src="js/vendor/bootstrap.min.js"></script>
+                <script src="js/plugins.js"></script>
+                <script src="js/main.js"></script> -->
+        
+        <!-- Javascript code only for this page -->
+
+        <script>
+        (function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
+        (f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
+        l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-44788878-1', {'cookieDomain': 'none'});
+        ga('send', 'pageview');
+        </script>
+        <script type="text/javascript">
+          Stripe.setPublishableKey('pk_live_9raKOYvWtj9vUQaJcDqZ4L7J');
+        </script>
+        <!--Javascript with Turbolinks-->
+        <script type="text/javascript">
+            var ready;
+            ready = function() {
+                console.log('ready exec');
+                //all init JS function can go here
+                $('#sidebar-left-toggle').click(function() {
+                    $('#sidebar-right-toggle').toggleClass('lowpaque');
+                    $('body').toggleClass('sidebar-left-open');
+                    $('#fx-container').click(function() {
+                        $('#sidebar-right-toggle').removeClass('lowpaque');
+                        $('body').removeClass('sidebar-left-open');
+                    })
+                })
+                $('#sidebar-right-toggle').click(function() {
+                    $('#sidebar-left-toggle').toggleClass('lowpaque');
+                    $('body').toggleClass('sidebar-right-open');
+                    $('#fx-container').click(function() {
+                        $('#sidebar-left-toggle').removeClass('lowpaque');
+                        $('body').removeClass('sidebar-right-open');
+                    })
+                })
+            };
+
+            $(document).ready(ready);
+            $(document).on('page:load', ready);
+        </script>
+    </body>
+</html>

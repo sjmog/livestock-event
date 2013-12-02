@@ -1,0 +1,53 @@
+<!--form for new supporter-->
+<div class="block">
+	<div class="block-title">
+		<h2>Simple</h2>
+	</div>
+	<%= simple_form_for [:admin, @supporter], :html => { class: 'form-horizontal form-bordered' }, defaults: { input_html: { class: 'form-control' }, label_html: { class: 'control-label '} } do |f| %>
+	<div class="form-group">
+		<div class="col-md-6"><%= f.input :name %></div>
+		<div class="col-md-6"><%= f.input :company_name %></div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-4">
+			<label class="author optional control-label" for="author">Image</label>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-picture-o"></i>
+				</span>
+				<%= f.input_field :image %>
+			</div>
+		</div>	
+		<div class="col-md-4">
+		
+			<%= f.input :address %>
+		</div>
+		<div class="col-md-4">
+		
+			<%= f.input :category %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-12"><%= f.input :explanation, as: :text, input_html: {rows: "15", class: "form-control textarea-editor"} %></div>
+	</div>
+</div>
+<div class="block">
+	<div class="block-title">
+		<h2>Advanced</h2>
+	</div>
+	<div class="form-group">
+		<div class="col-md-6">
+			<%= f.input :created_at %>
+		</div>
+		<div class="col-md-6">
+			<%= f.input :updated_at %>
+		</div>		
+	</div>
+	
+</div>
+<div class="block">
+	<%= f.button :submit %>
+	<% end %>
+</div>
+
+<!--END form for new supporter-->

@@ -962,16 +962,22 @@ var mapSVG = function(elem, options){
             return final_style;
        },
        transformSVG2Raphael : function(svgItem){
+            
         
             var _transform = $(svgItem).attr('transform');
+            
 
             if(_transform){
 
                 var tparts = _transform.split(')');
+                
+                tparts = jQuery.makeArray(tparts);
+                
                 var rtransform = [];
 
                 for (t in tparts){
-                    if(tparts[t] != ""){
+                    if(tparts[t] != "" && typeof tparts[t] === "string"){
+                        
                         var kv = tparts[t].split('(');
 
                         if (kv[0]!='matrix'){

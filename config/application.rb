@@ -19,6 +19,9 @@ module EmberAuthRailsDemo
   class Application < Rails::Application
     # Add back in missing methods Rails API has stripped out
     config.middleware.insert_after ActiveRecord::QueryCache, ActionDispatch::Flash
+
+    #Add back in Session Management
+    config.api_only = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

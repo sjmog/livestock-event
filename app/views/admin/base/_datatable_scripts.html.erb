@@ -1,0 +1,18 @@
+<!-- Javascript code only for this page -->
+<script>
+    $(function() {
+        /* Initialize Bootstrap Datatables Integration */
+        webApp.datatables();
+
+        /* Initialize Datatables */
+        $('#example-datatable').dataTable({
+            "aoColumnDefs": [{"bSortable": false, "aTargets": [4]}],
+            "iDisplayLength": 15,
+            "aLengthMenu": [[15, 30, 50, -1], [15, 30, 50, "All"]]
+        });
+
+        /* Add classes to select and input */
+        $('.dataTables_filter input').addClass('form-control').attr('placeholder', 'Search');
+        $('.dataTables_length select').addClass('form-control');
+    });
+</script>

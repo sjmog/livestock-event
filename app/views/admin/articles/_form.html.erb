@@ -1,0 +1,48 @@
+<!--form for new article-->
+<div class="block">
+	<div class="block-title">
+		<h2>Simple</h2>
+	</div>
+	<%= simple_form_for [:admin, @article], :html => { class: 'form-horizontal form-bordered' }, defaults: { input_html: { class: 'form-control' }, label_html: { class: 'control-label '} } do |f| %>
+	<div class="form-group">
+		<div class="col-md-12"><%= f.input :title %></div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-6">
+			<label class="author optional control-label" for="author">Author</label>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-user"></i>
+				</span>
+				<%= f.input_field :author %>
+			</div>
+		</div>	
+		<div class="col-md-6">
+		
+			<%= f.input :image %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-12"><%= f.input :article_content, as: :text, input_html: {rows: "30", class: "form-control textarea-editor"} %></div>
+	</div>
+</div>
+<div class="block">
+	<div class="block-title">
+		<h2>Advanced</h2>
+	</div>
+	<div class="form-group">
+		<div class="col-md-6">
+			<%= f.input :published %>
+		</div>
+		<div class="col-md-6">
+			<%= f.input :updated_at %>
+		</div>		
+	</div>
+	
+</div>
+<div class="block">
+	<%= f.button :submit %>
+	<% end %>
+</div>
+
+<!--END form for new article-->

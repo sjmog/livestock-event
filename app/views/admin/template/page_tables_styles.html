@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>FreshUI - Premium Web App and Admin Template</title>
+
+        <meta name="description" content="FreshUI is a Premium Web App and Admin Template created by pixelcave and published on Themeforest.">
+        <meta name="author" content="pixelcave">
+        <meta name="robots" content="noindex, nofollow">
+
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+        <!-- Icons -->
+        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="apple-touch-icon" href="img/icon57.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="img/icon72.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="img/icon76.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="img/icon114.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="img/icon120.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="img/icon144.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="img/icon152.png" sizes="152x152">
+        <!-- END Icons -->
+
+        <!-- Stylesheets -->
+        <!-- The Open Sans font is included from Google Web Fonts -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,700,700italic">
+
+        <!-- Bootstrap is included in its original form, unaltered -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+
+        <!-- Related styles of various icon packs and javascript plugins -->
+        <link rel="stylesheet" href="css/plugins.css">
+
+        <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+
+        <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+        <link rel="stylesheet" href="css/themes.css">
+        <!-- END Stylesheets -->
+
+        <!-- Modernizr (Browser feature detection library) & Respond.js (Enable responsive CSS code on browsers that don't support it, eg IE8) -->
+        <script src="js/vendor/modernizr-2.6.2-respond-1.3.0.min.js"></script>
+    </head>
+
+    <!-- Body -->
+    <!-- In the PHP version you can set the following options from the config file -->
+    <!--
+        Add one of the following classes to the body element for the desirable feature:
+        'sidebar-left-pinned'                         for a left pinned sidebar (always visible > 1200px)
+        'sidebar-right-pinned'                        for a right pinned sidebar (always visible > 1200px)
+        'sidebar-left-pinned sidebar-right-pinned'    for both sidebars pinned (always visible > 1200px)
+    -->
+    <body class="header-fixed-top">
+        <!-- Left Sidebar -->
+        <!-- In the PHP version you can set the following options from the config file -->
+        <!-- If you add the class .enable-hover, then a small portion of left sidebar will be visible and it can be opened with a mouse hover (> 1200px) (may affect website performance) -->
+        <div id="sidebar-left" class="enable-hover">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+                <!-- Search Form -->
+                <form action="page_ready_search_results.html" method="post" class="sidebar-search">
+                    <input type="text" id="sidebar-search-term" name="sidebar-search-term" placeholder="Search..">
+                </form>
+                <!-- END Search Form -->
+
+                <!-- Wrapper for scrolling functionality -->
+                <div class="sidebar-left-scroll">
+                    <!-- Sidebar Navigation -->
+                    <ul class="sidebar-nav">
+                        <li>
+                            <h2 class="sidebar-header">Welcome</h2>
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-coffee"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <h2 class="sidebar-header">User Interface</h2>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-rocket"></i>Elements</a>
+                            <ul>
+                                <li>
+                                    <a href="page_elements_typography.html">Typography</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_blocks_grid.html">Blocks - Grid</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_navigation_extras.html">Navigation - Extras</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_buttons_dropdowns.html">Buttons - Dropdowns</a>
+                                </li>
+                                <li>
+                                    <a href="page_elements_progress_loading.html">Progress - Loading</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a href="#" class="menu-link"><i class="fa fa-th"></i>Tables</a>
+                            <ul>
+                                <li>
+                                    <a href="page_tables_styles.html" class=" active">Styles</a>
+                                </li>
+                                <li>
+                                    <a href="page_tables_datatables.html">Datatables</a>
+                                </li>
+                                <li>
+                                    <a href="page_tables_editable.html">Editable</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-pencil-square-o"></i>Forms</a>
+                            <ul>
+                                <li>
+                                    <a href="page_forms_general.html">General</a>
+                                </li>
+                                <li>
+                                    <a href="page_forms_components.html">Components</a>
+                                </li>
+                                <li>
+                                    <a href="page_forms_validation.html">Validation</a>
+                                </li>
+                                <li>
+                                    <a href="page_forms_wizard.html">Wizard</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-gift"></i>Icon Packs</a>
+                            <ul>
+                                <li>
+                                    <a href="page_icons_fontawesome.html">Font Awesome</a>
+                                </li>
+                                <li>
+                                    <a href="page_icons_glyphicons_pro.html">Glyphicons Pro</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2 class="sidebar-header">Extras</h2>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-gear"></i>Components</a>
+                            <ul>
+                                <li>
+                                    <a href="page_comp_animations.html">Animations</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_carousel.html">Carousel</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_gallery.html">Gallery</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_calendar.html">Calendar</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_charts.html">Charts</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_syntax_highlighting.html">Syntax Highlighting</a>
+                                </li>
+                                <li>
+                                    <a href="page_comp_maps.html">Maps</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="fa fa-file"></i>Pages</a>
+                            <ul>
+                                <li>
+                                    <a href="page_ready_blank.html">Blank</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_404.html">404 Error</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_search_results.html">Search Results</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_pricing_tables.html">Pricing Tables</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_faq.html">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_invoice.html">Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_article.html">Article</a>
+                                </li>
+                                <li>
+                                    <a href="page_ready_forum.html">Forum</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-link"><i class="glyphicon-tint"></i>3 Level Menu</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="submenu-link">Submenu 1</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="submenu-link">Submenu 2</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2 class="sidebar-header">Special</h2>
+                        </li>
+                        <li>
+                            <a href="page_special_timeline.html"><i class="fa fa-clock-o"></i>Timeline</a>
+                        </li>
+                        <li>
+                            <a href="page_special_user_profile.html"><i class="fa fa-pencil-square"></i>User Profile</a>
+                        </li>
+                        <li>
+                            <a href="page_special_message_center.html"><i class="fa fa-envelope-o"></i>Message Center</a>
+                        </li>
+                        <li>
+                            <a href="page_special_login.html"><i class="fa fa-power-off"></i>Login &amp; Register</a>
+                        </li>
+                    </ul>
+                    <!-- END Sidebar Navigation -->
+                </div>
+                <!-- END Wrapper for scrolling functionality -->
+            </div>
+            <!-- END Sidebar Content -->
+        </div>
+        <!-- END Left Sidebar -->
+
+        <!-- Right Sidebar -->
+        <!-- In the PHP version you can set the following options from the config file -->
+        <!-- If you add the class .enable-hover, then a small portion of right sidebar will be visible and it can be opened with a mouse hover (> 1200px) (may affect website performance) -->
+        <div id="sidebar-right">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+                <!-- User Info -->
+                <div class="user-info">
+                    <div class="user-details"><a href="page_special_user_profile.html">pixelcave</a><br><em>Web Designer</em></div>
+                    <img src="img/template/avatar.png" alt="Avatar">
+                </div>
+                <!-- END User Info -->
+
+                <!-- Wrapper for scrolling functionality -->
+                <div class="sidebar-right-scroll">
+                    <!-- Color Themes -->
+                    <div class="sidebar-section">
+                        <h2 class="sidebar-header">Color Themes</h2>
+                        <!-- Change Color Theme functionality can be found in main.js - templateOptions() -->
+                        <ul class="theme-colors clearfix">
+                            <li class="active">
+                                <a href="javascript:void(0)" class="themed-background-default themed-border-default" data-theme="default" data-toggle="tooltip" title="Default"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-river themed-border-river" data-theme="css/themes/river.css" data-toggle="tooltip" title="River"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-amethyst themed-border-amethyst" data-theme="css/themes/amethyst.css" data-toggle="tooltip" title="Amethyst"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-dragon themed-border-dragon" data-theme="css/themes/dragon.css" data-toggle="tooltip" title="Dragon"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-emerald themed-border-emerald" data-theme="css/themes/emerald.css" data-toggle="tooltip" title="Emerald"></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="themed-background-grass themed-border-grass" data-theme="css/themes/grass.css" data-toggle="tooltip" title="Grass"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END Color Themes -->
+
+                    <!-- User Menu -->
+                    <ul class="sidebar-nav">
+                        <li>
+                            <h2 class="sidebar-header">Explore</h2>
+                        </li>
+                        <li>
+                            <a href="page_special_timeline.html"><i class="fa fa-clock-o"></i> Updates</a>
+                        </li>
+                        <li>
+                            <a href="page_special_user_profile.html"><i class="fa fa-pencil-square"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="page_special_message_center.html"><i class="fa fa-envelope-o"></i> Messages</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><i class="fa fa-cog"></i> Settings</a>
+                        </li>
+                        <li>
+                            <a href="page_special_login.html"><i class="fa fa-power-off"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- END User Menu -->
+
+                    <!-- Notifications -->
+                    <div class="sidebar-section">
+                        <h2 class="sidebar-header">Notifications</h2>
+                        <div class="alert alert-success alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <small><em>2 hours ago</em></small><br>
+                            PHP version updated successfully on <a href="javascript:void(0)">Server #5</a>
+                        </div>
+                        <div class="alert alert-danger alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <small><em>3 hours ago</em></small><br>
+                            <a href="javascript:void(0)">Game Server</a> crashed but restored!
+                        </div>
+                        <div class="alert alert-warning alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <small><em>5 hours ago</em></small><br>
+                            <a href="javascript:void(0)">FTP Server</a> went down for maintenance!
+                        </div>
+                    </div>
+                    <!-- END Notifications -->
+
+                    <!-- Messages -->
+                    <div class="sidebar-section">
+                        <h2 class="sidebar-header">Messages</h2>
+                        <div class="alert alert-info">
+                            <small><a href="page_special_user_profile.html">Claire</a>, 2 minutes ago</small><br>
+                            Hi John, I just wanted to let you know that.. <a href="page_special_message_center.html">more</a>
+                        </div>
+                        <div class="alert alert-info">
+                            <small><a href="page_special_user_profile.html">Michael</a>, 5 minutes ago</small><br>
+                            The project is moving along just fine and we.. <a href="page_special_message_center.html">more</a>
+                        </div>
+                    </div>
+                    <!-- END Messages -->
+                </div>
+                <!-- END Wrapper for scrolling functionality -->
+            </div>
+            <!-- END Sidebar Content -->
+        </div>
+        <!-- END Right Sidebar -->
+
+        <!-- Page Container -->
+        <!-- In the PHP version you can set the following options from the config file -->
+        <!-- Add the class .full-width for a full width page (100%, 1920px max width) -->
+        <div id="page-container">
+            <!-- Header -->
+            <!-- In the PHP version you can set the following options from the config file -->
+            <!-- Add the class .navbar-default or .navbar-inverse for a light or dark header respectively -->
+            <!-- Add the class .navbar-fixed-top or .navbar-fixed-bottom for a fixed header on top or bottom respectively -->
+            <!-- If you add the class .navbar-fixed-top remember to add the class .header-fixed-top to <body> element -->
+            <!-- If you add the class .navbar-fixed-bottom remember to add the class .header-fixed-bottom to <body> element -->
+            <header class="navbar navbar-default navbar-fixed-top">
+                <!-- Right Header Navigation -->
+                <ul class="nav header-nav pull-right">
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-cogs"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-custom pull-right">
+                            <li class="dropdown-header text-center">HEADER</li>
+                            <li>
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-default">Default</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-inverse">Inverse</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-top">Top</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-header-bottom">Bottom</a>
+                                </div>
+                            </li>
+                            <li class="hidden-xs hidden-sm dropdown-header text-center">FULL WIDTH PAGE</li>
+                            <li class="hidden-xs hidden-sm">
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-fw-disable">Disable</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-fw-enable">Enable</a>
+                                </div>
+                            </li>
+                            <li class="visible-lg dropdown-header text-center">PIN SIDEBARS</li>
+                            <li class="visible-lg">
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-pin-left">Pin Left</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-pin-right">Pin Right</a>
+                                </div>
+                            </li>
+                            <li class="visible-lg dropdown-header text-center">SIDEBARS MOUSE HOVER</li>
+                            <li class="visible-lg">
+                                <div class="btn-group btn-group-justified btn-group-sm">
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-hover-left">Left</a>
+                                    <a href="javascript:void(0)" class="btn btn-default" id="options-hover-right">Right</a>
+                                </div>
+                            </li>
+                            <li class="visible-lg hidden-lt-ie9 dropdown-header text-center">EFFECT WHEN SIDEBARS OPEN</li>
+                            <li class="visible-lg hidden-lt-ie9 text-center">
+                                <div class="btn-group-vertical btn-group-sm" id="option-effects">
+                                    <button class="btn btn-default" data-fx="fx-none">None</button>
+                                    <button class="btn btn-default" data-fx="fx-opacity">Opacity</button>
+                                    <button class="btn btn-default" data-fx="fx-move">Move</button>
+                                    <button class="btn btn-default" data-fx="fx-push">Push</button>
+                                    <button class="btn btn-default" data-fx="fx-rotate">Rotate</button>
+                                    <button class="btn btn-default" data-fx="fx-push-move">Push and Move</button>
+                                    <button class="btn btn-default" data-fx="fx-push-rotate">Push and Rotate</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="sidebar-right-toggle">
+                            <strong>5</strong> <i class="fa fa-user"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END Right Header Navigation -->
+
+                <!-- Left Header Navigation -->
+                <ul class="nav header-nav pull-left">
+                    <li>
+                        <a href="javascript:void(0)" id="sidebar-left-toggle">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END Left Header Navigation -->
+
+                <!-- Header Brand -->
+                <a href="index.html" class="navbar-brand">
+                    <img src="img/template/drop.png" alt="FreshUI">
+                    <span>FreshUI</span>
+                </a>
+                <!-- END Header Brand -->
+            </header>
+            <!-- END Header -->
+
+            <!-- FX Container -->
+            <!-- In the PHP version you can set the following options from the config file -->
+            <!--
+                All effects apply in resolutions larger than 1200px width
+                Add one of the following classes to #fx-container for setting an effect to main content when one of the sidebars are opened
+                'fx-none'           remove all effects (better website performance)
+                'fx-opacity'        opacity effect
+                'fx-move'           move effect
+                'fx-push'           push effect
+                'fx-rotate'         rotate effect
+                'fx-push-move'      push-move effect
+                'fx-push-rotate'    push-rotate effect
+            -->
+            <div id="fx-container" class="fx-opacity">
+                <!-- Page content -->
+                <div id="page-content" class="block">
+                    <!-- Table Styles Header -->
+                    <div class="block-header">
+                        <!-- If you do not want a link in the header, instead of .header-title-link you can use a div with the class .header-section -->
+                        <a href="" class="header-title-link">
+                            <h1>
+                                <i class="fa fa-tint animation-expandUp"></i>Table Styles<br><small>Professional looking tables with many style options!</small>
+                            </h1>
+                        </a>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><i class="fa fa-th"></i></li>
+                        <li>Tables</li>
+                        <li><a href="">Styles</a></li>
+                    </ul>
+                    <!-- END Table Styles Header -->
+
+                    <!-- Styles Block -->
+                    <div class="block">
+                        <!-- Styles Title -->
+                        <div class="block-title">
+                            <h2>Styles</h2>
+                        </div>
+                        <!-- END Styles Title -->
+
+                        <!-- Styles Content -->
+                        <p>Just add the class <code>.table</code> and you will get a great styled table! If you would like to make it responsive just wrap it inside an element with the class <code>.table-responsive</code>! Also, you can have various style alterations just by adding some extra classes (<code>.table-bordered</code> <code>.table-borderless</code> <code>.table-striped</code> <code>.table-condensed</code> <code>.table-hover</code>). You can check the various styles offered by clicking the following buttons.</p>
+
+                        <div class="clearfix">
+                            <div class="btn-group btn-group-sm pull-right push">
+                                <a href="javascript:void(0)" class="btn btn-primary" id="style-striped">Striped</a>
+                                <a href="javascript:void(0)" class="btn btn-primary" id="style-condensed">Condensed</a>
+                                <a href="javascript:void(0)" class="btn btn-primary" id="style-hover">Hover</a>
+                            </div>
+                            <div class="btn-group btn-group-sm pull-left push" data-toggle="buttons">
+                                <label id="style-default" class="btn btn-primary active">
+                                    <input type="radio" name="style-options"> Default
+                                </label>
+                                <label id="style-bordered" class="btn btn-primary">
+                                    <input type="radio" name="style-options"> Bordered
+                                </label>
+                                <label id="style-borderless" class="btn btn-primary">
+                                    <input type="radio" name="style-options"> Borderless
+                                </label>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="general-table" class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center"><input type="checkbox"></th>
+                                        <th class="text-center">#</th>
+                                        <th>Client</th>
+                                        <th>Email</th>
+                                        <th>Subscription</th>
+                                        <th>Expires</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center"><input type="checkbox" id="checkbox1-1" name="checkbox1-1"></td>
+                                        <td class="text-center">1</td>
+                                        <td><a href="javascript:void(0)">client1</a></td>
+                                        <td>client1@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-success">VIP</a></td>
+                                        <td><a href="javascript:void(0)" class="label label-success">Lifetime</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" class="btn btn-default disabled"><i class="fa fa-minus"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Info" class="btn btn-default"><i class="fa fa-info-circle"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input type="checkbox" id="checkbox1-2" name="checkbox1-2"></td>
+                                        <td class="text-center">2</td>
+                                        <td><a href="javascript:void(0)">client2</a></td>
+                                        <td>client2@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-danger">Trial</a></td>
+                                        <td><a href="javascript:void(0)" class="label label-danger">in 1 month</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Upgrade Subscription" class="btn btn-default"><i class="fa fa-arrow-up"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Info" class="btn btn-default"><i class="fa fa-info-circle"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input type="checkbox" id="checkbox1-3" name="checkbox1-3"></td>
+                                        <td class="text-center">3</td>
+                                        <td><a href="javascript:void(0)">client3</a></td>
+                                        <td>client3@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-primary">Business</a></td>
+                                        <td><a href="javascript:void(0)" class="label label-warning">in 1 year</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Upgrade Subscription" class="btn btn-default"><i class="fa fa-arrow-up"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Info" class="btn btn-default"><i class="fa fa-info-circle"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input type="checkbox" id="checkbox1-4" name="checkbox1-4"></td>
+                                        <td class="text-center">4</td>
+                                        <td><a href="javascript:void(0)">client4</a></td>
+                                        <td>client4@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-info">Personal</a></td>
+                                        <td><a href="javascript:void(0)" class="label label-success">Lifetime</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Upgrade Subscription" class="btn btn-default"><i class="fa fa-arrow-up"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Info" class="btn btn-default"><i class="fa fa-info-circle"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input type="checkbox" id="checkbox1-5" name="checkbox1-5"></td>
+                                        <td class="text-center">5</td>
+                                        <td><a href="javascript:void(0)">client5</a></td>
+                                        <td>client5@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-info">Personal</a></td>
+                                        <td><a href="javascript:void(0)" class="label label-warning">in 1 year</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Upgrade Subscription" class="btn btn-default"><i class="fa fa-arrow-up"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Info" class="btn btn-default"><i class="fa fa-info-circle"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input type="checkbox" id="checkbox1-6" name="checkbox1-6"></td>
+                                        <td class="text-center">6</td>
+                                        <td><a href="javascript:void(0)">client6</a></td>
+                                        <td>client6@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-success">VIP</a></td>
+                                        <td><a href="javascript:void(0)" class="label label-warning">in 6 months</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" class="btn btn-default disabled"><i class="fa fa-minus"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Info" class="btn btn-default"><i class="fa fa-info-circle"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input type="checkbox" id="checkbox1-7" name="checkbox1-7"></td>
+                                        <td class="text-center">7</td>
+                                        <td><a href="javascript:void(0)">client7</a></td>
+                                        <td>client7@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-danger">Trial</a></td>
+                                        <td><a href="javascript:void(0)" class="label label-danger">in 3 days</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Upgrade Subscription" class="btn btn-default"><i class="fa fa-arrow-up"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Info" class="btn btn-default"><i class="fa fa-info-circle"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input type="checkbox" id="checkbox1-8" name="checkbox1-8"></td>
+                                        <td class="text-center">8</td>
+                                        <td><a href="javascript:void(0)">client8</a></td>
+                                        <td>client8@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-info">Personal</a></td>
+                                        <td><a href="javascript:void(0)" class="label label-warning">in 3 months</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Upgrade Subscription" class="btn btn-default"><i class="fa fa-arrow-up"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Info" class="btn btn-default"><i class="fa fa-info-circle"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input type="checkbox" id="checkbox1-9" name="checkbox1-9"></td>
+                                        <td class="text-center">9</td>
+                                        <td><a href="javascript:void(0)">client9</a></td>
+                                        <td>client9@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-primary">Business</a></td>
+                                        <td><a href="javascript:void(0)" class="label label-danger">in 2 weeks</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Upgrade Subscription" class="btn btn-default"><i class="fa fa-arrow-up"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Info" class="btn btn-default"><i class="fa fa-info-circle"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input type="checkbox" id="checkbox1-10" name="checkbox1-10"></td>
+                                        <td class="text-center">10</td>
+                                        <td><a href="javascript:void(0)">client10</a></td>
+                                        <td>client10@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-primary">Business</a></td>
+                                        <td><a href="javascript:void(0)" class="label label-warning">in 3 months</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Upgrade Subscription" class="btn btn-default"><i class="fa fa-arrow-up"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Info" class="btn btn-default"><i class="fa fa-info-circle"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="7">
+                                            <div class="btn-group btn-group-sm pull-right">
+                                                <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
+                                                <div class="btn-group btn-group-sm dropup">
+                                                    <a href="javascript:void(0)" class="btn btn-default pull-right dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="javascript:void(0)"><i class="fa fa-print"></i> Print</a></li>
+                                                        <li class="divider"></li>
+                                                        <li class="dropdown-header"><i class="fa fa-share"></i> Export As</li>
+                                                        <li><a href="javascript:void(0)">.pdf</a></li>
+                                                        <li><a href="javascript:void(0)">.cvs</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Edit Selected"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Delete Selected"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- END Styles Content -->
+                    </div>
+                    <!-- END Styles Block -->
+
+                    <!-- Row and Cell Styles Block -->
+                    <div class="block">
+                        <!-- Row and Cell Styles Title -->
+                        <div class="block-title">
+                            <h2>Row and Cell Styles</h2>
+                        </div>
+                        <!-- END Row and Cell Styles Title -->
+
+                        <!-- Row and Cell Styles Content -->
+                        <p>You can use the classes <code>.active</code> <code>.success</code> <code>.warning</code> or <code>.danger</code> for styling individual table rows or cells.</p>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th>Client</th>
+                                        <th>Email</th>
+                                        <th>Subscription</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="active">
+                                        <td class="text-center">1</td>
+                                        <td><a href="javascript:void(0)">client1</a></td>
+                                        <td>client1@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-success">VIP</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2</td>
+                                        <td><a href="javascript:void(0)">client2</a></td>
+                                        <td>client2@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-danger">Trial</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="success">
+                                        <td class="text-center">3</td>
+                                        <td><a href="javascript:void(0)">client3</a></td>
+                                        <td>client3@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-primary">Business</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">4</td>
+                                        <td><a href="javascript:void(0)">client4</a></td>
+                                        <td>client4@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-info">Personal</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="warning">
+                                        <td class="text-center">5</td>
+                                        <td><a href="javascript:void(0)">client5</a></td>
+                                        <td>client5@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-info">Personal</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">6</td>
+                                        <td><a href="javascript:void(0)">client6</a></td>
+                                        <td>client6@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-success">VIP</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="danger">
+                                        <td class="text-center">7</td>
+                                        <td><a href="javascript:void(0)">client7</a></td>
+                                        <td>client7@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-danger">Trial</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">8</td>
+                                        <td><a href="javascript:void(0)">client8</a></td>
+                                        <td>client8@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-info">Personal</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="active text-center">9</td>
+                                        <td class="warning"><a href="javascript:void(0)">client9</a></td>
+                                        <td class="success">client9@company.com</td>
+                                        <td class="danger"><a href="javascript:void(0)" class="label label-primary">Business</a></td>
+                                        <td class="warning text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">10</td>
+                                        <td><a href="javascript:void(0)">client10</a></td>
+                                        <td>client10@company.com</td>
+                                        <td><a href="javascript:void(0)" class="label label-primary">Business</a></td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-default"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END Row and Cell Styles Content -->
+                    </div>
+                    <!-- END Row and Cell Styles Block -->
+                </div>
+                <!-- END Page Content -->
+
+                <!-- Footer -->
+                <footer class="clearfix">
+                    <div class="pull-right">
+                        Crafted with <i class="fa fa-heart"></i> by <a href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
+                    </div>
+                    <div class="pull-left">
+                        <span id="year-copy"></span> &copy; <a href="javascript:void(0)" target="_blank">FreshUI 1.4</a>
+                    </div>
+                </footer>
+                <!-- END Footer -->
+            </div>
+            <!-- END FX Container -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Scroll to top link, check main.js - scrollToTop() -->
+        <a href="javascript:void(0)" id="to-top"><i class="fa fa-angle-up"></i></a>
+
+        <!-- Get Jquery library from Google but if something goes wrong get Jquery from local file - Remove 'http:' if you have SSL -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>!window.jQuery && document.write(unescape('%3Cscript src="js/vendor/jquery-1.10.2.min.js"%3E%3C/script%3E'));</script>
+
+        <!-- Bootstrap.js, Jquery plugins and custom Javascript code -->
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        
+        <!-- Javascript code only for this page -->
+        <script>
+            $(function() {
+                /* Select/Deselect all checkboxes in tables */
+                $('thead input:checkbox').click(function() {
+                    var checkedStatus = $(this).prop('checked');
+                    var table = $(this).closest('table');
+
+                    $('tbody input:checkbox', table).each(function() {
+                        $(this).prop('checked', checkedStatus);
+                    });
+                });
+
+                /* Table Styles Switcher */
+                var genTable = $('#general-table');
+
+                $('#style-default').click(function() {
+                    genTable.removeClass('table-bordered').removeClass('table-borderless');
+                });
+                $('#style-bordered').click(function() {
+                    genTable.removeClass('table-borderless').addClass('table-bordered');
+                });
+                $('#style-borderless').click(function() {
+                    genTable.removeClass('table-bordered').addClass('table-borderless');
+                });
+
+                $('#style-striped').on('click', function() {
+                    $(this).toggleClass('active');
+
+                    if ($(this).hasClass('active')) {
+                        genTable.addClass('table-striped');
+                    } else {
+                        genTable.removeClass('table-striped');
+                    }
+                });
+
+                $('#style-condensed').on('click', function() {
+                    $(this).toggleClass('active');
+
+                    if ($(this).hasClass('active')) {
+                        genTable.addClass('table-condensed');
+                    } else {
+                        genTable.removeClass('table-condensed');
+                    }
+                });
+
+                $('#style-hover').on('click', function() {
+                    $(this).toggleClass('active');
+
+                    if ($(this).hasClass('active')) {
+                        genTable.addClass('table-hover');
+                    } else {
+                        genTable.removeClass('table-hover');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

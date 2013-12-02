@@ -1,0 +1,48 @@
+<!-- Lightbox Gallery Block -->
+<div class="block">
+    <!-- Lightbox Gallery Title -->
+    <div class="block-title">
+        <h2><i class="fa <%= title_icon %>"></i> <%= title %></h2>
+    </div>
+    <!-- END Lightbox Gallery Title -->
+
+    <!-- Lightbox Gallery Content -->
+    <!--
+    Just create a div with the class .gallery and put the images any way you like in grid.
+    If you would like to enable the lightbox gallery, just add the value lightbox-gallery in the attribute data-toggle of the div. If you do that
+    make sure that you put your images inside links with the class .gallery-link and the source of your large image as the value of each href attribute!
+    -->
+    <div class="gallery" data-toggle="lightbox-gallery">
+        <div class="row">
+            <div class="col-sm-4">
+                <%= render partial: "admin/base/lightbox_image", locals: {big_path: "", small_path: ""} %>
+            </div>
+            <div class="col-sm-4">
+                <%= render partial: "admin/base/lightbox_image", locals: {big_path: "", small_path: ""} %>
+            </div>
+            <div class="col-sm-4">
+                <%= render partial: "admin/base/lightbox_image", locals: {big_path: "", small_path: ""} %>
+            </div>
+            <div class="col-sm-4">
+                <%= render partial: "admin/base/lightbox_image", locals: {big_path: "", small_path: ""} %>
+            </div>
+            <div class="col-sm-4">
+                <%= render partial: "admin/base/lightbox_image", locals: {big_path: "", small_path: ""} %>
+            </div>
+            <div class="col-sm-4">
+                <%= render partial: "admin/base/lightbox_image", locals: {big_path: "", small_path: ""} %>
+            </div>
+            <div class="col-sm-4">
+                <%= render partial: "admin/base/lightbox_image", locals: {big_path: "", small_path: ""} %>
+            </div>
+            <div class="col-sm-4">
+                <%= render partial: "admin/base/lightbox_image", locals: {big_path: "", small_path: ""} %>
+            </div>
+            <div class="col-sm-4">
+                <%= render partial: "admin/base/lightbox_image", locals: {big_path: "", small_path: ""} %>
+            </div>
+        </div>
+    </div>
+    <!-- END Lightbox Gallery Content -->
+</div>
+<!-- END Lightbox Gallery Block -->

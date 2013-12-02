@@ -1,0 +1,43 @@
+<!-- Right Sidebar -->
+<!-- In the PHP version you can set the following options from the config file -->
+<!-- If you add the class .enable-hover, then a small portion of right sidebar will be visible and it can be opened with a mouse hover (> 1200px) (may affect website performance) -->
+<div id="sidebar-right">
+    <!-- Sidebar Content -->
+    <div class="sidebar-content">
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="user-details"><a href="page_special_user_profile.html">Admin</a><br><em>RABDF Admin</em></div>
+            <img src="<%= asset_path "admin/avatar.png" %>" alt="Avatar">
+        </div>
+        <!-- END User Info -->
+
+        <!-- Wrapper for scrolling functionality -->
+        <div class="sidebar-right-scroll">
+            
+
+            <!-- User Menu -->
+            <ul class="sidebar-nav">
+                <li>
+                    <h2 class="sidebar-header">Explore</h2>
+                </li>
+                <li>
+                    <a href="page_special_message_center.html"><i class="fa fa-envelope-o"></i> Messages</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><i class="fa fa-cog"></i> Preferences</a>
+                </li>
+                <li>
+                    <a href="/"><i class="fa fa-power-off"></i> Log out</a>
+                </li>
+            </ul>
+            <!-- END User Menu -->
+
+            <%= render "admin/base/notifications" %>
+
+            <%= render "admin/base/messages" %>
+        </div>
+        <!-- END Wrapper for scrolling functionality -->
+    </div>
+    <!-- END Sidebar Content -->
+</div>
+<!-- END Right Sidebar -->

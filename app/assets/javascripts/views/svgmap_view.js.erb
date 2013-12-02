@@ -18,26 +18,25 @@ App.SvgmapView = Ember.View.extend({
 		    },
 		    cursor:'pointer',
 		    zoom: true, 
-		    zoomLimit: [0,5],
+		    zoomLimit: [0,16],
 		    zoomDelta: 1.2,
 		    zoomButtons: {'show': true, 'location': 'left'},
 		    pan: true, 
 		    panLimit: true,
 		    responsive: true,
 		    onClick: function(event, mapsvg){ 
-		    	var newName = prompt('What is the name?');
 		    	var path = this;
+		    	var id = this.node.id.split('t', 2)[1];
 		    	view.newObj = {
-		    		name: newName, 
-		    		node: path.node
+		    		id: id
 		    	};
+		    	view.get('controller').send('selectStand', id);
 		    	console.log(view.newObj);
 		    },
 		    mouseOver: function(event, mapsvg){ 
 		    	this.toFront();
 		    	this.attr({stroke: 'rgb(37,206,152)', 'stroke-width': 2});
 		    	view.currentObject =  this;
-		    	
 		    },
 		    mouseOut:  function(event, mapsvg){
 		    	this.attr({stroke: "rgb(28,29,31)", 'stroke-width': 1});

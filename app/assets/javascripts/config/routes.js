@@ -115,7 +115,7 @@ if (window.history && window.history.pushState) {
     this.route('login');
     this.route('registration');
     this.route('tickets');
-    this.route('admin');
+    // this.route('admin');
     this.resource('articles', function() {
       this.route('show', {
         path: '/:article_id'

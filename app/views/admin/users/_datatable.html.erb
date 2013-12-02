@@ -1,0 +1,41 @@
+<!--BEGIN datatable-->
+<div class="table-responsive">
+    <table id="example-datatable" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Created</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% model.each do |item| %>
+            <tr>
+                <td class="text-center">
+                <%= item.id %>
+                </td>
+                <td><%= item.name %></td>
+                <td class="text-center"><a href="mailto:<%= item.email %>"><%= item.email %></a></td>
+                <td><%= item.created_at %></td>
+                
+                <td class="text-center">
+                    <div class="btn-group">
+                    <%= link_to admin_user_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "View" do %>
+                        <i class="fa fa-eye"></i>
+                    <% end %>
+                        <%= link_to edit_admin_user_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Edit" do %>
+                            <i class="fa fa-pencil"></i>
+                        <% end %>
+                        <%= link_to admin_user_path(item), method: :delete, data: { confirm: "Are you sure you want to remove this user?" }, :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Remove", :remote => true do %>
+                            <i class="fa fa-times"></i>
+                        <% end %>
+                    </div>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<!--END datatable-->

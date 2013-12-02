@@ -1,0 +1,36 @@
+<script>
+    $(function() {
+        /* Save buttons (remember me and terms) and hidden checkboxes in variables */
+        var checkR = $('#login-remember'),
+            checkT = $('#register-terms'),
+            btnR = $('#btn-remember'),
+            btnT = $('#btn-terms');
+
+        // Add the 'active' class to button if their checkbox has the property 'checked'
+        if (checkR.prop('checked'))
+            btnR.addClass('active');
+        if (checkT.prop('checked'))
+            btnT.addClass('active');
+
+        // Toggle 'checked' property of hidden checkboxes when buttons are clicked
+        btnR.on('click', function() {
+            checkR.prop('checked', !checkR.prop('checked'));
+        });
+        btnT.on('click', function() {
+            checkT.prop('checked', !checkT.prop('checked'));
+        });
+
+        /* Login & Register show-hide */
+        var formLogin = $('#form-login'),
+            formRegister = $('#form-register');
+
+        $('#link-login').click(function() {
+            formLogin.slideUp(250);
+            formRegister.slideDown(250);
+        });
+        $('#link-register').click(function() {
+            formRegister.slideUp(250);
+            formLogin.slideDown(250);
+        });
+    });
+</script>
