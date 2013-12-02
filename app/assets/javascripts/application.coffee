@@ -8,7 +8,8 @@
 #= require auth
 #= require ember-auth-rails-demo
 #= require hooks
-#= require_tree .
+#= require auth
+#= require store
 #= require_tree ./vendor
 window.App = Em.Application.create()
 #= require_tree ./config
