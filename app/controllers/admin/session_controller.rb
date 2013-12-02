@@ -6,12 +6,14 @@ module Admin
 	    if user && user.authenticate(params[:password]) && user.role === 'admin'
 	      # Save the user ID in the session so it can be used in
 	      # subsequent requests
-	      session[:current_user_id] = user.id
-	      session[:current_user_role] = user.role
-	      puts session.size
-	      puts Rails.application.config.session_options[:key]
-	      puts session
-	      redirect_to '/admin'
+	      if token.nil?
+	      	puts 'user needs to login in the frontend first'
+	      	redirect_to admin_login_path
+	      else
+		      @key = ApiKey.create(:access_token => token)
+		      @key.save
+		      redirect_to '/admin/home/' + token
+	  	  end
 	    else
 	      flash[:notice] = "Incorrect username or password."
 	      redirect_to admin_login_path
@@ -20,6 +22,15 @@ module Admin
 	  def destroy
 	  	session[:current_user_id] = nil
 	  	redirect_to '/'
+	  end
+	  def token
+	    access_token = request.cookies["access_token"]
+
+	    if access_token.present?
+	      access_token
+	    else
+	      nil
+	    end
 	  end
 	end
 end

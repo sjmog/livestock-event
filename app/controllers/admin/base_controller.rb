@@ -9,7 +9,7 @@ module Admin
       resource = controller_name.singularize.to_sym
       method = "#{resource}_params"
       params[resource] &&= send(method) if respond_to?(method, true)
-      ensure_authenticated_user
+      # ensure_authenticated_user
     end
 
     # Redirects to login if admin is not authorized
@@ -17,7 +17,7 @@ module Admin
       puts session.size
       puts request.session_options[:id]
       puts Rails.application.config.session_options[:key]
-      if session[:current_user_id] 
+      if current_user
         if session[:current_user_role] === "admin"
           puts 'user authenticated admin, redirecting to main'
         else
@@ -41,17 +41,41 @@ module Admin
         set_collection_ivar(coll)
       end
     end
+    # Parses the access token from the header
+      def token
+        access_token = request.cookies["access_token"]
 
-    # Returns the active user associated with the access token if available
-    def current_user
-      api_key = ApiKey.active.where(access_token: token).first
-      if api_key
-        puts api_key.user.id
-        return api_key.user
-      else
-        return nil
+        if access_token.present?
+          access_token
+        else
+          nil
+        end
       end
-    end
+      private
+       
+        # Finds the API key and returns its associated user.
+        # Uses the unique request cookie in the header to figure out who the user is
+        def current_user
+          api_key = ApiKey.active.where(access_token: token).first
+          if api_key
+            puts api_key.user.id
+            if api_key.user.role === "admin"
+              return api_key.user
+            else
+              return nil
+            end
+          else
+            if session[:current_user_id]
+              if User.find(session[:current_user_id]).role === "admin"
+                return User.find(session[:current_user_id])
+              else
+                return nil
+              end
+            else
+              return nil
+            end
+          end
+        end
 
     # in admin/base_controller.rb
     def current_ability

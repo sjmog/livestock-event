@@ -4,7 +4,6 @@ class Ability
   def initialize(user)
     user ||= User.new
     puts user.id
-    can :manage, :all
     # can :manage, [Article, Testimonial, Contractor, Booking, Stand, User, Order, Supporter]
     can :read, [Article, Contractor, Testimonial, Stand, Supporter]
     can :create, User

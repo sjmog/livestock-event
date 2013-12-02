@@ -5,11 +5,20 @@ class ApplicationController < ActionController::Base
     resource = controller_name.singularize.to_sym
     method = "#{resource}_params"
     params[resource] &&= send(method) if respond_to?(method, true)
+    _set_current_session
   end
 
-  
 
   protected
+  def _set_current_session
+    # Define an accessor. The session is always in the current controller
+    # instance in @_request.session. So we need a way to access this in
+    # our model
+    accessor = instance_variable_get(:@_request)
+
+    # Allows the CanCan::Ability class to access the session for ID purposes
+    CanCan::Ability.send(:define_method, "session", proc {accessor.session})
+  end
 
   # Renders a 401 status code if the current user or admin is not authorized
   def ensure_authenticated_user
@@ -30,7 +39,11 @@ class ApplicationController < ActionController::Base
       puts api_key.user.id
       return api_key.user
     else
-      return nil
+      if session[:current_user_id]
+        return User.find(session[:current_user_id])
+      else
+        return nil
+      end
     end
   end
    

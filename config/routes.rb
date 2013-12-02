@@ -71,6 +71,8 @@ post 'charges' => 'charges#create'
 
   get '/admin', :to => 'admin#main'
 
+  get '/admin/home/:token', :to => 'admin#main'
+
   get '/admin/login', :to => 'admin#login'
 
 

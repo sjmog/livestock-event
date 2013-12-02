@@ -7,9 +7,10 @@ class AdminController < ApplicationController
   # Redirects to the login screen if the current user or admin is not authorized
   def ensure_authenticated_user
   	puts session.size
+  	puts token
   	puts request.session_options[:id]
   	puts Rails.application.config.session_options[:key]
-    if session[:current_user_id]
+    if current_user
     	puts 'user authenticated, redirecting to main'
     else
 
@@ -20,14 +21,34 @@ class AdminController < ApplicationController
   end
   def login
   end
+
+
+
+  # Parses the access token from the header
+  def token
+    access_token = request.cookies["access_token"]
+
+    if access_token.present?
+      access_token
+    else
+      nil
+    end
+  end
   private
    
-    # Finds the User with the ID stored in the session with the key
-    # :current_user_id This is a common way to handle user login in
-    # a Rails application; logging in sets the session value and
-    # logging out removes it.
+    # Finds the API key and returns its associated user.
+    # Uses the unique request cookie in the header to figure out who the user is
     def current_user
-      @_current_user ||= session[:current_user_id] &&
-        User.find_by(id: session[:current_user_id])
+      api_key = ApiKey.active.where(access_token: token).first
+      if api_key
+        puts api_key.user.id
+        return api_key.user
+      else
+        if session[:current_user_id]
+          return User.find(session[:current_user_id])
+        else
+          return nil
+        end
+      end
     end
 end
