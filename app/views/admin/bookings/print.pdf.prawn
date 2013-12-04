@@ -21,6 +21,161 @@ def stand_type(booking)
 	end		
 end
 
+#Sorting any 'nil' fields
+
+  unless @booking.company_name.nil? || @booking.company_name === 0
+  else
+  	@booking.company_name === ""
+  end
+ unless @booking.corporate_membership.nil? || @booking.corporate_membership === 0
+ else
+ 	@booking.corporate_membership === false
+ end
+  unless @booking.correspondence_address.nil? || @booking.correspondence_address === 0
+  else
+  	@booking.correspondence_address === ""
+  end
+  unless @booking.invoice_address.nil? || @booking.invoice_address === 0
+  else
+  	@booking.invoice_address === ""
+  end
+ unless @booking.tc_agreed.nil? || @booking.tc_agreed === 0
+ else
+ 	@booking.tc_agreed === false
+ end
+  unless @booking.show_area.nil? || @booking.show_area === 0
+  else
+  	@booking.show_area === ""
+  end
+  unless @booking.stand_type.nil? || @booking.stand_type === 0
+  else
+  	@booking.stand_type === ""
+  end
+ unless @booking.frontage.nil? || @booking.frontage === 0
+ else
+ 	@booking.frontage === ""
+ end
+ unless @booking.depth.nil? || @booking.depth === 0
+ else
+ 	@booking.depth === ""
+ end
+  unless @booking.position.nil? || @booking.position === 0
+  else
+  	@booking.position === ""
+  end
+  unless @booking.breed_society.nil? || @booking.breed_society === 0
+  else
+  	@booking.breed_society === ""
+  end
+  unless @booking.zone.nil? || @booking.zone === 0
+  else
+  	@booking.zone === ""
+  end
+ unless @booking.requires_leaflets.nil? || @booking.requires_leaflets === 0
+ else
+ 	@booking.requires_leaflets === false
+ end
+ unless @booking.number_leaflets.nil? || @booking.number_leaflets === 0
+ else
+ 	@booking.number_leaflets === ""
+ end
+ unless @booking.pdf_leaflet.nil? || @booking.pdf_leaflet === 0
+ else
+ 	@booking.pdf_leaflet === false
+ end
+ unless @booking.machinery_motion.nil? || @booking.machinery_motion === 0
+ else
+ 	@booking.machinery_motion === false
+ end
+ unless @booking.mobile_unit.nil? || @booking.mobile_unit === 0
+ else
+ 	@booking.mobile_unit === false
+ end
+ unless @booking.livestock_stand.nil? || @booking.livestock_stand === 0
+ else
+ 	@booking.livestock_stand === false
+ end
+ unless @booking.new_products.nil? || @booking.new_products === 0
+ else
+ 	@booking.new_products === false
+ end
+ unless @booking.philip_award.nil? || @booking.philip_award === 0
+ else
+ 	@booking.philip_award === false
+ end
+ unless @booking.livestock_award.nil? || @booking.livestock_award === 0
+ else
+ 	@booking.livestock_award === false
+ end
+ unless @booking.exports.nil? || @booking.exports === 0
+ else
+ 	@booking.exports === false
+ end
+ unless @booking.exhibitor_list.nil? || @booking.exhibitor_list === 0
+ else
+ 	@booking.exhibitor_list === false
+ end
+  unless @booking.contact_name.nil? || @booking.contact_name === 0
+  else
+  	@booking.contact_name === ""
+  end
+  unless @booking.telephone.nil? || @booking.telephone === 0
+  else
+  	@booking.telephone === ""
+  end
+  unless @booking.email.nil? || @booking.email === 0
+  else
+  	@booking.email === ""
+  end
+  unless @booking.exhibiting_name.nil? || @booking.exhibiting_name === 0
+  else
+  	@booking.exhibiting_name === ""
+  end
+  unless @booking.po_number.nil? || @booking.po_number === 0
+  else
+  	@booking.po_number === ""
+  end
+  unless @booking.finance_contact.nil? || @booking.finance_contact === 0
+  else
+  	@booking.finance_contact === ""
+  end
+  unless @booking.finance_telephone.nil? || @booking.finance_telephone === 0
+  else
+  	@booking.finance_telephone === ""
+  end
+  unless @booking.contractor_company_name.nil? || @booking.contractor_company_name === 0
+  else
+  	@booking.contractor_company_name === ""
+  end
+ unless @booking.contractor_address.nil? || @booking.contractor_address === 0
+ else
+ 	@booking.contractor_address === ""
+ end
+  unless @booking.contractor_telephone.nil? || @booking.contractor_telephone === 0
+  else
+  	@booking.contractor_telephone === ""
+  end
+  unless @booking.contractor_email.nil? || @booking.contractor_email === 0
+  else
+  	@booking.contractor_email === ""
+  end
+  unless @booking.contractor_contact_name.nil? || @booking.contractor_contact_name === 0
+  else
+  	@booking.contractor_contact_name === ""
+  end
+ unless @booking.placements.nil? || @booking.placements === 0
+ else
+ 	@booking.placements === false
+ end
+  unless @booking.stand_number.nil? || @booking.stand_number === 0
+  else
+  	@booking.stand_number === ""
+  end
+ unless @booking.requirements.nil? || @booking.requirements === 0
+ else
+ 	@booking.requirements === ""
+ end
+
 prawn_document() do |pdf|
 
 
