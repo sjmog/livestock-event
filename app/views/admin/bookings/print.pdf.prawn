@@ -96,7 +96,9 @@ prawn_document() do |pdf|
 
        	pdf.text "Invoice Address: ", :align => :left, :size => 10, :style => :italic, :color => "#AAAAAA"
         	pdf.move_up 10
-        	pdf.text @booking.invoice_address, :align => :center
+        	unless @booking.invoice_address.nil? || @booking.invoice_address === 0
+        		pdf.text @booking.invoice_address, :align => :center
+        	end
         end
         
 
