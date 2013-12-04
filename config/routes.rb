@@ -60,6 +60,9 @@ post 'charges' => 'charges#create'
       post 'contractors/:id' => 'contractors#update'
       post 'supporters/:id' => 'supporters#update'
       post 'session' => 'session#create'
+
+      #printing
+      get '/bookings/:id/print', to: 'bookings#print', as: :print_booking
   end
 
 
@@ -74,6 +77,8 @@ post 'charges' => 'charges#create'
   get '/admin/home/:token', :to => 'admin#main'
 
   get '/admin/login', :to => 'admin#login'
+
+
 
 
 

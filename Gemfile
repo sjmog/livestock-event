@@ -20,6 +20,9 @@ gem 'encryptor' #better encryption wrapper for OpenSSL
 gem 'figaro' #easy environment-specific variables
 gem 'simple_form' #super-simple form scaffolding
 gem 'formtastic' #slightly more powerful (and namespaced) rails forms
+gem 'local_time' #37Signals being wicked awesome and making a local time formatter
+gem 'analytics-ruby', '<1.0' #sexy analytics through segment.io
+gem 'prawn_rails' #PDF generation
 
 
 group :production do

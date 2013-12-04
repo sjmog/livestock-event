@@ -5,6 +5,108 @@ module Admin
 
     actions :index, :show, :create, :new, :update, :destroy
 
+    def print
+      @booking = Booking.find(params[:id])
+      @base_price = base_price(@booking)
+      @surcharge = surcharge(@booking)
+      @total_price = total_price(@booking)
+      @total_price_vat = total_price_vat(@booking)
+      @deposit_ex_vat = deposit_ex_vat(@booking)
+      @deposit_inc_vat = deposit_inc_vat(@booking)
+    end
+
+    def base_price(booking)
+      show_area = booking.show_area
+      stand_type = booking.stand_type
+      area = booking.frontage.to_i * booking.depth.to_i
+      breed = booking.breed_society
+      if show_area === "indoor"
+        if stand_type === "clear"
+          if area >= 200
+            return 42*area
+          else 
+            return 45*area
+          end
+        elsif stand_type === "modular"
+          return 100*area
+        else return "Error: no stand format"
+        end
+            
+      elsif show_area === "outdoor"
+        if area <100 
+          return 16*area
+        elsif area>=100 && area < 200
+          return 15*area
+        else 
+          return 14*area
+        end
+
+      elsif show_area === "machinery hall"
+        if area <100
+           return 18*area
+        elsif area>=100 && area < 200
+           return 17*area
+        else 
+           return 16*area
+        end
+
+      elsif show_area === "livestock hall"
+        if breed === "dairy"
+          return 0
+        elsif breed === "beef"
+          return 850
+        elsif breed === "sheep"
+          return 360
+        else 
+          return 0
+        end
+      else return "Error: no show area"
+      end
+    end
+
+    def surcharge(booking)
+      position = booking.position
+      show_area = booking.show_area
+      base_price = base_price(booking)
+      if show_area === "indoor"
+        if position === "standard"
+          return 0
+        elsif position === "corner"
+          return base_price * 0.1
+        elsif position === "peninsula"
+          return base_price * 0.15
+        elsif position === "island"
+          return base_price * 0.2
+        else
+          return "Error: no declared stand type"
+        end
+            
+      else
+        return 0
+      end
+    end
+
+    def total_price(booking)
+      base_price = base_price(booking)
+      surcharge = surcharge(booking)
+      return base_price + surcharge
+    end
+
+    def total_price_vat(booking)
+      total_price = total_price(booking)
+      return total_price * 1.2
+    end
+
+    def deposit_ex_vat(booking)
+      total_price = total_price(booking)
+      return total_price * 0.3
+    end
+
+    def deposit_inc_vat(booking)
+      total_price_vat = total_price_vat(booking)
+      return total_price_vat * 0.3
+    end
+
     def index
       @bookings = Booking.all
     end
