@@ -27,7 +27,7 @@
         <!-- Page content -->
         <div id="page-content" class="block">
             
-            <%= render "admin/base/header" %>
+            <%= render partial: "admin/base/header", locals: {bookings_today: @bookings_today, payments_today: @payments_today, profit_today: @profit_today, running_total: @running_total} %>
 
             <!-- Dashboard Content -->
             <div class="row gutter30">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-6">
                     
-                    <%= render "admin/base/pie_stats" %>
+                    <%= render partial: "admin/base/pie_stats", locals: {legend_1: "INDOOR", legend_2: "OUTDOOR", legend_3: "MACHINERY HALL", legend_4: "LIVESTOCK HALL", stat_1: @indoor_space, stat_2: @outdoor_space, stat_3: @machinery_hall_space, stat_4: "0"} %>
 
                     <%= render "admin/base/graph_stats" %>
 

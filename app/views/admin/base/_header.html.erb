@@ -19,12 +19,28 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <a href="admin/bookings" class="header-link">
-                                <h1 class="animation-pullDown">12<br><small>Bookings Today</small></h1>
+                                <h1 class="animation-pullDown"><%= bookings_today.size %><br>
+                                <small>
+                                <%= if bookings_today.size === 1
+                                        'Booking today'
+                                    else
+                                        'Bookings Today'
+                                    end
+                                    %>
+                                </small></h1>
                             </a>
                         </div>
                         <div class="col-xs-6">
                             <a href="admin/orders" class="header-link">
-                                <h1 class="animation-pullDown">5<br><small>Payments Today</small></h1>
+                                <h1 class="animation-pullDown"><%= payments_today.size %><br>
+                                <small>
+                                <%= if payments_today.size === 1
+                                        'Payment today'
+                                    else
+                                        'Payments Today'
+                                    end
+                                    %>
+                                </small></h1>
                             </a>
                         </div>
                     </div>
@@ -35,12 +51,12 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <a href="https://manage.stripe.com/login" class="header-link">
-                                <h1 class="animation-pullDown">£8,446<br><small>Profit Today</small></h1>
+                                <h1 class="animation-pullDown"><%= number_to_currency(profit_today, locale: :en, unit: "£") %><br><small>Profit Today</small></h1>
                             </a>
                         </div>
                         <div class="col-xs-6">
                             <a href="https://manage.stripe.com/login" class="header-link">
-                                <h1 class="animation-pullDown">£77,912<br><small>Running Total</small></h1>
+                                <h1 class="animation-pullDown"><%= number_to_currency(running_total, locale: :en, unit: "£") %><br><small>Running Total</small></h1>
                             </a>
                         </div>
                     </div>

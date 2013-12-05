@@ -4,6 +4,7 @@
         <thead>
             <tr>
                 <th class="text-center">Number</th>
+                <th>Show Area</th>
                 <th>Frontage</th>
                 <th>Depth</th>
                 <th>Available?</th>
@@ -18,6 +19,7 @@
             <% user = User.find(booking.user) rescue nil %>
             <tr>
                 <td class="text-center"><%= item.number %></td>
+                <td><%= item.area %></td>
                 <td><%= item.frontage %></td>
                 <td><%= item.depth %></td>
                 <td class="text-center">

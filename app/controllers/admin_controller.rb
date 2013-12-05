@@ -3,6 +3,36 @@ class AdminController < ApplicationController
   def index
   end
   def main
+    @bookings_today = Booking.where("created_at >= :today", {today: Date.today})
+    @bookings_today ||= []
+
+    @payments_today = Order.where("created_at >= :today", {today: Date.today})
+    @payments_today ||= []
+
+    @profit_today = 0
+    @payments_today.each do |payment|
+      @profit_today += payment.amount if payment.status === "paid"
+    end
+
+    @payments = Order.find(:all)
+    @running_total = 0
+    @payments.each do |payment|
+      @running_total += payment.amount if payment.status === "paid"
+    end
+
+    indoor_stands = Stand.where('area = ?', 'indoor')
+    indoor_taken = Stand.where('area = ? AND taken = ?', 'indoor', true)
+    @indoor_space = (indoor_taken.size / indoor_stands.size) * 100
+
+    outdoor_stands = Stand.where('area = ?', 'outdoor')
+    outdoor_taken = Stand.where('area = ? AND taken = ?', 'outdoor', true)
+    @outdoor_space = (outdoor_taken.size / outdoor_stands.size) * 100
+
+    machinery_hall_stands = Stand.where('area = ?', 'machinery hall')
+    machinery_hall_taken = Stand.where('area = ? AND taken = ?', 'machinery hall', true)
+    @machinery_hall_space = (machinery_hall_stands.size / machinery_hall_stands.size) * 100
+
+
   end
   # Redirects to the login screen if the current user or admin is not authorized
   def ensure_authenticated_user
