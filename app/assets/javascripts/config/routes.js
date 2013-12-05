@@ -8,6 +8,8 @@ if (window.history && window.history.pushState) {
   });
 
   App.Router.map(function() {
+    //dummy route for admin
+    this.route('admin');
     this.route('svgmap');
     this.resource('contractors', function() {
       this.route('index', {
