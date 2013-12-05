@@ -70,6 +70,8 @@ post 'charges' => 'charges#create'
 
   get '/', :to => 'home#index', :constraints => FormatTest.new(:html)
 
+
+
   get '/paid', :to => 'backends#sagepay_return'
 
   get '/admin', :to => 'admin#main'
@@ -77,6 +79,8 @@ post 'charges' => 'charges#create'
   get '/admin/home/:token', :to => 'admin#main'
 
   get '/admin/login', :to => 'admin#login'
+
+  get '/*foo', :to => 'home#index', :constraints => FormatTest.new(:html)
 
 
 
