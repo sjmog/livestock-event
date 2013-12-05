@@ -11,13 +11,13 @@ class AdminController < ApplicationController
 
     @profit_today = 0
     @payments_today.each do |payment|
-      @profit_today += payment.amount if payment.status === "paid"
+      @profit_today += payment.amount if payment.status === "deposit paid"
     end
 
     @payments = Order.find(:all)
     @running_total = 0
     @payments.each do |payment|
-      @running_total += payment.amount if payment.status === "paid"
+      @running_total += payment.amount if payment.status === "deposit paid"
     end
 
     indoor_stands = Stand.where('area = ?', 'indoor')
