@@ -22,15 +22,17 @@ class AdminController < ApplicationController
 
     indoor_stands = Stand.where('area = ?', 'indoor')
     indoor_taken = Stand.where('area = ? AND taken = ?', 'indoor', true)
-    @indoor_space = (indoor_taken.size / indoor_stands.size) * 100
+    @indoor_space = ((indoor_taken.size.to_f / indoor_stands.size.to_f) * 100).round
+    
 
     outdoor_stands = Stand.where('area = ?', 'outdoor')
     outdoor_taken = Stand.where('area = ? AND taken = ?', 'outdoor', true)
-    @outdoor_space = (outdoor_taken.size / outdoor_stands.size) * 100
+    @outdoor_space = ((outdoor_taken.size.to_f / outdoor_stands.size.to_f) * 100).round
+    
 
     machinery_hall_stands = Stand.where('area = ?', 'machinery hall')
     machinery_hall_taken = Stand.where('area = ? AND taken = ?', 'machinery hall', true)
-    @machinery_hall_space = (machinery_hall_stands.size / machinery_hall_stands.size) * 100
+    @machinery_hall_space = ((machinery_hall_taken.size.to_f / machinery_hall_stands.size.to_f) * 100).round
 
 
   end
