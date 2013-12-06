@@ -86,6 +86,8 @@ module EmberAuthRailsDemo
     # Precompile additional assets
     config.assets.precompile += %w( .svg .eot .woff .ttf ) 
 
+    
+
     # filepicker.io API key
     config.filepicker_rails.api_key = "Aie8gfPORKaz1u4LnppPGz"
 

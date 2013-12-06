@@ -8,3 +8,7 @@ end
 task :send_reminders => :environment do
   User.send_reminders
 end
+
+task :get_social do
+	ruby "lib/tasks/fetch_social.rb"
+end

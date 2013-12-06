@@ -23,6 +23,9 @@ gem 'formtastic' #slightly more powerful (and namespaced) rails forms
 gem 'local_time' #37Signals being wicked awesome and making a local time formatter
 gem 'analytics-ruby', '<1.0' #sexy analytics through segment.io
 gem 'prawn_rails' #PDF generation
+gem 'sunspot_rails' #powerful search & indexing...
+gem 'sunspot_solr' #...using Apache's Solr search API
+gem 'whenever' # Easy CRON jobs
 
 
 group :production do
@@ -35,6 +38,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
+  gem 'yui-compressor'
 end
 
 group :development, :test do
@@ -60,7 +64,7 @@ gem 'emblem-rails'             # easier to write templates
 gem 'ember-source', '>= 1.0.0.rc6.2'
 
 gem 'koala' #nice Facebook API, https://github.com/arsduo/koala/wiki
-gem 'twitter' #nice Twitter API, http://rdoc.info/gems/twitter
+gem 'twitter', '>= 5.0.0.rc.1' #nice Twitter API, http://rdoc.info/gems/twitter
 gem 'linkedin' #nice LinkedIn API, https://github.com/hexgnu/linkedin
 
 gem 'unicorn'                  # better server gem for heroku

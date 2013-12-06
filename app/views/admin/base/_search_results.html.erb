@@ -1,0 +1,295 @@
+
+<!-- Search Styles Content -->
+<div class="tab-content">
+    <!-- Project Search -->
+    <div class="tab-pane active" id="search-tab-project">
+
+        <% if results_number != 0 %>
+        <!-- Search Info - Pagination -->
+        <div class="block-section clearfix">
+            <% if pagination %>
+            <ul class="pagination remove-margin pull-right">
+                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
+                <li class="active"><a href="javascript:void(0)">1</a></li>
+                <li><a href="javascript:void(0)">2</a></li>
+                <li><a href="javascript:void(0)">3</a></li>
+                <li><a href="javascript:void(0)">&raquo;</a></li>
+            </ul>
+            <% end %>
+            <% if results_number === 1 %>
+            <h4><strong><%= results_number.to_s %></strong> <small>Result</small></h4>
+            <% else %>
+            <h4><strong><%= results_number.to_s %></strong> <small>Results</small></h4>
+            <% end %>
+            
+        </div>
+        <!-- END Search Info - Pagination -->
+        <% else %>
+            <div class="block-section">
+                <h4>Your search for <strong>"<%= search_term %>"</strong> did not return any results.</h4>
+            </div>
+            
+        <% end %>
+
+        <!-- The Results -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="display:none;" class="col-xs-6"></th>
+                    <th style="display:none;" class="col-xs-6 text-center"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% search_results.each do |item| %>
+                <% item_type = item.class.name %>
+                
+                <% if item_type === "Article" %>
+                <tr>
+                    <td class="col-xs-6">
+                        <h4><%= link_to admin_article_path(item), :'data-toggle' => "tooltip", :title => item_type do %><%= item.title %><% end %></h4>
+                        <p>
+                            <a href="javascript:void(0)" class="label label-danger"><%= item.author.split.map(&:capitalize).join(' ') %></a>
+                        </p>
+                        <p><em><%= truncate(item.article_content.html_safe, length:200, separator: ' ') { link_to '    <i class="fa fa-pencil"></i> '.html_safe, edit_admin_article_path(item), :'data-toggle' => "tooltip", :title => "Edit " + item_type } %></em></p>
+                    </td>
+                    <td class="col-xs-6">
+                        <!-- Results Row -->
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                
+                            </div>
+                            <div class="col-md-4">
+                                
+                            </div>
+                                <div class="col-md-4">
+                                    <% if item.image %>
+                                    <%= image_tag(item.image, :size => "100x100", :alt => ("Article image for " + item.title)) %>
+                                    <% else %>
+                                    <h2 class="text-danger">No image. <%= link_to edit_admin_article_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Add an image" do %>
+                                <i class="fa fa-pencil"></i>
+                            <% end %></h2>
+                                    <% end %>
+                                </div>
+                        </div>
+                        <!-- END Results Row -->
+                    </td>
+                </tr>
+                <% elsif item_type === "Booking" %>
+                <tr>
+                    <td class="col-xs-6">
+                        <h4><%= link_to admin_booking_path(item), :'data-toggle' => "tooltip", :title => item_type do %><%= item.company_name %><% end %></h4>
+                        <p>
+                            <a href="javascript:void(0)" class="label label-warning"><%= item.user.nil? ? 'No User' : item.user.name.split.map(&:capitalize).join(' ') %></a>
+                            <a href="javascript:void(0)" class="label label-primary"><%= item.user.nil? ? 'No Area' : item.show_area.split.map(&:capitalize).join(' ') %></a>
+                            <a href="javascript:void(0)" class="label label-danger"><%= item.user.nil? ? 'No Zone' : item.zone.split.map(&:capitalize).join(' ') %></a>
+                        </p>
+                        <p><em><%= item.notes == "" ? 'No Notes. <small>Why not <a href="/admin/bookings/' + item.id.to_s + '/edit">add some</a>?</small>'.html_safe : truncate(item.notes.to_s.html_safe, length:200, separator: ' ') { link_to '    <i class="fa fa-pencil"></i> '.html_safe, edit_admin_booking_path(item), :'data-toggle' => "tooltip", :title => "Edit Notes" } %></em></p>
+                    </td>
+                    <td class="col-xs-6">
+                        <!-- Results Row -->
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <h4>Size</h4>
+                                <h2 class=""><%= item.frontage.to_s + "m x " + item.depth.to_s + "m" %></h2>
+                            </div>
+                            <div class="col-md-4">
+                                <h4>Value</h4>
+                                <h2 class="text-primary"><%= number_to_currency(item.the_total, locale: :en, unit: "£") %></h2>
+                            </div>
+                            <div class="col-md-4">
+                                <h4>Deposit Paid?</h4>
+                                <% if item.deposit_paid %>
+                                <h2 class="text-success"><i class="fa fa-check"></i></h2>
+                                <% else %>
+                                <h2 class="text-danger"><i class="fa fa-times"></i></h2>
+                                <% end %>
+                            </div>
+                        </div>
+                        <!-- END Results Row -->
+                    </td>
+                </tr>
+                <% elsif item_type === "Contractor" %>
+                <tr>
+                    <td class="col-xs-6">
+                        <h4><%= link_to admin_contractor_path(item), :'data-toggle' => "tooltip", :title => item_type do %><%= item.company_name %><% end %></h4>
+                        <p>
+                            <a href="javascript:void(0)" class="label label-warning"><%= item.name.nil? ? '' : item.name.split.map(&:capitalize).join(' ') %></a>
+                            <a href="javascript:void(0)" class="label label-primary"><%= item.category.nil? ? 'Uncategorized' : item.category.split.map(&:capitalize).join(' ') %></a>
+                        </p>
+                        <p><em><%= item.explanation == "" ? 'No summary. <small>Why not <a href="/admin/contractors/' + item.id.to_s + '/edit">add one</a>?</small>'.html_safe : truncate(item.explanation.to_s.html_safe, length:200, separator: ' ') { link_to '    <i class="fa fa-pencil"></i> '.html_safe, edit_admin_contractor_path(item), :'data-toggle' => "tooltip", :title => "Edit Summary" } %></em></p>
+                    </td>
+                    <td class="col-xs-6">
+                        <!-- Results Row -->
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                
+                            </div>
+                            <div class="col-md-4">
+                                
+                            </div>
+                            <div class="col-md-4">
+                                <% if item.image %>
+                                <%= image_tag(item.image, :size => "80x80", :alt => ("Contractor image for " + item.name)) %>
+                                <% else %>
+                                <h2 class="text-danger">No image. <%= link_to edit_admin_contractor_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Add an image" do %>
+                            <i class="fa fa-pencil"></i>
+                        <% end %></h2>
+                                <% end %>
+                            </div>
+                        </div>
+                        <!-- END Results Row -->
+                    </td>
+                </tr>
+                <% elsif item_type === "Supporter" %>
+                <tr>
+                    <td class="col-xs-6">
+                        <h4><%= link_to admin_supporter_path(item), :'data-toggle' => "tooltip", :title => item_type do %><%= item.company_name %><% end %></h4>
+                        <p>
+                            <a href="javascript:void(0)" class="label label-warning"><%= item.name.nil? ? '' : item.name.split.map(&:capitalize).join(' ') %></a>
+                            <a href="javascript:void(0)" class="label label-primary"><%= item.category.nil? ? 'Uncategorized' : item.category.split.map(&:capitalize).join(' ') %></a>
+                        </p>
+                        <p><em><%= item.explanation == "" ? 'No summary. <small>Why not <a href="/admin/supporters/' + item.id.to_s + '/edit">add one</a>?</small>'.html_safe : truncate(item.explanation.to_s.html_safe, length:200, separator: ' ') { link_to '    <i class="fa fa-pencil"></i> '.html_safe, edit_admin_supporter_path(item), :'data-toggle' => "tooltip", :title => "Edit Summary" } %></em></p>
+                    </td>
+                    <td class="col-xs-6">
+                        <!-- Results Row -->
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                
+                            </div>
+                            <div class="col-md-4">
+                                
+                            </div>
+                            <div class="col-md-4">
+                                <% if item.image %>
+                                <%= image_tag(item.image, :size => "80x80", :alt => ("Suporter image for " + item.name)) %>
+                                <% else %>
+                                <h2 class="text-danger">No image. <%= link_to edit_admin_supporter_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Add an image" do %>
+                            <i class="fa fa-pencil"></i>
+                        <% end %></h2>
+                                <% end %>
+                            </div>
+                        </div>
+                        <!-- END Results Row -->
+                    </td>
+                </tr>
+                <% elsif item_type === "Order" %>
+                <tr>
+                    <td class="col-xs-6">
+                        <h4><%= link_to admin_order_path(item), :'data-toggle' => "tooltip", :title => item_type do %><%= item.billing_firstnames + " " + item.billing_surname %><% end %></h4>
+                        <p>
+                            <a href="javascript:void(0)" class="label label-primary">Created at: <%= item.created_at %></a>
+                            <a href="javascript:void(0)" class="label label-success">Last updated: <%= item.updated_at %></a>
+                        </p>
+                    </td>
+                    <td class="col-xs-6">
+                        <!-- Results Row -->
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <h4>Amount</h4>
+                                <h2 class=""><%= number_to_currency(item.amount, locale: :en, unit: "£") %></h2>
+                            </div>
+                            <div class="col-md-4">
+                                <h4>User ID</h4>
+                                <h2 class="text-primary">
+                                    <%= link_to admin_user_path(User.find(item.user_id)), :'data-toggle' => "tooltip", :title => "View User" do %>
+                                        <%= item.user_id %>
+                                    <% end %>
+                                    </h2>
+                            </div>
+                            <div class="col-md-4">
+                                <h4>Deposit Paid?</h4>
+                                <% if item.status == "paid" %>
+                                <h2 class="text-success"><i class="fa fa-check"></i></h2>
+                                <% else %>
+                                <h2 class="text-danger"><i class="fa fa-times"></i></h2>
+                                <% end %>
+                            </div>
+                        </div>
+                        <!-- END Results Row -->
+                    </td>
+                </tr>
+                <% elsif item_type === "Testimonial" %>
+                <tr>
+                    <td class="col-xs-6">
+                        <h4><%= link_to admin_testimonial_path(item), :'data-toggle' => "tooltip", :title => item_type do %><%= item.attribution %><% end %></h4>
+                        <p>
+                            <a href="javascript:void(0)" class="label label-primary"><%= item.location %></a>
+                            <a href="javascript:void(0)" class="label label-primary">Category: <%= item.category.capitalize %></a>
+                        </p>
+                        <p><em>"<%= truncate(item.quote.html_safe, length:200, separator: ' ') { link_to '    <i class="fa fa-pencil"></i> '.html_safe, edit_admin_testimonial_path(item), :'data-toggle' => "tooltip", :title => "Edit " + item_type } %>"</em></p>
+                    </td>
+                    <td class="col-xs-6">
+                        <!-- Results Row -->
+                        <div class="row text-center">
+                            <div class="col-md-6">
+                                <h4>CTA ROUTE</h4>
+                                <h2 class="text-success"><%= item.call_route %></h2>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>CTA ICON</h4>
+                                <h2 class="text-primary"><%= item.call_icon %></h2>
+                            </div>
+                        </div>
+                        <!-- END Results Row -->
+                    </td>
+                </tr>
+                <% elsif item_type === "User" %>
+                <tr>
+                    <td class="col-xs-6">
+                        <h4><%= link_to admin_user_path(item), :'data-toggle' => "tooltip", :title => item_type do %><%= item.name %><% end %></h4>
+                        <p>
+                            <a href="javascript:void(0)" class="label label-primary">Created at: <%= item.created_at %></a>
+                            <a href="javascript:void(0)" class="label label-danger"><%= item.role.capitalize %></a>
+                            <a href="javascript:void(0)" class="label label-warning">Last sign-in: <%= item.last_sign_in_at %></a>
+                        </p>
+                    </td>
+                    <td class="col-xs-6">
+                        <!-- Results Row -->
+                        <div class="row text-center">
+                            <div class="col-md-6">
+                                <h4>BOOKINGS</h4>
+                                <h2 class="">
+                                <% item.bookings.each do |booking| %>
+                                <%= link_to admin_booking_path(Booking.find(booking.id)), :'data-toggle' => "tooltip", :title => "View Booking" do %>
+                                    <%= booking.id %>
+                                    <% end %>
+                                    , 
+                                <% end %>
+                                </h2>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>SIGNED IN?</h4>
+                                <% unless item.current_sign_in_at.nil? %>
+                                <h2 class="text-success"><i class="fa fa-check"></i></h2>
+                                <% else %>
+                                <h2 class="text-danger"><i class="fa fa-times"></i></h2>
+                                <% end %>
+                            </div>
+                        </div>
+                        <!-- END Results Row -->
+                    </td>
+                </tr>
+                <% else %>
+                <tr>Tried to load an unspecified model ('<%= item.item_type %>'). Please let the developers know.</tr>
+                <% end %>
+                <% end %>
+            </tbody>
+        </table>
+        <!-- END The Results -->
+        <% if pagination %>
+        <!-- Bottom Navigation -->
+        <div class="block-section text-right">
+            <ul class="pagination remove-margin">
+                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
+                <li class="active"><a href="javascript:void(0)">1</a></li>
+                <li><a href="javascript:void(0)">2</a></li>
+                <li><a href="javascript:void(0)">3</a></li>
+                <li><a href="javascript:void(0)">&raquo;</a></li>
+            </ul>
+        </div>
+        <!-- END Bottom Navigation -->
+        <% end %>
+    </div>
+    <!-- END Project Search -->
+</div>
+<!-- END Search Styles -->

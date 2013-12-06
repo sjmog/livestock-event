@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   has_many :bookings, inverse_of: :user
   has_many :orders
 
+  searchable do
+    text :name, :email
+  end
+
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true
 

@@ -80,6 +80,10 @@ post 'charges' => 'charges#create'
 
   get '/admin/login', :to => 'admin#login'
 
+  post '/admin/search', :to => 'admin#search'
+
+  get '/admin/search', :to => 'admin#search', as: :admin_search_results
+
   get '/*foo', :to => 'home#index', :constraints => FormatTest.new(:html)
 
 

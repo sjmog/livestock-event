@@ -5,9 +5,12 @@
     <!-- Sidebar Content -->
     <div class="sidebar-content">
         <!-- Search Form -->
-        <form action="page_ready_search_results.html" method="post" class="sidebar-search">
-            <input type="text" id="sidebar-search-term" name="sidebar-search-term" placeholder="Search..">
-        </form>
+        <%= form_tag('/admin/search', class: "sidebar-search") do %>
+        
+            <%= text_field_tag 'term', nil, class: "form-control", placeholder: "Search...", id: "sidebar-search-term" %>
+            
+       
+        <% end %>
         <!-- END Search Form -->
 
         <!-- Wrapper for scrolling functionality -->

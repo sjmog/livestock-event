@@ -2,6 +2,91 @@ class AdminController < ApplicationController
   before_filter :ensure_authenticated_user, :only => :main
   def index
   end
+  def search
+    @search_term = params[:term]
+    @constraint = params[:constraint]
+    @search = retrieve_records(params[:constraint], params[:term])
+    @search_results = @search.results
+    @results_number = @search.total
+    @pagination = false
+
+  end
+  def search_ajax
+    @search_term = params[:term]
+    @constraint = params[:constraint]
+    @search = retrieve_records(params[:constraint], params[:term])
+    @search_results = @search.results
+    @results_number = @search.total
+    @pagination = false
+    render json: {"results_number" => @results_number, "search_results" => @search.results}, status: 201
+  end
+  def retrieve_records(constraint, search_term)
+    case constraint
+    when "Bookings"
+      @search = Booking.search do
+        keywords search_term do
+          boost_fields :company_name => 2.0
+          boost_fields :contact_name => 2.0
+          boost_fields :exhibiting_name => 2.0
+        end
+      end
+      return @search
+    when "Payments"
+      @search = Order.search do
+        keywords search_term do
+          boost_fields :title => 2.0
+        end
+      end
+      return @search
+    when "Users"
+      @search = User.search do
+        keywords search_term do
+          boost_fields :title => 2.0
+        end
+      end
+      return @search
+    when "Livestock Bookings"
+      @search = []
+      return @search
+    when "Ticket Purchases"
+      @search = []
+      return @search
+    when "Testimonials"
+      @search = Testimonial.search do
+        keywords search_term do
+          boost_fields :title => 2.0
+        end
+      end
+      return @search
+    when "News"
+      @search = Article.search do
+        keywords search_term do
+          boost_fields :title => 2.0
+        end
+      end
+      return @search
+    when "Supporters"
+      @search = Supporter.search do
+        keywords search_term do
+          boost_fields :title => 2.0
+        end
+      end
+      return @search
+    when "Contractors"
+      @search = Contractor.search do
+        keywords search_term do
+          boost_fields :title => 2.0
+        end
+      end
+      return @search
+    else
+      @search = Sunspot.search Booking, Order, User, Testimonial, Article, Supporter, Contractor do |query| 
+        query.keywords search_term
+        query.paginate(:page => params[:page], :per_page => 20)
+      end
+      return @search
+    end
+  end
   def main
     @bookings_today = Booking.where("created_at >= :today", {today: Date.today})
     @bookings_today ||= []

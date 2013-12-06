@@ -1,6 +1,9 @@
 class Order < ActiveRecord::Base
 	resourcify
 	belongs_to :booking, inverse_of: :orders
+	searchable do
+		text :billing_surname, :billing_firstnames, :delivery_surname, :delivery_firstnames
+	end
 	def user=(param)
 		return User.find(param)
 	end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031152005) do
+ActiveRecord::Schema.define(version: 20131206140927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,7 +108,6 @@ ActiveRecord::Schema.define(version: 20131031152005) do
     t.integer  "stand_id"
     t.text     "requirements"
     t.integer  "order_id"
-    t.string   "order"
   end
 
   create_table "contractors", force: true do |t|
@@ -193,6 +192,30 @@ ActiveRecord::Schema.define(version: 20131031152005) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "social_fs", force: true do |t|
+    t.string   "user"
+    t.text     "text"
+    t.datetime "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "social_ls", force: true do |t|
+    t.string   "user"
+    t.text     "text"
+    t.datetime "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "social_ts", force: true do |t|
+    t.string   "user"
+    t.text     "text"
+    t.datetime "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stands", force: true do |t|
     t.integer  "number"

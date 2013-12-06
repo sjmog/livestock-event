@@ -1,0 +1,55 @@
+<!-- Search Form -->
+<div class="block-section">
+    <%= form_tag do %>
+        <div class="input-group input-group-lg">
+            <div class="input-group-btn">
+                <button id="constraintHolder" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <% unless constraint %>
+                Everything 
+                <% else %>
+                <%= constraint %> 
+                <% end %>
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li class="active"><a data-value="Everything" href="javascript:void(0)"><i class="fa fa-check"></i> Everything</a></li>
+                    <li class="divider"></li>
+                    <li><a data-value="Bookings" href="javascript:void(0)">Bookings</a></li>
+                    <li><a data-value="Payments" href="javascript:void(0)">Payments</a></li>
+                    <li><a data-value="Users" href="javascript:void(0)">Users</a></li>
+                    <li><a data-value="Livestock Bookings" href="javascript:void(0)">Livestock Bookings</a></li>
+                    <li><a data-value="Ticket Purchases" href="javascript:void(0)">Ticket Purchases</a></li>
+                    <li><a data-value="Testimonials" href="javascript:void(0)">Testimonials</a></li>
+                    <li><a data-value="News" href="javascript:void(0)">News</a></li>
+                    <li><a data-value="Supporters" href="javascript:void(0)">Supporters</a></li>
+                    <li><a data-value="Contractors" href="javascript:void(0)">Contractors</a></li>
+                </ul>
+            </div>
+            <%= text_field_tag 'term', nil, class: "form-control", placeholder: "Search..." %>
+            <%= hidden_field_tag 'constraint', id: "constraint" %>
+            
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-default"><i class="fa fa-search fa-fw"></i></button>
+            </div>
+        </div>
+    <% end %>
+</div>
+<!-- END Search Form -->
+<!-- Constraining search script -->
+<script type="text/javascript">
+    var $searchMenu = $('.dropdown-menu');
+    $searchMenu.find('a').click(function() {
+        var $link = $(this);
+        var linkName = $link.attr('data-value');
+        if($link.html() === linkName) {
+            $link.html("<i class='fa fa-check'></i> " + linkName);
+        }
+        $searchMenu.find('li').each(function() {
+            $(this).html($(this).attr('data-value'));
+            $(this).removeClass('active');
+        });
+        $link.parent('li').addClass('active');
+        $('#constraintHolder').html(linkName + " <span class='caret'></span>");
+        $('#constraint').val(linkName);
+    })
+</script>
+<!-- END Constraining search script -->
