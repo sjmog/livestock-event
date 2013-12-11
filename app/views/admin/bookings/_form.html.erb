@@ -8,12 +8,20 @@
 	<div class="form-group">
 		<div class="col-md-4"><%= f.input :company_name %></div>
 		<div class="col-md-4"><%= f.input :contact_name %></div>
-		<div class="col-md-4"><%= f.input :exhibiting_name %></div>
+		<div class="col-md-4"><%= f.input :exhibiting_name, input_html: {'data-toggle' => "tooltip", title: "", 'data-original-title' => "The Company Name as it should appear in the Show Guide."} %></div>
 	</div>
 	<div class="form-group">
-		<div class="col-md-4"><%= f.input :telephone %></div>
 		<div class="col-md-4">
-			<label class="tel optional control-label" for="booking_telephone">Contact e-mail</label>
+			<label class="tel optional control-label" for="booking_telephone">Telephone</label>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-phone"></i>
+				</span>
+				<%= f.input_field :telephone %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<label class="tel optional control-label" for="booking_email">Contact e-mail</label>
 			<div class="input-group">
 				<span class="input-group-addon">
 					<i class="fa fa-envelope"></i>
@@ -21,11 +29,19 @@
 				<%= f.input_field :email %>
 			</div>
 		</div>	
-		<div class="col-md-4"><%= f.input :website %></div>
+		<div class="col-md-4">
+		<label class="optional control-label" for="booking_website">Website</label>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-globe"></i>
+				</span>
+				<%= f.input_field :website %>
+			</div>
+		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-md-6"><%= f.input :corporate_membership, input_html: { class: '' }, label_html: { class: 'checkbox-inline'} %></div>
-		<div class="col-md-6"><%= f.input :tc_agreed, input_html: { class: '' },label_html: { class: 'checkbox-inline'} %></div>
+		<div class="col-md-6"><%= f.input :corporate_membership, label: 'RABDF Corporate Membership?', input_html: { class: '' }, label_html: { class: 'checkbox-inline'} %></div>
+		<div class="col-md-6"><%= f.input :tc_agreed, label: 'Booking Terms and Conditions Agreed?', input_html: { class: '' },label_html: { class: 'checkbox-inline'} %></div>
 	</div>
 	<div class="form-group">
 		<div class="col-md-12"><%= f.input :correspondence_address, as: :text %></div>
@@ -36,21 +52,21 @@
 	<div class="form-group">
 		<div class="col-md-4"><%= f.input :finance_contact %></div>
 		<div class="col-md-4"><%= f.input :finance_telephone %></div>
-		<div class="col-md-4"><%= f.input :po_number %></div>
+		<div class="col-md-4"><%= f.input :po_number, label: 'PO Number' %></div>
 	</div>
 	<div class="form-group">
-		<div class="col-md-4"><%= f.input :show_area %></div>
-		<div class="col-md-4"><%= f.input :zone %></div>
+		<div class="col-md-4"><%= f.input :show_area, input_html: {'data-toggle' => "tooltip", title: "", 'data-original-title' => "The main Show Area."}, collection: ["indoor", 'outdoor', 'machinery hall', 'livestock hall'], prompt: "Select a Show Area" %></div>
+		<div class="col-md-4"><%= f.input :zone, input_html: {'data-toggle' => "tooltip", title: "", 'data-original-title' => "If Indoor, the Zone."}, collection: ["animal health", 'business management', 'diversifarm and renewables', 'feeds and forage', 'genetics', 'housing and storage', 'livestock equipment and machinery', 'milking', 'milkmade', 'slurry, much and irrigation'], prompt: "Select a Zone" %></div>
 		<div class="col-md-4"><%= f.input :stand_number %></div>
 	</div>
 	<div class="form-group">
 		<div class="col-md-4"><%= f.input :breed_society %></div>
-		<div class="col-md-4"><%= f.input :stand_type %></div>
-		<div class="col-md-4"><%= f.input :position %></div>
+		<div class="col-md-4"><%= f.input :stand_type, collection: ["clear", 'modular'], prompt: "Select a Stand Format", label: 'Stand Format' %></div>
+		<div class="col-md-4"><%= f.input :position, collection: ["standard", 'corner', 'peninsula', 'island'], prompt: "Select a Stand Type", label: 'Stand Type' %></div>
 	</div>
 	<div class="form-group">
-		<div class="col-md-6"><%= f.input :frontage %></div>
-		<div class="col-md-6"><%= f.input :depth %></div>
+		<div class="col-md-6"><%= f.input :frontage, label: 'Frontage/m' %></div>
+		<div class="col-md-6"><%= f.input :depth, label: 'Depth/m' %></div>
 	</div>
 	<div class="form-group">
 		
@@ -66,8 +82,8 @@
 	</div>
 	<div class="form-group">
 		<div class="col-md-4"><%= f.input :requires_leaflets, input_html: { class: '' }, label_html: { class: 'checkbox-inline'} %></div>
-		<div class="col-md-4"><%= f.input :number_leaflets %></div>
-		<div class="col-md-4"><%= f.input :pdf_leaflet, input_html: { class: '' }, label_html: { class: 'checkbox-inline'} %></div>
+		<div class="col-md-4"><%= f.input :number_leaflets, label: 'Number of leaflets' %></div>
+		<div class="col-md-4"><%= f.input :pdf_leaflet, label: 'PDF Leaflet?', input_html: { class: '' }, label_html: { class: 'checkbox-inline'} %></div>
 	</div>
 	<div class="form-group">
 		<div class="col-md-4"><%= f.input :mobile_unit, input_html: { class: '' }, label_html: { class: 'checkbox-inline'} %></div>
@@ -81,7 +97,7 @@
 	</div>
 	<div class="form-group">
 		<div class="col-md-4"><%= f.input :placements, input_html: { class: '' }, label_html: { class: 'checkbox-inline'} %></div>
-		<div class="col-md-4"><%= f.input :exhibitor_list, input_html: { class: '' }, label_html: { class: 'checkbox-inline'} %></div>
+		<div class="col-md-4"><%= f.input :exhibitor_list, input_html: {'data-toggle' => "tooltip", title: "", 'data-original-title' => "If checked, the Exhibitor will appear in the public-facing Exhibitor List.", class: '' }, label_html: { class: 'checkbox-inline'} %></div>
 		<div class="col-md-4"><%= f.input :livestock_award, input_html: { class: '' }, label_html: { class: 'checkbox-inline'} %></div>
 	</div>
 	<div class="form-group">
@@ -94,10 +110,10 @@
 	</div>
 	<div class="form-group">
 		<div class="col-md-6">
-			<%= f.input :the_deposit %>
+			<%= f.input :the_deposit, label: 'Deposit' %>
 		</div>
 		<div class="col-md-6">
-			<%= f.input :the_total %>
+			<%= f.input :the_total, label: 'Total' %>
 		</div>
 		
 		
@@ -109,17 +125,6 @@
 		
 		<div class="col-md-6">
 			<%= f.input :total_paid, input_html: { class: '' }, label_html: { class: 'checkbox-inline'} %>
-		</div>
-		
-	</div>
-	<div class="form-group">
-		<div class="col-md-6">
-			<%= f.input :created_at, as: :datetime %>
-		</div>
-		<div class="col-md-6">
-		
-		
-			<%= f.input :updated_at, as: :datetime %>
 		</div>
 		
 	</div>
