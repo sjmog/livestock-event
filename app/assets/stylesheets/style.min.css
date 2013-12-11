@@ -14872,6 +14872,12 @@ div.form-actions {
   background-color: #874890;
   border-color: #47264c !important; }
 
+/*fullmap*/
+#fullMap {
+  max-width: 90%;
+  display: block;
+  margin: 20px auto; }
+
 /*massive overrides*/
 body {
   font-weight: normal !important; }

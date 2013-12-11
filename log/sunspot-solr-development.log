@@ -732,3 +732,29 @@ Dec 6, 2013 5:39:26 PM org.apache.solr.core.SolrCore execute
 INFO: [development] webapp=/solr path=/select params={fl=*+score&start=0&q=Sam+Morgan&qf=company_name_text+correspondence_address_text+invoice_address_text+show_area_text+stand_type_text+breed_society_text+zone_text+website_text+contact_name_text+telephone_text+email_text+notes_text+exhibiting_name_text+po_number_text+finance_contact_text+finance_telephone_text+requirements_text+billing_surname_text+billing_firstnames_text+delivery_surname_text+delivery_firstnames_text+name_text+attribution_text+quote_text+title_text+article_content_text+author_text+address_text+category_text&wt=ruby&fq=type:(Booking+OR+Order+OR+User+OR+Testimonial+OR+Article+OR+Supporter+OR+Contractor)&rows=20&defType=edismax} hits=6 status=0 QTime=4 
 Dec 6, 2013 5:39:51 PM org.apache.solr.core.SolrCore execute
 INFO: [development] webapp=/solr path=/select params={fl=*+score&start=0&q=Sam+Morgan&qf=company_name_text+correspondence_address_text+invoice_address_text+show_area_text+stand_type_text+breed_society_text+zone_text+website_text+contact_name_text+telephone_text+email_text+notes_text+exhibiting_name_text+po_number_text+finance_contact_text+finance_telephone_text+requirements_text+billing_surname_text+billing_firstnames_text+delivery_surname_text+delivery_firstnames_text+name_text+attribution_text+quote_text+title_text+article_content_text+author_text+address_text+category_text&wt=ruby&fq=type:(Booking+OR+Order+OR+User+OR+Testimonial+OR+Article+OR+Supporter+OR+Contractor)&rows=20&defType=edismax} hits=6 status=0 QTime=4 
+Dec 11, 2013 9:38:05 AM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {add=[User 8 (1454117681335631872)]} 0 34
+Dec 11, 2013 9:38:10 AM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=true,prepareCommit=false}
+Dec 11, 2013 9:38:10 AM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@5a8c63a6 main
+Dec 11, 2013 9:38:10 AM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 11, 2013 9:38:10 AM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@5a8c63a6 main{StandardDirectoryReader(segments_9:25:nrt _9(4.2):C34 _a(4.2):c1)}
+Dec 11, 2013 9:38:10 AM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+Dec 11, 2013 9:38:10 AM org.apache.solr.core.SolrDeletionPolicy onCommit
+INFO: SolrDeletionPolicy.onCommit: commits:num=2
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_9,generation=9,filenames=[_5.fdt, _5_Lucene41_0.tim, _5_Lucene41_0.pos, _5_Lucene41_0.tip, _7.si, _7_Lucene41_0.pos, _8.si, _7.fnm, _5.nvm, _5_Lucene41_0.doc, _5.nvd, _7_Lucene41_0.doc, _5.fnm, _6.cfe, _8.cfs, _7.fdx, _7.fdt, _6.cfs, _5.si, segments_9, _8.cfe, _7.nvd, _5.fdx, _7_Lucene41_0.tim, _6.si, _7_Lucene41_0.tip, _7.nvm]
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_a,generation=10,filenames=[_a.cfs, _9.nvd, segments_a, _9.fnm, _9.fdt, _a.si, _9_Lucene41_0.tip, _9.fdx, _9_Lucene41_0.doc, _a.cfe, _9_Lucene41_0.pos, _9.si, _9.nvm, _9_Lucene41_0.tim]
+Dec 11, 2013 9:38:10 AM org.apache.solr.core.SolrDeletionPolicy updateCommits
+INFO: newest commit = 10[_a.cfs, _9.nvd, segments_a, _9.fnm, _9.fdt, _a.si, _9_Lucene41_0.tip, _9.fdx, _9_Lucene41_0.doc, _a.cfe, _9_Lucene41_0.pos, _9.si, _9.nvm, _9_Lucene41_0.tim]
+Dec 11, 2013 9:38:10 AM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@2bf06804 main
+Dec 11, 2013 9:38:10 AM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@2bf06804 main{StandardDirectoryReader(segments_9:25:nrt _9(4.2):C34 _a(4.2):c1)}
+Dec 11, 2013 9:38:10 AM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 11, 2013 9:38:10 AM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 16

@@ -4752,6 +4752,14 @@ div.form-actions {
 	background-color:$machineryHallColour;
 	border-color:darken($machineryHallColour, 20%) !important;
 }
+
+/*fullmap*/
+#fullMap {
+	max-width:90%;
+	display: block;
+	margin: 20px auto;
+}
+
 /*massive overrides*/
 body {
 	font-weight: normal !important;

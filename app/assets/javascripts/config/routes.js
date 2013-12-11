@@ -11,6 +11,7 @@ if (window.history && window.history.pushState) {
     //dummy route for admin
     this.route('admin');
     this.route('svgmap');
+    this.route('fullmap');
     this.resource('contractors', function() {
       this.route('index', {
         path: '/'
