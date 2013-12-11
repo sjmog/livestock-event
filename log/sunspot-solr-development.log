@@ -758,3 +758,21 @@ Dec 11, 2013 9:38:10 AM org.apache.solr.update.DirectUpdateHandler2 commit
 INFO: end_commit_flush
 Dec 11, 2013 9:38:10 AM org.apache.solr.update.processor.LogUpdateProcessor finish
 INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 16
+Dec 11, 2013 10:04:07 AM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {add=[User 9 (1454119319469293568)]} 0 2
+Dec 11, 2013 10:04:10 AM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+Dec 11, 2013 10:04:10 AM org.apache.solr.core.SolrDeletionPolicy onCommit
+INFO: SolrDeletionPolicy.onCommit: commits:num=2
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_a,generation=10,filenames=[_a.cfs, _9.nvd, segments_a, _9.fnm, _9.fdt, _a.si, _9_Lucene41_0.tip, _9.fdx, _9_Lucene41_0.doc, _a.cfe, _9_Lucene41_0.pos, _9.si, _9.nvm, _9_Lucene41_0.tim]
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_b,generation=11,filenames=[_a.cfs, _9.nvd, segments_b, _9.fnm, _9.fdt, _a.si, _9_Lucene41_0.tip, _9.fdx, _b.cfe, _b.si, _9_Lucene41_0.doc, _a.cfe, _9_Lucene41_0.pos, _9.si, _9.nvm, _b.cfs, _9_Lucene41_0.tim]
+Dec 11, 2013 10:04:10 AM org.apache.solr.core.SolrDeletionPolicy updateCommits
+INFO: newest commit = 11[_a.cfs, _9.nvd, segments_b, _9.fnm, _9.fdt, _a.si, _9_Lucene41_0.tip, _9.fdx, _b.cfe, _b.si, _9_Lucene41_0.doc, _a.cfe, _9_Lucene41_0.pos, _9.si, _9.nvm, _b.cfs, _9_Lucene41_0.tim]
+Dec 11, 2013 10:04:10 AM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@542cc2d4 main
+Dec 11, 2013 10:04:10 AM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@542cc2d4 main{StandardDirectoryReader(segments_b:27:nrt _9(4.2):C34 _a(4.2):c1 _b(4.2):c1)}
+Dec 11, 2013 10:04:10 AM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 11, 2013 10:04:10 AM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 22
