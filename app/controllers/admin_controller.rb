@@ -143,7 +143,7 @@ class AdminController < ApplicationController
 
 
 
-  # Parses the access token from the header
+  # Parses the access token from the cookies
   def token
     access_token = request.cookies["access_token"]
 

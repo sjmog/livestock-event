@@ -32,6 +32,7 @@ App.AuthManager = Ember.Object.extend({
     $.ajaxSetup({
       headers: { 'Authorization': 'Bearer ' + accessToken }
     });
+    $.cookie('access_token', accessToken);
     App.User.find(userId).then(function(user) {
       console.log('setting API key on user');
       console.log(user);
@@ -50,6 +51,7 @@ App.AuthManager = Ember.Object.extend({
     Ember.run.sync();
     Ember.run.next(this, function(){
       this.set('apiKey', null);
+      $.cookie('access_token', null);
       $.ajaxSetup({
         headers: { 'Authorization': 'Bearer none' }
       });
@@ -60,6 +62,7 @@ App.AuthManager = Ember.Object.extend({
   resetWithoutRedirecting: function() {
     Ember.run.next(this, function() {
       this.set('apiKey', null);
+      $.cookie('access_token', null);
       $.ajaxSetup({
         headers: { 'Authorization': 'Bearer none' }
       });
