@@ -2625,3 +2625,7 @@ right: 10px;
     float: none;
     margin: 0 auto;
 }
+
+#sidebar-right {
+    overflow-y: scroll;
+}

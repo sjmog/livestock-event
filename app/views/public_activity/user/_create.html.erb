@@ -1,0 +1,11 @@
+<!-- Notification -->
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <small><em><%= time_ago_in_words(activity.created_at) %> ago</em></small><br>
+	 <% if activity.trackable %>
+	   <%= link_to activity.trackable.name.to_s, admin_user_path(activity.trackable) %> signed up to the site!
+	 <% else %>
+	   Someone signed up to the site, but they're gone now.
+	 <% end %>
+	 </div>
+	 <!-- END Notification -->

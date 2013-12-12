@@ -1,0 +1,12 @@
+<!-- Notification -->
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <small><em><%= time_ago_in_words(activity.created_at) %> ago</em></small><br>
+        <%= if activity.owner.nil?
+        	'Someone'
+        	else
+        	 link_to(activity.owner.name, admin_user_path(activity.owner)) 
+        	 end %> 
+        removed a Contractor.
+    </div>
+<!-- END Notification -->

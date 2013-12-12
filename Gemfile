@@ -26,6 +26,7 @@ gem 'prawn_rails' #PDF generation
 gem 'sunspot_rails' #powerful search & indexing...
 gem 'sunspot_solr' #...using Apache's Solr search API
 gem 'whenever' # Easy CRON jobs
+gem 'public_activity' #activity tracking for models
 
 
 group :production do

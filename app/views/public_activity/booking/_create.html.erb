@@ -1,0 +1,20 @@
+<!-- Notification -->
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <small><em><%= time_ago_in_words(activity.created_at) %> ago</em></small><br>
+
+	 <% if activity.trackable %>
+	   <%= link_to 'New Booking', admin_booking_path(activity.trackable) %> by <%= if activity.owner.nil?
+	'Someone'
+	else
+	 link_to(activity.owner.name, admin_user_path(activity.owner)) 
+	 end %> 
+	 <% else %>
+	   A Booking was made by <%= if activity.owner.nil?
+	'Someone'
+	else
+	 link_to(activity.owner.name, admin_user_path(activity.owner)) 
+	 end %> 
+	 <% end %>
+	     </div>
+<!-- END Notification -->

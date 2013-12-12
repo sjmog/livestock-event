@@ -10540,3 +10540,72 @@ unmatched close parenthesis: /i> New <%= model_name );@output_buffer.safe_append
 [12/11/13 15:13:23 +0000 Samuels-MacBook-Air-5.local (46704)] INFO : Installing Rails4 Error instrumentation
 [12/11/13 15:13:23 +0000 Samuels-MacBook-Air-5.local (46704)] INFO : Finished instrumentation
 [12/11/13 15:13:24 +0000 Samuels-MacBook-Air-5.local (46704)] INFO : Doing deferred dependency-detection before Rack startup
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Starting the New Relic agent in "development" environment.
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Reading configuration from config/newrelic.yml
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : New Relic Agent Developer Mode enabled.
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Enabling the Request Sampler.
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Enabling the Request Sampler.
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Environment: development
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : No known dispatcher detected.
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Application: My Application
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] WARN : Agent configured not to send data in this environment.
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Installing ActiveMerchant instrumentation
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Installing ActiveRecord 4 instrumentation
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Installing Net instrumentation
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Installing deferred Rack instrumentation
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Installing Rails Sunspot instrumentation
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Installing Unicorn instrumentation
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Installing Rails 4 Controller instrumentation
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Installing Rails 4 view instrumentation
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Installing Rails4 Error instrumentation
+[12/11/13 16:19:21 +0000 Samuels-MacBook-Air-5.local (47060)] INFO : Finished instrumentation
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Starting the New Relic agent in "development" environment.
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Reading configuration from config/newrelic.yml
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : New Relic Agent Developer Mode enabled.
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Enabling the Request Sampler.
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Enabling the Request Sampler.
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Environment: development
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Dispatcher: webrick
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Application: My Application
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : Agent configured not to send data in this environment.
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Installing ActiveMerchant instrumentation
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Installing ActiveRecord 4 instrumentation
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Installing Net instrumentation
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Installing deferred Rack instrumentation
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Installing Rails Sunspot instrumentation
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Installing Unicorn instrumentation
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Installing Rails 4 Controller instrumentation
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Installing Rails 4 view instrumentation
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Installing Rails4 Error instrumentation
+[12/11/13 16:37:07 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Finished instrumentation
+[12/11/13 16:37:08 +0000 Samuels-MacBook-Air-5.local (47142)] INFO : Doing deferred dependency-detection before Rack startup
+[12/11/13 17:08:35 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `user_path' for #<#<Class:0x007fa76c06d928>:0x007fa77369df80>
+[12/11/13 17:09:36 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `user_path' for #<#<Class:0x007fa76c06d928>:0x007fa771619228>
+[12/11/13 17:09:49 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `user_path' for #<#<Class:0x007fa76c06d928>:0x007fa773291568>
+[12/11/13 17:11:45 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `name' for #<Article:0x007fa775b567a0>
+[12/11/13 17:11:56 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `article_path' for #<#<Class:0x007fa76c06d928>:0x007fa77175a470>
+[12/11/13 17:29:32 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Missing partial public_activity/booking/update with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :prawn, :coffee, :haml]}. Searched in:
+  * "/Applications/MAMP/htdocs/livestock event final/app/views"
+  * "/Users/Sam/.rvm/gems/ruby-2.0.0-p0/gems/rails_admin-0.5.0/app/views"
+  * "/Users/Sam/.rvm/gems/ruby-2.0.0-p0/gems/kaminari-0.14.1/app/views"
+  * "/Users/Sam/.rvm/gems/ruby-2.0.0-p0/gems/devise-3.1.1/app/views"
+
+[12/11/13 17:45:41 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Missing partial public_activity/user/destroy with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :prawn, :coffee, :haml]}. Searched in:
+  * "/Applications/MAMP/htdocs/livestock event final/app/views"
+  * "/Users/Sam/.rvm/gems/ruby-2.0.0-p0/gems/rails_admin-0.5.0/app/views"
+  * "/Users/Sam/.rvm/gems/ruby-2.0.0-p0/gems/kaminari-0.14.1/app/views"
+  * "/Users/Sam/.rvm/gems/ruby-2.0.0-p0/gems/devise-3.1.1/app/views"
+
+[12/11/13 17:59:13 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Missing partial public_activity/booking/destroy with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :prawn, :coffee, :haml]}. Searched in:
+  * "/Applications/MAMP/htdocs/livestock event final/app/views"
+  * "/Users/Sam/.rvm/gems/ruby-2.0.0-p0/gems/rails_admin-0.5.0/app/views"
+  * "/Users/Sam/.rvm/gems/ruby-2.0.0-p0/gems/kaminari-0.14.1/app/views"
+  * "/Users/Sam/.rvm/gems/ruby-2.0.0-p0/gems/devise-3.1.1/app/views"
+
+[12/11/13 18:04:02 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `current_user' for nil:NilClass
+[12/11/13 18:13:14 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Booking with id=1
+[12/11/13 18:13:14 +0000 Samuels-MacBook-Air-5.local (47142)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Booking with id=7

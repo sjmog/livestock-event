@@ -119,6 +119,8 @@ class AdminController < ApplicationController
     machinery_hall_taken = Stand.where('area = ? AND taken = ?', 'machinery hall', true)
     @machinery_hall_space = ((machinery_hall_taken.size.to_f / machinery_hall_stands.size.to_f) * 100).round
 
+    @activities = PublicActivity::Activity.all.order("created_at desc")
+    
 
   end
   # Redirects to the login screen if the current user or admin is not authorized

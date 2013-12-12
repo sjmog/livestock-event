@@ -1,0 +1,19 @@
+<!-- Notification -->
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <small><em><%= time_ago_in_words(activity.created_at) %> ago</em></small><br>
+
+<%= if activity.owner.nil?
+	'Someone'
+	else
+	 link_to(activity.owner.name, admin_user_path(activity.owner)) 
+	 end %> updated 
+	 <% if activity.trackable %>
+	   <%= link_to ('a Testimonial').html_safe, admin_testimonial_path(activity.trackable) %>
+	 <% else %>
+	   a Testimonial, which has since been removed
+	 <% end %>
+
+	 </div>
+
+	 <!-- END Notification -->

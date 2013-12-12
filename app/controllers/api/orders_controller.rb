@@ -46,6 +46,7 @@ module Api
 
       respond_to do |format|
         if @order.save
+          @order.create_activity key: 'order.create'
           format.html { redirect_to @order, notice: 'Order was successfully created.' }
           format.json { render json: @order, status: :created }
         else

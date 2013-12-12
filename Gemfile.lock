@@ -198,6 +198,11 @@ GEM
     prawn_rails (0.0.11)
       prawn (>= 0.11.1)
       railties (>= 3.0.0)
+    public_activity (1.4.0)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
     rack (1.5.2)
     rack-cors (0.2.8)
       rack
@@ -359,6 +364,7 @@ DEPENDENCIES
   newrelic_rpm
   pg (~> 0.14)
   prawn_rails
+  public_activity
   rack-cors
   rails (= 4.0.0)
   rails-api

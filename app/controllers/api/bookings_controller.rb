@@ -7,6 +7,7 @@ module Api
     def create
       booking = Booking.create(booking_params)
       if booking.new_record?
+         booking.create_activity key: 'booking.create', owner: booking.user
         render json: { errors: booking.errors.messages }, status: 422
       else
         # Tell the UserMailer to send a welcome Email after save

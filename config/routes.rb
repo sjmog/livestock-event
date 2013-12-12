@@ -63,6 +63,10 @@ post 'charges' => 'charges#create'
 
       #printing
       get '/bookings/:id/print', to: 'bookings#print', as: :print_booking
+  
+      #notifications
+      get '/notifications', to: 'notifications#index'
+      get '/notifications/:id', to: 'notifications#show'
   end
 
 

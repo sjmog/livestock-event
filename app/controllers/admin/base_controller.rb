@@ -3,6 +3,7 @@ module Admin
     layout "admin"
     respond_to :json
     include CanCan::ControllerAdditions
+    include PublicActivity::StoreController 
     
     before_filter do
       :default_json
@@ -51,7 +52,6 @@ module Admin
           nil
         end
       end
-      private
        
         # Finds the API key and returns its associated user.
         # Uses the unique request cookie in the header to figure out who the user is
