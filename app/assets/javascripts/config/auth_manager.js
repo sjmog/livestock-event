@@ -1,7 +1,7 @@
 var User = App.User;
 
 App.AuthManager = Ember.Object.extend({
-
+  apiKey: null,
   // Load the current user if the cookies exist and is valid
   init: function() {
     this._super();
@@ -25,23 +25,22 @@ App.AuthManager = Ember.Object.extend({
     console.log('authenticating...');
     console.log(accessToken);
     console.log(userId);
-    var date = new Date();
-    var minutes = 240; //4 hour expiry
-    date.setTime(date.getTime() + (minutes * 60 * 1000));
-    var self = this;
-    $.ajaxSetup({
-      headers: { 'Authorization': 'Bearer ' + accessToken }
-    });
-    $.cookie('access_token', accessToken);
-    App.User.find(userId).then(function(user) {
-      console.log('setting API key on user');
-      console.log(user);
-      self.set('apiKey', App.ApiKey.create({
-        accessToken: accessToken,
-        user: user,
-        expiredAt: date, 
-      }));
-    });
+      var date = new Date();
+      var minutes = 240; //4 hour expiry
+      date.setTime(date.getTime() + (minutes * 60 * 1000));
+      var self = this;
+      $.ajaxSetup({
+        headers: { 'Authorization': 'Bearer ' + accessToken }
+      });
+      //creates an API key, which fires the apiKeyObserver
+      App.User.find(userId).then(function(user) {
+        console.log('creating API key in AuthManager');
+       self.set('apiKey', App.ApiKey.create({
+         accessToken: accessToken,
+         user: user,
+         expiredAt: date, 
+         }));
+       });
     
   },
 
@@ -77,9 +76,11 @@ App.AuthManager = Ember.Object.extend({
       $.removeCookie('access_token');
       $.removeCookie('auth_user');
     } else {
-      console.log('setting API key');
-      $.cookie('access_token', this.get('apiKey.accessToken'), {expires: this.get('apiKey.expiredAt')});
-      $.cookie('auth_user', this.get('apiKey.user.id'), {expires: this.get('apiKey.expiredAt')});
+      console.log('setting API key cookies');
+      
+        $.cookie('access_token', this.get('apiKey.accessToken'), {expires: this.get('apiKey.expiredAt')});
+        $.cookie('auth_user', this.get('apiKey.user.id'), {expires: this.get('apiKey.expiredAt')});
+      
     }
   }.observes('apiKey')
 });

@@ -22,5 +22,5 @@
 set :output, "log/social_cron_log.log"
 
 every 2.hours do
-	rake "get_social"
+	# rake "get_social"
 end

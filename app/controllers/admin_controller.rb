@@ -1,5 +1,9 @@
 class AdminController < ApplicationController
   before_filter :ensure_authenticated_user, :only => :main
+  before_filter :retrieve_activities
+  def retrieve_activities
+    @activities = PublicActivity::Activity.all.order("created_at desc")
+  end
   def index
   end
   def search
@@ -118,8 +122,6 @@ class AdminController < ApplicationController
     machinery_hall_stands = Stand.where('area = ?', 'machinery hall')
     machinery_hall_taken = Stand.where('area = ? AND taken = ?', 'machinery hall', true)
     @machinery_hall_space = ((machinery_hall_taken.size.to_f / machinery_hall_stands.size.to_f) * 100).round
-
-    @activities = PublicActivity::Activity.all.order("created_at desc")
     
 
   end

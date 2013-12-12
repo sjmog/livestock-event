@@ -18,22 +18,24 @@ App.SessionsNewController = Ember.ObjectController.extend({
       var role = results.role;
       console.log(role);
       App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
-      if (attemptedTrans) {
-        attemptedTrans.retry();
-        self.set('attemptedTransition', null);
-      } else {
-          if (role === "admin") {
-            console.log('redirecting to admin');
-            router.transitionTo('admin');
-            Ember.run.next(function() {
-              window.location.reload(true);
-            })
-          }
-          else {
-            console.log('redirecting to user');
-            router.transitionTo('users.show', userId);
-          }
-      }
+      Ember.run.next(this, function() {
+        if (attemptedTrans) {
+          attemptedTrans.retry();
+          self.set('attemptedTransition', null);
+        } else {
+            if (role === "admin") {
+              console.log('redirecting to admin');
+              router.transitionTo('admin');
+              Ember.run.next(function() {
+                window.location.reload(true);
+              })
+            }
+            else {
+              console.log('redirecting to user');
+              router.transitionTo('users.show', userId);
+            }
+        }
+      })
     }).fail(function(jqxhr, textStatus, error ) {
       if (jqxhr.status === 401) {
         errs = JSON.parse(jqxhr.responseText)

@@ -11,6 +11,10 @@ module Admin
       method = "#{resource}_params"
       params[resource] &&= send(method) if respond_to?(method, true)
       # ensure_authenticated_user
+      retrieve_activities
+    end
+    def retrieve_activities
+      @activities = PublicActivity::Activity.all.order("created_at desc")
     end
 
     # Redirects to login if admin is not authorized
