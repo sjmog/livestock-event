@@ -14,7 +14,7 @@ currentUser: function() {
   	if(this.get('currentPath') === 'index') {
   		return true;
   	} else {
-  		console.log(this.get('currentPath'));
+  		analytics.page(this.get('currentPath'));
   		return false;
   	};
   }.property('currentPath'),
@@ -37,9 +37,11 @@ currentUser: function() {
       var name = $('#yourName').val();
       var email = $('#yourEmail').val();
       var message = $('#contactMessage').val();
-      console.log(name);
-      console.log(email);
-      console.log(message);
+      analytics.track('Sent a Message', {
+          name  : name,
+          email : email,
+          message : message
+      });
       var data = {name: name, email: email, body: message};
       var self = this;
       $.post('<%= ENV["BASE_URL"] %>/api/contact.json', { message: data }, function(results) {

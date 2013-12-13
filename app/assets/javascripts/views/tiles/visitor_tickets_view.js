@@ -9,12 +9,14 @@ App.VisitorTicketsView = Ember.View.extend({
 	height: 0.5,
 	flipped:false,
 	toggleFlip: function() {
+
 		var view = this;
 		var flipped = view.flipped;
 		if(flipped) {
 			view.set('flipped', false);
 		}
 		else {
+			analytics.track('Looked at Ticket prices');
 			view.set('flipped', true);
 		}
 	},

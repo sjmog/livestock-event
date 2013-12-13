@@ -25,7 +25,7 @@ App.BookingsNewRoute = Ember.Route.extend({
     },
   
   model: function() {
-  	console.log('model');
+  	analytics.track('Started a Booking');
   	var booking = App.Booking.createRecord({standNumber: 1});
   	return booking;
   },

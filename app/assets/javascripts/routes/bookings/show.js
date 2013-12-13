@@ -8,7 +8,7 @@ App.BookingsShowRoute = Ember.Route.extend({
   
   beforeModel: function() {
     this._super();
-    
+    analytics.track('Viewed a Booking');
   }
   
 });

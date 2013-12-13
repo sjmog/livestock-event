@@ -111,59 +111,148 @@
         // Get the elements where we will attach the charts
         var chartClassic = $('#chart-classic');
 
-        // Random data for the charts
-        var dataEarnings = [[0, 60], [1, 100], [2, 80], [3, 84], [4, 124], [5, 90], [6, 150]];
-        var dataSales = [[0, 30], [1, 50], [2, 40], [3, 42], [4, 62], [5, 45], [6, 75]];
+        // Initialize data for the charts
+        var dataVisits = [];
+        var dataUniqueVisits = [];
 
-        /* Classic Chart */
-        $.plot(chartClassic,
-            [
-                {
-                    data: dataEarnings,
-                    lines: {show: true, fill: true, fillColor: {colors: [{opacity: 0.25}, {opacity: 0.25}]}},
-                    points: {show: true, radius: 7}
-                },
-                {
-                    data: dataSales,
-                    lines: {show: true, fill: true, fillColor: {colors: [{opacity: 0.15}, {opacity: 0.15}]}},
-                    points: {show: true, radius: 7}
-                }
-            ],
-            {
-                colors: ['#f39c12', '#2e3030'],
-                legend: {show: false},
-                grid: {borderWidth: 0, hoverable: true, clickable: true},
-                yaxis: {show: false},
-                xaxis: {show: false}
-            }
-        );
+        //get references for the 'from' and 'to' dates
 
-        // Creating and attaching a tooltip to the classic chart
-        var previousPoint = null, ttlabel = null;
-        chartClassic.bind('plothover', function(event, pos, item) {
+        var now = new Date();
 
-            if (item) {
-                if (previousPoint !== item.dataIndex) {
-                    previousPoint = item.dataIndex;
+        var then = new Date();
+        then.setDate(then.getDate() - 7);
+        
 
-                    $('#chart-tooltip').remove();
-                    var x = item.datapoint[0], y = item.datapoint[1];
+        var url = "https://api.gosquared.com/trends/v2/aggregate?api_key=RDC1I4ICWSHFNURB&site_token=GSN-061677-S&from=" + then.getFullYear() + "-" + (then.getMonth() + 1) + "-" + then.getDate() + "&to=" + now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + "&interval=day";
+        console.log(url);
 
-                    if (item.seriesIndex === 1) {
-                        ttlabel = '<strong>' + y + '</strong> sales';
-                    } else {
-                        ttlabel = '$ <strong>' + y + '</strong>';
+        //get AJAX data for the charts
+
+        $.getJSON( url, function( data ) {
+          var items = [];
+          $.each( data.list, function( i, item ) {
+            items.push( item );
+          });
+
+          items.sort(function(a,b){
+            a = new Date(a.from);
+            b = new Date(b.from);
+            return a<b?-1:a>b?1:0;
+          });
+         
+          for (var i = items.length - 1; i >= 0; i--) {
+                
+                var x = items.length - 1 - i;
+                var metrics = items[x].metrics;
+                if(metrics.visits === undefined) {
+                    metrics.visits = 0;
+                };
+                if(metrics.new_visits === undefined) {
+                    metrics.new_visits = 0;
+                };
+                var yi = metrics.visits;
+                var yii = metrics.new_visits;
+
+                //set a date for each
+
+                var itemDate = new Date();
+                itemDate.setDate(itemDate.getDate() - 7 + x);
+                var hrDate;
+                switch(itemDate.getDay()) {
+
+                    case 0:
+                        hrDate = "Monday";
+                        break;
+                    case 1:
+                        hrDate = "Tuesday";
+                        break;
+                    case 2:
+                        hrDate = "Wednesday";
+                        break;
+                    case 3:
+                        hrDate = "Thursday";
+                        break;
+                    case 4:
+                        hrDate = "Friday";
+                        break;
+                    case 5:
+                        hrDate = "Saturday";
+                        break;
+                    case 6:
+                        hrDate = "Sunday";
+                        break;
+
                     }
 
-                    $('<div id="chart-tooltip" class="chart-tooltip">' + ttlabel + '</div>')
-                        .css({top: item.pageY - 45, left: item.pageX + 5}).appendTo("body").show();
-                }
-            }
-            else {
-                $('#chart-tooltip').remove();
-                previousPoint = null;
-            }
+                    
+
+                dataVisits.push( [x, yi, hrDate] );
+                dataUniqueVisits.push( [x, yii, hrDate] );
+                console.log(dataVisits);
+          };
+
+          /* Classic Chart */
+          $.plot(chartClassic,
+              [
+                  {
+                      data: dataVisits,
+                      lines: {show: true, fill: true, fillColor: {colors: [{opacity: 0.25}, {opacity: 0.25}]}},
+                      points: {show: true, radius: 7}
+                  },
+                  {
+                      data: dataUniqueVisits,
+                      lines: {show: true, fill: true, fillColor: {colors: [{opacity: 0.15}, {opacity: 0.15}]}},
+                      points: {show: true, radius: 7}
+                  }
+              ],
+              {
+                  colors: ['#f39c12', '#2e3030'],
+                  legend: {show: false},
+                  grid: {borderWidth: 0, hoverable: true, clickable: true},
+                  yaxis: {show: false},
+                  xaxis: {show: false}
+              }
+          );
+
+          // Creating and attaching a tooltip to the classic chart
+          var previousPoint = null, ttlabel = null;
+          chartClassic.bind('plothover', function(event, pos, item) {
+
+              if (item) {
+                  if (previousPoint !== item.dataIndex) {
+                      previousPoint = item.dataIndex;
+
+                      $('#chart-tooltip').remove();
+                      var x = item.datapoint[0], y = item.datapoint[1];
+
+                      var z;
+                      if (item.seriesIndex === 1) {
+                          z = dataUniqueVisits[x-1][2];
+                          ttlabel = '<i>' + z + '</i><br /><strong>' + y + '</strong> new visits';
+                      } else {
+                          z = dataVisits[x-1][2];
+                          ttlabel = '<i>' + z + '</i><br /><strong>' + y + '</strong> visits';
+                      }
+
+                      $('<div id="chart-tooltip" class="chart-tooltip">' + ttlabel + '</div>')
+                          .css({top: item.pageY - 45, left: item.pageX + 5}).appendTo("body").show();
+                  }
+              }
+              else {
+                  $('#chart-tooltip').remove();
+                  previousPoint = null;
+              }
+          });
+
+
+
         });
+        
+        
+
+        
+
+        
     });
 </script>
 <!-- END MAIN Javascript fns-->

@@ -23,7 +23,7 @@ App.OrdersNewRoute = Ember.Route.extend({
     },
   
   model: function() {
-  	console.log('model');
+  	analytics.track('Started a new Payment');
   	var order = App.Order.createRecord({date: Date.now()});
   	return order;
   },

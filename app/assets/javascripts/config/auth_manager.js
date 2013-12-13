@@ -25,22 +25,39 @@ App.AuthManager = Ember.Object.extend({
     console.log('authenticating...');
     console.log(accessToken);
     console.log(userId);
+
+    //set the cookies
+    $.cookie('access_token', accessToken);
+    $.cookie('auth_user', userId);
+
+    console.log('cookies set');
+
       var date = new Date();
       var minutes = 240; //4 hour expiry
       date.setTime(date.getTime() + (minutes * 60 * 1000));
       var self = this;
+      
       $.ajaxSetup({
         headers: { 'Authorization': 'Bearer ' + accessToken }
       });
-      //creates an API key, which fires the apiKeyObserver
-      App.User.find(userId).then(function(user) {
-        console.log('creating API key in AuthManager');
-       self.set('apiKey', App.ApiKey.create({
-         accessToken: accessToken,
-         user: user,
-         expiredAt: date, 
-         }));
-       });
+      
+        //creates an API key, which fires the apiKeyObserver
+        App.User.find(userId).then(function(user) {
+          analytics.identify(userId, {
+                    email   : user.email,
+                    name    : user.name,
+                });
+          console.log('creating API key in AuthManager');
+         self.set('apiKey', App.ApiKey.create({
+           accessToken: accessToken,
+           user: user,
+           expiredAt: date, 
+           }));
+         });
+      
+
+      
+      
     
   },
 
