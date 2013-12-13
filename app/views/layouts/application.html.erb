@@ -65,13 +65,13 @@
 
   if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) { //test for MSIE x.x;
    var ieversion=new Number(RegExp.$1) // capture x.x portion and store as a number
-   if (ieversion==8)
+   if (ieversion>=8 && ieversion<9)
     document.write("<div class='ieWarning'>Sorry about this, but your browser is too outdated to use this site. <b>It's OK!</b> You can download Google Chrome: a fast, modern browser. It's <b>free of charge</b>, and <b>built by Google<b>. Download it from <a class='inlineLink' href='http://www.google.com/chrome'>here</a>.<br />Once you've downloaded Google Chrome, your Internet will work faster, and you'll be able to see this site.<br />If you're unsure about upgrading to Google Chrome, you can upgrade to the <a href='http://windows.microsoft.com/en-us/internet-explorer/download-ie' class='inlineLink'>latest version of Internet Explorer</a> instead.</div>")
-   else if (ieversion>=7)
+   else if (ieversion>=7 && ieversion<8)
     document.write("<div class='ieWarning'>Sorry about this, but your browser is too outdated to use this site. <b>It's OK!</b> You can download Google Chrome: a fast, modern browser. It's <b>free of charge</b>, and <b>built by Google<b>. Download it from <a class='inlineLink' href='http://www.google.com/chrome'>here</a>.<br />Once you've downloaded Google Chrome, your Internet will work faster, and you'll be able to see this site.<br />If you're unsure about upgrading to Google Chrome, you can upgrade to the <a href='http://windows.microsoft.com/en-us/internet-explorer/download-ie' class='inlineLink'>latest version of Internet Explorer</a> instead.</div>")
-   else if (ieversion>=6)
+   else if (ieversion>=6 && ieversion<7)
     document.write("<div class='ieWarning'>Sorry about this, but your browser is too outdated to use this site. <b>It's OK!</b> You can download Google Chrome: a fast, modern browser. It's <b>free of charge</b>, and <b>built by Google<b>. Download it from <a class='inlineLink' href='http://www.google.com/chrome'>here</a>.<br />Once you've downloaded Google Chrome, your Internet will work faster, and you'll be able to see this site.<br />If you're unsure about upgrading to Google Chrome, you can upgrade to the <a href='http://windows.microsoft.com/en-us/internet-explorer/download-ie' class='inlineLink'>latest version of Internet Explorer</a> instead.</div>")
-   else if (ieversion>=5)
+   else if (ieversion>=5 && ieversion<6)
     document.write("<div class='ieWarning'>Sorry about this, but your browser is too outdated to use this site. <b>It's OK!</b> You can download Google Chrome: a fast, modern browser. It's <b>free of charge</b>, and <b>built by Google<b>. Download it from <a class='inlineLink' href='http://www.google.com/chrome'>here</a>.<br />Once you've downloaded Google Chrome, your Internet will work faster, and you'll be able to see this site.<br />If you're unsure about upgrading to Google Chrome, you can upgrade to the <a href='http://windows.microsoft.com/en-us/internet-explorer/download-ie' class='inlineLink'>latest version of Internet Explorer</a> instead.</div>")
   }
   else
