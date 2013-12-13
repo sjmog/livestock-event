@@ -40,6 +40,9 @@ module Api
       user.role = 'standard'
       if user.new_record?
         render json: { errors: user.errors.messages }, status: 422
+        Analytics.identify(
+            user_id: user.id,
+            traits: { email: user.email, name: user.name })
       else
         # Tell the UserMailer to send a welcome Email after save
         ApplicationMailer.welcome_email(@user).deliver

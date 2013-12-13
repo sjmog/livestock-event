@@ -982,3 +982,147 @@ Dec 12, 2013 11:44:17 AM org.apache.solr.core.SolrCore registerSearcher
 INFO: [development] Registered new searcher Searcher@33ea6c92 main{StandardDirectoryReader(segments_m:54:nrt _l(4.2):C41/1 _m(4.2):C1 _n(4.2):c2/1)}
 Dec 12, 2013 11:44:17 AM org.apache.solr.update.processor.LogUpdateProcessor finish
 INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 14
+Dec 13, 2013 12:02:15 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {add=[User 11 (1454307944727314432)]} 0 22
+Dec 13, 2013 12:02:19 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+Dec 13, 2013 12:02:19 PM org.apache.solr.core.SolrDeletionPolicy onCommit
+INFO: SolrDeletionPolicy.onCommit: commits:num=2
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_m,generation=22,filenames=[_l_Lucene41_0.doc, _l.fnm, _l.si, _n.cfe, _m.si, _l.nvm, _m.nvd, _n.si, _m_Lucene41_0.doc, _n.cfs, _m.fnm, _n_1.del, _l_Lucene41_0.tip, _l_Lucene41_0.tim, _m_Lucene41_0.pos, segments_m, _m.nvm, _l_1.del, _l.nvd, _m_Lucene41_0.tim, _m_Lucene41_0.tip, _m.fdt, _l.fdx, _l_Lucene41_0.pos, _m.fdx, _l.fdt]
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_n,generation=23,filenames=[_l_Lucene41_0.doc, _l.fnm, _l.si, _n.cfe, _o.cfs, _m.si, _l.nvm, _m.nvd, _n.si, _m_Lucene41_0.doc, _o.cfe, _o.si, _n.cfs, _m.fnm, _n_1.del, _l_Lucene41_0.tip, _l_Lucene41_0.tim, _m_Lucene41_0.pos, segments_n, _m.nvm, _l_1.del, _l.nvd, _m_Lucene41_0.tim, _m_Lucene41_0.tip, _m.fdt, _l.fdx, _l_Lucene41_0.pos, _m.fdx, _l.fdt]
+Dec 13, 2013 12:02:19 PM org.apache.solr.core.SolrDeletionPolicy updateCommits
+INFO: newest commit = 23[_l_Lucene41_0.doc, _l.fnm, _l.si, _n.cfe, _o.cfs, _m.si, _l.nvm, _m.nvd, _n.si, _m_Lucene41_0.doc, _o.cfe, _o.si, _n.cfs, _m.fnm, _n_1.del, _l_Lucene41_0.tip, _l_Lucene41_0.tim, _m_Lucene41_0.pos, segments_n, _m.nvm, _l_1.del, _l.nvd, _m_Lucene41_0.tim, _m_Lucene41_0.tip, _m.fdt, _l.fdx, _l_Lucene41_0.pos, _m.fdx, _l.fdt]
+Dec 13, 2013 12:02:19 PM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@5aa86d82 main
+Dec 13, 2013 12:02:19 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 13, 2013 12:02:19 PM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@5aa86d82 main{StandardDirectoryReader(segments_n:57:nrt _l(4.2):C41/1 _m(4.2):C1 _n(4.2):c2/1 _o(4.2):c1)}
+Dec 13, 2013 12:02:19 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 48
+Dec 13, 2013 12:10:56 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {add=[User 12 (1454308491789336576)]} 0 2
+Dec 13, 2013 12:11:00 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+Dec 13, 2013 12:11:00 PM org.apache.solr.core.SolrDeletionPolicy onCommit
+INFO: SolrDeletionPolicy.onCommit: commits:num=2
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_n,generation=23,filenames=[_l_Lucene41_0.doc, _l.fnm, _l.si, _n.cfe, _o.cfs, _m.si, _l.nvm, _m.nvd, _n.si, _m_Lucene41_0.doc, _o.cfe, _o.si, _n.cfs, _m.fnm, _n_1.del, _l_Lucene41_0.tip, _l_Lucene41_0.tim, _m_Lucene41_0.pos, segments_n, _m.nvm, _l_1.del, _l.nvd, _m_Lucene41_0.tim, _m_Lucene41_0.tip, _m.fdt, _l.fdx, _l_Lucene41_0.pos, _m.fdx, _l.fdt]
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_o,generation=24,filenames=[_p.fdx, _p.fnm, _p.nvd, _p_Lucene41_0.doc, _q.cfs, _p.fdt, _p.si, _p.nvm, _q.si, _p_Lucene41_0.tim, _q.cfe, segments_o, _p_Lucene41_0.tip, _p_Lucene41_0.pos]
+Dec 13, 2013 12:11:00 PM org.apache.solr.core.SolrDeletionPolicy updateCommits
+INFO: newest commit = 24[_p.fdx, _p.fnm, _p.nvd, _p_Lucene41_0.doc, _q.cfs, _p.fdt, _p.si, _p.nvm, _q.si, _p_Lucene41_0.tim, _q.cfe, segments_o, _p_Lucene41_0.tip, _p_Lucene41_0.pos]
+Dec 13, 2013 12:11:00 PM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@661aeeec main
+Dec 13, 2013 12:11:00 PM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@661aeeec main{StandardDirectoryReader(segments_o:60:nrt _p(4.2):C43 _q(4.2):c1)}
+Dec 13, 2013 12:11:00 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 13, 2013 12:11:00 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 26
+Dec 13, 2013 12:11:36 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {add=[Booking 21 (1454308533553070080)]} 0 3
+Dec 13, 2013 12:11:39 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+Dec 13, 2013 12:11:39 PM org.apache.solr.core.SolrDeletionPolicy onCommit
+INFO: SolrDeletionPolicy.onCommit: commits:num=2
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_o,generation=24,filenames=[_p.fdx, _p.fnm, _p.nvd, _p_Lucene41_0.doc, _q.cfs, _p.fdt, _p.si, _p.nvm, _q.si, _p_Lucene41_0.tim, _q.cfe, segments_o, _p_Lucene41_0.tip, _p_Lucene41_0.pos]
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_p,generation=25,filenames=[_p.fdx, _p.fnm, _p.nvd, _p_Lucene41_0.doc, _q.cfs, _p.fdt, _r_Lucene41_0.tip, _r_Lucene41_0.tim, _p.si, _p.nvm, _r.fdt, _r.fnm, _q.si, _r_Lucene41_0.pos, _p_Lucene41_0.tim, _r.fdx, segments_p, _r.nvd, _q.cfe, _p_Lucene41_0.tip, _p_Lucene41_0.pos, _r.si, _r_Lucene41_0.doc, _r.nvm]
+Dec 13, 2013 12:11:39 PM org.apache.solr.core.SolrDeletionPolicy updateCommits
+INFO: newest commit = 25[_p.fdx, _p.fnm, _p.nvd, _p_Lucene41_0.doc, _q.cfs, _p.fdt, _r_Lucene41_0.tip, _r_Lucene41_0.tim, _p.si, _p.nvm, _r.fdt, _r.fnm, _q.si, _r_Lucene41_0.pos, _p_Lucene41_0.tim, _r.fdx, segments_p, _r.nvd, _q.cfe, _p_Lucene41_0.tip, _p_Lucene41_0.pos, _r.si, _r_Lucene41_0.doc, _r.nvm]
+Dec 13, 2013 12:11:39 PM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@1c47cf34 main
+Dec 13, 2013 12:11:39 PM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@1c47cf34 main{StandardDirectoryReader(segments_p:62:nrt _p(4.2):C43 _q(4.2):c1 _r(4.2):C1)}
+Dec 13, 2013 12:11:39 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 13, 2013 12:11:39 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 17
+Dec 13, 2013 12:15:03 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {add=[User 13 (1454308750771879936)]} 0 4
+Dec 13, 2013 12:15:06 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+Dec 13, 2013 12:15:06 PM org.apache.solr.core.SolrDeletionPolicy onCommit
+INFO: SolrDeletionPolicy.onCommit: commits:num=2
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_p,generation=25,filenames=[_p.fdx, _p.fnm, _p.nvd, _p_Lucene41_0.doc, _q.cfs, _p.fdt, _r_Lucene41_0.tip, _r_Lucene41_0.tim, _p.si, _p.nvm, _r.fdt, _r.fnm, _q.si, _r_Lucene41_0.pos, _p_Lucene41_0.tim, _r.fdx, segments_p, _r.nvd, _q.cfe, _p_Lucene41_0.tip, _p_Lucene41_0.pos, _r.si, _r_Lucene41_0.doc, _r.nvm]
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_q,generation=26,filenames=[_p.fdx, _q.cfs, _p_Lucene41_0.doc, _p.fnm, _p.fdt, _p.nvm, _q.si, _r.fnm, _r.fdt, _r_Lucene41_0.pos, _r.fdx, _q.cfe, _r.nvd, _r.nvm, _s.cfs, _p.nvd, _s.si, _r_Lucene41_0.tip, _r_Lucene41_0.tim, _p.si, _p_Lucene41_0.tim, segments_q, _p_Lucene41_0.pos, _p_Lucene41_0.tip, _r.si, _r_Lucene41_0.doc, _s.cfe]
+Dec 13, 2013 12:15:06 PM org.apache.solr.core.SolrDeletionPolicy updateCommits
+INFO: newest commit = 26[_p.fdx, _q.cfs, _p_Lucene41_0.doc, _p.fnm, _p.fdt, _p.nvm, _q.si, _r.fnm, _r.fdt, _r_Lucene41_0.pos, _r.fdx, _q.cfe, _r.nvd, _r.nvm, _s.cfs, _p.nvd, _s.si, _r_Lucene41_0.tip, _r_Lucene41_0.tim, _p.si, _p_Lucene41_0.tim, segments_q, _p_Lucene41_0.pos, _p_Lucene41_0.tip, _r.si, _r_Lucene41_0.doc, _s.cfe]
+Dec 13, 2013 12:15:06 PM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@3f14b553 main
+Dec 13, 2013 12:15:06 PM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@3f14b553 main{StandardDirectoryReader(segments_q:65:nrt _p(4.2):C43 _q(4.2):c1 _r(4.2):C1 _s(4.2):c1)}
+Dec 13, 2013 12:15:06 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 13, 2013 12:15:06 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 16
+Dec 13, 2013 12:15:45 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {add=[Booking 22 (1454308794678902784)]} 0 3
+Dec 13, 2013 12:15:47 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+Dec 13, 2013 12:15:47 PM org.apache.solr.core.SolrDeletionPolicy onCommit
+INFO: SolrDeletionPolicy.onCommit: commits:num=2
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_q,generation=26,filenames=[_p.fdx, _q.cfs, _p_Lucene41_0.doc, _p.fnm, _p.fdt, _p.nvm, _q.si, _r.fnm, _r.fdt, _r_Lucene41_0.pos, _r.fdx, _q.cfe, _r.nvd, _r.nvm, _s.cfs, _p.nvd, _s.si, _r_Lucene41_0.tip, _r_Lucene41_0.tim, _p.si, _p_Lucene41_0.tim, segments_q, _p_Lucene41_0.pos, _p_Lucene41_0.tip, _r.si, _r_Lucene41_0.doc, _s.cfe]
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_r,generation=27,filenames=[_t_Lucene41_0.tim, _t_Lucene41_0.tip, _u_Lucene41_0.tip, _t.fnm, _t_Lucene41_0.doc, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.nvm, _u.fdx, _u.nvd, _t.si, _u.fnm, segments_r, _u_Lucene41_0.pos, _t.nvd, _t.nvm, _t.fdx, _u.si, _u.fdt, _t_Lucene41_0.pos, _t.fdt]
+Dec 13, 2013 12:15:47 PM org.apache.solr.core.SolrDeletionPolicy updateCommits
+INFO: newest commit = 27[_t_Lucene41_0.tim, _t_Lucene41_0.tip, _u_Lucene41_0.tip, _t.fnm, _t_Lucene41_0.doc, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.nvm, _u.fdx, _u.nvd, _t.si, _u.fnm, segments_r, _u_Lucene41_0.pos, _t.nvd, _t.nvm, _t.fdx, _u.si, _u.fdt, _t_Lucene41_0.pos, _t.fdt]
+Dec 13, 2013 12:15:47 PM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@49d4cf57 main
+Dec 13, 2013 12:15:47 PM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@49d4cf57 main{StandardDirectoryReader(segments_r:68:nrt _t(4.2):C46 _u(4.2):C1)}
+Dec 13, 2013 12:15:47 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 13, 2013 12:15:47 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 29
+Dec 13, 2013 12:19:49 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {add=[Order 9 (1454309049995624448)]} 0 2
+Dec 13, 2013 12:19:54 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=true,prepareCommit=false}
+Dec 13, 2013 12:19:54 PM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@21c47573 main
+Dec 13, 2013 12:19:54 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 13, 2013 12:19:54 PM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@21c47573 main{StandardDirectoryReader(segments_r:70:nrt _t(4.2):C46 _u(4.2):C1 _v(4.2):c1)}
+Dec 13, 2013 12:20:04 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=false,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+Dec 13, 2013 12:20:04 PM org.apache.solr.core.SolrDeletionPolicy onCommit
+INFO: SolrDeletionPolicy.onCommit: commits:num=2
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_r,generation=27,filenames=[_t_Lucene41_0.tim, _t_Lucene41_0.tip, _u_Lucene41_0.tip, _t.fnm, _t_Lucene41_0.doc, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.nvm, _u.fdx, _u.nvd, _t.si, _u.fnm, segments_r, _u_Lucene41_0.pos, _t.nvd, _t.nvm, _t.fdx, _u.si, _u.fdt, _t_Lucene41_0.pos, _t.fdt]
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_s,generation=28,filenames=[_t_Lucene41_0.tim, _t_Lucene41_0.tip, _u_Lucene41_0.tip, _v.si, _t.fnm, _t_Lucene41_0.doc, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.nvm, _u.fdx, _v.cfs, _u.nvd, _t.si, segments_s, _u.fnm, _u_Lucene41_0.pos, _t.nvd, _t.nvm, _t.fdx, _u.si, _u.fdt, _t_Lucene41_0.pos, _v.cfe, _t.fdt]
+Dec 13, 2013 12:20:04 PM org.apache.solr.core.SolrDeletionPolicy updateCommits
+INFO: newest commit = 28[_t_Lucene41_0.tim, _t_Lucene41_0.tip, _u_Lucene41_0.tip, _v.si, _t.fnm, _t_Lucene41_0.doc, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.nvm, _u.fdx, _v.cfs, _u.nvd, _t.si, segments_s, _u.fnm, _u_Lucene41_0.pos, _t.nvd, _t.nvm, _t.fdx, _u.si, _u.fdt, _t_Lucene41_0.pos, _v.cfe, _t.fdt]
+Dec 13, 2013 12:20:04 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 13, 2013 12:20:09 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+Dec 13, 2013 12:20:09 PM org.apache.solr.core.SolrDeletionPolicy onCommit
+INFO: SolrDeletionPolicy.onCommit: commits:num=2
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_s,generation=28,filenames=[_t_Lucene41_0.tim, _t_Lucene41_0.tip, _u_Lucene41_0.tip, _v.si, _t.fnm, _t_Lucene41_0.doc, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.nvm, _u.fdx, _v.cfs, _u.nvd, _t.si, segments_s, _u.fnm, _u_Lucene41_0.pos, _t.nvd, _t.nvm, _t.fdx, _u.si, _u.fdt, _t_Lucene41_0.pos, _v.cfe, _t.fdt]
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_t,generation=29,filenames=[_t_Lucene41_0.tim, _t_Lucene41_0.tip, _u_Lucene41_0.tip, _v.si, _t.fnm, _t_Lucene41_0.doc, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.nvm, _u.fdx, _v.cfs, _u.nvd, segments_t, _t.si, _u.fnm, _u_Lucene41_0.pos, _t.nvd, _t.nvm, _t.fdx, _u.si, _u.fdt, _t_Lucene41_0.pos, _v.cfe, _t.fdt]
+Dec 13, 2013 12:20:09 PM org.apache.solr.core.SolrDeletionPolicy updateCommits
+INFO: newest commit = 29[_t_Lucene41_0.tim, _t_Lucene41_0.tip, _u_Lucene41_0.tip, _v.si, _t.fnm, _t_Lucene41_0.doc, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.nvm, _u.fdx, _v.cfs, _u.nvd, segments_t, _t.si, _u.fnm, _u_Lucene41_0.pos, _t.nvd, _t.nvm, _t.fdx, _u.si, _u.fdt, _t_Lucene41_0.pos, _v.cfe, _t.fdt]
+Dec 13, 2013 12:20:09 PM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@5a00255d main
+Dec 13, 2013 12:20:10 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 13, 2013 12:20:10 PM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@5a00255d main{StandardDirectoryReader(segments_r:70:nrt _t(4.2):C46 _u(4.2):C1 _v(4.2):c1)}
+Dec 13, 2013 12:20:10 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 6
+Dec 13, 2013 12:20:27 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {add=[Order 10 (1454309089772306432)]} 0 2
+Dec 13, 2013 12:20:27 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+Dec 13, 2013 12:20:27 PM org.apache.solr.core.SolrDeletionPolicy onCommit
+INFO: SolrDeletionPolicy.onCommit: commits:num=2
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_t,generation=29,filenames=[_t_Lucene41_0.tim, _t_Lucene41_0.tip, _u_Lucene41_0.tip, _v.si, _t.fnm, _t_Lucene41_0.doc, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.nvm, _u.fdx, _v.cfs, _u.nvd, segments_t, _t.si, _u.fnm, _u_Lucene41_0.pos, _t.nvd, _t.nvm, _t.fdx, _u.si, _u.fdt, _t_Lucene41_0.pos, _v.cfe, _t.fdt]
+	commit{dir=NRTCachingDirectory(org.apache.lucene.store.NIOFSDirectory@/Applications/MAMP/htdocs/livestock event final/solr/development/data/index lockFactory=org.apache.lucene.store.NativeFSLockFactory@35fb2ef9; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_u,generation=30,filenames=[_w.si, _u_Lucene41_0.tip, _t.fnm, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.fdx, _t.si, _u.fnm, _t.nvd, _t.nvm, _t_Lucene41_0.tim, _t_Lucene41_0.tip, _v.si, _t_Lucene41_0.doc, _u.nvm, _w.cfe, _u.nvd, _v.cfs, segments_u, _u_Lucene41_0.pos, _t.fdx, _w.cfs, _u.fdt, _u.si, _t_Lucene41_0.pos, _t.fdt, _v.cfe]
+Dec 13, 2013 12:20:27 PM org.apache.solr.core.SolrDeletionPolicy updateCommits
+INFO: newest commit = 30[_w.si, _u_Lucene41_0.tip, _t.fnm, _u_Lucene41_0.tim, _u_Lucene41_0.doc, _u.fdx, _t.si, _u.fnm, _t.nvd, _t.nvm, _t_Lucene41_0.tim, _t_Lucene41_0.tip, _v.si, _t_Lucene41_0.doc, _u.nvm, _w.cfe, _u.nvd, _v.cfs, segments_u, _u_Lucene41_0.pos, _t.fdx, _w.cfs, _u.fdt, _u.si, _t_Lucene41_0.pos, _t.fdt, _v.cfe]
+Dec 13, 2013 12:20:27 PM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@5e902791 main
+Dec 13, 2013 12:20:27 PM org.apache.solr.core.SolrCore registerSearcher
+INFO: [development] Registered new searcher Searcher@5e902791 main{StandardDirectoryReader(segments_u:73:nrt _t(4.2):C46 _u(4.2):C1 _v(4.2):c1 _w(4.2):c1)}
+Dec 13, 2013 12:20:27 PM org.apache.solr.update.DirectUpdateHandler2 commit
+INFO: end_commit_flush
+Dec 13, 2013 12:20:27 PM org.apache.solr.update.processor.LogUpdateProcessor finish
+INFO: [development] webapp=/solr path=/update params={wt=ruby} {commit=} 0 11

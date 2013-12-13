@@ -47,6 +47,10 @@ module Api
       respond_to do |format|
         if @order.save
           @order.create_activity key: 'order.create'
+          Analytics.track(
+              user_id: current_user.id, 
+              event: 'Created a Payment', 
+              properties: { revenue: @order.amount })
           format.html { redirect_to @order, notice: 'Order was successfully created.' }
           format.json { render json: @order, status: :created }
         else
