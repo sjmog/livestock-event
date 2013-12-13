@@ -45,7 +45,7 @@ namespace :scraping do
 		url = "https://www.facebook.com/LivestockEvent"
 		#clear all existing data
 		SocialF.delete_all
-		@graph = Koala::Facebook::API.new('CAACEdEose0cBAIANuJZBZAzewEGZB9XBDWQJ0jrXZBlForsiamtU1mdZBDfZCRvEgRlIZCHCSOZARWhwadLpcUQIviBdu416qF26EC1BEBuDu1HSBagSPnIZAvYqrZCZCJAR2bPxEPp2TZAhg3GMu6AoiHxEV5Oor7pxTnYoTepZA4gVAFWZAxYBWBy2udOIJwE05yS6ZAOMyprkVVMOwZDZD')
+		@graph = Koala::Facebook::API.new('CAACEdEose0cBAPZAHT5nvY7BuSLAZBShkB4jq7yv4wbQcM5VnrQWunJPWVq3qNctTZBX5xqVYcjAZBVxWZBhPRJ9ouV2nZAUldtefsZA0nHG6HArZBxHNVhklkAzSUmtGKGisIf4Rz2Pn6fhoODV54SRCy3hqRj67hMEdXZC8LXxQhlqsmTguAtGbJaTT7TZAk88vnrP6JYX2uZBgZDZD')
 		feed = @graph.get_connections("livestockevent", "feed")
 		feed.each do |post|
 			uid = post["id"]
