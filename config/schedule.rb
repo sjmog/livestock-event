@@ -23,4 +23,7 @@ set :output, "log/social_cron_log.log"
 
 every 2.hours do
 	# rake "get_social"
+	rake "scraping:fetch_posts"
+	rake "scraping:fetch_tweets"
+	rake "scraping:fetch_linkedin"
 end
