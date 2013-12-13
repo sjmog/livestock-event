@@ -1,62 +1,119 @@
+<div class="flipper">
+	<div class="front">
+		<span class="tile-title">
 
-	<div class="flipper">
-		<div class="front">
-			<span class="tile-title">social</span>
-			<ul data-orbit>
-				  <li data-orbit-slide="social_1">
-				    <div class="row twitterList listContent">
-				    	<div class="small-12 columns">
-				    	<!-- social list: output is three news items -->
-					    	<a class="twitter-timeline" href="https://twitter.com/LivestockEvent" data-aria-polite="polite" data-widget-id="387188038087880704" data-chrome="noheader nofooter noborders noscrollbar transparent">Tweets by @LivestockEvent</a>
-					    	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-					    </div>
+		{{#if view.tab1}}
+			<a href="http://www.twitter.com/livestockevent" class="lh">
+			<span class="icon-twitter"></span>
+			</a>
+		{{/if}}
 
-				    </div>
-				  </li>
-				  <li data-orbit-slide="social_2">
-				    <div class="row listContent">
-				    	<!-- social list -->
-				    	
-				    </div>
-				  </li>
-				  <li data-orbit-slide="social_3">
-				    <div class="row listContent fbList">
-				    	{{view.fbPosts}}
-				    </div>
-				  </li>
-			  </ul>
-			<div class="tabs row">
-				<div class="tab currentTab small-4 columns">
-					<a href="#" data-orbit-link="social_1">
-						<div class="tabIcon">
-							<span class="icon-twitter"></span>
+		{{#if view.tab2}}
+			<a href="https://www.facebook.com/LivestockEvent" class="lh">
+			<span class="icon-linked-in"></span>
+			</a>
+		{{/if}}
+		
+		{{#if view.tab3}}
+		<a href="https://www.linkedin.com/groups/LivestockEvent" class="lh">
+		<span class="icon-facebook"></span>
+		</a>
+		{{/if}}
+			
+		social
+
+		{{#if view.tab1}}
+			<a href="http://www.twitter.com/livestockevent" class="rh">
+			<span class="icon-add-icon"></span>
+			</a>
+		{{/if}}
+
+		{{#if view.tab2}}
+			
+		{{/if}}
+		
+		{{#if view.tab3}}
+			<a href="https://www.facebook.com/LivestockEvent" class="rh">
+			<span class="icon-fontawesome-like"></span>
+			</a>
+		{{/if}}
+
+		</span>
+		<div class="carouTabs carouPanel3 carouBottom">
+		   <div class="carouTab activeCarou">
+		       <div data-tab="1" class="carouTabTitle">
+		       		<span class="icon-twitter"></span>
+		       		<label>twitter</label>
+		        </div>
+		        <div class="carouContent">
+					{{#each sortedSocialTs}}
+					<a {{bind-attr href=link}} target="_blank">
+					<div class="row newsItem">
+						<div class="small-3 columns newsDateCol">
+							<div class="newsDateBlock">
+								<div class="newsDay">{{day}}</div>
+								<div class="newsDate">{{month}}</div>
+							</div>
 						</div>
-						<div class="tabText">
-							twitter
+						<div class="small-9 columns newsExcerpt postText">
+							<span class="newsTitle">{{user}}</span>
+							<span class="newsContent">{{{text}}}</span>
 						</div>
+					</div>
 					</a>
-				</div>
-				<div class="tab small-4 columns">
-					<a href="#" data-orbit-link="social_2">
-						<div class="tabIcon">
-							<span class="icon-linked-in"></span>
-						</div>
-						<div class="tabText">
-							linkedin
-						</div>
-					</a>
-				</div>
-				<div class="tab small-4 columns">
-					<a href="#" data-orbit-link="social_3">
-						<div class="tabIcon">
-							<span class="icon-facebook"></span>
-						</div>
-						<div class="tabText">
-							facebook
-						</div>
-					</a>
-				</div>
-			</div>
+					{{/each}}
+		       </div> 
+		    </div>
+		    <div class="carouTab">
+		        <div data-tab="2" class="carouTabTitle">
+		       		<span class="icon-linked-in"></span>
+		       		<label>linkedin</label>
+		        </div>
+		       
+		        <div class="carouContent">
+		            {{#each sortedSocialLs}}
+		            <a {{bind-attr href=link}} target="_blank">
+		            <div class="row newsItem">
+		            	<div class="small-3 columns newsDateCol">
+		            		<div class="newsDateBlock">
+		            			<div class="newsDay">{{day}}</div>
+		            			<div class="newsDate">{{month}}</div>
+		            		</div>
+		            	</div>
+		            	<div class="small-9 columns newsExcerpt postText">
+		            		<span class="newsTitle">{{user}}</span>
+		            		<span class="newsContent">{{{text}}}</span>
+		            	</div>
+		            </div>
+		            </a>
+		            {{/each}}
+       			</div> 
+  			</div>
+		    <div class="carouTab">
+		        <div data-tab="3" class="carouTabTitle">
+		       		<span class="icon-facebook"></span>
+		       		<label>facebook</label>
+		        </div>
+		       
+		        <div class="carouContent">
+		            {{#each sortedSocialFs}}
+		            <a {{bind-attr href=link}} target="_blank">
+		            <div class="row newsItem">
+		            	<div class="small-3 columns newsDateCol">
+		            		<div class="newsDateBlock">
+		            			<div class="newsDay">{{day}}</div>
+		            			<div class="newsDate">{{month}}</div>
+		            		</div>
+		            	</div>
+		            	<div class="small-9 columns newsExcerpt postText">
+		            		<span class="newsTitle">{{user}}</span>
+		            		<span class="newsContent">{{{text}}}</span>
+		            	</div>
+		            </div>
+		            </a>
+		            {{/each}}
+       			</div> 
+  			</div>
 		</div>
 	</div>
-
+</div>

@@ -34,6 +34,9 @@ post 'charges' => 'charges#create'
     get 'contact' => 'contact#new'
     post 'contact' => 'contact#create'
     post 'session' => 'session#create'
+    get 'social_ts' => 'social#social_ts'
+    get 'social_fs' => 'social#social_fs'
+    get 'social_ls' => 'social#social_ls'
   end
 
   #the Admin area

@@ -12780,6 +12780,22 @@ textarea {
   .tile.list-tile > .newsItem:after {
     top: 40px; }
 
+.lh {
+  position: absolute;
+  line-height: 51px;
+  left: 24px;
+  top: 0px;
+  font-size: 1.6em;
+  z-index: 999999; }
+
+.rh {
+  position: absolute;
+  line-height: 51px;
+  right: 24px;
+  top: 0px;
+  font-size: 1.6em;
+  z-index: 999999; }
+
 .tile.tab-tile.rabdforange .orbit-container {
   background: #f59331 !important; }
 
@@ -13199,50 +13215,70 @@ textarea {
     line-height: 25px; }
 
 /*social tile*/
-.social.tile.tab-tile .orbit-container {
-  height: 250px !important; }
-.social .row.twitterList.listContent .newsItem {
-  height: 110px; }
-  .social .row.twitterList.listContent .newsItem .tweetDeets {
-    margin-top: 10px;
-    height: 20px;
-    font-size: 14px;
+/*news tile*/
+.social a {
+  color: white; }
+  .social a > .newsItem {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    height: 84px !important; }
+    .social a > .newsItem.row:first-of-type {
+      margin-top: -2px !important; }
+.social .newsItem:hover {
+  background: #13a4e2;
+  border-top-color: #13a4e2;
+  cursor: pointer; }
+  .social .newsItem:hover .postText:after {
+    background: #13a4e2; }
+.social .newsItem:after {
+  top: 28px !important; }
+.social .postText {
+  height: 72px !important;
+  overflow: hidden;
+  position: relative; }
+.social .newsExcerpt {
+  position: relative;
+  height: 100%;
+  padding-top: 0.3em;
+  padding-bottom: 0.9375em;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: normal;
+  top: 6px; }
+  .social .newsExcerpt .newsTitle {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px; }
+  .social .newsExcerpt .newsContent {
+    display: block;
+    height: 42px;
+    overflow: hidden; }
+    .social .newsExcerpt .newsContent p {
+      line-height: 1.2em; }
+.social .newsDateCol {
+  padding-left: 10px; }
+.social .newsDateBlock {
+  background-color: white;
+  padding: 4px;
+  height: 60px;
+  width: 60px;
+  color: #1daeec;
+  text-align: center;
+  position: relative;
+  top: 10px; }
+  .social .newsDateBlock .newsDay {
     font-weight: 400;
-    font-family: "Open Sans", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-transform: uppercase; }
-    .social .row.twitterList.listContent .newsItem .tweetDeets .small-6.columns {
-      padding: 0 !important;
-      height: 20px !important; }
-    .social .row.twitterList.listContent .newsItem .tweetDeets .tweetDate {
-      text-align: right; }
-  .social .row.twitterList.listContent .newsItem .tweetContent .tweetText {
-    margin-top: 10px;
-    font-size: 12px;
-    line-height: 1.2;
+    font-size: 2em;
+    height: 30px;
+    line-height: 35px; }
+  .social .newsDateBlock .newsDate {
+    font-size: 0.8em;
     font-weight: normal;
-    height: 70px;
-    margin-bottom: 0; }
-.social .row.fbList.listContent .newsItem {
-  height: 110px; }
-  .social .row.fbList.listContent .newsItem .postDeets {
-    margin-top: 10px;
-    height: 20px;
-    font-size: 14px;
-    font-weight: 400;
-    font-family: "Open Sans", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-transform: uppercase; }
-    .social .row.fbList.listContent .newsItem .postDeets .small-6.columns {
-      padding: 0 !important;
-      height: 20px !important; }
-    .social .row.fbList.listContent .newsItem .postDeets .postDate {
-      text-align: right; }
-  .social .row.fbList.listContent .newsItem .postContent .postText {
-    margin-top: 10px;
-    font-size: 12px;
-    line-height: 1.2;
-    font-weight: normal;
-    height: 70px;
-    margin-bottom: 0; }
+    text-transform: uppercase;
+    height: 30px;
+    line-height: 25px; }
 
 /*about tile*/
 .about .buttonContent {

@@ -2061,6 +2061,7 @@ textarea {
 				&:hover {
 					background:white(1);
 				}
+
 				
 
 			}
@@ -2167,6 +2168,24 @@ textarea {
 			}
 		}
 	}
+}
+
+.lh {
+	position:absolute;
+	line-height:51px;
+	left:24px;
+	top:0px;
+	font-size:1.6em;
+	z-index:999999;
+}
+
+.rh {
+	position:absolute;
+	line-height:51px;
+	right:24px;
+	top:0px;
+	font-size:1.6em;
+	z-index:999999;
 }
 
 .tile.tab-tile.rabdforange .orbit-container {
@@ -2681,64 +2700,86 @@ textarea {
 
 /*social tile*/
 
+/*news tile*/
+
 .social {
-	&.tile.tab-tile .orbit-container {
-		height:250px !important;
+
+	a {
+		color:white(1);
+		& > .newsItem {
+		@include transition(all 0.2s ease-in-out);
+		overflow:hidden;
+		height:84px !important;
+		&.row:first-of-type {
+			margin-top:-2px !important;
+		}
 	}
-	.row.twitterList.listContent {
-		.newsItem {
-			height:110px;
-			.tweetDeets {
-				margin-top:10px;
-				height:20px;
-				font-size:14px;
-				font-weight:400;
-				font-family: $font1;
-				text-transform:uppercase;
-				.small-6.columns {
-					padding:0 !important;
-					height:20px !important;
-				}
-				.tweetDate {
-					text-align:right;
-				}
-			}
-			.tweetContent .tweetText {
-				margin-top:10px;
-				font-size:12px;
-				line-height:1.2;
-				font-weight: normal;
-				height:70px;
-				margin-bottom:0;
+	}
+	
+	.newsItem:hover {
+		background:darken($rabdfBlue, 4);
+		border-top-color:darken($rabdfBlue, 4);
+		cursor: pointer;
+		.postText:after {
+			background:darken($rabdfBlue, 4);
+		}
+	}
+	.newsItem:after {
+		top: 28px !important;
+	}
+	.postText {
+		height:72px !important;
+		overflow:hidden;
+		position:relative;
+	}
+	.newsExcerpt {
+		position:relative;
+		height:100%;
+		padding-top:0.3em;
+		padding-bottom:0.9375em;
+		font-size:12px;
+		line-height:1.2;
+		font-weight:normal;
+		top:6px;
+		.newsTitle {
+			display:block;
+			font-weight:bold;
+			margin-bottom:4px;
+		}
+		.newsContent {
+			display:block;
+			height:42px;
+			overflow:hidden;
+			p {
+				line-height:1.2em;
 			}
 		}
 	}
-	.row.fbList.listContent {
-		.newsItem {
-			height:110px;
-			.postDeets {
-				margin-top:10px;
-				height:20px;
-				font-size:14px;
-				font-weight:400;
-				font-family: $font1;
-				text-transform:uppercase;
-				.small-6.columns {
-					padding:0 !important;
-					height:20px !important;
-				}
-				.postDate {
-					text-align:right;
-				}
-			}
-			.postContent .postText {
-				margin-top:10px;
-				font-size:12px;
-				line-height:1.2;
-				font-weight: normal;
-				height:70px;
-				margin-bottom:0;
-			}
+	.newsDateCol {
+		padding-left:10px;
+	}
+	.newsDateBlock {
+		background-color:white;
+		padding:4px;
+		height:60px;
+		width:60px;
+		color: $rabdfBlue;
+		text-align:center;
+		position:relative;
+		top:10px;
+
+		.newsDay {
+			font-weight:400;
+			font-size:2em;
+			height:30px;
+			line-height:35px;
+		}
+		.newsDate {
+			font-size:0.8em;
+			font-weight: normal;
+			text-transform: uppercase;
+			height:30px;
+			line-height: 25px;
 		}
 	}
 }

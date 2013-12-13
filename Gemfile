@@ -27,7 +27,7 @@ gem 'sunspot_rails' #powerful search & indexing...
 gem 'sunspot_solr' #...using Apache's Solr search API
 gem 'whenever' # Easy CRON jobs
 gem 'public_activity' #activity tracking for models
-
+gem 'watir' #proper headless browsing for data scraping
 
 group :production do
 	gem 'heroku-deflater', :group => :production #gzips files

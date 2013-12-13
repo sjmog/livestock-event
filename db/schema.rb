@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211161923) do
+ActiveRecord::Schema.define(version: 20131212163913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -216,6 +216,9 @@ ActiveRecord::Schema.define(version: 20131211161923) do
     t.datetime "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uid"
+    t.string   "link"
+    t.integer  "likes"
   end
 
   create_table "social_ls", force: true do |t|
@@ -224,6 +227,8 @@ ActiveRecord::Schema.define(version: 20131211161923) do
     t.datetime "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uid"
+    t.string   "link"
   end
 
   create_table "social_ts", force: true do |t|
@@ -232,6 +237,8 @@ ActiveRecord::Schema.define(version: 20131211161923) do
     t.datetime "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uid"
+    t.string   "link"
   end
 
   create_table "stands", force: true do |t|

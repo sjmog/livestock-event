@@ -2,6 +2,9 @@ App.IndexController = Ember.ArrayController.extend({
 	needs: ['news', 'application'],
 	articles: null,
 	testimonials: null,
+	social_ts: null,
+	social_fs: null,
+	social_ls: null,
 	tickets:null,
 	currentFilter: null,
 	sortedArticles: function() {
@@ -12,6 +15,30 @@ App.IndexController = Ember.ArrayController.extend({
 	 	);
 	    return sortedResult;
 	}.property('articles.@each'),
+	sortedSocialTs: function() {
+		var controller = this;
+		var sortedResult = Em.ArrayProxy.createWithMixins(
+		    Ember.SortableMixin, 
+		    { content:controller.get('social_ts'), sortProperties: ['published'], sortAscending: false }
+	 	);
+	    return sortedResult;
+	}.property('social_ts.@each'),
+	sortedSocialFs: function() {
+		var controller = this;
+		var sortedResult = Em.ArrayProxy.createWithMixins(
+		    Ember.SortableMixin, 
+		    { content:controller.get('social_fs'), sortProperties: ['published'], sortAscending: false }
+	 	);
+	    return sortedResult;
+	}.property('social_fs.@each'),
+	sortedSocialLs: function() {
+		var controller = this;
+		var sortedResult = Em.ArrayProxy.createWithMixins(
+		    Ember.SortableMixin, 
+		    { content:controller.get('social_ls'), sortProperties: ['published'], sortAscending: false }
+	 	);
+	    return sortedResult;
+	}.property('social_ls.@each'),
 	filteredTestimonials: function() {
 		var controller = this;
 		currentFilter = controller.get('currentFilter');
@@ -31,6 +58,9 @@ App.IndexController = Ember.ArrayController.extend({
 		this._super();
 		this.set('articles', App.Article.find());
 		this.set('testimonials', App.Testimonial.find());
+		this.set('social_ts', App.SocialT.find());
+		this.set('social_fs', App.SocialF.find());
+		this.set('social_ls', App.SocialL.find());
 	},
 	currentTestimonial: function() {
 		var allTestimonials = this.get('filteredTestimonials');

@@ -7,31 +7,41 @@ App.SocialView = Ember.View.extend({
 	generalImportance: 2,
 	width: 1,
 	height: 1,
-	fbPosts: null,
+	tab1: true,
+	tab2: false,
+	tab3: false,
 	didInsertElement: function() {
-		//foundation orbit
-		this.$().foundation('orbit', {
-		  timer_speed: 999999999,
-		  animation_speed: 250
-		});
-		var view = this;
-		FB.api('/238456219616890/feed', function(response) {
-			$.each(response, function() {
-				var message = this.message;
-				console.log(message);
-			});
-		 
-		});
-		//tabs
-		var $tabs = this.$().find('.tab');
-		var $prevTab;
-		$tabs.click(function() {
-			$tabs.not(this).removeClass('currentTab');
-			$(this).addClass('currentTab');
-			$prevTab = $(this).prev('.tab');
-			$tabs.not($prevTab).removeClass('prevTab');
-			$prevTab.addClass("prevTab");
-		});
+		//carouTabs code with added tab tracking
+				var view = this;
+				var $view = this.$();
+				var $carous = $view.find('.carouTabs'); //all carousels in each carouTabs containers, which may be nested
+				for (var i = 0; i < $carous.length; i++) {
+					var $item = $($carous[i]);
+					$item.children('.carouTab:first-of-type').addClass('activeCarou');
+					$item.find('.carouTabTitle').click(function() {
+						var tab = $(this).attr('data-tab');
+						var $parent = $(this).parent('.carouTab');
+					$parent.addClass('activeCarou').siblings('.activeCarou').removeClass('activeCarou');
+					if (tab === "1")
+						{
+							view.set('tab1', true);
+							view.set('tab2', false);
+							view.set('tab3', false);
+						}
+					else if (tab === "2")
+						{
+							view.set('tab1', false);
+							view.set('tab2', true);
+							view.set('tab3', false);
+						}
+					else if (tab === "3")
+						{
+							view.set('tab1', false);
+							view.set('tab2', false);
+							view.set('tab3', true);
+						}
+				});
+				};
 	}
 });
 
