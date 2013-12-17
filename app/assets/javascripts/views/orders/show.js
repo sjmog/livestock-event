@@ -7,7 +7,6 @@ App.OrdersShowView = Ember.View.extend({
 	controller: this.controller,
 	didInsertElement: function() {
 		window.scrollTo(0,0);
-		var self = this;
 		jQuery(function($) {
 		  $('#payment-form').submit(function(event) {
 		  	analytics.track('Attempted a Payment');

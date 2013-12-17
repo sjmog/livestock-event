@@ -9,10 +9,18 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
+		if ($.cookie("cookie_bar_dismissed")) {
+			var $button = $('#bottomButton > span');
+			var $buttonAlso = $('#bottomButton');
+			$('.bottomBar').removeClass('in');
+			$button.removeClass('in');
+			$buttonAlso.removeClass('in');
+		};
 		$('#bottomButton').click(function() {
 			var $button = $('#bottomButton > span');
 			$('.bottomBar').toggleClass('in');
 			$(this).toggleClass('in');
+			$.cookie("cookie_bar_dismissed", true);
 		});
 	});
 </script>

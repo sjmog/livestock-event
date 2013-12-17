@@ -6,7 +6,7 @@
 <div class="tile content-tile lonely confirmOrder tcs rabdforange mix general_info all tile-4-tall tile-n-wide">
   <div class="flipper">
     <div class="front">
-      <span class="tile-title">order #{{content.id}}</span>
+      <span class="tile-title">order #{{id}}</span>
       <div class="tile-content">
 
 <div class="row orderForm">
@@ -17,19 +17,19 @@
 
 
     <div class="field">
-      {{content.billingFirstnames}} {{content.billingSurname}}
+      {{billingFirstnames}} {{billingSurname}}
     </div>
     <div class="field">
-      {{content.billingAddress}}
+      {{billingAddress}}
     </div>
     <div class="field">
-      {{content.billingCity}}
+      {{billingCity}}
     </div>
     <div class="field">
-      {{content.billingPostcode}}
+      {{billingPostcode}}
     </div>
     <div class="field">
-      {{content.billingCountry}}
+      {{billingCountry}}
     </div>
 
 
@@ -41,19 +41,19 @@
 
 
     <div class="field">
-      {{content.deliveryFirstnames}} {{content.deliverySurname}}
+      {{deliveryFirstnames}} {{deliverySurname}}
     </div>
     <div class="field">
-      {{content.deliveryAddress}}
+      {{deliveryAddress}}
     </div>
     <div class="field">
-      {{content.deliveryCity}}
+      {{deliveryCity}}
     </div>
     <div class="field">
-      {{content.deliveryPostcode}}
+      {{deliveryPostcode}}
     </div>
     <div class="field">
-      {{content.deliveryCountry}}
+      {{deliveryCountry}}
     </div>
 
 
@@ -62,17 +62,17 @@
 <div class="overviewRow row">
   <div class="small-12 large-4 columns">
     <label class="afterthought">ID:</label>
-    <div>#{{content.id}}</div>
+    <div>#{{id}}</div>
   </div>
 
   <div class="small-12 large-4 columns">
     <label class="afterthought">Amount:</label>
-    <div id="theAmount">£{{content.amount}}</div>
+    <div id="theAmount">£{{amount}}</div>
   </div>
 
   <div class="small-12 large-4 columns">
     <label class="afterthought">Date:</label>
-    <div>{{content.date}}</div>
+    <div>{{date}}</div>
   </div>
 </div>
 <h1>payment details</h1>
