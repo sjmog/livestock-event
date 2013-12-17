@@ -6,6 +6,9 @@ App.UsersNewController = Ember.ObjectController.extend({
     var user = this.get('model');
 
     $.post('<%= ENV["BASE_URL"] %>/api/users.json', { user: data }, function(results) {
+      analytics.track('Signed up', {
+          user  : data
+      });
       App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
       router.transitionTo('bookings.new');
 
