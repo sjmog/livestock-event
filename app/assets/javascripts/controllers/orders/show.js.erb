@@ -1,0 +1,17 @@
+App.OrdersShowController = Ember.Controller.extend({
+	needs: ['application'],
+	
+	actions: {
+		//get the amount from the server
+		getAmount: function() {
+			var url = '<%= ENV["BASE_URL"] %>/api/orders/' + this.get('content.id');
+			var amount;
+			$.getJSON( url, function( data ) {
+			  	amount = data.order.amount;
+			  });
+			return amount;
+		},
+	}
+});
+
+

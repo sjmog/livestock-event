@@ -17,19 +17,19 @@
 
 
     <div class="field">
-      {{billingFirstnames}} {{billingSurname}}
+      {{content.billingFirstnames}} {{content.billingSurname}}
     </div>
     <div class="field">
-      {{billingAddress}}
+      {{content.billingAddress}}
     </div>
     <div class="field">
-      {{billingCity}}
+      {{content.billingCity}}
     </div>
     <div class="field">
-      {{billingPostcode}}
+      {{content.billingPostcode}}
     </div>
     <div class="field">
-      {{billingCountry}}
+      {{content.billingCountry}}
     </div>
 
 
@@ -41,19 +41,19 @@
 
 
     <div class="field">
-      {{deliveryFirstnames}} {{deliverySurname}}
+      {{content.deliveryFirstnames}} {{content.deliverySurname}}
     </div>
     <div class="field">
-      {{deliveryAddress}}
+      {{content.deliveryAddress}}
     </div>
     <div class="field">
-      {{deliveryCity}}
+      {{content.deliveryCity}}
     </div>
     <div class="field">
-      {{deliveryPostcode}}
+      {{content.deliveryPostcode}}
     </div>
     <div class="field">
-      {{deliveryCountry}}
+      {{content.deliveryCountry}}
     </div>
 
 
@@ -62,17 +62,17 @@
 <div class="overviewRow row">
   <div class="small-12 large-4 columns">
     <label class="afterthought">ID:</label>
-    <div>#{{id}}</div>
+    <div>#{{content.id}}</div>
   </div>
 
   <div class="small-12 large-4 columns">
     <label class="afterthought">Amount:</label>
-    <div id="theAmount">£{{amount}}</div>
+    <div id="theAmount">£{{content.amount}}</div>
   </div>
 
   <div class="small-12 large-4 columns">
     <label class="afterthought">Date:</label>
-    <div>{{date}}</div>
+    <div>{{content.date}}</div>
   </div>
 </div>
 <h1>payment details</h1>
@@ -122,6 +122,8 @@
   </div>
 </div>
 
+<button {{action getAmount}}>getAmount</button>
+
 <div class="row actionsRow">
   <div class="large-6 small-12 columns vertWrap">
    <div class="vertElement"> 
@@ -141,57 +143,6 @@
   </div>
 </div>
 
-
-<!-- 
-SAGEPAY FORM
-
-
-<div class="row actionsRow">
-  <div class="large-4 small-12 columns vertWrap">
-   <div class="vertElement"> 
-   {{#link-to 'orders.edit' model class="button callToAction"}}
-      <span class="icon-gears orange"></span>
-  {{/link-to}}
-   <span class="buttonLabel">edit order #{{id}}</span></div>
-  </div>
-  <div class="large-4 small-12 columns vertWrap">
-    <div class="vertElement">
-      <input type=submit class="button callToAction" value="Deposit">
-      <span class="buttonLabel">payment</span>
-    </div>
-  </div>
-  <div class="large-4 small-12 columns vertWrap">
-    <div class="vertElement">
-      {{#link-to index class="button callToAction"}}
-        <span class="icon-gears orange"></span>
-      {{/link-to}}
-      <span class="buttonLabel">cancel</span>
-    </div>
-  </div>
-</div>
-</div>
-
-<! This creates the button. When it is selected in the browser, the form submits the purchase details to us. -->
-
-
-
-
-<!-- The version of the SagePay protocol, default to 3.00 as of 10/2013 
-<input type="hidden" name="VPSProtocol" value="3.00">
-
-< The transfer type (PAYMENT, DEFERRED, or AUTHENTICATE)
-<input type="hidden" name="TxType" value="PAYMENT">
-
- The SagePay vendor login name
-<input type="hidden" name="Vendor" value="dairyevent123ls">
-
- The Crypt field, built in real-time for each order. Encrypted and encoded. 
-<input type="hidden" name="Crypt" value="{{crypt}}">
-
-
-
-
-</form> -->
 
 </div>
 </div>

@@ -7,12 +7,10 @@ App.OrdersShowView = Ember.View.extend({
 	controller: this.controller,
 	didInsertElement: function() {
 		window.scrollTo(0,0);
+		var self = this;
 		jQuery(function($) {
 		  $('#payment-form').submit(function(event) {
-		  	var amount = $('#theAmount').text.substring(1);
-		  	analytics.track('Attempted a Payment', {
-		  	    revenue  : amount,
-		  	});
+		  	analytics.track('Attempted a Payment');
 		    var $form = $(this);
 
 		    // Disable the submit button to prevent repeated clicks
