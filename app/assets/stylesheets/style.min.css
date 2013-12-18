@@ -11497,6 +11497,93 @@ body a.darkLink {
   border-radius: 9999px;
   color: rgba(255, 255, 255, 0.8); }
 
+.spinner {
+  margin: 100px auto 0;
+  width: 100px !important;
+  text-align: center; }
+
+#pageContainer {
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in;
+  -moz-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in; }
+  #pageContainer.in {
+    opacity: 1; }
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: white !important;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out; }
+
+.spinner.leaving > div {
+  width: 0px;
+  height: 0px;
+  -webkit-animation: bounceleave 0.4s ease-in-out;
+  animation: bounceleave 0.4s ease-in-out; }
+
+@-webkit-keyframes bounceleave {
+  100% {
+    webkit-transform: scale(0); } }
+
+@keyframes bounceleave {
+  100% {
+    transform: scale(0); } }
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0); }
+
+  40% {
+    -webkit-transform: scale(1); } }
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0); }
+
+  40% {
+    transform: scale(1); } }
+
+.spinnerSquare {
+  width: 30px;
+  height: 30px;
+  background-color: white !important;
+  margin-right: 70px !important;
+  margin: 100px auto;
+  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+  animation: rotateplane 1.2s infinite ease-in-out; }
+
+@-webkit-keyframes rotateplane {
+  0% {
+    -webkit-transform: perspective(120px); }
+
+  50% {
+    -webkit-transform: perspective(120px) rotateY(180deg); }
+
+  100% {
+    -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg); } }
+
+@keyframes rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+
 div.warning {
   background: #ff9494; }
   div.warning:hover {
@@ -11955,6 +12042,9 @@ div div .inlineButton.button {
   margin: 10px !important; }
   div div .inlineButton.button:hover {
     color: white !important; }
+  div div .inlineButton.button.spinnerSquare {
+    background: white !important;
+    margin-right: 50px !important; }
 
 .inlineButtonText {
   display: inline-block;

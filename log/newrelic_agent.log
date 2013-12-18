@@ -12614,3 +12614,97 @@ unmatched close parenthesis: /i> New <%= model_name );@output_buffer.safe_append
 [12/17/13 12:10:21 +0000 Samuels-MacBook-Air-5.local (68932)] INFO : Installing Rails 4 view instrumentation
 [12/17/13 12:10:21 +0000 Samuels-MacBook-Air-5.local (68932)] INFO : Installing Rails4 Error instrumentation
 [12/17/13 12:10:21 +0000 Samuels-MacBook-Air-5.local (68932)] INFO : Finished instrumentation
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Starting the New Relic agent in "development" environment.
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Reading configuration from config/newrelic.yml
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : New Relic Agent Developer Mode enabled.
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Enabling the Request Sampler.
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Enabling the Request Sampler.
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Environment: development
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Dispatcher: webrick
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Application: My Application
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] WARN : Agent configured not to send data in this environment.
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Installing ActiveMerchant instrumentation
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Installing ActiveRecord 4 instrumentation
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Installing Net instrumentation
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Installing deferred Rack instrumentation
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Installing Rails Sunspot instrumentation
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Installing Unicorn instrumentation
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Installing Rails 4 Controller instrumentation
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Installing Rails 4 view instrumentation
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Installing Rails4 Error instrumentation
+[12/17/13 18:04:14 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Finished instrumentation
+[12/17/13 18:04:15 +0000 Samuels-MacBook-Air-5.local (74975)] INFO : Doing deferred dependency-detection before Rack startup
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Starting the New Relic agent in "development" environment.
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Reading configuration from config/newrelic.yml
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : New Relic Agent Developer Mode enabled.
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Enabling the Request Sampler.
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Enabling the Request Sampler.
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Environment: development
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Dispatcher: webrick
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Application: My Application
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : Agent configured not to send data in this environment.
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Installing ActiveMerchant instrumentation
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Installing ActiveRecord 4 instrumentation
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Installing Net instrumentation
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Installing deferred Rack instrumentation
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Installing Rails Sunspot instrumentation
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Installing Unicorn instrumentation
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Installing Rails 4 Controller instrumentation
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Installing Rails 4 view instrumentation
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Installing Rails4 Error instrumentation
+[12/17/13 18:04:36 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Finished instrumentation
+[12/17/13 18:04:37 +0000 Samuels-MacBook-Air-5.local (74989)] INFO : Doing deferred dependency-detection before Rack startup
+[12/17/13 18:56:17 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 18:56:33 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 18:56:37 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 18:56:40 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 18:56:43 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 18:59:24 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:00:10 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:05:08 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:05:52 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:06:01 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:06:07 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:07:34 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:07:54 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:10:58 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:11:06 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:11:37 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:12:57 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:16:14 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:18:12 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:18:32 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:19:13 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:19:21 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:19:30 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:20:33 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:20:42 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:22:00 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:22:13 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:22:48 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:22:55 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:23:07 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:23:14 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:24:44 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:24:56 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:25:04 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:25:30 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:27:26 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:27:34 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:29:56 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:30:06 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:31:05 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:32:53 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:33:01 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:36:39 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:37:07 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:37:17 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:39:32 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:39:40 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:40:00 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/17/13 19:40:55 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id
+[12/18/13 12:39:58 +0000 Samuels-MacBook-Air-5.local (74989)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Must supply a non-empty user_id

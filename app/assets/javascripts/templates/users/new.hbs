@@ -34,9 +34,28 @@
             </div>
           </fieldset>
           <div class="form-actions">
+            {{#if controller.isLoading}}
+            <div class="spinner button inlineButton forward">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+            {{else}}
 
+              {{#if controller.isError}}
+              
+                
+              
+                <div class="spinnerSquare button inlineButton forward">
+                </div>
+                
+              {{else}}
             
-            <button type="submit" data-icon="-" class="inlineButton button forward"></button>
+            <button type="submit" data-icon="-" class="arrowFade inlineButton button forward"></button>
+
+              {{/if}}
+
+            {{/if}}
           </div>
         </form>
       </div>
@@ -92,11 +111,14 @@
          <div class="vertElement">
              <p>To book your stand on-line or by post, you will need to register or log in by entering your email address and creating a password. You will receive an email confirmation of your password: please keep it safe, as you will need it to access your application at any point in the future.</p>
             <p>If you would prefer to apply by post, please sign up using the form overleaf and then click the 'apply by post' button on the next page.</p>
+            
             <div class="row vertWrap">
               <div class="vertElement">
                 <span id="usersnew-confirmButton" class="confirmButton">OK</span>
               </div>
             </div>
+           
+            
           </div>
         </div>
       </div>

@@ -1,10 +1,24 @@
 App.UsersNewController = Ember.ObjectController.extend({
+  isLoading: null,
+  isError: null,
+  init:function() {
+    this._super();
+    this.set('isLoading', false);
+    this.set('isError', false);
+    $('.arrowFade').animo({animation: "fadeInLeft", duration: 0.2});
+    $('.spinner').removeClass('leaving');
+  },
   createUser: function() {
+    var self = this;
     var router = this.get('target');
     this.set('role', 'standard');
     var data = this.getProperties('name', 'email', 'password', 'password_confirmation', 'role')
     var user = this.get('model');
-
+    $('.arrowFade').animo({animation: "fadeOutRight", duration: 0.4});
+    Ember.run.later(self, function() {
+      this.set('isLoading', true);
+      $('.spinner').animo({animation: "fadeInLeft", duration: 0.2});
+    }, 400);
     $.post('<%= ENV["BASE_URL"] %>/api/users.json', { user: data }, function(results) {
       analytics.track('Signed up', {
           user  : data
@@ -13,10 +27,29 @@ App.UsersNewController = Ember.ObjectController.extend({
       router.transitionTo('bookings.new');
 
     }).fail(function(jqxhr, textStatus, error ) {
-      if (jqxhr.status === 422) {
-        errs = JSON.parse(jqxhr.responseText)
-        user.set('errors', errs.errors);
-      }
+      //simulate server delay
+      //Ember.run.later(this, function() {
+
+        $('.spinner').addClass('leaving');
+        
+        Ember.run.later(this, function() {
+          self.set('isLoading', false);
+          self.set('isError', true);
+          $('.spinner').removeClass('leaving');
+          if (jqxhr.status === 422) {
+
+            errs = JSON.parse(jqxhr.responseText)
+            user.set('errors', errs.errors);
+          };
+          Ember.run.later(self, function() {
+            self.set('isError', false);
+            $('.arrowFade').animo({animation: "fadeInLeft", duration: 0.4});
+          }, 2000);
+        }, 400);
+        
+        //comment out next line to end server delay
+     // }, 3400);
+        //
     });
   }
 });
