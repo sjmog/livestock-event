@@ -18,7 +18,7 @@
                 <% end %>
                 </td>
                 <td class="text-center">
-                <%= image_tag(item.image, :size => "80x80", :alt => ("Article image for " + item.title)) %>
+                <%= image_tag(item.image, :size => "80x80", :alt => ("Article image for " + item.title.to_s)) %>
                 </td>
                 <td><%= item.published %></td>
                 <td><%= item.author %></td>
