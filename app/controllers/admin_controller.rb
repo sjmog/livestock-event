@@ -106,7 +106,9 @@ class AdminController < ApplicationController
     @payments = Order.find(:all)
     @running_total = 0
     @payments.each do |payment|
-      @running_total += payment.amount if payment.status === "deposit paid"
+      unless payment.amount.nil?
+        @running_total += payment.amount if payment.status === "deposit paid"
+      end
     end
 
     indoor_stands = Stand.where('area = ?', 'indoor')
