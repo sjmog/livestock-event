@@ -1,20 +1,4 @@
-<<<<<<< HEAD
-# ember-auth-rails-demo
-
-[![Dependency Status](https://gemnasium.com/heartsentwined/ember-auth-rails-demo.png)](https://gemnasium.com/heartsentwined/ember-auth-rails-demo)
-
-This tutorial will create an app using rails + devise + ember-auth.
-The demo can be seen live at [heroku](http://ember-auth-rails-demo.herokuapp.com/),
-and the code lives in this repository itself.
-
-You can use the following credentials to sign in at the heroku app:
-* email: `foo@example.com`, password: `foopassword`
-* email: `bar@example.com`, password: `barpassword`
-
-The tutorial is [in the wiki](https://github.com/heartsentwined/ember-auth-rails-demo/wiki/Home).
-=======
-livestock_event
+RABDF Livestock Event 2014
 ===============
 
-The livestock event web application.
->>>>>>> 6629ae2401af0f361c32bf0ae156aae0b27ede3a
+The RABDF Livestock Event custom site, system and administration area. Built using Rails and EmberJS.
