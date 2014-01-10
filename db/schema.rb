@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212163913) do
+ActiveRecord::Schema.define(version: 20140110123023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,18 @@ ActiveRecord::Schema.define(version: 20131212163913) do
     t.text     "requirements"
     t.integer  "order_id"
   end
+
+  create_table "buttons", force: true do |t|
+    t.integer  "tile_id"
+    t.string   "icon"
+    t.string   "button_link"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "flip_button"
+  end
+
+  add_index "buttons", ["tile_id"], name: "index_buttons_on_tile_id", using: :btree
 
   create_table "contractors", force: true do |t|
     t.string   "name"
@@ -263,6 +275,24 @@ ActiveRecord::Schema.define(version: 20131212163913) do
     t.datetime "updated_at"
   end
 
+  create_table "tabs", force: true do |t|
+    t.integer  "tile_id"
+    t.text     "tab_content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "icon"
+    t.string   "tab_type"
+    t.text     "split_left"
+    t.text     "split_right"
+    t.string   "split_title"
+    t.string   "tab_link"
+    t.string   "tab_large_icon"
+    t.text     "split_text"
+  end
+
+  add_index "tabs", ["tile_id"], name: "index_tabs_on_tile_id", using: :btree
+
   create_table "testimonials", force: true do |t|
     t.string   "image"
     t.string   "attribution"
@@ -275,6 +305,25 @@ ActiveRecord::Schema.define(version: 20131212163913) do
     t.string   "call_route"
     t.string   "call_route_name"
     t.string   "call_icon"
+  end
+
+  create_table "tiles", force: true do |t|
+    t.string   "tile_type"
+    t.string   "height"
+    t.string   "width"
+    t.string   "group"
+    t.text     "tile_content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "name"
+    t.boolean  "exhibitor"
+    t.boolean  "visitor"
+    t.boolean  "general"
+    t.boolean  "flips"
+    t.string   "flip_title"
+    t.text     "flip_content"
+    t.boolean  "flip_buttons"
   end
 
   create_table "tweets", force: true do |t|

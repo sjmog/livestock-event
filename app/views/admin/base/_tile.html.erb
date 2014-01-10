@@ -1,0 +1,588 @@
+
+
+<script type="text/x-handlebars" data-template-name="<%= @tile.name %>">
+    
+
+<div class="ember-view tile <%= @tile.name %> <%= @tile.tile_type %> content-tile mix <% if @tile.general && @tile.exhibitor && @tile.visitor %> all <% else %><% unless @tile.general.nil? %> general_info <% end %> <% unless @tile.exhibitor.nil? %> exhibitor <% end %> <% unless @tile.visitor.nil? %> visitor <% end %> <% end %> <% if @tile.width === "0.5" %>tile-half-wide <% else %> tile-<%= @tile.width %>-wide <% end %> <% if @tile.height === "0.25" %>tile-quarter-tall <%elsif @tile.height === "0.5" %>tile-half-tall <% else %>tile-<%= @tile.height %>-tall <% end %> isotope-item" data-height="<%= @tile.height%>" data-width="<%= @tile.width %>">
+	<div class="flipper" style="background:#1daeec;">
+		<div class="front">
+
+			<span class="tile-title"><%= @tile.title %></span>
+
+			<!-- BEGIN tab-tile -->
+			
+			<% if @tile.tile_type === 'tab-tile' %>
+			
+			<% if @tile.tabs.length === 1 %>
+
+					<div class="carouTabs carouPanel1 carouBottom">
+					   <div class="carouTab activeCarou">
+					       <div class="carouTabTitle">
+					       		<span class="<%= @tile.tabs[0].icon %>"></span>
+					       		<label><%= @tile.tabs[0].name %></label>
+					        </div>
+					        <div class="carouContent">
+					        	<% if @tile.tabs[0].tab_type === "html" %>
+					            <%= raw @tile.tabs[0].tab_content %>
+
+					            <% elsif @tile.tabs[0].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[0].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[0].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[0].split_title %></h2>
+            		            		</header>
+            		            		<article>
+            		            			<p class="sponsorSpiel">
+            		            				 <% @tile.tabs[0].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+					       </div> 
+					    </div>
+					</div>
+
+			<% elsif @tile.tabs.length === 2 %>
+
+					<div class="carouTabs carouPanel2 carouBottom">
+					   <div class="carouTab activeCarou">
+					       <div class="carouTabTitle">
+					       		<span class="<%= @tile.tabs[1].icon %>"></span>
+					       		<label><%= @tile.tabs[1].name %></label>
+					        </div>
+					        <div class="carouContent">
+					            <%= raw @tile.tabs[1].tab_content %>
+					       </div> 
+					    </div>
+					    <div class="carouTab">
+					        <div class="carouTabTitle">
+					        		<span class="<%= @tile.tabs[0].icon %>"></span>
+					        		<label><%= @tile.tabs[0].name %></label>
+					         </div>
+					         <div class="carouContent">
+					             <%= raw @tile.tabs[0].tab_content %>
+					        </div> 
+			  			</div>
+
+					</div>
+
+			<% elsif @tile.tabs.length === 3 %>
+
+					<div class="carouTabs carouPanel3 carouBottom">
+					   <div class="carouTab activeCarou">
+					       <div class="carouTabTitle">
+					       		<span class="<%= @tile.tabs[2].icon %>"></span>
+					       		<label><%= @tile.tabs[2].name %></label>
+					        </div>
+					        <div class="carouContent">
+					            <%= raw @tile.tabs[2].tab_content %>
+					       </div> 
+					    </div>
+					    <div class="carouTab">
+					        <div class="carouTabTitle">
+					        		<span class="<%= @tile.tabs[1].icon %>"></span>
+					        		<label><%= @tile.tabs[1].name %></label>
+					         </div>
+					         <div class="carouContent">
+					             <%= raw @tile.tabs[1].tab_content %>
+					        </div> 
+			  			</div>
+						
+					    <div class="carouTab">
+					        <div class="carouTabTitle">
+					        		<span class="<%= @tile.tabs[0].icon %>"></span>
+					        		<label><%= @tile.tabs[0].name %></label>
+					         </div>
+					         <div class="carouContent">
+					             <%= raw @tile.tabs[0].tab_content %>
+					        </div> 
+			  			</div>
+
+					</div>
+
+			<% elsif @tile.tabs.length === 4 %>
+
+					<div class="carouTabs carouPanel4 carouBottom">
+					   <div class="carouTab activeCarou">
+					       <div class="carouTabTitle">
+					       		<span class="<%= @tile.tabs[3].icon %>"></span>
+					       		<label><%= @tile.tabs[3].name %></label>
+					        </div>
+					        <div class="carouContent">
+					            <%= raw @tile.tabs[3].tab_content %>
+					       </div> 
+					    </div>
+					    <div class="carouTab">
+					        <div class="carouTabTitle">
+					        		<span class="<%= @tile.tabs[2].icon %>"></span>
+					        		<label><%= @tile.tabs[2].name %></label>
+					         </div>
+					         <div class="carouContent">
+					             <%= raw @tile.tabs[2].tab_content %>
+					        </div> 
+			  			</div>
+						
+					    <div class="carouTab">
+					        <div class="carouTabTitle">
+					        		<span class="<%= @tile.tabs[1].icon %>"></span>
+					        		<label><%= @tile.tabs[1].name %></label>
+					         </div>
+					         <div class="carouContent">
+					             <%= raw @tile.tabs[1].tab_content %>
+					        </div> 
+			  			</div>
+
+					    <div class="carouTab">
+					        <div class="carouTabTitle">
+					        		<span class="<%= @tile.tabs[0].icon %>"></span>
+					        		<label><%= @tile.tabs[0].name %></label>
+					         </div>
+					         <div class="carouContent">
+					             <%= raw @tile.tabs[0].tab_content %>
+					        </div> 
+			  			</div>
+
+					</div>
+
+			<% elsif @tile.tabs.length === 5 %>
+
+					<div class="carouTabs carouPanel5 carouBottom">
+					   <div class="carouTab activeCarou">
+					       <div class="carouTabTitle">
+					       		<span class="<%= @tile.tabs[4].icon %>"></span>
+					       		<label><%= @tile.tabs[4].name %></label>
+					        </div>
+					        <div class="carouContent">
+					            <%= raw @tile.tabs[4].tab_content %>
+					       </div> 
+					    </div>
+					    <div class="carouTab">
+					        <div class="carouTabTitle">
+					        		<span class="<%= @tile.tabs[3].icon %>"></span>
+					        		<label><%= @tile.tabs[3].name %></label>
+					         </div>
+					         <div class="carouContent">
+					             <%= raw @tile.tabs[3].tab_content %>
+					        </div> 
+			  			</div>
+						
+					    <div class="carouTab">
+					        <div class="carouTabTitle">
+					        		<span class="<%= @tile.tabs[2].icon %>"></span>
+					        		<label><%= @tile.tabs[2].name %></label>
+					         </div>
+					         <div class="carouContent">
+					             <%= raw @tile.tabs[2].tab_content %>
+					        </div> 
+			  			</div>
+
+					    <div class="carouTab">
+					        <div class="carouTabTitle">
+					        		<span class="<%= @tile.tabs[1].icon %>"></span>
+					        		<label><%= @tile.tabs[1].name %></label>
+					         </div>
+					         <div class="carouContent">
+					             <%= raw @tile.tabs[1].tab_content %>
+					        </div> 
+			  			</div>
+
+					    <div class="carouTab">
+					        <div class="carouTabTitle">
+					        		<span class="<%= @tile.tabs[0].icon %>"></span>
+					        		<label><%= @tile.tabs[0].name %></label>
+					         </div>
+					         <div class="carouContent">
+					             <%= raw @tile.tabs[0].tab_content %>
+					        </div> 
+			  			</div>
+
+					</div>
+
+			<% elsif @tile.tabs.length === 6 %>
+
+			<div class="carouTabs carouPanel6 carouBottom">
+			   <div class="carouTab activeCarou">
+			       <div class="carouTabTitle">
+			       		<span class="<%= @tile.tabs[5].icon %>"></span>
+			       		<label><%= @tile.tabs[5].name %></label>
+			        </div>
+			        <div class="carouContent">
+			            <%= raw @tile.tabs[5].tab_content %>
+			       </div> 
+			    </div>
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[4].icon %>"></span>
+			        		<label><%= @tile.tabs[4].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <%= raw @tile.tabs[4].tab_content %>
+			        </div> 
+	  			</div>
+				
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[3].icon %>"></span>
+			        		<label><%= @tile.tabs[3].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <%= raw @tile.tabs[3].tab_content %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[2].icon %>"></span>
+			        		<label><%= @tile.tabs[2].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <%= raw @tile.tabs[2].tab_content %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[1].icon %>"></span>
+			        		<label><%= @tile.tabs[1].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <%= raw @tile.tabs[1].tab_content %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[0].icon %>"></span>
+			        		<label><%= @tile.tabs[0].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <%= raw @tile.tabs[0].tab_content %>
+			        </div> 
+	  			</div>
+
+			</div>
+
+			<% else %>
+
+			<p>Sorry, you can only have a maximum of six tabs.</p>
+
+			<% end %>
+
+			<!-- tab-tile scripts -->
+
+			<script type="text/javascript">
+
+				(function() {
+					$(document).ready(function() {
+						var $carous = $('.tileArea').find('.carouTabs'); //all carousels in each carouTabs containers, which may be nested
+						for (var i = 0; i < $carous.length; i++) {
+							var $item = $($carous[i]);
+							$item.children('.carouTab:first-of-type').addClass('activeCarou');
+							$item.find('.carouTabTitle').click(function() {
+								var $parent = $(this).parent('.carouTab');
+							$parent.addClass('activeCarou').siblings('.activeCarou').removeClass('activeCarou');
+						});
+						};
+					});
+				}())
+				
+
+			</script>
+
+			<!-- END tab-tile -->
+
+			<!-- BEGIN button-tile -->
+
+			<% elsif @tile.tile_type === "button-tile" %>
+
+			
+
+			<% if @tile.width === "1" %>
+
+			<!-- 1x1 -->
+
+			<% if @tile.height === "1" %>
+
+			<% if @tile.buttons.length === 1 %>
+
+			<div class="row buttonContent">
+				<div class="small-6 columns small-centered vertWrap">
+					<div class="vertElement">
+						<a <% if @tile.buttons[0].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[0].title %></span>
+					</div>
+				</div>
+			</div>
+
+			<% elsif @tile.buttons.length === 2 %>
+
+			<div class="row buttonContent">
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a <% if @tile.buttons[0].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[0].title %></span>
+					</div>
+				</div>
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a <% if @tile.buttons[1].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[1].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[1].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[1].title %></span>
+					</div>
+				</div>
+			</div>
+
+			<% elsif @tile.buttons.length === 3 %>
+
+			<div class="row buttonContent">
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a <% if @tile.buttons[0].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[0].title %></span>
+					</div>
+				</div>
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a <% if @tile.buttons[1].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[1].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[1].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[1].title %></span>
+					</div>
+				</div>
+			</div>
+			<div class="row buttonContent">
+				<div class="small-6 columns small-centered vertWrap">
+					<div class="vertElement">
+						<a <% if @tile.buttons[2].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[2].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[2].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[2].title %></span>
+					</div>
+				</div>
+			</div>
+
+			<% elsif @tile.buttons.length >= 4 %>
+
+			<div class="row buttonContent">
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a <% if @tile.buttons[0].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[0].title %></span>
+					</div>
+				</div>
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a <% if @tile.buttons[1].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[1].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[1].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[1].title %></span>
+					</div>
+				</div>
+			</div>
+			<div class="row buttonContent">
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a <% if @tile.buttons[2].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[2].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[2].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[2].title %></span>
+					</div>
+				</div>
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a <% if @tile.buttons[3].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[3].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[3].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[3].title %></span>
+					</div>
+				</div>
+			</div>
+
+			<% else %>
+
+			<p>Sorry, something went wrong in the button rendering.</p>
+
+			<% end %>
+
+			<% elsif @tile.height === "0.5" %> <!-- end 1x1 -->
+
+			<% if @tile.buttons.length === 1 %>
+
+			<div class="row buttonContent">
+				<div class="small-6 columns small-centered vertWrap">
+					<div class="vertElement">
+						<a href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[0].title %></span>
+					</div>
+				</div>
+			</div>
+
+			<% elsif @tile.buttons.length >= 2 %>
+
+			<div class="row buttonContent">
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[0].title %></span>
+					</div>
+				</div>
+				<div class="small-6 columns vertWrap">
+					<div class="vertElement">
+						<a href="<%= @tile.buttons[1].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[1].icon %>"></span></a> 
+						<span class="buttonLabel"><%= @tile.buttons[1].title %></span>
+					</div>
+				</div>
+			</div>
+
+			<% end %>
+
+			<% end %>
+
+			<% end %> <!-- end 1xx -->
+
+			<!-- END button-tile -->
+
+			<!-- BEGIN static-tile -->
+
+			<% elsif @tile.tile_type === "static-tile" %>
+
+			<%= raw @tile.tile_content %>
+
+			<!-- END static-tile -->
+
+			<% end %>
+
+
+		</div>
+		<% if @tile.flips %>
+		<div class="back">
+			<% if @tile.flip_title %>
+			<span class="tile-title"><%= @tile.flip_title %><span class="flipLink"><span {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} class="icon-back rabdfblue"></span></span></span>
+			<% else %>
+			<span class="flipLink"><span {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} class="icon-back rabdfblue"></span></span>
+			<% end %>
+			<% if @tile.flip_content %>
+				<%= raw @tile.flip_content %>
+			<% elsif @tile.flip_buttons %>
+				<% if @tile.height = "0.5" %>
+					<% if @tile.width = "0.5" %>
+					<div class="row buttonContent">
+						<div class="small-6 columns small-centered vertWrap">
+							<div class="vertElement">
+								<a href="<%= @tile.buttons[1].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[1].icon %>"></span></a> 
+								<span class="buttonLabel"><%= @tile.buttons[1].title %></span>
+							</div>
+						</div>
+					</div>
+					<% elsif @tile.width = "1" %>
+					<div class="row buttonContent">
+						<div class="small-6 columns vertWrap">
+							<div class="vertElement">
+								<a href="<%= @tile.buttons[2].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[2].icon %>"></span></a> 
+								<span class="buttonLabel"><%= @tile.buttons[2].title %></span>
+							</div>
+						</div>
+						<div class="small-6 columns vertWrap">
+							<div class="vertElement">
+								<a href="<%= @tile.buttons[3].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[3].icon %>"></span></a> 
+								<span class="buttonLabel"><%= @tile.buttons[3].title %></span>
+							</div>
+						</div>
+					</div>
+
+					<% else %>
+					<p>Flip tiles can be a maximum of 1 tall, 1 wide, and contain a number of buttons such that there is a maximum of four buttons in any area equal to 1.</p>
+					<% end %>
+				<% elsif @tile.height = "1" %>
+					<% if @tile.width = "0.5" %>
+					<div class="row buttonContent">
+						<div class="small-6 columns vertWrap">
+							<div class="vertElement">
+								<a href="<%= @tile.buttons[2].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[2].icon %>"></span></a> 
+								<span class="buttonLabel"><%= @tile.buttons[2].title %></span>
+							</div>
+						</div>
+						<div class="small-6 columns vertWrap">
+							<div class="vertElement">
+								<a href="<%= @tile.buttons[3].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[3].icon %>"></span></a> 
+								<span class="buttonLabel"><%= @tile.buttons[3].title %></span>
+							</div>
+						</div>
+					</div>
+					<% elsif @tile.width = "1" %>
+					<!-- 8 buttons total -->
+					<div class="row buttonContent">
+						<div class="small-6 columns vertWrap">
+							<div class="vertElement">
+								<a href="<%= @tile.buttons[4].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[4].icon %>"></span></a> 
+								<span class="buttonLabel"><%= @tile.buttons[4].title %></span>
+							</div>
+						</div>
+						<div class="small-6 columns vertWrap">
+							<div class="vertElement">
+								<a href="<%= @tile.buttons[5].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[5].icon %>"></span></a> 
+								<span class="buttonLabel"><%= @tile.buttons[5].title %></span>
+							</div>
+						</div>
+					</div>
+					<div class="row buttonContent">
+						<div class="small-6 columns vertWrap">
+							<div class="vertElement">
+								<a href="<%= @tile.buttons[6].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[6].icon %>"></span></a> 
+								<span class="buttonLabel"><%= @tile.buttons[6].title %></span>
+							</div>
+						</div>
+						<div class="small-6 columns vertWrap">
+							<div class="vertElement">
+								<a href="<%= @tile.buttons[7].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[7].icon %>"></span></a> 
+								<span class="buttonLabel"><%= @tile.buttons[7].title %></span>
+							</div>
+						</div>
+					</div>
+					<% else %>
+					<p>Flip tiles can be a maximum of 1 tall, 1 wide, and contain a number of buttons such that there is a maximum of four buttons in any area equal to 1.</p>
+					<% end %>
+				<% else %>
+				<p>Flip tiles can be a maximum of 1 tall, 1 wide, and contain a number of buttons such that there is a maximum of four buttons in any area equal to 1.</p>
+				<% end %>
+			<% end %>
+		</div>
+		<% end %>
+	</div>
+</div>
+
+</script>
+
+<!-- view script -->
+
+<script type="text/javascript">
+
+App = Ember.Application.create({});
+
+App.<%= @tile.name.capitalize %>View = Ember.View.create({
+	templateName: '<%= @tile.name %>',
+	visitorImportance: 2,
+	generalImportance: 2,
+	exhibitorImportance: 2,
+	width: <%= @tile.width.to_f %>,
+	height: <%= @tile.height.to_f %>,
+	<% if @tile.flips %>
+	flipped:false,
+	toggleFlip: function() {
+		var view = this;
+		var flipped = view.flipped;
+		if(flipped) {
+			view.set('flipped', false);
+		}
+		else {
+			view.set('flipped', true);
+		}
+	},
+	<% end %>
+	didInsertElement: function() {
+		
+	}
+});
+
+App.<%= @tile.name.capitalize %>View.appendTo('#tileArea');
+
+	
+</script>
+
+

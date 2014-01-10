@@ -1,0 +1,74 @@
+<%= render "admin/base/left_sidebar" %>
+<%= render "admin/base/right_sidebar" %>
+
+
+
+<!-- Page Container -->
+<!-- In the PHP version you can set the following options from the config file -->
+<!-- Add the class .full-width for a full width page (100%, 1920px max width) -->
+<div id="page-container">
+   
+   <%= render "admin/base/top_menu" %>
+
+    <!-- FX Container -->
+    <!-- In the PHP version you can set the following options from the config file -->
+    <!--
+        All effects apply in resolutions larger than 1200px width
+        Add one of the following classes to #fx-container for setting an effect to main content when one of the sidebars are opened
+        'fx-none'           remove all effects (better website performance)
+        'fx-opacity'        opacity effect
+        'fx-move'           move effect
+        'fx-push'           push effect
+        'fx-rotate'         rotate effect
+        'fx-push-move'      push-move effect
+        'fx-push-rotate'    push-rotate effect
+    -->
+    <div id="fx-container" class="fx-opacity">
+        <!-- Page content -->
+        <!--inner nav-->
+        <%= render partial: "admin/base/inner_nav", locals: {back_path: admin_tiles_path, new_path: new_admin_tile_path, model_name: "Tile"} %>
+        <!--END inner nav-->
+        <div id="page-content" class="block">
+
+        <% @tile.title.nil? ? ttl = 'No Title' : ttl = @tile.title %>
+        
+        <%= render partial: "admin/base/header_datatables", locals: {title: "Tile " + @tile.id.to_s, subtitle: raw("&ldquo;") + ttl + raw("&rdquo;"), last_updated: @tile.updated_at, header_icon: "fa-th-large"} %>
+            <div id="tileArea" class="tileArea">
+                <%= render partial: "admin/base/tile", locals: {model: @tile} %>
+            </div>
+            
+        
+            
+        </div>
+        <!-- END Page Content -->
+
+        <!-- Remember to include excanvas for IE8 chart support -->
+        <!--[if IE 8]><script src="js/helpers/excanvas.min.js"></script><![endif]-->
+
+        <!-- Footer -->
+        <footer style="clear:both" class="clearfix">
+            <div class="pull-right">
+                Crafted with <i class="fa fa-heart"></i> by <a class="ghostColor" href="http://www.ghostds.com" target="_blank">Ghost Design</a>
+            </div>
+            <div class="pull-left">
+                <span id="year-copy"></span> &copy; <a href="javascript:void(0)" target="_blank">Ghost Design</a>
+            </div>
+        </footer>
+        <!-- END Footer -->
+    </div>
+    <!-- END FX Container -->
+</div>
+<!-- END Page Container -->
+<!-- BEGIN Page Scripts -->
+<%= render 'admin/base/datatable_scripts' %>
+
+<script>
+var myTextArea = document.getElementById('codeArea');
+  var editor = CodeMirror.fromTextArea(myTextArea, {
+    mode: "text/html"
+  });
+</script>
+<!-- BEGIN tile scripts -->
+
+<script type="text/javascript"></script>
+<!-- END tile scripts -->

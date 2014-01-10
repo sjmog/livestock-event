@@ -376,6 +376,7 @@ DEPENDENCIES
   koala
   linkedin
   local_time
+  nested_form
   newrelic_rpm
   pg (~> 0.14)
   prawn_rails

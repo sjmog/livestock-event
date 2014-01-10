@@ -1,0 +1,270 @@
+@font-face {
+  font-family: "rabdf";
+  src: url("fonts/rabdf/rabdf.eot");
+  src: url("fonts/rabdf/rabdf.eot?#iefix") format("embedded-opentype"), url("fonts/rabdf/rabdf.ttf") format("truetype"), url("fonts/rabdf/rabdf.svg#rabdf") format("svg"), url("fonts/rabdf/rabdf.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+[data-icon]:before {
+  font-family: "rabdf" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "rabdf" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-add-icon:before {
+  content: "a"; }
+
+.icon-award:before {
+  content: "b"; }
+
+.icon-calendar:before {
+  content: "c"; }
+
+.icon-car:before {
+  content: "d"; }
+
+.icon-clock:before {
+  content: "e"; }
+
+.icon-cow:before {
+  content: "f"; }
+
+.icon-envelope:before {
+  content: "g"; }
+
+.icon-eye:before {
+  content: "h"; }
+
+.icon-facebook:before {
+  content: "i"; }
+
+.icon-link-icon:before {
+  content: "j"; }
+
+.icon-linked-in:before {
+  content: "k"; }
+
+.icon-twitter:before {
+  content: "l"; }
+
+.icon-train:before {
+  content: "m"; }
+
+.icon-telephone:before {
+  content: "n"; }
+
+.icon-speechbubble:before {
+  content: "o"; }
+
+.icon-pound-icon:before {
+  content: "p"; }
+
+.icon-plane:before {
+  content: "q"; }
+
+.icon-add:before {
+  content: "s"; }
+
+.icon-close:before {
+  content: "t"; }
+
+.icon-zoom-in:before {
+  content: "u"; }
+
+.icon-zoom-out:before {
+  content: "v"; }
+
+.icon-fontawesome-like:before {
+  content: "w"; }
+
+.icon-tick:before {
+  content: "x"; }
+
+.icon-cloud-upload:before {
+  content: "y"; }
+
+.icon-cloud-download:before {
+  content: "z"; }
+
+.icon-fontawesome-group:before {
+  content: "B"; }
+
+.icon-fontawesome-reload:before {
+  content: "C"; }
+
+.icon-info:before {
+  content: "D"; }
+
+.icon-paper-plane:before {
+  content: "E"; }
+
+.icon-right-open-big:before {
+  content: "F"; }
+
+.icon-right-open-mini:before {
+  content: "G"; }
+
+.icon-entypo-like:before {
+  content: "H"; }
+
+.icon-card-user:before {
+  content: "I"; }
+
+.icon-barclays:before {
+  content: "J"; }
+
+.icon-john-deere-logo:before {
+  content: "K"; }
+
+.icon-giltspur-logo:before {
+  content: "L"; }
+
+.icon-zoetis-logo:before {
+  content: "M"; }
+
+.icon-credit-card:before {
+  content: "N"; }
+
+.icon-phone:before {
+  content: "O"; }
+
+.icon-close-alt:before {
+  content: "P"; }
+
+.icon-tick-alt:before {
+  content: "Q"; }
+
+.icon-close-alt-2:before {
+  content: "R"; }
+
+.icon-bus:before {
+  content: "S"; }
+
+.icon-suitcase:before {
+  content: "T"; }
+
+.icon-moon:before {
+  content: "U"; }
+
+.icon-handshake:before {
+  content: "V"; }
+
+.icon-gears:before {
+  content: "W"; }
+
+.icon-help:before {
+  content: "X"; }
+
+.icon-knowledge:before {
+  content: "Y"; }
+
+.icon-test-drive:before {
+  content: "Z"; }
+
+.icon-features:before {
+  content: "0"; }
+
+.icon-exhibitions-alt:before {
+  content: "1"; }
+
+.icon-livestock:before {
+  content: "2"; }
+
+.icon-seminars-1:before {
+  content: "3"; }
+
+.icon-exhibitions-alt2:before {
+  content: "4"; }
+
+.icon-exhibitions-1:before {
+  content: "5"; }
+
+.icon-compass:before {
+  content: "6"; }
+
+.icon-eblex-logo:before {
+  content: "7"; }
+
+.icon-settings:before {
+  content: "8"; }
+
+.icon-home:before {
+  content: "9"; }
+
+.icon-travel-solutions-logo:before {
+  content: "!"; }
+
+.icon-edit-pencil:before {
+  content: '"'; }
+
+.icon-infinity:before {
+  content: "#"; }
+
+.icon-chevron-thick:before {
+  content: "$"; }
+
+.icon-warning-triangle:before {
+  content: "%"; }
+
+.icon-back:before {
+  content: "&"; }
+
+.icon-barclays-logo-full:before {
+  content: "'"; }
+
+.icon-unlink:before {
+  content: "("; }
+
+.icon-down:before {
+  content: ")"; }
+
+.icon-chevron-thick-down:before {
+  content: "*"; }
+
+.icon-link:before {
+  content: "+"; }
+
+.icon-down:before {
+  content: ","; }
+
+.icon-forward:before {
+  content: "-"; }
+
+.icon-up:before {
+  content: "."; }
+
+.icon-dairyco-logo:before {
+  content: "/"; }
+
+.icon-zoetis-logo-full:before {
+  content: ":"; }
+
+.icon-printer:before {
+  content: ";"; }
+
+.icon-menu:before {
+  content: "<"; }
+
+.icon-article-new:before {
+  content: "="; }
+
+.icon-location:before {
+  content: "A"; }

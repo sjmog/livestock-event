@@ -1,0 +1,363 @@
+<!--form for new tile-->
+<div class="block">
+	<div class="block-title">
+		<h2>Basic Tile Settings</h2>
+	</div>
+	<%= simple_nested_form_for [:admin, @tile], :html => { class: 'form-horizontal form-bordered' }, defaults: { input_html: { class: 'form-control' }, label_html: { class: 'control-label '} } do |f| %>
+	<div class="form-group">
+		<div class="col-md-6"><%= f.input :title %></div>
+		<div class="col-md-6"><%= f.input :name %></div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-6">
+			<label class="tile_type optional control-label" for="tile_type">Type</label>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-question"></i>
+				</span>
+				<select name="tile[tile_type]" class="tile_type">
+					<option value="tab-tile">Tabbed Tile</option>
+					<option value="button-tile">Button Tile</option>
+				</select>
+
+			</div>
+		</div>	
+		<div class="col-md-6">
+		
+			<label class="group optional control-label" for="group">Group</label>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-calendar-o"></i>
+				</span>
+				<%= f.input_field :exhibitor %>
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-user"></i>
+				</span>
+				<%= f.input_field :visitor %>
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-info"></i>
+				</span>
+				<%= f.input_field :general %>
+			</div>
+				
+			
+		</div>
+		<div class="form-group">
+			<div class="col-md-6">
+				<label class="height optional control-label" for="height">Height</label>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-arrows-v"></i>
+					</span>
+					<%= f.input_field :height %>
+				</div>
+			</div>	
+			<div class="col-md-6">
+			
+				<label class="width optional control-label" for="width">Width</label>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-arrows-h"></i>
+					</span>
+					<%= f.input_field :width %>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-6">
+				<label class="flips optional control-label" for="flips">Tile flips?</label>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-rotate-right"></i>
+					</span>
+					<%= f.input_field :flips %>
+				</div>
+			</div>	
+			<div class="col-md-6">
+			
+				<label class="flip_title optional control-label" for="flip_title">Flipped Title <small>This is optional.</small></label>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-font"></i>
+					</span>
+					<%= f.input_field :flip_title %>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-6">
+				<label class="flip_buttons optional control-label" for="flip_buttons">Flipped side contains only buttons?</label>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-rotate-right"></i>
+					</span>
+					<%= f.input_field :flip_buttons %>
+				</div>
+			</div>	
+			<div class="col-md-6">
+			
+				<label class="flip_content optional control-label" for="flip_content">Flipped side contains custom content? <small>Leave this blank if you want buttons.</small></label>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-ellipsis"></i>
+					</span>
+					<%= f.input_field :flip_content %>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+<!--Tabs for the different kind of tabs...! -->
+
+<div class="block full">
+    <!-- Default Working Tabs Title -->
+    <div class="block-title">
+    	<h2>Tile Content Settings <small>Static content, or another type?</small></h2>
+    </div>
+    <!-- END Default Working Tabs Title -->
+
+    <!-- Default Working Tabs Content -->
+    <ul class="nav nav-tabs push" data-toggle="tabs">
+        <li class="active" data-toggle="tooltip" title="" data-original-title="What-You-See-Is-What-You-Get content"><a href="#static-content">Static Content</a></li>
+        <li class="" data-toggle="tooltip" title="" data-original-title="Split the tile into tabs, which can each contain specific content types"><a href="#tabs-content">Tabs</a></li>
+        <li class="" data-toggle="tooltip" title="" data-original-title="Add one or more CTA circular buttons to the tile"><a href="#button-content">Buttons</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="static-content">
+        	<div class="form-group">
+        		<div class="col-md-12"><%= f.input :tile_content, as: :text, input_html: {rows: "30", class: "form-control textarea-editor"} %></div>
+        	</div>
+        </div>
+        <div class="tab-pane" id="tabs-content">
+			<div id="tabs">
+			<%= f.fields_for :tabs do |tab_form| %>
+				
+				<div class="block">
+					<div class="block-title">
+							<h2>Tab <%= @count.to_s %></h2>
+						  <%= tab_form.link_to_remove do %>
+							<span class='btn btn-xs btn-default' data-toggle="tooltip"title ="Remove Tab">
+								<i class="fa fa-minus"></i>
+							</span>
+						  <% end %>
+					</div>
+					<div class="form-group">
+						<div class="col-md-6">
+							<label class="name optional control-label" for="name">Tab Title</label>
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="fa fa-ellipsis-h"></i>
+								</span>
+								<%= tab_form.input_field :name, class: "tab_name unconverted form-control" %>
+							</div>
+							
+						</div>
+						<div class="col-md-6">
+							<label class="icon optional control-label" for="icon">Tab Icon</label>
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="fa fa-flag"></i>
+								</span>
+								<%= tab_form.input_field :icon, class: "tab_icon unconverted form-control" %>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-12">
+							<select name="tile[tabs_attributes][0][tab_type]" data-placeholder="Choose a style" style="width: 250px;" class="select-chosen tab_type unconverted">
+								<option value="split">Static Split</option>
+								<option value="html">Hard-coded</option>
+							</select>
+						</div>
+					</div>
+
+					<!--Tabs for the different kind of tabs...! -->
+
+					<div class="block full">
+                        <!-- Default Working Tabs Title -->
+                        <div class="block-title">
+                            <h2>Tab Content <small>What's going inside the tab?</small></h2>
+                        </div>
+                        <!-- END Default Working Tabs Title -->
+
+                        <!-- Default Working Tabs Content -->
+                        <ul class="nav nav-tabs push" data-toggle="tabs">
+                            <li class="active" data-toggle="tooltip" title="" data-original-title="A tab split down the middle"><a class="tab1 unconverted" href="#tab-tabs-split">Split</a></li>
+                            <li class="" data-toggle="tooltip" title="" data-original-title="Custom HTML inside the tab"><a class="tab2 unconverted" href="#tab-tabs-html">HTML</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active tab1Target unconverted" id="tab-tabs-split">
+                            	<!--static 'split' tab -->
+                            	<div class="form-group">
+                            		<div class="col-md-6">
+                            			<label class="tab_link optional control-label" for="tab_link">Tab Link</label>
+                            			<div class="input-group">
+                            				<span class="input-group-addon">
+                            					<i class="fa fa-ellipsis-h"></i>
+                            				</span>
+                            				<%= tab_form.input_field :tab_link, class: "tab_link unconverted form-control" %>
+                            			</div>
+                            			
+                            		</div>
+                            		<div class="col-md-6">
+                            			<label class="tab_large_icon optional control-label" for="tab_large_icon">Tab Large Icon</label>
+                            			<div class="input-group">
+                            				<span class="input-group-addon">
+                            					<i class="fa fa-flag"></i>
+                            				</span>
+                            				<%= tab_form.input_field :tab_large_icon, class: "tab_large_icon unconverted form-control" %>
+                            			</div>
+                            			
+                            		</div>
+                            	</div>
+
+                            	<div class="form-group">
+                            		<div class="col-md-12">
+                            			<label class="split_title optional control-label" for="split_title">On-tab Title</label>
+                            			<div class="input-group">
+                            				<span class="input-group-addon">
+                            					<i class="fa fa-ellipsis-h"></i>
+                            				</span>
+                            				<%= tab_form.input_field :split_title, class: "split_title unconverted form-control" %>
+                            			</div>
+                            		</div>
+                            	</div>
+
+                            	<div class="form-group">
+                            		<div class="col-md-12"><%= tab_form.input :split_text, as: :text, input_html: {rows: "30", class: "form-control textarea-editor split_text unconverted"} %></div>
+                            	</div>
+                            	<!-- END static 'split' tab -->
+                            </div>
+                            <div class="tab-pane tab2Target unconverted" id="tab-tabs-html">
+                            	<!--html tab -->
+                            	<div class="form-group">
+                            		<div class="col-md-12">
+                            			<label class="width optional control-label" for="width">Tab Content (HTML)</label>
+                            			<div class="input-group">
+                            				<span class="input-group-addon">
+                            					<i class="fa fa-code"></i>
+                            				</span>
+                            				<%= tab_form.input_field :tab_content, as: :text, id: "codeArea", class: "form-control html_content unconverted" %>
+                            		</div>
+                            		</div>
+                            	</div>
+                            	<!-- END html tab -->
+                            </div>
+                        </div>
+                        <!-- END Default Working Tabs Content -->
+                    </div>
+
+                    <!-- END tabs for different tabs -->
+
+					
+
+					
+
+
+					<% end %>
+					<div class="form-group">
+						<p><%= f.link_to_add :tabs, :data => { :target => "#tabs" }  do %>
+						<span id="newTab" class='btn btn-success' data-toggle="tooltip"title ="Add another Tab to this Tile">
+							<i class="fa fa-plus"></i> Add a Tab
+						</span>
+					  <% end %>
+
+						</p>
+					</div>			
+				</div>
+			</div>
+        </div>
+        <div class="tab-pane" id="button-content">
+			<div id="buttons">
+			<%= f.fields_for :buttons do |button_form| %>
+				
+				<div class="block">
+					<div class="block-title">
+							<h2>Button</h2>
+						  <%= button_form.link_to_remove do %>
+							<span class='btn btn-xs btn-default' data-toggle="tooltip"title ="Remove Button">
+								<i class="fa fa-minus"></i>
+							</span>
+						  <% end %>
+					</div>
+					<div class="form-group">
+						<div class="col-md-6">
+							<label class="name optional control-label" for="name">Button Title</label>
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="fa fa-ellipsis-h"></i>
+								</span>
+								<%= button_form.input_field :title, class: "button_title unconverted form-control" %>
+							</div>
+							
+						</div>
+						<div class="col-md-6">
+							<label class="icon optional control-label" for="icon">Button Icon</label>
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="fa fa-flag"></i>
+								</span>
+								<%= button_form.input_field :icon, class: "button_icon unconverted form-control" %>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-6">
+							<label class="flip_button optional control-label" for="name">Button flips tile?</label>
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="fa fa-rotate-right-alt"></i>
+								</span>
+								<%= button_form.input_field :flip_button, class: "flip_button unconverted form-control" %>
+							</div>
+							
+						</div>
+						<div class="col-md-6">
+							<label class="button_link optional control-label" for="name">Button Link</label>
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="fa fa-ellipsis-h"></i>
+								</span>
+								<%= button_form.input_field :button_link, class: "button_link unconverted form-control" %>
+							</div>
+							
+						</div>
+					</div>
+
+					<% end %>
+					<div class="form-group">
+						<p><%= f.link_to_add :buttons, :data => { :target => "#buttons" }  do %>
+						<span id="newButton" class='btn btn-success' data-toggle="tooltip"title ="Add another Button to this Tile">
+							<i class="fa fa-plus"></i> Add a Button
+						</span>
+					  <% end %>
+
+						</p>
+					</div>			
+				</div>
+			</div>
+        </div>
+    </div>
+    <!-- END Default Working Tabs Content -->
+</div>
+
+<!-- END tabs for different tabs -->
+
+			
+<div class="block">
+	<%= f.button :submit %>
+	<% end %>
+</div>
+
+<!--END form for new tile-->

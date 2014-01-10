@@ -1,0 +1,74 @@
+<!--BEGIN datatable-->
+<div class="table-responsive">
+    <table id="example-datatable" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">Title</th>
+                <th>Type</th>
+                <th>Group</th>
+                <th>Tabs</th>
+                <th>Buttons</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% model.each do |item| %>
+            <tr>
+                <td><%= link_to admin_tile_path(item), :'data-toggle' => "tooltip", :title => "View Tile" do %>
+                <%= item.title %>
+                <% end %>
+                </td>
+                <td class="text-center">
+                <%= item.tile_type %>
+                </td>
+                <td class="text-center">
+                    <% if item.exhibitor && item.visitor && item.general %>
+                    All 
+
+                    <% else %>
+                    
+                        <% if item.exhibitor %>
+                        Exhibitor 
+                        <% end %>
+                        <% if item.visitor %>
+                        Visitor 
+                        <% end %>
+                        <% if item.general %>
+                        General Info 
+                        <% end %>
+
+                    <% end %>
+                </td>
+                <td>
+                    <% item.tabs.each do |tab| %>
+                        
+                        <%= tab.name %>
+
+                    <% end %>
+                </td>
+                <td>
+                    <% item.buttons.each do |button| %>
+                        
+                        <%= button.title %>
+
+                    <% end %>
+                </td>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <%= link_to admin_tile_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "View" do %>
+                            <i class="fa fa-eye"></i>
+                        <% end %>
+                        <%= link_to edit_admin_tile_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Edit" do %>
+                            <i class="fa fa-pencil"></i>
+                        <% end %>
+                        <%= link_to admin_tile_path(item), method: :delete, data: { confirm: "Are you sure you want to delete this tile?" }, :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Delete", :remote => true do %>
+                            <i class="fa fa-times"></i>
+                        <% end %>
+                    </div>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<!--END datatable-->

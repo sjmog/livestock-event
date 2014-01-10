@@ -1,0 +1,171 @@
+<%= render "admin/base/left_sidebar" %>
+<%= render "admin/base/right_sidebar" %>
+
+
+
+<!-- Page Container -->
+<!-- In the PHP version you can set the following options from the config file -->
+<!-- Add the class .full-width for a full width page (100%, 1920px max width) -->
+<div id="page-container">
+   
+   <%= render "admin/base/top_menu" %>
+
+    <!-- FX Container -->
+    <!-- In the PHP version you can set the following options from the config file -->
+    <!--
+        All effects apply in resolutions larger than 1200px width
+        Add one of the following classes to #fx-container for setting an effect to main content when one of the sidebars are opened
+        'fx-none'           remove all effects (better website performance)
+        'fx-opacity'        opacity effect
+        'fx-move'           move effect
+        'fx-push'           push effect
+        'fx-rotate'         rotate effect
+        'fx-push-move'      push-move effect
+        'fx-push-rotate'    push-rotate effect
+    -->
+    <div id="fx-container" class="fx-opacity">
+        <!-- Page content -->
+        <div id="page-content" class="block">
+            
+        <% @tile.title.nil? ? ttl = 'Untitled Tile' : ttl = @tile.title %>
+        
+        <%= render partial: "admin/base/header_datatables", locals: {title: "Edit Tile " + @tile.id.to_s, subtitle: raw("&ldquo;") + ttl + raw("&rdquo;"), last_updated: @tile.updated_at, header_icon: "fa-th-large"} %>
+        <span id="new_form">
+            <%= render partial: "form", locals: {model: @tile} %>
+        </span>
+            
+        </div>
+        <!-- END Page Content -->
+
+        <!-- Remember to include excanvas for IE8 chart support -->
+        <!--[if IE 8]><script src="js/helpers/excanvas.min.js"></script><![endif]-->
+
+        <!-- Footer -->
+        <footer class="clearfix">
+            <div class="pull-right">
+                Crafted with <i class="fa fa-heart"></i> by <a class="ghostColor" href="http://www.ghostds.com" target="_blank">Ghost Design</a>
+            </div>
+            <div class="pull-left">
+                <span id="year-copy"></span> &copy; <a href="javascript:void(0)" target="_blank">Ghost Design</a>
+            </div>
+        </footer>
+        <!-- END Footer -->
+    </div>
+    <!-- END FX Container -->
+</div>
+<!-- END Page Container -->
+<!-- BEGIN Page Scripts -->
+<%= render 'admin/base/datatable_scripts' %>
+
+<script>
+(function() {
+    var myTextArea = $('.html_content'),
+        tabName = $('.tab_name'),
+        tabIcon = $('.tab_icon'),
+        tabType = $('.tab_type'),
+        tabLink = $('.tab_link'),
+        tabLargeIcon = $('.tab_large_icon'),
+        splitTitle = $('.split_title'),
+        splitText = $('.split_text'),
+        tab1 = $('.tab1'),
+        tab2 = $('.tab2'),
+        tab1Target = $('.tab1Target'),
+        tab2Target = $('.tab2Target'),
+        buttonTitle = $('.button_title'),
+        buttonIcon = $('.button_icon'),
+        buttonLink = $('.button_link'),
+        flipButton = $('.flip_button'),
+
+        editor = CodeMirror.fromTextArea(myTextArea[0], {
+        mode: "text/html"
+      }),
+        count = 1,
+        buttonCount = 1;
+        myTextArea.removeClass('unconverted');
+        tabName.removeClass('unconverted');
+        tabIcon.removeClass('unconverted');
+        tabType.removeClass('unconverted');
+        tabLink.removeClass('unconverted');
+        tabLargeIcon.removeClass('unconverted');
+        splitTitle.removeClass('unconverted');
+        splitText.removeClass('unconverted');
+        tab1.removeClass('unconverted');
+        tab2.removeClass('unconverted');
+        tab1Target.removeClass('unconverted');
+        tab2Target.removeClass('unconverted');
+        buttonTitle.removeClass('unconverted');
+        buttonIcon.removeClass('unconverted');
+        buttonLink.removeClass('unconverted');
+        flipButton.removeClass('unconverted');
+
+      $('#newTab').click(function() {
+        console.log('tab added');
+        window.setTimeout(function() {
+            var myTextArea = $('.html_content.unconverted'),
+                tabName = $('.tab_name.unconverted'),
+                tabIcon = $('.tab_icon.unconverted'),
+                tabType = $('.tab_type.unconverted'),
+                tabLink = $('.tab_link.unconverted'),
+                tabLargeIcon = $('.tab_large_icon.unconverted'),
+                splitTitle = $('.split_title.unconverted'),
+                splitText = $('.split_text.unconverted'),
+                tab1 = $('.tab1.unconverted'),
+                tab2 = $('.tab2.unconverted');
+            myTextArea.attr('name', "tile[tabs_attributes][" + count + "][tab_content]");
+            tabName.attr('name', "tile[tabs_attributes][" + count + "][name]");
+            tabIcon.attr('name', "tile[tabs_attributes][" + count + "][icon]");
+            tabLink.attr('name', "tile[tabs_attributes][" + count + "][tab_link]");
+            tabLargeIcon.attr('name', "tile[tabs_attributes][" + count + "][tab_large_icon]");
+            splitTitle.attr('name', "tile[tabs_attributes][" + count + "][split_title]");
+            splitText.attr('name', "tile[tabs_attributes][" + count + "][split_text]");
+
+            tab1.attr('href', '#tab-tabs-split-' + count);
+            tab2.attr('href', '#tab-tabs-html-' + count);
+            tab1Target.attr('id', 'tab-tabs-split-' + count);
+            tab2Target.attr('id', 'tab-tabs-html-' + count);
+
+                
+             var editor = CodeMirror.fromTextArea(myTextArea[0], {
+                  mode: "text/html"
+                });
+                  myTextArea.removeClass('unconverted');
+                  tabName.removeClass('unconverted');
+                  tabIcon.removeClass('unconverted');
+                  tabType.removeClass('unconverted');
+                  tabLink.removeClass('unconverted');
+                  tabLargeIcon.removeClass('unconverted');
+                  splitTitle.removeClass('unconverted');
+                  splitText.removeClass('unconverted');
+                  tab1.removeClass('unconverted');
+                  tab2.removeClass('unconverted');
+                  tab1Target.removeClass('unconverted');
+                  tab2Target.removeClass('unconverted');
+                  count++;
+              }, 1000)
+        
+        });
+
+        $('#newButton').click(function() {
+          console.log('button added');
+          window.setTimeout(function() {
+              var buttonTitle = $('.button_title.unconverted'),
+                  buttonIcon = $('.button_icon.unconverted'),
+                  buttonLink = $('.button_link.unconverted'),
+                  flipButton = $('.flip_button.unconverted');
+
+              buttonTitle.attr('name', "tile[buttons_attributes][" + buttonCount + "][title]");
+              buttonIcon.attr('name', "tile[buttons_attributes][" + buttonCount + "][icon]");
+              buttonLink.attr('name', "tile[buttons_attributes][" + buttonCount + "][button_link]");
+              flipButton.attr('name', "tile[buttons_attributes][" + buttonCount + "][flip_button]");
+
+                    buttonTitle.removeClass('unconverted');
+                    buttonIcon.removeClass('unconverted');
+                    buttonLink.removeClass('unconverted');
+                    flipButton.removeClass('unconverted');
+                    buttonCount++;
+                }, 1000)
+          
+          });
+  })();
+
+</script>

@@ -1,5 +1,13 @@
 EmberAuthRailsDemo::Application.routes.draw do
   
+
+  get "buttons/index"
+  get "buttons/new"
+  get "buttons/show"
+  get "buttons/edit"
+  get "buttons/update"
+  get "buttons/create"
+  get "buttons/destroy"
   devise_for :administrators, :controllers => {:sessions => "adminsessions"}
 
   mount RailsAdmin::Engine => '/backoffice', :as => 'rails_admin'
@@ -42,6 +50,8 @@ post 'charges' => 'charges#create'
   #the Admin area
 
   namespace :admin do
+      resources :tiles
+      resources :tabs
       resources :posts
       resources :stands
       resources :users
