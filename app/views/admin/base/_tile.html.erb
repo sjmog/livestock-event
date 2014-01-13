@@ -3,9 +3,9 @@
 <script type="text/x-handlebars" data-template-name="<%= @tile.name %>">
     
 
-<div class="ember-view tile <%= @tile.name %> <%= @tile.tile_type %> content-tile mix <% if @tile.general && @tile.exhibitor && @tile.visitor %> all <% else %><% unless @tile.general.nil? %> general_info <% end %> <% unless @tile.exhibitor.nil? %> exhibitor <% end %> <% unless @tile.visitor.nil? %> visitor <% end %> <% end %> <% if @tile.width === "0.5" %>tile-half-wide <% else %> tile-<%= @tile.width %>-wide <% end %> <% if @tile.height === "0.25" %>tile-quarter-tall <%elsif @tile.height === "0.5" %>tile-half-tall <% else %>tile-<%= @tile.height %>-tall <% end %> isotope-item" data-height="<%= @tile.height%>" data-width="<%= @tile.width %>">
-	<div class="flipper" style="background:#1daeec;">
-		<div class="front">
+<div class="ember-view tile <%= @tile.name %> <%= @tile.tile_type %> content-tile mix <% if @tile.general && @tile.exhibitor && @tile.visitor %> all rabdfblue <% else %><% if @tile.general %> general_info rabdfblue <% end %> <% if @tile.exhibitor %> exhibitor rabdforange <% end %> <% if @tile.visitor %> visitor rabdfpink <% end %> <% end %> <% if @tile.width === "0.5" %>tile-half-wide <% else %> tile-<%= @tile.width %>-wide <% end %> <% if @tile.height === "0.25" %>tile-quarter-tall <%elsif @tile.height === "0.5" %>tile-half-tall <% else %>tile-<%= @tile.height %>-tall <% end %> isotope-item" data-height="<%= @tile.height%>" data-width="<%= @tile.width %>">
+	<div class="flipper">
+		<div {{bind-attr class=":front view.flipped:flipped"}} style="background:<% if @tile.general && @tile.exhibitor && @tile.visitor %>#1daeec;<% else %><% if @tile.general && !@tile.exhibitor && !@tile.visitor %>#1daeec;<% end %> <% if @tile.exhibitor && !@tile.general && !@tile.visitor %>#f59331<% end %> <% if @tile.visitor && !@tile.exhibitor && !@tile.general %>#d84f9a<% end %><% if @tile.exhibitor && @tile.general && !@tile.visitor %>#f59331<% end %> <% end %>">
 
 			<span class="tile-title"><%= @tile.title %></span>
 
@@ -16,13 +16,13 @@
 			<% if @tile.tabs.length === 1 %>
 
 					<div class="carouTabs carouPanel1 carouBottom">
-					   <div class="carouTab activeCarou">
-					       <div class="carouTabTitle">
-					       		<span class="<%= @tile.tabs[0].icon %>"></span>
-					       		<label><%= @tile.tabs[0].name %></label>
-					        </div>
-					        <div class="carouContent">
-					        	<% if @tile.tabs[0].tab_type === "html" %>
+				<div class="carouTab activeCarou">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[0].icon %>"></span>
+			        		<label><%= @tile.tabs[0].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[0].tab_type === "html" %>
 					            <%= raw @tile.tabs[0].tab_content %>
 
 					            <% elsif @tile.tabs[0].tab_type === "split" %>
@@ -36,172 +36,485 @@
             		            		<header>
             		            			<h2><%= @tile.tabs[0].split_title %></h2>
             		            		</header>
-            		            		<article>
+            		            		<article class="split-article">
             		            			<p class="sponsorSpiel">
-            		            				 <% @tile.tabs[0].split_text %>
+            		            				 <%= @tile.tabs[0].split_text %>
             		            			</p>
             		            		</article>
             		            	</div>
             		            </div>
 
 					            <% end %>
-					       </div> 
-					    </div>
+			        </div> 
+	  			</div>
 					</div>
 
 			<% elsif @tile.tabs.length === 2 %>
 
 					<div class="carouTabs carouPanel2 carouBottom">
-					   <div class="carouTab activeCarou">
-					       <div class="carouTabTitle">
-					       		<span class="<%= @tile.tabs[1].icon %>"></span>
-					       		<label><%= @tile.tabs[1].name %></label>
-					        </div>
-					        <div class="carouContent">
+				<div class="carouTab activeCarou">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[1].icon %>"></span>
+			        		<label><%= @tile.tabs[1].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[1].tab_type === "html" %>
 					            <%= raw @tile.tabs[1].tab_content %>
-					       </div> 
-					    </div>
-					    <div class="carouTab">
-					        <div class="carouTabTitle">
-					        		<span class="<%= @tile.tabs[0].icon %>"></span>
-					        		<label><%= @tile.tabs[0].name %></label>
-					         </div>
-					         <div class="carouContent">
-					             <%= raw @tile.tabs[0].tab_content %>
-					        </div> 
-			  			</div>
+
+					            <% elsif @tile.tabs[1].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[1].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[1].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[1].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[1].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[0].icon %>"></span>
+			        		<label><%= @tile.tabs[0].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[0].tab_type === "html" %>
+					            <%= raw @tile.tabs[0].tab_content %>
+
+					            <% elsif @tile.tabs[0].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[0].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[0].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[0].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[0].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
 
 					</div>
 
 			<% elsif @tile.tabs.length === 3 %>
 
 					<div class="carouTabs carouPanel3 carouBottom">
-					   <div class="carouTab activeCarou">
-					       <div class="carouTabTitle">
-					       		<span class="<%= @tile.tabs[2].icon %>"></span>
-					       		<label><%= @tile.tabs[2].name %></label>
-					        </div>
-					        <div class="carouContent">
+				<div class="carouTab activeCarou">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[2].icon %>"></span>
+			        		<label><%= @tile.tabs[2].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[2].tab_type === "html" %>
 					            <%= raw @tile.tabs[2].tab_content %>
-					       </div> 
-					    </div>
-					    <div class="carouTab">
-					        <div class="carouTabTitle">
-					        		<span class="<%= @tile.tabs[1].icon %>"></span>
-					        		<label><%= @tile.tabs[1].name %></label>
-					         </div>
-					         <div class="carouContent">
-					             <%= raw @tile.tabs[1].tab_content %>
-					        </div> 
-			  			</div>
-						
-					    <div class="carouTab">
-					        <div class="carouTabTitle">
-					        		<span class="<%= @tile.tabs[0].icon %>"></span>
-					        		<label><%= @tile.tabs[0].name %></label>
-					         </div>
-					         <div class="carouContent">
-					             <%= raw @tile.tabs[0].tab_content %>
-					        </div> 
-			  			</div>
+
+					            <% elsif @tile.tabs[2].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[2].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[2].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[2].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[2].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[1].icon %>"></span>
+			        		<label><%= @tile.tabs[1].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[1].tab_type === "html" %>
+					            <%= raw @tile.tabs[1].tab_content %>
+
+					            <% elsif @tile.tabs[1].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[1].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[1].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[1].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[1].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[0].icon %>"></span>
+			        		<label><%= @tile.tabs[0].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[0].tab_type === "html" %>
+					            <%= raw @tile.tabs[0].tab_content %>
+
+					            <% elsif @tile.tabs[0].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[0].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[0].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[0].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[0].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
 
 					</div>
 
 			<% elsif @tile.tabs.length === 4 %>
 
 					<div class="carouTabs carouPanel4 carouBottom">
-					   <div class="carouTab activeCarou">
-					       <div class="carouTabTitle">
-					       		<span class="<%= @tile.tabs[3].icon %>"></span>
-					       		<label><%= @tile.tabs[3].name %></label>
-					        </div>
-					        <div class="carouContent">
+				<div class="carouTab activeCarou">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[3].icon %>"></span>
+			        		<label><%= @tile.tabs[3].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[3].tab_type === "html" %>
 					            <%= raw @tile.tabs[3].tab_content %>
-					       </div> 
-					    </div>
-					    <div class="carouTab">
-					        <div class="carouTabTitle">
-					        		<span class="<%= @tile.tabs[2].icon %>"></span>
-					        		<label><%= @tile.tabs[2].name %></label>
-					         </div>
-					         <div class="carouContent">
-					             <%= raw @tile.tabs[2].tab_content %>
-					        </div> 
-			  			</div>
-						
-					    <div class="carouTab">
-					        <div class="carouTabTitle">
-					        		<span class="<%= @tile.tabs[1].icon %>"></span>
-					        		<label><%= @tile.tabs[1].name %></label>
-					         </div>
-					         <div class="carouContent">
-					             <%= raw @tile.tabs[1].tab_content %>
-					        </div> 
-			  			</div>
 
-					    <div class="carouTab">
-					        <div class="carouTabTitle">
-					        		<span class="<%= @tile.tabs[0].icon %>"></span>
-					        		<label><%= @tile.tabs[0].name %></label>
-					         </div>
-					         <div class="carouContent">
-					             <%= raw @tile.tabs[0].tab_content %>
-					        </div> 
-			  			</div>
+					            <% elsif @tile.tabs[3].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[3].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[3].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[3].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[3].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[2].icon %>"></span>
+			        		<label><%= @tile.tabs[2].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[2].tab_type === "html" %>
+					            <%= raw @tile.tabs[2].tab_content %>
+
+					            <% elsif @tile.tabs[2].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[2].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[2].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[2].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[2].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[1].icon %>"></span>
+			        		<label><%= @tile.tabs[1].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[1].tab_type === "html" %>
+					            <%= raw @tile.tabs[1].tab_content %>
+
+					            <% elsif @tile.tabs[1].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[1].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[1].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[1].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[1].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[0].icon %>"></span>
+			        		<label><%= @tile.tabs[0].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[0].tab_type === "html" %>
+					            <%= raw @tile.tabs[0].tab_content %>
+
+					            <% elsif @tile.tabs[0].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[0].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[0].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[0].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[0].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
 
 					</div>
 
 			<% elsif @tile.tabs.length === 5 %>
 
 					<div class="carouTabs carouPanel5 carouBottom">
-					   <div class="carouTab activeCarou">
-					       <div class="carouTabTitle">
-					       		<span class="<%= @tile.tabs[4].icon %>"></span>
-					       		<label><%= @tile.tabs[4].name %></label>
-					        </div>
-					        <div class="carouContent">
+		
+				<div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[4].icon %>"></span>
+			        		<label><%= @tile.tabs[4].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[4].tab_type === "html" %>
 					            <%= raw @tile.tabs[4].tab_content %>
-					       </div> 
-					    </div>
-					    <div class="carouTab">
-					        <div class="carouTabTitle">
-					        		<span class="<%= @tile.tabs[3].icon %>"></span>
-					        		<label><%= @tile.tabs[3].name %></label>
-					         </div>
-					         <div class="carouContent">
-					             <%= raw @tile.tabs[3].tab_content %>
-					        </div> 
-			  			</div>
-						
-					    <div class="carouTab">
-					        <div class="carouTabTitle">
-					        		<span class="<%= @tile.tabs[2].icon %>"></span>
-					        		<label><%= @tile.tabs[2].name %></label>
-					         </div>
-					         <div class="carouContent">
-					             <%= raw @tile.tabs[2].tab_content %>
-					        </div> 
-			  			</div>
 
-					    <div class="carouTab">
-					        <div class="carouTabTitle">
-					        		<span class="<%= @tile.tabs[1].icon %>"></span>
-					        		<label><%= @tile.tabs[1].name %></label>
-					         </div>
-					         <div class="carouContent">
-					             <%= raw @tile.tabs[1].tab_content %>
-					        </div> 
-			  			</div>
+					            <% elsif @tile.tabs[4].tab_type === "split" %>
 
-					    <div class="carouTab">
-					        <div class="carouTabTitle">
-					        		<span class="<%= @tile.tabs[0].icon %>"></span>
-					        		<label><%= @tile.tabs[0].name %></label>
-					         </div>
-					         <div class="carouContent">
-					             <%= raw @tile.tabs[0].tab_content %>
-					        </div> 
-			  			</div>
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[4].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[4].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[4].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[4].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
+				
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[3].icon %>"></span>
+			        		<label><%= @tile.tabs[3].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[3].tab_type === "html" %>
+					            <%= raw @tile.tabs[3].tab_content %>
+
+					            <% elsif @tile.tabs[3].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[3].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[3].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[3].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[3].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[2].icon %>"></span>
+			        		<label><%= @tile.tabs[2].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[2].tab_type === "html" %>
+					            <%= raw @tile.tabs[2].tab_content %>
+
+					            <% elsif @tile.tabs[2].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[2].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[2].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[2].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[2].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[1].icon %>"></span>
+			        		<label><%= @tile.tabs[1].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[1].tab_type === "html" %>
+					            <%= raw @tile.tabs[1].tab_content %>
+
+					            <% elsif @tile.tabs[1].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[1].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[1].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[1].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[1].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
+
+			    <div class="carouTab">
+			        <div class="carouTabTitle">
+			        		<span class="<%= @tile.tabs[0].icon %>"></span>
+			        		<label><%= @tile.tabs[0].name %></label>
+			         </div>
+			         <div class="carouContent">
+			             <% if @tile.tabs[0].tab_type === "html" %>
+					            <%= raw @tile.tabs[0].tab_content %>
+
+					            <% elsif @tile.tabs[0].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[0].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[0].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[0].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[0].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
+			        </div> 
+	  			</div>
 
 					</div>
 
@@ -214,7 +527,29 @@
 			       		<label><%= @tile.tabs[5].name %></label>
 			        </div>
 			        <div class="carouContent">
-			            <%= raw @tile.tabs[5].tab_content %>
+			            <% if @tile.tabs[5].tab_type === "html" %>
+					            <%= raw @tile.tabs[5].tab_content %>
+
+					            <% elsif @tile.tabs[5].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[5].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[5].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[5].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[5].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
 			       </div> 
 			    </div>
 			    <div class="carouTab">
@@ -223,7 +558,29 @@
 			        		<label><%= @tile.tabs[4].name %></label>
 			         </div>
 			         <div class="carouContent">
-			             <%= raw @tile.tabs[4].tab_content %>
+			             <% if @tile.tabs[4].tab_type === "html" %>
+					            <%= raw @tile.tabs[4].tab_content %>
+
+					            <% elsif @tile.tabs[4].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[4].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[4].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[4].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[4].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
 			        </div> 
 	  			</div>
 				
@@ -233,7 +590,29 @@
 			        		<label><%= @tile.tabs[3].name %></label>
 			         </div>
 			         <div class="carouContent">
-			             <%= raw @tile.tabs[3].tab_content %>
+			             <% if @tile.tabs[3].tab_type === "html" %>
+					            <%= raw @tile.tabs[3].tab_content %>
+
+					            <% elsif @tile.tabs[3].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[3].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[3].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[3].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[3].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
 			        </div> 
 	  			</div>
 
@@ -243,7 +622,29 @@
 			        		<label><%= @tile.tabs[2].name %></label>
 			         </div>
 			         <div class="carouContent">
-			             <%= raw @tile.tabs[2].tab_content %>
+			             <% if @tile.tabs[2].tab_type === "html" %>
+					            <%= raw @tile.tabs[2].tab_content %>
+
+					            <% elsif @tile.tabs[2].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[2].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[2].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[2].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[2].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
 			        </div> 
 	  			</div>
 
@@ -253,7 +654,29 @@
 			        		<label><%= @tile.tabs[1].name %></label>
 			         </div>
 			         <div class="carouContent">
-			             <%= raw @tile.tabs[1].tab_content %>
+			             <% if @tile.tabs[1].tab_type === "html" %>
+					            <%= raw @tile.tabs[1].tab_content %>
+
+					            <% elsif @tile.tabs[1].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[1].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[1].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[1].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[1].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
 			        </div> 
 	  			</div>
 
@@ -263,7 +686,29 @@
 			        		<label><%= @tile.tabs[0].name %></label>
 			         </div>
 			         <div class="carouContent">
-			             <%= raw @tile.tabs[0].tab_content %>
+			             <% if @tile.tabs[0].tab_type === "html" %>
+					            <%= raw @tile.tabs[0].tab_content %>
+
+					            <% elsif @tile.tabs[0].tab_type === "split" %>
+
+					            <div class="row">
+            		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
+            		            		<div class="imgWrap vertElement"><a href="<%= @tile.tabs[0].tab_link %>" target="_blank"><span class=" sponsorIcon <%= @tile.tabs[0].tab_large_icon %>"></span></a></div>
+            		            		
+            		            	</div>
+            		            	<div class="large-8 small-11 small-centered large-uncentered columns">
+            		            		<header>
+            		            			<h2><%= @tile.tabs[0].split_title %></h2>
+            		            		</header>
+            		            		<article class="split-article">
+            		            			<p class="sponsorSpiel">
+            		            				 <%= @tile.tabs[0].split_text %>
+            		            			</p>
+            		            		</article>
+            		            	</div>
+            		            </div>
+
+					            <% end %>
 			        </div> 
 	  			</div>
 
@@ -304,7 +749,6 @@
 
 			
 
-			<% if @tile.width === "1" %>
 
 			<!-- 1x1 -->
 
@@ -326,13 +770,13 @@
 			<div class="row buttonContent">
 				<div class="small-6 columns vertWrap">
 					<div class="vertElement">
-						<a <% if @tile.buttons[0].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
+						<a <% if @tile.buttons[0].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[0].button_link %>" class="button callToAction"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
 						<span class="buttonLabel"><%= @tile.buttons[0].title %></span>
 					</div>
 				</div>
 				<div class="small-6 columns vertWrap">
 					<div class="vertElement">
-						<a <% if @tile.buttons[1].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[1].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[1].icon %>"></span></a> 
+						<a <% if @tile.buttons[1].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %> href="<%= @tile.buttons[1].button_link %>" class="button callToAction"><span class="<%= @tile.buttons[1].icon %>"></span></a> 
 						<span class="buttonLabel"><%= @tile.buttons[1].title %></span>
 					</div>
 				</div>
@@ -407,7 +851,7 @@
 			<div class="row buttonContent">
 				<div class="small-6 columns small-centered vertWrap">
 					<div class="vertElement">
-						<a href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
+						<a <% if @tile.buttons[0].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %>  href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
 						<span class="buttonLabel"><%= @tile.buttons[0].title %></span>
 					</div>
 				</div>
@@ -418,13 +862,13 @@
 			<div class="row buttonContent">
 				<div class="small-6 columns vertWrap">
 					<div class="vertElement">
-						<a href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
+						<a <% if @tile.buttons[0].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %>  href="<%= @tile.buttons[0].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[0].icon %>"></span></a> 
 						<span class="buttonLabel"><%= @tile.buttons[0].title %></span>
 					</div>
 				</div>
 				<div class="small-6 columns vertWrap">
 					<div class="vertElement">
-						<a href="<%= @tile.buttons[1].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[1].icon %>"></span></a> 
+						<a <% if @tile.buttons[1].flip_button %> {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} <% end %>  href="<%= @tile.buttons[1].button_link %>" class="button callToAction" target="_blank"><span class="<%= @tile.buttons[1].icon %>"></span></a> 
 						<span class="buttonLabel"><%= @tile.buttons[1].title %></span>
 					</div>
 				</div>
@@ -432,7 +876,7 @@
 
 			<% end %>
 
-			<% end %>
+		
 
 			<% end %> <!-- end 1xx -->
 
@@ -451,8 +895,8 @@
 
 		</div>
 		<% if @tile.flips %>
-		<div class="back">
-			<% if @tile.flip_title %>
+		<div {{bind-attr class=":back view.flipped:flipped"}} style="background:<% if @tile.general && @tile.exhibitor && @tile.visitor %>#1daeec;<% else %><% if @tile.general %>#1daeec;<% end %> <% if @tile.exhibitor %>#f59331<% end %> <% if @tile.visitor %>#d84f9a<% end %> <% end %>">
+			<% if @tile.flip_title.length >=1 %>
 			<span class="tile-title"><%= @tile.flip_title %><span class="flipLink"><span {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} class="icon-back rabdfblue"></span></span></span>
 			<% else %>
 			<span class="flipLink"><span {{action toggleFlip target="App.<%= @tile.name.capitalize %>View"}} class="icon-back rabdfblue"></span></span>

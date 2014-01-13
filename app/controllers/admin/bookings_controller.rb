@@ -23,9 +23,9 @@ module Admin
       if show_area === "indoor"
         if stand_type === "clear"
           if area >= 200
-            return 42*area
+            return 44*area
           else 
-            return 45*area
+            return 47*area
           end
         elsif stand_type === "modular"
           return 100*area
@@ -34,20 +34,20 @@ module Admin
             
       elsif show_area === "outdoor"
         if area <100 
-          return 16*area
+          return 18*area
         elsif area>=100 && area < 200
-          return 15*area
+          return 17*area
         else 
-          return 14*area
+          return 16*area
         end
 
       elsif show_area === "machinery hall"
         if area <100
-           return 18*area
+           return 20*area
         elsif area>=100 && area < 200
-           return 17*area
+           return 19*area
         else 
-           return 16*area
+           return 18*area
         end
 
       elsif show_area === "livestock hall"

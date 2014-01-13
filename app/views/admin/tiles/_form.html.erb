@@ -5,6 +5,14 @@
 	</div>
 	<%= simple_nested_form_for [:admin, @tile], :html => { class: 'form-horizontal form-bordered' }, defaults: { input_html: { class: 'form-control' }, label_html: { class: 'control-label '} } do |f| %>
 	<div class="form-group">
+		<div class="col-sm-4"><select name="tile[tile_variety]" class="tile_variety">
+					<option value="main">Regular Tile</option>
+					<option value="inner">Inner Page</option>
+				</select></div>
+		<div class="col-sm-4"><%= f.input :tile_route %></div>
+		<div class="col-sm-4"><%= f.input :has_sidebar %></div>
+	</div>
+	<div class="form-group">
 		<div class="col-md-6"><%= f.input :title %></div>
 		<div class="col-md-6"><%= f.input :name %></div>
 	</div>
@@ -173,7 +181,7 @@
 
 					<div class="form-group">
 						<div class="col-md-12">
-							<select name="tile[tabs_attributes][0][tab_type]" data-placeholder="Choose a style" style="width: 250px;" class="select-chosen tab_type unconverted">
+							<select name="tile[tabs_attributes][0][tab_type]" class="tab_type unconverted">
 								<option value="split">Static Split</option>
 								<option value="html">Hard-coded</option>
 							</select>

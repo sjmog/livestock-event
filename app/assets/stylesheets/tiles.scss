@@ -10586,7 +10586,7 @@ div.tileArea {
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out; }
-    .carouContent p {
+    .carouContent p:not(.sponsorSpiel) {
       position: relative;
           font-size: 1em;
           padding: 10px 20px; }
@@ -15413,7 +15413,7 @@ div.tileArea {
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out; }
-  .carouContent p {
+  .carouContent p:not(.sponsorSpiel) {
     position: relative;
     font-size: 1em;
     padding: 10px 20px;
@@ -16916,7 +16916,7 @@ div.tileArea {
 .tile label {
   display:block;
 }
-.tile article {
+.tile article:not(.split-article) {
   position: absolute;
   top: 0;
   left: 0;

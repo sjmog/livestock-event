@@ -141,8 +141,8 @@ App.Booking = DS.Model.extend({
       case "indoor":
         switch(standType){
             case "clear":
-              if(area >= 200) {price = 42*area}
-                else {price = 45*area}
+              if(area >= 200) {price = 44*area}
+                else {price = 47*area}
               break;
             case "modular":
               price = 100*area;
@@ -150,14 +150,14 @@ App.Booking = DS.Model.extend({
         }
         break
       case "outdoor":
-        if(area <100) {price = 16*area}
-        else if(area>=100 && area < 200) {price=15*area}
-        else {price=14*area};
-        break;
-      case "machinery hall":
         if(area <100) {price = 18*area}
         else if(area>=100 && area < 200) {price=17*area}
         else {price=16*area};
+        break;
+      case "machinery hall":
+        if(area <100) {price = 20*area}
+        else if(area>=100 && area < 200) {price=19*area}
+        else {price=18*area};
         break;
       case "livestock hall":
         if(breed === "dairy") {price = 0}

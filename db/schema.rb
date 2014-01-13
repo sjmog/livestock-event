@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140110123023) do
+ActiveRecord::Schema.define(version: 20140113100800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -324,6 +324,9 @@ ActiveRecord::Schema.define(version: 20140110123023) do
     t.string   "flip_title"
     t.text     "flip_content"
     t.boolean  "flip_buttons"
+    t.string   "tile_variety"
+    t.boolean  "has_sidebar"
+    t.string   "tile_route"
   end
 
   create_table "tweets", force: true do |t|

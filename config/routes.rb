@@ -72,6 +72,9 @@ post 'charges' => 'charges#create'
       post 'testimonials/:id' => 'testimonials#update'
       post 'contractors/:id' => 'contractors#update'
       post 'supporters/:id' => 'supporters#update'
+      post 'tiles/:id' => 'tiles#update'
+      post 'tabs/:id' => 'tabs#update'
+      post 'buttons/:id' => 'buttons#update'
       post 'session' => 'session#create'
 
       #printing
