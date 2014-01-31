@@ -1,0 +1,46 @@
+<!--BEGIN datatable-->
+<div class="table-responsive">
+    <table id="example-datatable" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Display in list?</th>
+                <th>Show Area</th>
+                <th>Zone</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% model.each do |item| %>
+            <tr>
+                <td><a href="javascript:void(0)"><%= item.name %></td>
+                <td><%= item.email %></td>
+                <td>
+                    <% if item.list %>
+                    <a href="javascript:void(0)" data-toggle="tooltip" title="Show in public Exhibitor list" class="tick"><i class="fa fa-check"></i></a>
+                    <% else %>
+                    <a href="javascript:void(0)" data-toggle="tooltip" title="Do not show in public Exhibitor list" class="cross"><i class="fa fa-times"></i></a>
+                    <% end %>
+                </td>
+                <td class="text-center"><%= item.area %></td>
+                <td class="text-center"><%= item.zone %></td>
+                <td class="text-center">
+                    <div class="btn-group">
+                    <%= link_to admin_exhibitor_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "View" do %>
+                        <i class="fa fa-eye"></i>
+                    <% end %>
+                        <%= link_to edit_admin_exhibitor_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Edit" do %>
+                            <i class="fa fa-pencil"></i>
+                        <% end %>
+                        <%= link_to admin_exhibitor_path(item), method: :delete, data: { confirm: "Are you sure you want to remove this exhibitor? This will not remove any bookings the Exhibitor has made, or destroy any user accounts associated with them." }, :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Remove", :remote => true do %>
+                            <i class="fa fa-times"></i>
+                        <% end %>
+                    </div>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<!--END datatable-->

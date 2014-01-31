@@ -107,5 +107,5 @@ DS.rejectionHandler = function(reason) {
   if (reason.status === 401) {
     App.AuthManager.reset();
   }
-  throw reason;
+
 };

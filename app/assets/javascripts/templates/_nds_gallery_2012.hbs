@@ -1,0 +1,52 @@
+<a rel="gallery_12" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Ayrshire.jpg"><img class="thumbnail" src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Ayrshire.jpg" alt=""/></a>
+
+<a rel="gallery_12" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Brown%20Swiss.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Brown%20Swiss.jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_12" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Friesian.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Friesian.jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_12" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Guernsey.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Guernsey.jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_12" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Holstein.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Holstein.jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_12" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Jersey%20(2).jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Jersey%20(2).jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_12" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Shorthorn.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2012/Shorthorn.jpg" class="thumbnail" alt=""/></a>
+
+<script>
+    $(".fancybox").fancybox({
+    nextEffect  : 'fade',
+    prevEffect  : 'fade',
+    padding     : 0,
+    margin      : [15, 15, 40, 15],
+    afterLoad   : addLinks,
+    beforeClose : removeLinks,
+    helpers : {
+        overlay : {
+            css : {
+                'background' : 'rgba(58, 42, 45, 0.95)'
+            }
+        }
+    },
+});
+
+function addLinks() {
+    var list = $("#links");
+    
+    if (!list.length) {    
+        list = $('<ul id="links">');
+    
+        for (var i = 0; i < this.group.length; i++) {
+            $('<li data-index="' + i + '"><label></label></li>').click(function() { $.fancybox.jumpto( $(this).data('index'));}).appendTo( list );
+        }
+        
+        list.appendTo( 'body' );
+    }
+
+    list.find('li').removeClass('active').eq( this.index ).addClass('active');
+}
+
+function removeLinks() {
+    $("#links").remove();    
+}
+</script>
+

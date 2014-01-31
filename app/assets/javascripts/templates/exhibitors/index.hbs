@@ -1,0 +1,155 @@
+<div class="flipper">
+	<div class="front">
+		<span class="tile-title aboveAll bgblue">{{#link-to 'index' class="backbutton"}}<span class="icon-back"></span>{{/link-to}}exhibitor list<span class="flipLink flipWord" {{action toggleFilters}}>Filters<span {{bind-attr class=":icon-forward :cw90 filters:cw270"}}></span></span></span>
+		<div {{bind-attr class=":tile-content :filtersOut filters:filtersIn"}}>
+			
+		
+		<div id="filterRow" class="filterRow row">
+					<div class="small-12 columns">
+						<h1>Filters</h1>
+					</div>
+					<div class="small-12 columns">
+						<h2>by Show Area</h2>
+					</div>
+					<div class="small-12 columns">
+						{{view Ember.Select contentBinding="showAreas" optionValuePath="content.value" optionLabelPath="content.fullName" valueBinding="selectedArea" id="show_area" classNames="select"}}
+					</div>
+					{{input type="checkbox" class="hiddenBox" name="isHealth" checked=isHealth}}
+					{{input type="checkbox" class="hiddenBox" name="isBusiness" checked=isBusiness}}
+					{{input type="checkbox" class="hiddenBox" name="isRenewables" checked=isRenewables}}
+					{{input type="checkbox" class="hiddenBox" name="isFeeds" checked=isFeeds}}
+					{{input type="checkbox" class="hiddenBox" name="isGenetics" checked=isGenetics}}
+					{{input type="checkbox" class="hiddenBox" name="isStorage" checked=isStorage}}
+					{{input type="checkbox" class="hiddenBox" name="isEquipment" checked=isEquipment}}
+					{{input type="checkbox" class="hiddenBox" name="isMilking" checked=isMilking}}
+					{{input type="checkbox" class="hiddenBox" name="isMilkmade" checked=isMilkmade}}
+					{{input type="checkbox" class="hiddenBox" name="isIrrigation" checked=isIrrigation}}
+					<div class="small-12 columns">
+						<h2>by Show Zone</h2>
+					</div>
+					<div class="small-12 columns filtersRow">
+				
+					<div data-name="isHealth" {{bind-attr class=":colorBlock isHealth:animalhealth:inactiveFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								health
+							</span>
+						</div>
+					</div>
+
+					<div data-name="isBusiness" {{bind-attr class=":colorBlock isBusiness:businessmanagement:inactiveFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								business
+							</span>
+						</div>
+					</div>
+
+					<div data-name="isRenewables" {{bind-attr class=":colorBlock isRenewables:diversifarmandrenewables:inactiveFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								renewables
+							</span>
+						</div>
+					</div>
+
+					<div data-name="isFeeds" {{bind-attr class=":colorBlock isFeeds:feedsandforage:inactiveFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								feeds
+							</span>
+						</div>
+					</div>
+
+					<div data-name="isGenetics" {{bind-attr class=":colorBlock isGenetics:genetics:inactiveFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								genetics
+							</span>
+						</div>
+					</div>
+
+					<div data-name="isStorage" {{bind-attr class=":colorBlock isStorage:housingandstorage:inactiveFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								storage
+							</span>
+						</div>
+					</div>
+
+					<div data-name="isEquipment" {{bind-attr class=":colorBlock isEquipment:livestockequipmentandmachinery:inactiveFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								equipment
+							</span>
+						</div>
+					</div>
+
+					<div data-name="isMilking" {{bind-attr class=":colorBlock isMilking:milking:inactiveFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								milking
+							</span>
+						</div>
+					</div>
+
+					<div data-name="isMilkmade" {{bind-attr class=":colorBlock isMilkmade:milkmade:inactiveFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								milkmade
+							</span>
+						</div>
+					</div>
+
+					<div data-name="isIrrigation" {{bind-attr class=":colorBlock isIrrigation:slurrymuckandirrigation:inactiveFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								irrigation
+							</span>
+						</div>
+					</div>
+			</div>
+		</div>
+		{{#each controller.filteredExhibs}}
+			{{#link-to 'exhibitors.show' this class="ninjaLink"}}
+			<div class="row singleContractor singleExhibitor">
+				<div {{bind-attr class=":colorBlock :small-1 :columns parsedArea"}}>
+					<div class="vertWrap">
+						<span class="cw270 em08 vertElement uppercase bold">
+							{{shortArea}}
+						</span>
+					</div>
+					
+				</div>
+				<div {{bind-attr class=":colorBlock :small-1 :columns parsedZone"}}>
+					<div class="vertWrap">
+						<span class="cw270 em08 vertElement uppercase bold">
+							{{shortZone}}
+						</span>
+					</div>
+				</div>
+				<div class="small-4 columns vertWrap">
+					<div class="vertElement">
+						{{name}}
+					</div>
+				</div>
+				<div class="small-4 columns vertWrap">
+					<div class="vertElement">
+						{{website}}
+					</div>
+				</div>
+				<div class="small-2 goForward columns vertWrap">
+					<div class="vertElement textRight">
+						<span class="icon-forward rabdfblue em2 o6"></span>
+					</div>
+				</div>
+				
+			</div>
+			{{/link-to}}
+		{{/each}}
+		</div>
+	</div>
+	<div class="back">
+		
+	</div>
+</div>

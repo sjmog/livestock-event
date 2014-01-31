@@ -70,6 +70,9 @@ EmberAuthRailsDemo::Application.configure do
 
   config.ember.variant = :production
 
+  #stop handlebars precompiling, enabling runtime Rails helpers in the Ember app
+  config.handlebars.precompile = false
+
   #lovely email settings
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {

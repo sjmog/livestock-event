@@ -1,0 +1,238 @@
+
+<table class="contenteditableForm" id="cattle_stalls_accommodation_info">
+<tr>
+	<td class="rowLabel">
+		Exhibitor Name
+	</td>
+	<td class="rowEdit" contenteditable="true">&nbsp;</td>
+</tr>
+<tr><td class="rowLabel">Contact Name</td>
+<td class="rowEdit" contenteditable="true">&nbsp;</td></tr>
+
+<tr>
+	<td class="rowLabel">Address</td>
+<td class="rowEdit" contenteditable="true">&nbsp;</td>
+</tr>
+
+<tr>
+	<td rowspan="2" class="rowLabel">Telephone</td>
+    <td class="rowEdit" contenteditable="true"><i>Home</i></td>
+</tr>
+
+	<tr>
+		
+		<td class="rowEdit" contenteditable="true"><i>Mobile</i></td>
+	</tr>
+
+
+
+<tr>
+	<td class="rowLabel">Email</td>
+	<td class="rowEdit" contenteditable="true">&nbsp;</td>
+</tr>
+
+</table>
+
+<table class="contenteditableForm" id="cattle_stalls_accommodation_main">
+<tr>
+	<td>
+		Herd Prefix
+	</td>
+	<td colspan="2" contenteditable="true">&nbsp;</td>
+</tr>
+<tr>
+	<td>
+		&nbsp;
+	</td>
+	<td colspan="2" contenteditable="true">&nbsp;</td>
+</tr>
+<tr ><td colspan="3"><strong>Beef Cattle Stall Booking</strong></td></tr>
+
+<tr>
+<td>Breed</td>
+<td>Number of Stalls <small>(£50 + VAT each, £60 inc. VAT)</small></td>
+<td>Amount Due</td>
+</tr>
+
+<tr>
+	<td class="breed" contenteditable="true"></td>
+	<td id="number_of_stalls_0" class="number_of_stalls" contenteditable="true"></td>
+	<td id="stall_total_0" class="stall_total_part">£</td>
+	
+</tr>
+<tr>
+	<td class="breed" contenteditable="true"></td>
+	<td id="number_of_stalls_1" class="number_of_stalls" contenteditable="true"></td>
+	<td id="stall_total_1" class="stall_total_part">£</td>
+	
+</tr>
+<tr>
+	<td class="breed" contenteditable="true"></td>
+	<td id="number_of_stalls_2" class="number_of_stalls" contenteditable="true"></td>
+	<td id="stall_total_2" class="stall_total_part">£</td>
+	<td class="rowAdder">Add another row</td>
+</tr>
+<tr id="afterAdder">
+	<td align="right" colspan="2"><strong>Total Stall Booking Fee</strong></td>
+	<td><strong class="stall_total">£</strong></td>
+</tr>
+
+</table>
+
+<div class="page-break"></div>
+
+</table>
+
+<table class="contenteditableForm" id="cattle_stalls_accommodation_accommodation">
+
+<tr ><td colspan="4"><strong>Stockmans Accommodation Booking Form</strong></td></tr>
+
+<tr>
+<td>Quantity</td>
+<td>Accommodation</td>
+<td>3 Nights</td>
+<td>Total</td>
+</tr>
+
+<tr>
+	<td id="caravan_quantity" contenteditable="true"></td>
+	<td>Caravan Space</td>
+	<td>£50 + VAT <small>(£60.00 inc. VAT)</small></td>
+	<td id="caravan_total">£</td>
+</tr>
+
+<tr>
+	<td id="lorry_quantity" contenteditable="true"></td>
+	<td>Lorry Sleeper Space</td>
+	<td>£50 + VAT <small>(£60.00 inc. VAT)</small></td>
+	<td id="lorry_total">£</td>
+</tr>
+
+<tr>
+	<td align="right" colspan="3"><strong>Total Stockmans Accommodation</strong></td>
+	<td><strong class="stockmans_total">£</strong></td>
+</tr>
+
+</table>
+
+<table class="contenteditableForm" id="cattle_stalls_accommodation_totals">
+
+<tr ><td colspan="3"><strong>Total Payment</strong></td></tr>
+
+
+<tr>
+	<td align="right" colspan="2"><strong>Total Stall Booking</strong></td>
+	<td><strong class="stall_total">£</strong></td>
+</tr>
+<tr>
+	<td align="right" colspan="2"><strong>Total Stockmans Accommodation</strong></td>
+	<td><strong class="stockmans_total">£</strong></td>
+</tr>
+<tr>
+	<td align="right" colspan="2"><strong>TOTAL PAYMENT</strong></td>
+	<td><strong class="grand_total">£</strong></td>
+</tr>
+
+</table>
+
+<script type="text/javascript">
+	(function() {
+		var count = 2;
+		var $theTotals = $('.grand_total');
+		var fullAmount = 0;
+		var accommodationAmount = 0;
+		var addRow = function() {
+			$('.rowAdder').click(function() {
+				count ++;
+				$(this).remove();
+				var content = "<tr><td class='breed' contenteditable='true'></td><td id='number_of_stalls_" + count + "' contenteditable='true' class='number_of_stalls'></td><td id='stall_total_" + count + "' class='stall_total_part'>£</td><td class='rowAdder'>Add another row</td></tr>";
+				$(content).insertBefore('#afterAdder');
+				addRow();
+				calcStall();
+				calcAccom();
+			});
+		};
+		var calcStall = function() {
+			$('.number_of_stalls').focus(function() {
+				//clear the cell
+				$(this).html('');
+				$(this).keyup(function() {
+					//get the content of this cell
+					var content = $(this).html();
+					//get the corresponding total drawer
+					var number = $(this).attr('id').slice(17);
+					var $totalDrawer = $('#stall_total_' + number);
+					//multiply the cell content by 60 and insert into total drawer
+					var amount = parseInt(content);
+					amount = 60*amount;
+					$totalDrawer.html('£' + amount);
+					//update the form-wide totals
+					var $totalField = $('.stall_total');
+					fullAmount = 0;
+					$('.number_of_stalls').each(function() {
+						if($(this).html()) {
+							fullAmount += parseInt($(this).html());
+						};
+						
+					});
+					$totalField.html('£' + fullAmount*60);
+					$theTotals.html('£' + 60*parseInt(fullAmount + accommodationAmount));
+				})
+			});
+		};
+		var calcAccom = function() {
+			$('#caravan_quantity').focus(function() {
+				//clear the cell
+				$(this).html('');
+				$(this).keyup(function() {
+					//get the content of this cell
+					var content = $(this).html();
+					var $totalDrawer = $('#caravan_total');
+					//multiply the cell content by 60 and insert into total drawer
+					var amount = parseInt(content);
+					amount = 60*amount;
+					$totalDrawer.html('£' + amount);
+					//update the form-wide totals
+					var $totalField = $('.stockmans_total');
+					accommodationAmount = 0;
+					if($(this).html()) {
+						accommodationAmount += parseInt($(this).html());
+					};
+					if($('#lorry_quantity').html()) {
+						accommodationAmount += parseInt($('#lorry_quantity').html());
+					};
+					$totalField.html('£' + accommodationAmount*60);
+					$theTotals.html('£' + 60*parseInt(fullAmount + accommodationAmount));
+				})
+			});
+			$('#lorry_quantity').focus(function() {
+				//clear the cell
+				$(this).html('');
+				$(this).keyup(function() {
+					//get the content of this cell
+					var content = $(this).html();
+					var $totalDrawer = $('#lorry_total');
+					//multiply the cell content by 60 and insert into total drawer
+					var amount = parseInt(content);
+					amount = 60*amount;
+					$totalDrawer.html('£' + amount);
+					//update the form-wide totals
+					var $totalField = $('.stockmans_total');
+					accommodationAmount = 0;
+					if($(this).html()) {
+						accommodationAmount += parseInt($(this).html());
+					};
+					if($('#caravan_quantity').html()) {
+						accommodationAmount += parseInt($('#caravan_quantity').html());
+					};
+					$totalField.html('£' + accommodationAmount*60);
+					$theTotals.html('£' + 60*parseInt(fullAmount + accommodationAmount));
+				})
+			});
+		};
+		addRow();
+		calcStall();
+		calcAccom();
+	})();
+	
+</script>

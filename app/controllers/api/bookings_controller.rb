@@ -17,6 +17,17 @@ module Api
             properties: { revenue: booking.the_total, frontage: booking.frontage, depth: booking.depth })
         # Tell the UserMailer to send a welcome Email after save
         ApplicationMailer.booking_email(booking.user).deliver
+        # Create an Exhibitor model, populated correctly
+        Exhibitor.create(
+          :name    => booking.exhibiting_name,
+          :email      => booking.email,
+          :telephone => booking.telephone,
+          :website    => booking.website,
+          :area => booking.show_area,
+          :zone => booking.zone,
+          :list => booking.exhibitor_list,
+          :description => "",
+          )
         render json: booking, status: 201
         
       end

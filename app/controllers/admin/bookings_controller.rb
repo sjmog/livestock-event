@@ -138,10 +138,40 @@ module Admin
       if @booking.save
         # Tell the UserMailer to send a welcome Email after save
         # ApplicationMailer.booking_email(@booking.user).deliver
+        # Create an Exhibitor model, populated correctly
+        Exhibitor.create(
+          :name    => @booking.exhibiting_name,
+          :email      => @booking.email,
+          :telephone => @booking.telephone,
+          :website    => @booking.website,
+          :area => @booking.show_area,
+          :zone => @booking.zone,
+          :list => @booking.exhibitor_list,
+          :description => "",
+          )
         redirect_to admin_booking_path(@booking)
       else
         render "new"
       end
+    end
+
+    def build_exhibitors
+      @bookings = Booking.all
+        @bookings.each do |booking|
+          # Create an Exhibitor model, populated correctly
+        
+          Exhibitor.create(
+            :name    => booking.exhibiting_name,
+            :email      => booking.email,
+            :telephone => booking.telephone,
+            :website    => booking.website,
+            :area => booking.show_area,
+            :zone => booking.zone,
+            :list => booking.exhibitor_list,
+            :description => "",
+            )
+        end
+        render html: "Built exhibitors"
     end
 
 

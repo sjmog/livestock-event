@@ -10,8 +10,10 @@
 			</div>
 			<div class="small-6 columns vertWrap">
 				<div class="vertElement">
-					<a id="afarAction" class="button callToAction disabled"><span class="icon-card-user pink"></span></a>
-					<span class="buttonLabel">exhibitor list (coming soon)</span>
+					{{#link-to 'exhibitors.index' class="button callToAction" id="afarAction"}}
+					<span class="icon-card-user pink"></span>
+					{{/link-to}}
+					<span class="buttonLabel">exhibitor list</span>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,52 @@
+<a rel="gallery_11" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/Breed%20Champion%20friesian.jpg"><img class="thumbnail" src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/Breed%20Champion%20friesian.jpg" alt=""/></a>
+
+<a rel="gallery_11" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/breed_champion_ayrshire_120905_0002.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/breed_champion_ayrshire_120905_0002.jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_11" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/breed_champion_brown_swiss_120905_0001.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/breed_champion_brown_swiss_120905_0001.jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_11" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/breed_champion_guernsey_120905_0002.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/breed_champion_guernsey_120905_0002.jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_11" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/breed_champion_jersey_120905_00022.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/breed_champion_jersey_120905_00022.jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_11" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/breed_champion_shorthorn_120905_0002.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/breed_champion_shorthorn_120905_0002.jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_11" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/Holstein.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2011/Holstein.jpg" class="thumbnail" alt=""/></a>
+
+<script>
+    $(".fancybox").fancybox({
+    nextEffect  : 'fade',
+    prevEffect  : 'fade',
+    padding     : 0,
+    margin      : [15, 15, 40, 15],
+    afterLoad   : addLinks,
+    beforeClose : removeLinks,
+    helpers : {
+        overlay : {
+            css : {
+                'background' : 'rgba(58, 42, 45, 0.95)'
+            }
+        }
+    },
+});
+
+function addLinks() {
+    var list = $("#links");
+    
+    if (!list.length) {    
+        list = $('<ul id="links">');
+    
+        for (var i = 0; i < this.group.length; i++) {
+            $('<li data-index="' + i + '"><label></label></li>').click(function() { $.fancybox.jumpto( $(this).data('index'));}).appendTo( list );
+        }
+        
+        list.appendTo( 'body' );
+    }
+
+    list.find('li').removeClass('active').eq( this.index ).addClass('active');
+}
+
+function removeLinks() {
+    $("#links").remove();    
+}
+</script>
+

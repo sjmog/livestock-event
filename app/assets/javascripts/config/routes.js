@@ -8,6 +8,20 @@ if (window.history && window.history.pushState) {
   });
 
   App.Router.map(function() {
+    this.route('show-booking');
+    this.route('nds-entry');
+    this.route('ncs-entry');
+    this.route('nbbs-entry');
+    this.route('naas-entry');
+    this.route('nlsc-entry');
+    this.route('nds-accommodation');
+    this.route('ncs-accommodation');
+    this.route('nbbs-accommodation');
+    this.route('naas-accommodation');
+    this.route('nlsc-accommodation');
+    this.route('schedules');
+    this.route('regulations');
+    this.route('results');
     //dummy route for admin
     this.route('admin');
     this.route('svgmap');
@@ -24,6 +38,14 @@ if (window.history && window.history.pushState) {
       });
       this.route('edit', {
         path: '/:contractor_id/edit'
+      });
+    });
+    this.resource('exhibitors', function() {
+      this.route('index', {
+        path: '/'
+      });
+      this.route('show', {
+        path: '/:exhibitor_id'
       });
     });
     this.resource('supporters', function() {

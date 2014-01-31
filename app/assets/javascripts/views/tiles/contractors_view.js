@@ -1,6 +1,6 @@
 App.ContractorsTileView = Ember.View.extend({
 	templateName: 'contractors_tile',
-	classNames: ['tile content-tile contractors content-tile mix exhibitor tile-half-tall general_info tile-1-wide'],
+	classNames: ['tile content-tile contractors content-tile mix exhibitor tile-half-tall rabdforange tile-1-wide'],
 	attributeBindings: ['width:data-width', 'height:data-height', 'visitorImportance:data-visitorimportance', 'exhibitorImportance:data-exhibitorimportance', 'generalImportance:data-generalimportance'],
 	visitorImportance: 9,
 	exhibitorImportance: 5,

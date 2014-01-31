@@ -1,0 +1,52 @@
+<a rel="gallery_13" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2013/130703-19%20%20%20Oakalby%20Vienna%20Sheila%2041%20.jpg"><img class="thumbnail" src="https://db.tt/WiuQ1dJX" alt=""/></a>
+
+<a rel="gallery_13" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2013/130703-26%20%20%20Soulseat%20Jublend%20Beatrice%20.jpg"><img src="https://db.tt/u9NA25kh" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_13" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2013/130704-18%20%20%20Easby%20Countess%208.jpg"><img src="https://db.tt/HYo9SeJ9" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_13" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2013/130704-19%20%20%20Bluegrass%20Remakes%20Blackest%20Blonde%20.jpg"><img src="https://db.tt/Kvl5Ovd3" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_13" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2013/130704-20%20%20%20Noremead%20Knight%20Sume%20.jpg"><img src="https://db.tt/J7QywxWP" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_13" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2013/130704-26%20%20%20Loukat%20Lucky.jpg"><img src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2013/130704-26%20%20%20Loukat%20Lucky.jpg" class="thumbnail" alt=""/></a>
+
+<a rel="gallery_13" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/nds/2013/mjn1309_65.jpg"><img src="https://db.tt/WzddVUgz" class="thumbnail" alt=""/></a>
+
+<script>
+    $(".fancybox").fancybox({
+    nextEffect  : 'fade',
+    prevEffect  : 'fade',
+    padding     : 0,
+    margin      : [15, 15, 40, 15],
+    afterLoad   : addLinks,
+    beforeClose : removeLinks,
+    helpers : {
+        overlay : {
+            css : {
+                'background' : 'rgba(58, 42, 45, 0.95)'
+            }
+        }
+    },
+});
+
+function addLinks() {
+    var list = $("#links");
+    
+    if (!list.length) {    
+        list = $('<ul id="links">');
+    
+        for (var i = 0; i < this.group.length; i++) {
+            $('<li data-index="' + i + '"><label></label></li>').click(function() { $.fancybox.jumpto( $(this).data('index'));}).appendTo( list );
+        }
+        
+        list.appendTo( 'body' );
+    }
+
+    list.find('li').removeClass('active').eq( this.index ).addClass('active');
+}
+
+function removeLinks() {
+    $("#links").remove();    
+}
+</script>
+

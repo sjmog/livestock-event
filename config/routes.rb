@@ -39,6 +39,7 @@ post 'charges' => 'charges#create'
     resources :testimonials
     resources :contractors
     resources :supporters
+    resources :exhibitors
     get 'contact' => 'contact#new'
     post 'contact' => 'contact#create'
     post 'session' => 'session#create'
@@ -61,6 +62,7 @@ post 'charges' => 'charges#create'
       resources :testimonials
       resources :contractors
       resources :supporters
+      resources :exhibitors
       
       #fix simple_form's updating (which goes via POST instead of PUT for some reason)
       post 'posts/:id' => 'posts#update'
@@ -76,6 +78,7 @@ post 'charges' => 'charges#create'
       post 'tabs/:id' => 'tabs#update'
       post 'buttons/:id' => 'buttons#update'
       post 'session' => 'session#create'
+      post 'exhibitors/:id' => 'exhibitors#update'
 
       #printing
       get '/bookings/:id/print', to: 'bookings#print', as: :print_booking
@@ -83,14 +86,16 @@ post 'charges' => 'charges#create'
       #notifications
       get '/notifications', to: 'notifications#index'
       get '/notifications/:id', to: 'notifications#show'
+
+      # building exhibitors
+
+      get '/build-exhibitors', :to => 'bookings#build_exhibitors'
   end
 
 
   root to: 'home#index'
 
   get '/', :to => 'home#index', :constraints => FormatTest.new(:html)
-
-
 
   get '/paid', :to => 'backends#sagepay_return'
 

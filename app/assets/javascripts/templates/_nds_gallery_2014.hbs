@@ -1,0 +1,42 @@
+<a rel="gallery_14" class="fancybox" href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/2014%20National%20Dairy%20Show%20Logo.jpg"><img class="thumbnail" src="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/images/2014%20National%20Dairy%20Show%20Logo.jpg" alt=""/></a>
+
+
+
+<script>
+    $(".fancybox").fancybox({
+    nextEffect  : 'fade',
+    prevEffect  : 'fade',
+    padding     : 0,
+    margin      : [15, 15, 40, 15],
+    afterLoad   : addLinks,
+    beforeClose : removeLinks,
+    helpers : {
+        overlay : {
+            css : {
+                'background' : 'rgba(58, 42, 45, 0.95)'
+            }
+        }
+    },
+});
+
+function addLinks() {
+    var list = $("#links");
+    
+    if (!list.length) {    
+        list = $('<ul id="links">');
+    
+        for (var i = 0; i < this.group.length; i++) {
+            $('<li data-index="' + i + '"><label></label></li>').click(function() { $.fancybox.jumpto( $(this).data('index'));}).appendTo( list );
+        }
+        
+        list.appendTo( 'body' );
+    }
+
+    list.find('li').removeClass('active').eq( this.index ).addClass('active');
+}
+
+function removeLinks() {
+    $("#links").remove();    
+}
+</script>
+
