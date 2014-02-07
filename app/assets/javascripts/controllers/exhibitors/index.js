@@ -104,75 +104,79 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 			isMilkmade = this.get('isMilkmade'),
 			isIrrigation = this.get('isIrrigation');
 		return this.get('sortedExhibitors').filter(function(item) {
-			if (isIndoor) {
-				if(item.get('area') !== "indoor") {
-					return false;
-				} else {console.log('indoor filter not activated');}
-			};
-			if (isOutdoor) {
-				if(item.get('area') !== "outdoor") {
-					return false;
-				} else {return true;}
-			};
-			if (isMachinery) {
-				if(item.get('area') !== "machinery hall") {
-					return false;
-				} else {return true;}
-			};
-			if (isLivestock) {
-				if(item.get('area') !== "livestock hall") {
-					return false;
-				} else {return true;}
-			};
-			if (isHealth) {
-				if(item.get('zone') === "animal health") {
-					return true;
-				} else {console.log('nope');}
-			};
-			if (isBusiness) {
-				if(item.get('zone') === "business management") {
-					return true;
-				} else {console.log('nope');}
-			};
-			if (isRenewables) {
-				if(item.get('zone') === "diversifarm and renewables") {
-					return true;
-				} else {console.log('nope');}
-			};
-			if (isFeeds) {
-				if(item.get('zone') === "feeds and forage") {
-					return true;
-				} else {console.log('nope');}
-			};
-			if (isGenetics) {
-				if(item.get('zone') === "genetics") {
-					return true;
-				} else {console.log('nope');}
-			};
-			if (isStorage) {
-				if(item.get('zone') === "housing and storage") {
-					return true;
-				} else {console.log('nope');}
-			};
-			if (isEquipment) {
-				if(item.get('zone') === "livestock equipment and machinery") {
-					return true;
-				} else {console.log('nope');}
-			};
-			if (isMilking) {
-				if(item.get('zone') === "milking") {
-					return true;
-				} else {console.log('nope');}
-			};
-			if (isMilkmade) {
-				if(item.get('zone') === "milkmade") {
-					return true;
-				} else {console.log('nope');}
-			};
-			if (isIrrigation) {
-				if(item.get('zone') === "slurry, muck and irrigation") {
-					return true;
-				} else {console.log('nope');}
+			if (!item.get('list')) {
+				return false; }
+			else {
+				if (isIndoor) {
+					if(item.get('area') !== "indoor") {
+						return false;
+					} else {console.log('indoor filter not activated');}
+				};
+				if (isOutdoor) {
+					if(item.get('area') !== "outdoor") {
+						return false;
+					} else {return true;}
+				};
+				if (isMachinery) {
+					if(item.get('area') !== "machinery hall") {
+						return false;
+					} else {return true;}
+				};
+				if (isLivestock) {
+					if(item.get('area') !== "livestock hall") {
+						return false;
+					} else {return true;}
+				};
+				if (isHealth) {
+					if(item.get('zone') === "animal health") {
+						return true;
+					} else {console.log('nope');}
+				};
+				if (isBusiness) {
+					if(item.get('zone') === "business management") {
+						return true;
+					} else {console.log('nope');}
+				};
+				if (isRenewables) {
+					if(item.get('zone') === "diversifarm and renewables") {
+						return true;
+					} else {console.log('nope');}
+				};
+				if (isFeeds) {
+					if(item.get('zone') === "feeds and forage") {
+						return true;
+					} else {console.log('nope');}
+				};
+				if (isGenetics) {
+					if(item.get('zone') === "genetics") {
+						return true;
+					} else {console.log('nope');}
+				};
+				if (isStorage) {
+					if(item.get('zone') === "housing and storage") {
+						return true;
+					} else {console.log('nope');}
+				};
+				if (isEquipment) {
+					if(item.get('zone') === "livestock equipment and machinery") {
+						return true;
+					} else {console.log('nope');}
+				};
+				if (isMilking) {
+					if(item.get('zone') === "milking") {
+						return true;
+					} else {console.log('nope');}
+				};
+				if (isMilkmade) {
+					if(item.get('zone') === "milkmade") {
+						return true;
+					} else {console.log('nope');}
+				};
+				if (isIrrigation) {
+					if(item.get('zone') === "slurry, muck and irrigation") {
+						return true;
+					} else {console.log('nope');}
+				};
 			};
 			
 		});

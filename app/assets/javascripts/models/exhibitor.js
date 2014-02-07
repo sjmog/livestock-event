@@ -1,5 +1,7 @@
 App.Exhibitor = DS.Model.extend({
 
+  list: DS.attr('string'),
+
 	name:DS.attr('string'),
 
 	email:DS.attr('string'),
