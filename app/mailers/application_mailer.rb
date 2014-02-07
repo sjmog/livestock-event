@@ -12,4 +12,9 @@ class ApplicationMailer < ActionMailer::Base
 	  @url  = '<%= ENV["BASE_URL"] %>/'
 	  mail(to: @user.email, subject: 'You have successfully created a booking.')
 	end
+
+	def error_email(e)
+		@e = e
+		mail(to: 's_morgan@me.com', subject: 'Unexpected Stripe Error: Livestock Event.')
+	end
 end

@@ -8,13 +8,25 @@
                 <th>Contact e-mail</th>
                 <th>Date</th>
                 <th>Deposit?</th>
-                <th class="text-center">Processing</th>
+                <th class="text-center">Form completion</th>
+                <th class="text-center">Form verification</th>
                 <th class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
             <% model.each do |item| %>
+            <% 
+            raform = Raform.find_by_booking_id(item.id)
+            hsform = Hsform.find_by_booking_id(item.id)
+            showform = Showform.find_by_booking_id(item.id)
+            %>
+            <% if (raform.complete && !raform.verified) || (hsform.complete && !hsform.verified) || (showform.complete && !showform.verified) %>
+            <tr class="flagged">
+            <% elsif (raform.complete && raform.verified) && (hsform.complete && hsform.verified) && (showform.complete && showform.verified) %>
+            <tr class="flagged complete">
+            <% else %>
             <tr>
+            <% end %>
                 <td class="text-center"><%= item.id %></td>
                 <td><a href="javascript:void(0)"><%= item.user.nil? ? 'No User' : item.user.name %></a></td>
                 <td><%= item.email %></td>
@@ -28,25 +40,57 @@
                 </td>
                 <td class="text-center">
                     <div class="row">
-                        <div class="col-sm-3">
-                            <label class="checkbox-inline" for="example-inline-checkbox1">
-                                <input type="checkbox" id="example-inline-checkbox1" name="example-inline-checkbox1" value="option1"> Deposit
-                            </label>
+                        <div class="col-sm-4">
+                            <% if raform.complete %>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="Risk Assessment completed" class="tick"><i class="fa fa-check"></i></a>
+                            <% else %>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="Risk Assessment incomplete" class="cross"><i class="fa fa-times"></i></a>
+                            <% end %>
                         </div>
-                        <div class="col-sm-3">
-                            <label class="checkbox-inline" for="example-inline-checkbox2">
-                                <input type="checkbox" id="example-inline-checkbox2" name="example-inline-checkbox2" value="option2"> Guide
-                            </label>
+                        <div class="col-sm-4">
+                            <% if hsform.complete %>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="Health & Safety completed" class="tick"><i class="fa fa-check"></i></a>
+                            <% else %>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="Health & Safety incomplete" class="cross"><i class="fa fa-times"></i></a>
+                            <% end %>
                         </div>
-                        <div class="col-sm-3">
-                            <label class="checkbox-inline" for="example-inline-checkbox3">
-                                <input type="checkbox" id="example-inline-checkbox3" name="example-inline-checkbox3" value="option3"> H&S
-                            </label>
+                        <div class="col-sm-4">
+                            <% if showform.complete %>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="Show Guide application completed" class="tick"><i class="fa fa-check"></i></a>
+                            <% else %>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="Show Guide application incomplete" class="cross"><i class="fa fa-times"></i></a>
+                            <% end %>
+                        </div>                        
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <% if raform.verified %>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="Risk Assessment verified" class="tick"><i class="fa fa-check"></i></a>
+                            <% else %>
+                            <%= link_to admin_verify_raform_path(raform), :class => 'cross', :'data-toggle' => "tooltip", :title => "Risk Assessment unverified. Click to verify" do %>
+                                <i class="fa fa-times"></i>
+                            <% end %>
+                            <% end %>
                         </div>
-                        <div class="col-sm-3">
-                            <label class="checkbox-inline" for="example-inline-checkbox4">
-                                <input type="checkbox" id="example-inline-checkbox4" name="example-inline-checkbox4" value="option4"> Risk
-                            </label>
+                        <div class="col-sm-4">
+                            <% if hsform.verified %>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="Health & Safety verified" class="tick"><i class="fa fa-check"></i></a>
+                            <% else %>
+                            <%= link_to admin_verify_hsform_path(hsform), :class => 'cross', :'data-toggle' => "tooltip", :title => "Health & Safety unverified. Click to verify" do %>
+                                <i class="fa fa-times"></i>
+                            <% end %>
+                            <% end %>
+                        </div>
+                        <div class="col-sm-4">
+                            <% if showform.verified %>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="Show Guide application verified" class="tick"><i class="fa fa-check"></i></a>
+                            <% else %>
+                            <%= link_to admin_verify_showform_path(showform), :class => 'cross', :'data-toggle' => "tooltip", :title => "Show Guide Application unverified. Click to verify" do %>
+                                <i class="fa fa-times"></i>
+                            <% end %>
+                            <% end %>
                         </div>                        
                     </div>
                 </td>
@@ -58,11 +102,22 @@
                         <%= link_to edit_admin_booking_path(item), :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Edit" do %>
                             <i class="fa fa-pencil"></i>
                         <% end %>
-                        <%= link_to admin_print_booking_path(item) + '.pdf', :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Print" do %>
+                        <%= link_to admin_print_booking_path(item) + '.pdf', :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Print Booking" do %>
                             <i class="fa fa-print"></i>
                         <% end %>
                         <%= link_to admin_booking_path(item), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Delete", :remote => true do %>
                             <i class="fa fa-times"></i>
+                        <% end %>
+                    </div>
+                    <div class="btn-group">
+                        <%= link_to admin_print_raform_path(raform) + '.pdf', :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Print Risk Assessment" do %>
+                            <i class="fa fa-print"></i>
+                        <% end %>
+                        <%= link_to admin_print_hsform_path(hsform) + '.pdf', :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Print Health & Safety" do %>
+                            <i class="fa fa-print"></i>
+                        <% end %>
+                        <%= link_to admin_print_showform_path(showform) + '.pdf', :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Print Show Guide Application" do %>
+                            <i class="fa fa-print"></i>
                         <% end %>
                     </div>
                 </td>

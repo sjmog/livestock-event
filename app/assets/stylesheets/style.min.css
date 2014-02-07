@@ -15662,6 +15662,128 @@ a.fancybox:after {
   transition: all 0.2s ease-in-out;
   opacity: 0; }
 
+/*normal tables */
+table.simpleTable {
+  width: 78%;
+  margin: 0 auto;
+  height: auto;
+  margin-top: auto;
+  font-size: 1em;
+  background: none;
+  border: none; }
+  table.simpleTable td {
+    text-transform: none !important; }
+  table.simpleTable td.invisible {
+    visibility: hidden; }
+  table.simpleTable thead {
+    background: none; }
+    table.simpleTable thead tr td {
+      color: white;
+      font-weight: 200;
+      text-transform: uppercase !important;
+      font-size: 0.8em; }
+  table.simpleTable tr {
+    border-bottom: 1px solid rgba(240, 240, 240, 0.3); }
+  table.simpleTable tr:nth-of-type(even) {
+    background: none; }
+  table.simpleTable tr:last-of-type {
+    border-bottom: none; }
+  table.simpleTable tbody tr * {
+    text-align: left !important; }
+  table.simpleTable tbody tr > td.textCenter {
+    text-align: center !important; }
+
+table.threeCol tr td {
+  width: 33% !important; }
+
+table.headLine thead {
+  border-bottom: 1px solid rgba(240, 240, 240, 0.8); }
+
+table.colLines tr td:nth-child(2) {
+  border-left: 1px solid rgba(240, 240, 240, 0.8);
+  border-right: 1px solid rgba(240, 240, 240, 0.8); }
+
+table.blackBorderBottom {
+  border-bottom: 1px solid #515153 !important; }
+
+table.wideTable {
+  width: 90%; }
+
+table.allWhite * {
+  color: white !important; }
+
+/*normal tables */
+table.stripedTable {
+  background: none;
+  border: none; }
+  table.stripedTable thead {
+    background: none; }
+    table.stripedTable thead tr td {
+      color: white;
+      font-weight: 200;
+      text-transform: uppercase !important;
+      text-align: center;
+      font-size: 0.8em; }
+  table.stripedTable tr {
+    border-bottom: none; }
+  table.stripedTable tbody tr:nth-of-type(even) {
+    background: rgba(255, 255, 255, 0.2); }
+  table.stripedTable tr:nth-of-type(even) {
+    background: none; }
+  table.stripedTable tr:last-of-type {
+    border-bottom: none; }
+
+.row.forms {
+  border-top: none !important; }
+
+.mt14 {
+  margin-top: 14px !important; }
+
+.h40 {
+  height: 40px !important; }
+
+.lh40 {
+  line-height: 40px !important; }
+
+.textCenter {
+  text-align: center !important; }
+
+.here {
+  display: block; }
+
+.nothere {
+  display: none; }
+
+.selectField {
+  min-height: 58px !important;
+  line-height: 58px !important;
+  padding: 0 10px !important; }
+
+.action {
+  line-height: 42px;
+  text-align: center;
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8em;
+  text-transform: uppercase; }
+  .action:hover {
+    color: white !important; }
+    .action:hover span {
+      color: white !important; }
+  .action.remove {
+    background: #ff9494; }
+  .action.accept {
+    background: #75aa27; }
+  .action span {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 1.6em;
+    position: relative;
+    top: 4px; }
+  .action .actionHalf {
+    width: 48%;
+    display: inline-block;
+    line-height: 21px; }
+
 /* Just click to select the code */
 @font-face {
   font-family: "rabdf";

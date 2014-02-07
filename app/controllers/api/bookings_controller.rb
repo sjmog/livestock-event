@@ -6,6 +6,7 @@ module Api
 
     def create
       booking = Booking.create(booking_params)
+      puts 'created booking'
       if booking.new_record?
          
         render json: { errors: booking.errors.messages }, status: 422
@@ -18,16 +19,46 @@ module Api
         # Tell the UserMailer to send a welcome Email after save
         ApplicationMailer.booking_email(booking.user).deliver
         # Create an Exhibitor model, populated correctly
-        Exhibitor.create(
-          :name    => booking.exhibiting_name,
-          :email      => booking.email,
-          :telephone => booking.telephone,
-          :website    => booking.website,
-          :area => booking.show_area,
-          :zone => booking.zone,
-          :list => booking.exhibitor_list,
-          :description => "",
-          )
+        if booking.exhibitor_list
+          Exhibitor.create(
+            :name    => booking.exhibiting_name,
+            :email      => booking.email,
+            :telephone => booking.telephone,
+            :website    => booking.website,
+            :area => booking.show_area,
+            :zone => booking.zone,
+            :list => booking.exhibitor_list,
+            :description => "",
+            )
+        end
+        raform = Raform.create()
+        puts 'created raform'
+        #update Risk Assessment Form
+        raform.booking_id = booking.id
+        raform.company_name = booking.exhibiting_name
+        raform.save
+
+        hsform = Hsform.create()
+        puts 'created hsform'
+        #update Health & Safety Form
+        hsform.booking_id = booking.id
+        hsform.company_name = booking.exhibiting_name
+        hsform.name = booking.contact_name
+        hsform.mobile = booking.telephone
+        hsform.save
+
+        showform = Showform.create()
+        puts 'created showform'
+        #update Show Guide Form
+        showform.booking_id = booking.id
+        showform.company_name = booking.exhibiting_name
+        showform.contact_name = booking.contact_name
+        showform.address = booking.correspondence_address
+        showform.telephone = booking.telephone
+        showform.email = booking.email
+        showform.website = booking.website
+        showform.save
+
         render json: booking, status: 201
         
       end

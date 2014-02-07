@@ -1,0 +1,126 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">health and safety/Insurance details</span>
+  <div class="row">
+    <div class="small-12 columns">
+    <form {{action update model on="submit"}} class="grid-form">
+    <div class="row">
+      <div class="large-6 small-12 columns">
+        <p class="introductoryParagraph">This <em>Show Guide Entry form</em> is to be returned by <strong>Friday 9th May 2014</strong>. Entries cannot be guaranteed after this date.</p>
+        <p>To ensure your company appears in the Official Show Guide published by Farmers Weekly (example shown to the right), please complete your 25 word company listing in the space provided below. Your entry will also be included in a digital version of the guide so please ensure you include key product/brand names or services in the description to ensure they are identifiable by the search facility.</p>
+        <p><strong>Companies will appear in strictly alphabetical order.</strong> For example, <em>The Dairy Company</em> will appear under <em>T</em>.</p>
+        <p>If you would prefer to print and mail the Show Guide Entry form instead, click <a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/Show%20Guide%20Entry%20Form.docx" target="_blank" class="inlineLink">here</a>.</p>
+      </div>
+      <div class="large-6 small-12 columns">
+        
+    
+      <fieldset>
+        <legend>1. Basics</legend>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="company_name">Company or Brand Name<span class="required">*</span> <span class="afterthought">To appear in the Show Guide listing</span></label><br>
+            {{view Ember.TextField valueBinding="content.company_name" id="company_name" required=""}}
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="contact_name">Exhibitor Name<span class="required">*</span> <span class="afterthought">Who is our contact?</span></label><br>
+            {{view Ember.TextField valueBinding="content.contact_name" id="contact_name" required=""}}
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="telephone">Telephone<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.telephone" id="telephone" required=""}}
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="email">Email Address<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.email" id="email" required=""}}
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="website">Website<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.website" id="website" required=""}}
+          </div>
+        </div>
+      </fieldset>
+      </div>
+      </div>
+
+      <fieldset>
+        <legend>2. Your Company</legend>
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="address">Address<span class="required">*</span></label><br>
+              {{view Ember.TextArea valueBinding="content.address" id="address"}}
+            </div>
+          </div>
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="address">Description of company and products<span class="required">*</span> <span class="afterthought">The Organiser and Media Partner reserve the right to edit entries.</span></label><br>
+              {{view Ember.TextArea valueBinding="content.particulars" id="particulars"}}
+            </div>
+          </div>
+
+          </fieldset>
+          <fieldset>
+          <legend>3. Your markets</legend>
+
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <p class="formExplanation">Tick the market sector/s in which you will be promoting your products at the Event, <em>bearing in mind that the Event attracts beef, sheep, goat, pig, poultry and arable as well as dairy farmers</em>. </p>
+            </div>
+          </div>
+
+          <div data-row-span="7">
+            <div data-field-span="1">
+              <label for="dairy">Dairy</label><br>
+              {{view Ember.Checkbox checkedBinding="content.dairy" id="dairy"}}
+            </div>
+            <div data-field-span="1">
+              <label for="beef">Beef</label><br>
+              {{view Ember.Checkbox checkedBinding="content.beef" id="beef"}}
+            </div>
+            <div data-field-span="1">
+              <label for="sheep">Sheep</label><br>
+              {{view Ember.Checkbox checkedBinding="content.sheep" id="sheep"}}
+            </div>
+            <div data-field-span="1">
+              <label for="goats">Goats</label><br>
+              {{view Ember.Checkbox checkedBinding="content.goats" id="goats"}}
+            </div>
+            <div data-field-span="1">
+              <label for="pigs">Pigs</label><br>
+              {{view Ember.Checkbox checkedBinding="content.pigs" id="pigs"}}
+            </div>
+            <div data-field-span="1">
+              <label for="poultry">Poultry</label><br>
+              {{view Ember.Checkbox checkedBinding="content.poultry" id="poultry"}}
+            </div>
+            <div data-field-span="1">
+              <label for="arable">Arable</label><br>
+              {{view Ember.Checkbox checkedBinding="content.arable" id="arable"}}
+            </div>
+          </div>  
+        
+      </fieldset>
+      <div class="vertWrap row">
+          <div class="vertElement">
+            <button class="button callToAction" type="submit"><span class="icon-chevron-thick"></span></button>
+            <span class="buttonLabel mt14">save & continue</span>
+          </div>
+      </div>
+      
+
+    </form>
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+

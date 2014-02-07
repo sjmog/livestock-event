@@ -1,0 +1,126 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">risk assessment form</span>
+  <div class="row">
+    <div class="small-12 columns">
+    <div class="row">
+      <div class="large-6 small-12 columns">
+        <p class="introductoryParagraph">This <em>Risk Assessment Form</em> is to be returned by <strong>Friday 29th March 2013</strong>. You will not be allowed to exhibit without submitting a completed risk assessment.</p>
+        <p>We will also accept standard company risk assessments, if you use them, by mail.</p>
+      </div>
+
+    <form {{action save model on="submit"}} class="grid-form">
+      <fieldset>
+        <legend>1. Particulars of Exhibit</legend>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="particulars">Brief outline of exhibit<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.particulars" id="particulars" required=""}}
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="equipment">Equipment to be used<span class="required">*</span> <span class="afterthought">Evidence of current inspection certificates for certain equipment may be requested. Licences/competency certificates may be requested for users of specific equipment.</span></label><br>
+            {{view Ember.TextField valueBinding="content.equipment" id="equipment" required=""}}
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>2. Complex Structures</legend>
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <p class="formExplanation"><em>Complex structures</em> could include: 'double-decker' stands; stands over 4m in height; stairs/steps; platforms and ramps over 600mm; staging; lighting towers, and rigs.</p>
+              <label for="complex">Do you intend to erect a complex structure?<span class="required">*</span></label><br>
+              <label>
+                  {{view Ember.RadioButton name="complex" id="complex1" selectionBinding="content.complex" value="true"}}
+                  Yes
+              </label>
+              
+              <label>
+                  {{view Ember.RadioButton name="complex" id="complex2" selectionBinding="content.complex" value="false"}}
+                  No
+              </label>
+            </div>
+          </div>
+          <div {{bind-attr class="complex:here:nothere"}} data-row-span="12">
+            <div data-field-span="12">
+              <p class="formExplanation"><em>You ticked <strong>Yes</strong></em>. You must complete NEC Structural Submission forms 3, 4, and 10, and return them to the Event Manager.<br>Full structural calculations and method statements may be requested by both the organiser and the NEC, at the Exhibitor's cost. The Exhibitor can appoint their own structural engineer or use the organiser's recommended engineer: Don Walker (<a href="tel:01216221005" class="inlineLink">0121 622 1005</a>).</p>
+            </div>
+          </div>
+      </fieldset>
+      <div class="raGuide">
+        <table>
+          <th>
+            <tr>
+              <td>Hazards</td>
+              <td>Persons at Risk</td>
+              <td>Control Measures</td>
+            </tr>
+          </th>
+          <tbody>
+              <tr>
+                <td><p>Look only for hazards which you could reasonably expect to result in significant harm under the conditions in your stand space during build-up, creak-down and during the show. Use the following examples as a guide:</p>
+                <ul>
+                  <li>Manual handling</li>
+                  <li>Chemicals</li>
+                  <li>Electricity</li>
+                  <li>Slipping & tripping hazards</li>
+                  <li>Moving vehicles</li>
+                  <li>Working at height</li>
+                  <li>Fire hazard</li>
+                </ul>
+                </td>
+                <td>
+                  <p>Identify those persons or groups of people who may be at risk if exposed to the hazard. These might include:</p>
+                    <ul>
+                      <li>Contractors</li>
+                      <li>Stand construction and break-down teams</li>
+                      <li>Sales staff</li>
+                      <li>Visitors</li>
+                    </ul>
+                </td>
+                <td>
+                  <p>Note the existing control measures in place and assess whether these meet the standards set by legal requirements, comply with the recognised industry standards and reduce risk as far as is reasonably possible. Where the risk is not adequately controlled, indicate the additional controls required to minimise risk.</p>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+      <fieldset>
+        <legend>3. Risk Assessment</legend>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="company_name">Company Name<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.company_name" id="company_name" required=""}}
+          </div>
+          <div data-field-span="1">
+            <label for="conducted_by">Risk assessment conducted by<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.conducted_by" id="conducted_by" required=""}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="company_name">Signature<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.signature" id="signature" required=""}}
+          </div>
+          <div data-field-span="1">
+            <label for="conducted_by">Date<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.date" id="date" required=""}}
+          </div>
+        </div>
+      </fieldset>
+      
+      <div class="vertElement">
+        <button class="button callToAction" type="submit"><span class="icon-chevron-thick"></span></button>
+        <span class="buttonLabel">save & continue</span>
+      </div>
+
+    </form>
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+

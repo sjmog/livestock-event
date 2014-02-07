@@ -2,6 +2,12 @@ App.Booking = DS.Model.extend({
 
   order: DS.belongsTo('App.Order'),
 
+  raform: DS.belongsTo('App.Raform'),
+
+  hsform: DS.belongsTo('App.Hsform'),
+
+  showform: DS.belongsTo('App.Showform'),
+
   exhibitorList: DS.attr('boolean'),
 
   companyName: DS.attr('string'),
@@ -89,6 +95,10 @@ App.Booking = DS.Model.extend({
   theDeposit: DS.attr('number'),
 
   theTotal: DS.attr('number'),
+
+  isClear: function() {
+    return this.get('standType') == 'clear';
+  }.property('standType'),
 
   area: function() {
     return this.get('frontage') * this.get('depth');

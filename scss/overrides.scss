@@ -5682,3 +5682,176 @@ a.fancybox:after {
 img.thumbnail:hover {
 
 }
+
+/*normal tables */
+table.simpleTable {
+	td {
+		text-transform: none !important;
+	}
+	width:78%;
+	margin:0 auto;
+	height:auto;
+	margin-top:auto;
+	font-size:1em;
+	background:none;
+	border:none;
+	td.invisible {
+		visibility:hidden;
+	}
+	thead {
+		background:none;
+		tr td {
+			color:white(1);
+			font-weight:200;
+			text-transform: uppercase !important;
+			font-size:0.8em;
+		}
+	}
+	tr {
+		border-bottom:1px solid rgba(#f0f0f0,0.3);
+	}
+	tr:nth-of-type(even) {
+		background:none;
+	}
+	tr:last-of-type {
+		border-bottom:none;
+	}
+	tbody {
+		tr * {
+			text-align: left !important;
+		}
+
+		tr > td.textCenter {
+			text-align:center !important;
+		}
+	}
+}
+
+table.threeCol {
+	tr td {
+		width:33% !important;
+	}
+}
+
+table.headLine {
+	thead {
+		border-bottom:1px solid rgba(#f0f0f0, 0.8);
+	}
+}
+
+table.colLines {
+	tr td:nth-child(2) {
+		border-left: 1px solid rgba(#f0f0f0, 0.8);
+		border-right: 1px solid rgba(#f0f0f0, 0.8);
+	}
+}
+
+table.blackBorderBottom {
+	border-bottom: 1px solid #515153 !important;
+}
+
+table.wideTable {
+	width:90%;
+}
+
+table.allWhite {
+	* {
+		color:white(1) !important;
+	}
+}
+
+/*normal tables */
+table.stripedTable {
+	background:none;
+	border:none;
+	thead {
+		background:none;
+		tr td {
+			color:white(1);
+			font-weight:200;
+			text-transform: uppercase !important;
+			text-align:center;
+			font-size:0.8em;
+		}
+	}
+	tr {
+		border-bottom:none;
+	}
+	tbody {
+		tr:nth-of-type(even) {
+			background:rgba(255,255,255,0.2);
+		}
+	}
+	tr:nth-of-type(even) {
+		background:none;
+	}
+	tr:last-of-type {
+		border-bottom:none;
+	}
+}
+
+.row.forms {
+	border-top:none !important;
+}
+
+.mt14 {
+	margin-top: 14px !important;
+}
+
+.h40 {
+	height:40px !important;
+}
+
+.lh40 {
+	line-height: 40px !important;
+}
+
+.textCenter {
+	text-align:center !important;
+}
+
+.here {
+	display:block;
+}
+
+.nothere {
+	display:none;
+}
+
+.selectField {
+	min-height: 58px !important;
+	line-height: 58px !important;
+	padding: 0 10px !important;
+}
+
+.action {
+	line-height:42px;
+	text-align:center;
+	display:block;
+	color:rgba(white(1), 0.6);
+	font-size:0.8em;
+	text-transform:uppercase;
+	&:hover {
+		color:white(1) !important;
+		span {
+			color:white(1) !important;
+		}
+	}
+	&.remove {
+		background:$errorColor;
+	}
+	&.accept {
+		background:$goodColor;
+	}
+	span {
+		color:rgba(white(1), 0.6) !important;
+		font-size:1.6em;
+		position:relative;
+		top:4px;
+	}
+	.actionHalf {
+		width: 48%;
+		display: inline-block;
+		line-height: 21px;	
+	}
+}

@@ -111,41 +111,41 @@
 			</div>
 		</div>
 		{{#each controller.filteredExhibs}}
-			{{#link-to 'exhibitors.show' this class="ninjaLink"}}
-			<div class="row singleContractor singleExhibitor">
-				<div {{bind-attr class=":colorBlock :small-1 :columns parsedArea"}}>
-					<div class="vertWrap">
-						<span class="cw270 em08 vertElement uppercase bold">
-							{{shortArea}}
-						</span>
+			<a {{bind-attr href=website}} class="ninjaLink">
+				<div class="row singleContractor singleExhibitor">
+					<div {{bind-attr class=":colorBlock :small-1 :columns parsedArea"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								{{shortArea}}
+							</span>
+						</div>
+						
+					</div>
+					<div {{bind-attr class=":colorBlock :small-1 :columns parsedZone"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								{{shortZone}}
+							</span>
+						</div>
+					</div>
+					<div class="small-4 columns vertWrap">
+						<div class="vertElement">
+							{{name}}
+						</div>
+					</div>
+					<div class="small-4 columns vertWrap">
+						<div class="vertElement">
+							{{website}}
+						</div>
+					</div>
+					<div class="small-2 goForward columns vertWrap">
+						<div class="vertElement textRight">
+							<span class="icon-forward rabdfblue em2 o6"></span>
+						</div>
 					</div>
 					
 				</div>
-				<div {{bind-attr class=":colorBlock :small-1 :columns parsedZone"}}>
-					<div class="vertWrap">
-						<span class="cw270 em08 vertElement uppercase bold">
-							{{shortZone}}
-						</span>
-					</div>
-				</div>
-				<div class="small-4 columns vertWrap">
-					<div class="vertElement">
-						{{name}}
-					</div>
-				</div>
-				<div class="small-4 columns vertWrap">
-					<div class="vertElement">
-						{{website}}
-					</div>
-				</div>
-				<div class="small-2 goForward columns vertWrap">
-					<div class="vertElement textRight">
-						<span class="icon-forward rabdfblue em2 o6"></span>
-					</div>
-				</div>
-				
-			</div>
-			{{/link-to}}
+			</a>
 		{{/each}}
 		</div>
 	</div>

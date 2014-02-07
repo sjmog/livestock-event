@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130153725) do
+ActiveRecord::Schema.define(version: 20140207173112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(version: 20140130153725) do
     t.integer  "stand_id"
     t.text     "requirements"
     t.integer  "order_id"
+    t.boolean  "needs_attention"
+    t.string   "attention_type"
   end
 
   create_table "buttons", force: true do |t|
@@ -172,6 +174,47 @@ ActiveRecord::Schema.define(version: 20140130153725) do
     t.datetime "updated_at"
   end
 
+  create_table "hazards", force: true do |t|
+    t.integer  "raform_id"
+    t.string   "name"
+    t.text     "persons"
+    t.string   "level"
+    t.string   "rassociation"
+    t.text     "controls"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hazards", ["raform_id"], name: "index_hazards_on_raform_id", using: :btree
+
+  create_table "hsforms", force: true do |t|
+    t.integer  "booking_id"
+    t.integer  "progress"
+    t.boolean  "complete"
+    t.string   "company_name"
+    t.string   "name"
+    t.string   "mobile"
+    t.text     "particulars"
+    t.boolean  "policy"
+    t.boolean  "public_insurance"
+    t.boolean  "employee_insurance"
+    t.boolean  "tick_1"
+    t.boolean  "tick_2"
+    t.boolean  "tick_3"
+    t.boolean  "tick_4"
+    t.boolean  "tick_5"
+    t.boolean  "tick_6"
+    t.boolean  "tick_7"
+    t.boolean  "agreed"
+    t.string   "completed_by"
+    t.string   "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "verified"
+  end
+
+  add_index "hsforms", ["booking_id"], name: "index_hsforms_on_booking_id", using: :btree
+
   create_table "lkupdates", force: true do |t|
     t.string   "user"
     t.text     "lkcontent"
@@ -211,6 +254,24 @@ ActiveRecord::Schema.define(version: 20140130153725) do
     t.datetime "updated_at"
   end
 
+  create_table "raforms", force: true do |t|
+    t.integer  "booking_id"
+    t.text     "particulars"
+    t.text     "equipment"
+    t.boolean  "complex"
+    t.string   "company_name"
+    t.string   "conducted_by"
+    t.string   "signature"
+    t.string   "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "verified"
+    t.boolean  "complete"
+    t.integer  "progress"
+  end
+
+  add_index "raforms", ["booking_id"], name: "index_raforms_on_booking_id", using: :btree
+
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
     t.string   "username"
@@ -234,6 +295,31 @@ ActiveRecord::Schema.define(version: 20140130153725) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "showforms", force: true do |t|
+    t.integer  "booking_id"
+    t.integer  "progress"
+    t.boolean  "complete"
+    t.boolean  "verified"
+    t.string   "company_name"
+    t.string   "contact_name"
+    t.text     "address"
+    t.string   "telephone"
+    t.string   "email"
+    t.string   "website"
+    t.text     "particulars"
+    t.boolean  "dairy"
+    t.boolean  "beef"
+    t.boolean  "sheep"
+    t.boolean  "goats"
+    t.boolean  "pigs"
+    t.boolean  "poultry"
+    t.boolean  "arable"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "showforms", ["booking_id"], name: "index_showforms_on_booking_id", using: :btree
 
   create_table "social_fs", force: true do |t|
     t.string   "user"
@@ -275,6 +361,7 @@ ActiveRecord::Schema.define(version: 20140130153725) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "booking_id"
+    t.string   "zone"
   end
 
   create_table "supporters", force: true do |t|

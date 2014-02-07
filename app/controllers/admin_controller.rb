@@ -92,6 +92,8 @@ class AdminController < ApplicationController
     end
   end
   def main
+    @bookings = Booking.find(:all)
+
     @bookings_today = Booking.where("created_at >= :today", {today: Date.today})
     @bookings_today ||= []
 
@@ -125,7 +127,13 @@ class AdminController < ApplicationController
     machinery_hall_taken = Stand.where('area = ? AND taken = ?', 'machinery hall', true)
     @machinery_hall_space = ((machinery_hall_taken.size.to_f / machinery_hall_stands.size.to_f) * 100).round
     
+    #refresh the attention required on each Booking
+    @bookings.each do |item|
+      item.process_attention
+    end
 
+    #Bookings that require attention
+    @attn_bookings = Booking.where('needs_attention = ?', true)
   end
   # Redirects to the login screen if the current user or admin is not authorized
   def ensure_authenticated_user

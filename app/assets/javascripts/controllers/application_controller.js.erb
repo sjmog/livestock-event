@@ -32,6 +32,11 @@ currentUser: function() {
   },
   messageSent: false,
   actions: {
+    resetAuth: function() {
+      console.log('resetting auth');
+      App.AuthManager.reset();
+    },
+
     sendMessage: function() {
       var router = this.get('target');
       var name = $('#yourName').val();

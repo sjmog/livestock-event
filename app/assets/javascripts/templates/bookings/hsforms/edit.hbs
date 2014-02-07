@@ -1,0 +1,183 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">health and safety/Insurance details</span>
+  <div class="row">
+    <div class="small-12 columns">
+    <form {{action update model on="submit"}} class="grid-form">
+    <div class="row">
+      <div class="large-6 small-12 columns">
+        <p class="introductoryParagraph">This <em>Health & Safety/Insurance form</em> is to be returned by <strong>Friday 28th March 2014</strong>. You will not be allowed to exhibit without submitting a completed health and safety form.</p>
+        <p>It is a condition of the NEC that all licensees (exhibitors, contractors, sub-contractors, suppliers and their agents) comply with the Health and Safety at Work Act 1974 and all other legislation, rules, and regulations associated with the venue.</p>
+        <p>Exhibitors accept that it is their legal and moral duty to ensure that their own Health and Safety, and the Health and Safety of others, is not endangered by their actions (or inaction) throughout the event period.</p>
+        <p>If you would prefer to print and mail the Health and Safety form instead, click <a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/Health%20and%20Safety%20Forms.docx" target="_blank" class="inlineLink">here</a>.</p>
+      </div>
+      <div class="large-6 small-12 columns">
+        
+    
+      <fieldset>
+        <legend>1. Basics</legend>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="particulars">Company Name<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.company_name" id="company_name" required=""}}
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="equipment">Contact Name<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.name" id="name" required=""}}
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="equipment">Mobile tel.<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.mobile" id="mobile" required=""}}
+          </div>
+        </div>
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <label for="equipment">Brief Outline of Exhibit<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.particulars" id="particulars" required=""}}
+          </div>
+        </div>
+      </fieldset>
+      </div>
+      </div>
+
+      <fieldset>
+        <legend>2. Compliance Questions</legend>
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="policy">Do you have a Health & Safety policy?<span class="required">*</span></label><br>
+              <label>
+                  {{view Ember.RadioButton name="policy" id="policy1" selectionBinding="content.policy" value="true"}}
+                  Yes
+              </label>
+              
+              <label>
+                  {{view Ember.RadioButton name="policy" id="policy2" selectionBinding="content.policy" value="false"}}
+                  No
+              </label>
+            </div>
+          </div>
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <p class="formExplanation"><em>Please note:</em> all licensees (Exhibitors) are required, at their own expense, to hold both Employer's Liability and Public Liability Insurance covers with a reputable insurance company. Employer's Insurance cover must provide an indemnity limit of <em>no less than £5,000,000</em> and Public Liability Insurance cover must provide an indemnity limit of <em>no less than £1,000,000</em>.</p>
+            </div>
+          </div>
+          <div data-row-span="2">
+            <div data-field-span="1">
+              <label for="public_insurance">Do you have Public Liability Insurance to the required indemnity limit above?<span class="required">*</span></label><br>
+              <label>
+                  {{view Ember.RadioButton name="public_insurance" id="public_insurance1" selectionBinding="content.public_insurance" value="true"}}
+                  Yes
+              </label>
+              
+              <label>
+                  {{view Ember.RadioButton name="public_insurance" id="public_insurance2" selectionBinding="content.public_insurance" value="false"}}
+                  No
+              </label>
+            </div>
+            <div data-field-span="1">
+              <label for="public_insurance">Do you have Employee Liability Insurance to the required indemnity limit above?<span class="required">*</span></label><br>
+              <label>
+                  {{view Ember.RadioButton name="employee_insurance" id="employee_insurance1" selectionBinding="content.employee_insurance" value="true"}}
+                  Yes
+              </label>
+              
+              <label>
+                  {{view Ember.RadioButton name="employee_insurance" id="employee_insurance2" selectionBinding="content.employee_insurance" value="false"}}
+                  No
+              </label>
+            </div>
+          </div>
+
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="tick_1">We have the required level of insurance cover to comply with clause 16 of the Livestock Event stand space hire agreement contractual terms<span class="required">*</span></label><br>
+              {{view Ember.Checkbox checkedBinding="content.tick_1" id="tick_1" required=""}}
+            </div>
+          </div>
+
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="tick_2">We have evaluated our demonstration/work activities/exhibits and they pose <em>no or insignificant</em> risks to ourselves or any others<span class="required">*</span></label><br>
+              {{view Ember.Checkbox checkedBinding="content.tick_2" id="tick_2" required=""}}
+            </div>
+          </div>
+
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="tick_3">We have reviewed our previous risk assessment and there are no significant changes<span class="required">*</span></label><br>
+              {{view Ember.Checkbox checkedBinding="content.tick_3" id="tick_3" required=""}}
+            </div>
+          </div>
+
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="tick_4">We are satisfied that our stand staff and others have been given sufficient information, instruction, and training to carry out their tasks in a competent and safe manner<span class="required">*</span></label><br>
+              {{view Ember.Checkbox checkedBinding="content.tick_4" id="tick_4" required=""}}
+            </div>
+          </div>
+
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="tick_5">All staff, including contractors and sub-contractors, have been informed of potential risks on-site<span class="required">*</span></label><br>
+              {{view Ember.Checkbox checkedBinding="content.tick_5" id="tick_5" required=""}}
+            </div>
+          </div>
+
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="tick_6">We have received risk assessments from our contractors<span class="required">*</span></label><br>
+              {{view Ember.Checkbox checkedBinding="content.tick_6" id="tick_6" required=""}}
+            </div>
+          </div>
+
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="tick_7">Have you or your company been subject to prosecution (either proven or not) for breaches of Health and Safety law?</label><br>
+              <label>
+                  {{view Ember.RadioButton name="tick_7" id="tick_71" selectionBinding="content.tick_7" value="true"}}
+                  Yes
+              </label>
+              
+              <label>
+                  {{view Ember.RadioButton name="tick_7" id="tick_72" selectionBinding="content.tick_7" value="false"}}
+                  No
+              </label>
+            </div>
+          </div>
+
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="agreed">We agree to liaise with the Event Management/venue on all matters regarding Health and Safety prior to and during the tenancy where necessary to ensure the Health and Safety of all parties who may be affected by out actions/inactions. We accept that the NEC reserves the right to issue a suspended action notice under contravention of the Health and Safety rules of the company and/or relevant statutory provisions and maybe, given the circumstances, prohibit and exhibit or activity where the agents of the Company consider that the Health and Safety or Welfare of personnel is at risk.<span class="required">*</span></label><br>
+              {{view Ember.Checkbox checkedBinding="content.agreed" id="agreed" required=""}}
+            </div>
+          </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="completed_by">Completed by<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.completed_by" id="completed_by" required=""}}
+          </div>
+          <div data-field-span="1">
+            <label for="conducted_by">Date<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.date" id="date" required=""}}
+          </div>
+        </div>
+      </fieldset>
+      
+      <div class="vertElement">
+        <button class="button callToAction" type="submit"><span class="icon-chevron-thick"></span></button>
+        <span class="buttonLabel">save & continue</span>
+      </div>
+
+    </form>
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+

@@ -1,22 +1,60 @@
-<div class="list-group">
-    <a href="javascript:void(0)" class="list-group-item">
-        <span class="badge">3</span>
-        <h4 class="list-group-item-heading">Element's Title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </a>
-    <a href="javascript:void(0)" class="list-group-item active">
-        <span class="badge">2</span>
-        <h4 class="list-group-item-heading">Element's Title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </a>
-    <a href="javascript:void(0)" class="list-group-item">
-        <span class="badge">12</span>
-        <h4 class="list-group-item-heading">Element's Title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </a>
-    <a href="javascript:void(0)" class="list-group-item">
-        <span class="badge">7</span>
-        <h4 class="list-group-item-heading">Element's Title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </a>
+<!-- List Block -->
+<div class="block full">
+    <div class="block-title">
+        <h2><i class="fa fa-calendar-o"></i> Bookings needing attention</h2>
+    </div>
+
+    <div class="list-group">
+        <% bookings.each do |booking| %>
+        <% 
+        raform = Raform.find_by_booking_id(booking.id)
+        hsform = Hsform.find_by_booking_id(booking.id)
+        showform = Showform.find_by_booking_id(booking.id)
+
+        verify_forms = Array.new
+
+        if raform.complete && !raform.verified
+            verify_forms.push("Risk Assessment")
+        end
+
+        if hsform.complete && !hsform.verified
+            verify_forms.push("Health & Safety")
+        end
+
+        if showform.complete && !showform.verified
+            verify_forms.push("Show Guide Entry")
+        end
+
+        %>
+        <a href="/admin/bookings" class="list-group-item">
+            <span class="badge">#<%= booking.id %></span>
+            <h4 class="list-group-item-heading"><%= booking.exhibiting_name %></h4>
+            <p class="list-group-item-text">
+
+                <% # different reasons for needing attention %>
+                <% if booking.attention_type === "verification" %>
+                Requires verification for <%= verify_forms.each { |item| print item, "&"} %>.
+                <% elsif booking.attention_type === "new" %>
+                Just created a moment ago.
+                <% end %>
+                    
+            </p>
+            <div class="btn-group">
+                <%= link_to admin_print_raform_path(raform) + '.pdf', :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Print Risk Assessment" do %>
+                    <i class="fa fa-print"></i>
+                <% end %>
+                <%= link_to admin_print_hsform_path(hsform) + '.pdf', :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Print Health & Safety" do %>
+                    <i class="fa fa-print"></i>
+                <% end %>
+                <%= link_to admin_print_showform_path(showform) + '.pdf', :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Print Show Guide Application" do %>
+                    <i class="fa fa-print"></i>
+                <% end %>
+            </div>
+        </a>
+        <% end %>
+    </div>
+
 </div>
+
+
+<!-- END List Block -->

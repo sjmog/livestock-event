@@ -37,6 +37,11 @@
 
                     <!--timeline includes interactive features-->
                     <% # render "timeline" %>
+
+                    <!-- list of exhibitors needing attention -->
+                    <%= render partial: "admin/base/list_group", locals: {
+                      bookings: @attn_bookings
+                      } %>
                     
                 </div>
                 <div class="col-md-6">

@@ -4,8 +4,101 @@
     <div class="row firstRow">
       <a class="inlineLink noUnderline" href="javascript:window.print()"><span class="icon-printer"></span>Print application</a>
     </div>
+    <div class="row forms">
+      <div class="large-8 columns large-centered small-12 small-uncentered">
+        <p>All exhibitors are strongly advised to read the <a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/Exhibitor%20Manual%202014.docx" class="inlineLink" target="_blank">exhibitor manual</a>.  Applying for the Show Guide and completing Health & Safety and Risk Assessment forms is compulsory for all Exhibitors.  Please ensure that they are completed and returned with the deadlines indicated.</p>
+      </div>
+      <div class="large-6 small-12 columns essential">
+        <h1>Essential Forms</h1>
+        <p>Below are forms that <strong>must be completed before your booking can be confirmed</strong>. You can complete them online.</p>
+        <table class="simpleTable">
+          <thead>
+            <tr>
+              <td>&nbsp;</td>
+              <td>Completed?</td>
+              <td>Verified?</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{#link-to 'raforms.edit' raform class="inlineLink"}}Risk Assessment Form{{/link-to}}</td>
+              <td class="textCenter">{{#if raform.complete}}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+              <td class="textCenter">{{#if raform.verified}}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+            </tr>
+            <tr>
+              <td>{{#link-to 'showforms.edit' showform class="inlineLink"}}Show Guide Entry{{/link-to}}</td>
+              <td class="textCenter">{{#if showform.complete}}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+              <td class="textCenter">{{#if showform.verified}}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+            </tr>
+            <tr>
+              <td>{{#link-to 'hsforms.edit' hsform class="inlineLink"}}Health and Safety Form{{/link-to}}</td>
+              <td class="textCenter">{{#if hsform.complete}}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+              <td class="textCenter">{{#if hsform.verified}}<span class="icon-tick-alt"></span>{{else}}<span class="icon-close-alt-2"></span>{{/if}}</td>
+            </tr>
+          </tbody>
+        </table>
+        {{#if allDone}}
+        <div class="thanks mt14">
+          <p><em>Thank you for completing all the essential forms.
+          We'll verify the information and get back to you here.</em>
+          </p>
+        </div>
+        {{/if}}
+      </div>
+      <div class="large-6 small-12 columns nonessential">
+        <h1>Non-essential Forms</h1>
+        <p>Below are forms that <strong>should be completed by the majority of exhibitors</strong>. You can download, print, and return them by mail.</p>
+        <table class="simpleTable borderRight">
+          <thead>
+            <tr>
+
+              <td class="invisible"></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+
+              <td><a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/Enter%20the%20Prince%20Philip%20Award%202014.docx" target="_blank" class="inlineLink">Enter Prince Philip Award</a></td>
+              
+            </tr>
+            <tr>
+
+              <td><a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/RABDF%20Livestock%20Machinery%20and%20Equipment%20Award.docx" target="_blank" class="inlineLink">Enter RABDF Livestock & Machinery Award</a></td>
+              
+            </tr>
+
+            {{#if isClear}}
+            <tr>
+
+              <td><a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/Livestock%20GES%20Electrical%20North%20Order%20Form%202014%20-%20Internal%20Supplies.pdf" target="_blank" class="inlineLink">Electrical & Grid Plan Form – Internal</a></td>
+              
+            </tr>
+            <tr>
+
+              <td><a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/Livestock%20GES%20Electrical%20North%20Order%20Form%202014%20-%20External%20Supplies.pdf" target="_blank" class="inlineLink">Electrical & Grid Plan Form – External</a></td>
+              
+            </tr>
+            {{/if}}
+            <tr>
+
+              <td><a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/NEC%20Master%202014.pdf" target="_blank" class="inlineLink">NEC Stand Services 2014</a></td>
+            </tr>
+            <tr>
+
+              <td><a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/2014%20APPLICATION%20TO%20SUPPLY%20ALCOHOL%20DJ.docx" target="_blank" class="inlineLink">Application to supply Alcohol</a></td>
+            </tr>
+            <tr>
+
+              <td><a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/2014%20APPLICATION%20TO%20SUPPLY%20FOOD%20%20BEVERAGE%20DJ.docx" target="_blank" class="inlineLink">Application to supply Food and Beverages</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <div class="row">
       <div class="small-12 columns">
+
+      <h1>My booking</h1>
 
         <div class="row">
           <div class="large-4 small-12 columns printHalf">
@@ -297,6 +390,7 @@
             </p>
           </div>
         </div>
+        {{#unless depositPaid}}
         <div style="border-bottom: none;" class="row finalRow">
           <div class="small-12 columns centerAlign">
             
@@ -307,6 +401,7 @@
               
           </div>
         </div>
+        {{/unless}}
         
 
         <div class="row finalRow">

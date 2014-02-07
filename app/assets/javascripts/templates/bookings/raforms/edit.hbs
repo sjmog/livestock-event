@@ -1,0 +1,189 @@
+<div class="flipper">
+  <div class="front">
+  <span class="tile-title">risk assessment form</span>
+  <div class="row">
+    <div class="small-12 columns">
+    <div class="row">
+      <div class="large-6 small-12 columns">
+        <p class="introductoryParagraph">This <em>Risk Assessment Form</em> is to be returned by <strong>Friday 28th March 2014</strong>. You will not be allowed to exhibit without submitting a completed risk assessment.</p>
+        <p>We will also accept standard company risk assessments, if you use them, by mail.</p>
+        <p>If you would prefer to print and mail the Risk Assessment form instead, click <a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/Risk%20Assessment%20Form.docx" target="_blank" class="inlineLink">here</a>.</p>
+      </div>
+
+    <form {{action update model on="submit"}} class="grid-form">
+      <div class="large-6 small-12 columns">
+        <fieldset>
+          <legend>1. Particulars of Exhibit</legend>
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="particulars">Brief outline of exhibit<span class="required">*</span></label><br>
+              {{view Ember.TextField valueBinding="content.particulars" id="particulars" required=""}}
+            </div>
+          </div>
+          <div data-row-span="1">
+            <div data-field-span="1">
+              <label for="equipment">Equipment to be used<span class="required">*</span> <span class="afterthought">Evidence of current inspection certificates for certain equipment may be requested. Licences/competency certificates may be requested for users of specific equipment.</span></label><br>
+              {{view Ember.TextField valueBinding="content.equipment" id="equipment" required=""}}
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      
+      <fieldset style="width: 95%; margin: 20px auto;">
+        <legend>2. Complex Structures</legend>
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <p class="formExplanation"><em>Complex structures</em> could include: 'double-decker' stands; stands over 4m in height; stairs/steps; platforms and ramps over 600mm; staging; lighting towers, and rigs.</p>
+              <label for="complex">Do you intend to erect a complex structure?<span class="required">*</span> <a class="inlineLink" {{action toggleComplex target="controller"}}>What does this mean?</a></label><br>
+              <label>
+                  {{view Ember.RadioButton name="complex" id="complex1" selectionBinding="content.complex" value="true"}}
+                  Yes
+              </label>
+              
+              <label>
+                  {{view Ember.RadioButton name="complex" id="complex2" selectionBinding="content.complex" value="false"}}
+                  No
+              </label>
+            </div>
+          </div>
+          {{#if helper}}
+          <div data-row-span="12">
+            <div data-field-span="12">
+              <p class="formExplanation">If you are planning on erecting a complex structure, you must complete NEC Structural Submission forms 3 (download <a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/Form%203%20-%20Complex%20Structure%20-%20Design%20Stagev2.doc" class="inlineLink">here</a>) and 10 (download <a href="https://dl.dropboxusercontent.com/u/57653232/Hosted%20files%20for%20RABDF%20DO%20NOT%20DELETE/forms/Form%2010%20-%20Complex%20Structure%20-%20Open%20Periodv3.doc" class="inlineLink">here</a>), and return them to the Event Director.<br>Full structural calculations and method statements may be requested by both the organiser and the NEC, at the Exhibitor's cost. The Exhibitor can appoint their own structural engineer or use the organiser's recommended engineer: Don Walker (<a href="tel:01216221005" class="inlineLink">0121 622 1005</a>).</p>
+            </div>
+          </div>
+          {{/if}}
+      </fieldset>
+      <fieldset>
+        <legend>3. Risk Assessment</legend>
+      <div class="raGuide">
+        <table class="simpleTable stripedTable allWhite wideTable mt14 threeCol headLine colLines blackBorderBottom">
+          <thead>
+            <tr>
+              <td>Hazards</td>
+              <td>Persons at Risk</td>
+              <td>Control Measures</td>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td><p>Look only for hazards which you could reasonably expect to result in significant harm under the conditions in your stand space during build-up, creak-down and during the show. Use the following examples as a guide:</p>
+                </td>
+                <td>
+                  <p>Identify those persons or groups of people who may be at risk if exposed to the hazard. These might include:</p>
+                </td>
+                <td rowspan="2">
+                  <p>Note the existing control measures in place and assess whether these meet the standards set by legal requirements, comply with the recognised industry standards and reduce risk as far as is reasonably possible. Where the risk is not adequately controlled, indicate the additional controls required to minimise risk.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Manual handling</li>
+                    <li>Chemicals</li>
+                    <li>Electricity</li>
+                    <li>Slipping & tripping hazards</li>
+                    <li>Moving vehicles</li>
+                    <li>Working at height</li>
+                    <li>Fire hazard</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Contractors</li>
+                    <li>Stand construction and break-down teams</li>
+                    <li>Sales staff</li>
+                    <li>Visitors</li>
+                  </ul>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+      
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="company_name">Company Name<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.company_name" id="company_name" required=""}}
+          </div>
+          <div data-field-span="1">
+            <label for="conducted_by">Risk assessment conducted by<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.conducted_by" id="conducted_by" required=""}}
+          </div>
+        </div>
+        <div data-row-span="2">
+          <div data-field-span="1">
+            <label for="company_name">Signature<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.signature" id="signature" required=""}}
+          </div>
+          <div data-field-span="1">
+            <label for="conducted_by">Date<span class="required">*</span></label><br>
+            {{view Ember.TextField valueBinding="content.date" id="date" required=""}}
+          </div>
+        </div>
+        <div data-row-span="6">
+          <div class="h40" data-field-span="1"><label class="textCenter">Identify Hazard/Risk</label></div>
+          <div class="h40" data-field-span="1"><label class="textCenter">Persons at Risk</label></div>
+          <div class="h40" data-field-span="1"><label class="textCenter">Risk Level</label></div>
+          <div class="h40" data-field-span="1"><label class="textCenter">Association of Risk</label></div>
+          <div class="h40" data-field-span="1"><label class="textCenter">Controls to Minimise Risk</label></div>
+          <div class="h40" data-field-span="1"><label class="textCenter">Accept or Remove</label></div>
+        </div>
+        {{#each content.hazards}}
+        <div data-row-span="6" {{bind-attr class="isDirty:dirty:saved"}}>
+          <div data-field-span="1">{{view Ember.TextField valueBinding="name"}}</div>
+          <div data-field-span="1">{{view Ember.TextField valueBinding="persons"}}</div>
+          <div class="selectField" data-field-span="1"> {{view Ember.Select contentBinding="controller.riskLevels" optionValuePath="content.value" optionLabelPath="content.fullName" prompt="Please Select..." valueBinding="level" classNames="select"}}</div>
+          <div class="selectField" data-field-span="1"> {{view Ember.Select contentBinding="controller.rAssociations" optionValuePath="content.value" optionLabelPath="content.fullName" prompt="Please Select..." valueBinding="rassociation" classNames="select"}}</div>
+          <div data-field-span="1"> {{view Ember.TextField valueBinding="controls"}}</div>
+          <div data-field-span="1">
+              {{#if isDirty}}
+            <a class="action actionHalf accept" {{action saveHazard this}}><span class="icon-tick-alt"></span> Accept</a>
+              
+            <a class="action actionHalf remove" {{action removeHazard this}}><span class="icon-close-alt-2"></span> Remove</a>
+              {{else}}
+
+            <a class="action remove" {{action removeHazard this}}><span class="icon-close-alt-2"></span> Remove</a>
+
+              {{/if}}
+          </div>
+        </div>
+        {{/each}}
+        <div data-row-span="1">
+          <div data-field-span="1">
+            <div class="vertWrap row">
+              <div class="vertElement">
+                <a class="button callToAction" {{action addHazard}}><span class="icon-add"></span></a>
+                <span class="buttonLabel mt14">Add a Hazard/Risk</span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </fieldset>
+      {{#if isDirty}}
+      <div class="vertWrap row">
+        <div class="vertElement">
+          <button class="button callToAction" type="submit"><span class="icon-chevron-thick"></span></button>
+          <span class="mt14 buttonLabel">save</span>
+        </div>
+      </div>
+      {{else}}
+      <div class="vertWrap row">
+        <div class="vertElement">
+          {{#link-to bookings.index class="button callToAction"}}<span class="icon-close-alt-2"></span>{{/link-to}}
+          <span class="mt14 buttonLabel">cancel</span>
+        </div>
+      </div>
+      {{/if}}
+      
+
+    </form>
+  </div>
+</div>
+</div>
+<div class="back">
+  
+</div>
+</div>
+

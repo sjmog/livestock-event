@@ -5,13 +5,13 @@ module Api
     protected
 
       def permitted_params
-        params.permit(:stand => [:number, :taken, :frontage, :depth, :area, :booking_id])
+        params.permit(:stand => [:number, :taken, :frontage, :depth, :area, :booking_id, :zone])
       end
     private
 
     # Strong Parameters (Rails 4)
     def stand_params
-      params.require(:stand).permit(:number, :taken, :frontage, :depth, :area, :booking_id)
+      params.require(:stand).permit(:number, :taken, :frontage, :depth, :area, :booking_id, :zone)
     end
   end
 end

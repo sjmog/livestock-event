@@ -17,6 +17,12 @@
 				{{#link-to 'users.show' currentUser}}My Account{{/link-to}}
 			</li>
 			<li>
+				{{#link-to 'bookings.index'}}My Bookings{{/link-to}}
+			</li>
+			<li>
+				{{#link-to 'orders.index'}}My Payments{{/link-to}}
+			</li>
+			<li>
 				<a {{action 'logout'}}>Log Out</a>
 			</li>
 		</ul>

@@ -14,6 +14,10 @@ class Ability
         can :manage, User, :id => user.id
         can :manage, Order, :user_id => user.id
         can :manage, Booking, :user_id => user.id
+        can :manage, Raform
+        can :manage, Showform
+        can :manage, Hsform
+        can :manage, Hazard
         can :read, User, :id => user.id
         can :read, Booking, :user_id => user.id
         can :read, Order, :user_id => user.id

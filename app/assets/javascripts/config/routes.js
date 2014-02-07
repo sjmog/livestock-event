@@ -113,6 +113,30 @@ if (window.history && window.history.pushState) {
       this.route('tcs');
       this.route('problems');
       this.route('how');
+      this.resource('raforms', function() {
+        this.route('show', {
+          path: '/:raform_id'
+        });
+        this.route('edit', {
+          path: '/:raform_id/edit'
+        });
+      });
+      this.resource('hsforms', function() {
+        this.route('show', {
+          path: '/:hsform_id'
+        });
+        this.route('edit', {
+          path: '/:hsform_id/edit'
+        });
+      });
+      this.resource('showforms', function() {
+        this.route('show', {
+          path: '/:showform_id'
+        });
+        this.route('edit', {
+          path: '/:showform_id/edit'
+        });
+      });
     });
     this.resource('posts', function() {
       this.route('show', {

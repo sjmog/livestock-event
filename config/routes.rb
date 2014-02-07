@@ -40,6 +40,10 @@ post 'charges' => 'charges#create'
     resources :contractors
     resources :supporters
     resources :exhibitors
+    resources :raforms
+    resources :hsforms
+    resources :showforms
+    resources :hazards
     get 'contact' => 'contact#new'
     post 'contact' => 'contact#create'
     post 'session' => 'session#create'
@@ -63,6 +67,10 @@ post 'charges' => 'charges#create'
       resources :contractors
       resources :supporters
       resources :exhibitors
+      resources :raforms
+      resources :hsforms
+      resources :showforms
+      resources :hazards
       
       #fix simple_form's updating (which goes via POST instead of PUT for some reason)
       post 'posts/:id' => 'posts#update'
@@ -79,10 +87,21 @@ post 'charges' => 'charges#create'
       post 'buttons/:id' => 'buttons#update'
       post 'session' => 'session#create'
       post 'exhibitors/:id' => 'exhibitors#update'
+      post 'raforms/:id' => 'raforms#update'
+      post 'hsforms/:id' => 'hsforms#update'
+      post 'showforms/:id' => 'showforms#update'
 
       #printing
       get '/bookings/:id/print', to: 'bookings#print', as: :print_booking
+      get '/raforms/:id/print', to: 'print#print_raform', as: :print_raform
+      get '/hsforms/:id/print', to: 'print#print_hsform', as: :print_hsform
+      get '/showforms/:id/print', to: 'print#print_showform', as: :print_showform
   
+      #verifications
+      get '/raforms/:id/verify', to: 'verifications#verify_raform', as: :verify_raform
+      get '/hsforms/:id/verify', to: 'verifications#verify_hsform', as: :verify_hsform
+      get '/showforms/:id/verify', to: 'verifications#verify_showform', as: :verify_showform
+
       #notifications
       get '/notifications', to: 'notifications#index'
       get '/notifications/:id', to: 'notifications#show'
@@ -90,6 +109,10 @@ post 'charges' => 'charges#create'
       # building exhibitors
 
       get '/build-exhibitors', :to => 'bookings#build_exhibitors'
+
+      # building forms
+
+      get '/build-forms', :to => 'bookings#build_forms'
   end
 
 

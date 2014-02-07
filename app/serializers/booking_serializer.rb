@@ -1,5 +1,8 @@
 class BookingSerializer < BaseSerializer
   has_one :stand
+  has_one :raform
+  has_one :hsform
+  has_one :showform
   attributes :id
   attribute :order_id
   attribute :requirements

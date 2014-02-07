@@ -2629,3 +2629,27 @@ right: 10px;
 #sidebar-right, #sidebar-left {
     overflow-y: scroll;
 }
+
+table.dataTable td {
+    vertical-align:middle !important;
+}
+
+.flagged {
+    background: #FF9494;
+}
+
+.flagged.complete {
+    background: #75aa27;
+}
+
+.flagged:hover {
+    background: #cc7272;
+}
+
+.flagged:hover > td {
+    background:transparent !important;
+}
+
+.flagged.complete:hover {
+    background: #539905;
+}
