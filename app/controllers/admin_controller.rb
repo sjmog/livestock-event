@@ -127,10 +127,7 @@ class AdminController < ApplicationController
     machinery_hall_taken = Stand.where('area = ? AND taken = ?', 'machinery hall', true)
     @machinery_hall_space = ((machinery_hall_taken.size.to_f / machinery_hall_stands.size.to_f) * 100).round
     
-    #refresh the attention required on each Booking
-    @bookings.each do |item|
-      item.process_attention
-    end
+
 
     #Bookings that require attention
     @attn_bookings = Booking.where('needs_attention = ?', true)
