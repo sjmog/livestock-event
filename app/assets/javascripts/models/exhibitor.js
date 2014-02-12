@@ -16,6 +16,15 @@ App.Exhibitor = DS.Model.extend({
 
   	description: DS.attr('string'),
 
+    parsedWebsite: function() {
+      var myVariable = this.get('website');
+          if(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(myVariable)){
+              return myVariable;
+          } else {
+              return 'http://' + myVariable;
+          }
+    }.property('area'),
+
   	parsedArea: function() {
   	  return this.get('area').replace(/ /g,'');
   	}.property('area'),
