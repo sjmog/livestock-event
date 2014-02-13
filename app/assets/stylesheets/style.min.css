@@ -12041,6 +12041,9 @@ span.flipLink {
   transition: all 0.2s ease-in-out; }
   span.flipLink:hover {
     color: white; }
+  @media screen and (max-width: 640px) {
+    span.flipLink.flipWord {
+      right: -18px; } }
 
 .caption {
   margin-top: 10px !important; }
@@ -14899,7 +14902,10 @@ div.form-actions {
     top: 24px; }
 
   .innerTile .tabText {
-    display: block !important; } }
+    display: block !important; }
+
+  .singleExhibitor div {
+    top: 0 !important; } }
 .standCheckingRow {
   -webkit-transform: translateY(160px);
   -moz-transform: translateY(160px);
@@ -15028,42 +15034,92 @@ div.form-actions {
 .animalhealth {
   background-color: #1cb7fb;
   border-color: #037aae !important; }
+  .animalhealth:not(.exhibFilter) span span {
+    left: -14px; }
+  @media screen and (max-width: 640px) {
+    .animalhealth.exhibFilter span {
+      left: -11px; } }
 
 .businessmanagement {
   background-color: #fb5825;
   border-color: #b72e03 !important; }
+  .businessmanagement:not(.exhibFilter) span {
+    left: -18px; }
+  @media screen and (max-width: 640px) {
+    .businessmanagement.exhibFilter span {
+      left: -15px; } }
 
 .diversifarmandrenewables {
   background-color: #02268b;
   border-color: #010b26 !important; }
+  .diversifarmandrenewables:not(.exhibFilter) span {
+    left: -30px; }
+  @media screen and (max-width: 640px) {
+    .diversifarmandrenewables.exhibFilter span {
+      left: -27px; } }
 
 .feedsandforage {
   background-color: #70ac1d;
   border-color: #37550e !important; }
+  .feedsandforage:not(.exhibFilter) span {
+    left: -7px; }
+  @media screen and (max-width: 640px) {
+    .feedsandforage.exhibFilter span {
+      left: -4px; } }
 
 .genetics {
   background-color: #168f8d;
   border-color: #083736 !important; }
+  .genetics:not(.exhibFilter) span {
+    left: -18px; }
+  @media screen and (max-width: 640px) {
+    .genetics.exhibFilter span {
+      left: -15px; } }
 
 .housingandstorage {
   background-color: #8d7845;
   border-color: #493e23 !important; }
+  .housingandstorage:not(.exhibFilter) span {
+    left: -18px; }
+  @media screen and (max-width: 640px) {
+    .housingandstorage.exhibFilter span {
+      left: -15px; } }
 
 .livestockequipmentandmachinery {
   background-color: #86af97;
   border-color: #527d64 !important; }
+  .livestockequipmentandmachinery:not(.exhibFilter) span {
+    left: -26px; }
+  @media screen and (max-width: 640px) {
+    .livestockequipmentandmachinery.exhibFilter span {
+      left: -23px; } }
 
 .milking {
   background-color: #677276;
   border-color: #373d40 !important; }
+  .milking:not(.exhibFilter) span {
+    left: -16px; }
+  @media screen and (max-width: 640px) {
+    .milking.exhibFilter span {
+      left: -13px; } }
 
 .milkmade {
   background-color: #e439a3;
   border-color: #a1166c !important; }
+  .milkmade:not(.exhibFilter) span {
+    left: -23px; }
+  @media screen and (max-width: 640px) {
+    .milkmade.exhibFilter span {
+      left: -20px; } }
 
 .slurrymuckandirrigation {
   background-color: #5b2f2e;
   border-color: #170c0c !important; }
+  .slurrymuckandirrigation:not(.exhibFilter) span {
+    left: -24px; }
+  @media screen and (max-width: 640px) {
+    .slurrymuckandirrigation.exhibFilter span {
+      left: -21px; } }
 
 .machineryhall {
   background-color: #874890;
@@ -15072,10 +15128,16 @@ div.form-actions {
 .indoor {
   background-color: #1e1e1e;
   border-color: black !important; }
+  @media screen and (max-width: 640px) {
+    .indoor span {
+      left: -14px; } }
 
 .outdoor {
   background-color: #1e5a1e;
   border-color: #040d04 !important; }
+  @media screen and (max-width: 640px) {
+    .outdoor span {
+      left: -20px; } }
 
 /*fullmap*/
 #fullMap {
@@ -15487,7 +15549,7 @@ p.additionalInfo > a {
 .colorBlock {
   padding: 0 !important; }
   .colorBlock.inactiveFilter {
-    background: #464646;
+    background: #464646 !important;
     color: #b4b4b4; }
 
 .cw90 {
@@ -15519,7 +15581,7 @@ p.additionalInfo > a {
   /* Firefox 16+, IE 10+, Opera 12.10+ */ }
 
 .em08 {
-  font-size: 0.8em; }
+  font-size: 0.8em !important; }
 
 .flipLink.flipWord {
   width: 120px;
@@ -15550,11 +15612,11 @@ p.additionalInfo > a {
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
   .tile-content.filtersOut {
-    -webkit-transform: translateY(-400px);
-    -moz-transform: translateY(-400px);
-    -ms-transform: translateY(-400px);
-    -o-transform: translateY(-400px);
-    transform: translateY(-400px); }
+    -webkit-transform: translateY(-467px);
+    -moz-transform: translateY(-467px);
+    -ms-transform: translateY(-467px);
+    -o-transform: translateY(-467px);
+    transform: translateY(-467px); }
     .tile-content.filtersOut.filtersIn {
       -webkit-transform: translateY(0px);
       -moz-transform: translateY(0px);
@@ -15569,7 +15631,7 @@ p.additionalInfo > a {
   background: #1daeec !important; }
 
 .filterRow {
-  height: 400px; }
+  height: 467px; }
   .filterRow .filtersRow {
     text-align: justify;
     padding: 0; }
@@ -15783,6 +15845,17 @@ table.stripedTable {
     width: 48%;
     display: inline-block;
     line-height: 21px; }
+
+.noPadding {
+  padding: 0 !important; }
+
+.small-6.colorBlock {
+  width: 50% !important;
+  height: 70px !important; }
+  .small-6.colorBlock.allColor {
+    background: #75aa27; }
+  .small-6.colorBlock.noneColor {
+    background: #ff9494; }
 
 /* Just click to select the code */
 @font-face {

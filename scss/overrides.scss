@@ -1317,6 +1317,11 @@ span.flipLink {
 	&:hover {
 		color:white(1);
 	}
+	&.flipWord {
+		@media screen and (max-width:640px) {
+		right:-18px;	
+		}
+	}
 	
 
 }
@@ -4803,6 +4808,9 @@ div.form-actions {
 	.innerTile .tabText {
 		display:block !important;
 	}
+	.singleExhibitor div {
+		top:0 !important;
+	}
 }
 .standCheckingRow {
 	@include transform(translateY(160px));
@@ -4930,42 +4938,125 @@ div.form-actions {
 .animalhealth {
 	background-color:$animalHealthColour;
 	border-color:darken($animalHealthColour, 20%) !important;
+	&:not(.exhibFilter) span {
+	span {
+		left:-14px;
+	}
+}
+	@media screen and (max-width: 640px) {
+	&.exhibFilter span {
+		left:-11px;
+	}
+}
 }
 .businessmanagement {
 	background-color:$businessManagementColour;
 	border-color:darken($businessManagementColour, 20%) !important;
+	
+	&:not(.exhibFilter) span {
+		left:-18px;
+	}
+	@media screen and (max-width: 640px) {
+		&.exhibFilter span {
+			left:-15px;
+		}
+	}
 }
 .diversifarmandrenewables {
 	background-color:$diversificationColour;
 	border-color:darken($diversificationColour, 20%) !important;
+	&:not(.exhibFilter) span {
+		left:-30px;
+	}
+	@media screen and (max-width: 640px) {
+		&.exhibFilter span {
+			left:-27px;
+		}
+	}
 }
 .feedsandforage {
 	background-color:$feedsForageColour;
 	border-color:darken($feedsForageColour, 20%) !important;
+	&:not(.exhibFilter) span {
+		left:-7px;
+	}
+	@media screen and (max-width: 640px) {
+		&.exhibFilter span {
+			left:-4px;
+		}
+	}
 }
 .genetics {
 	background-color:$geneticsColour;
 	border-color:darken($geneticsColour, 20%) !important;
+	&:not(.exhibFilter) span {
+		left:-18px;
+	}
+	@media screen and (max-width: 640px) {
+		&.exhibFilter span {
+			left:-15px;
+		}
+	}
 }
 .housingandstorage {
 	background-color:$housingColour;
 	border-color:darken($housingColour, 20%) !important;
+	&:not(.exhibFilter) span {
+		left:-18px;
+	}
+	@media screen and (max-width: 640px) {
+		&.exhibFilter span {
+			left:-15px;
+		}
+	}
 }
 .livestockequipmentandmachinery {
 	background-color:$livestockEquipmentColour;
 	border-color:darken($livestockEquipmentColour, 20%) !important;
+	&:not(.exhibFilter) span {
+		left:-26px;
+	}
+	@media screen and (max-width: 640px) {
+		&.exhibFilter span {
+			left:-23px;
+		}
+	}
 }
 .milking {
 	background-color:$milkingColour;
 	border-color:darken($milkingColour, 20%) !important;
+	&:not(.exhibFilter) span {
+		left:-16px;
+	}
+	@media screen and (max-width: 640px) {
+		&.exhibFilter span {
+			left:-13px;
+		}
+	}
 }
 .milkmade {
 	background-color:$milkmadeColour;
 	border-color:darken($milkmadeColour, 20%) !important;
+	&:not(.exhibFilter) span {
+		left:-23px;
+	}
+	@media screen and (max-width: 640px) {
+		&.exhibFilter span {
+			left:-20px;
+		}
+	}
 }
 .slurrymuckandirrigation {
 	background-color:$slurryColour;
 	border-color:darken($slurryColour, 20%) !important;
+	&:not(.exhibFilter) span {
+		left:-24px;
+	}
+	@media screen and (max-width: 640px) {
+		&.exhibFilter span {
+			left:-21px;
+		}
+	}
 }
 .machineryhall {
 	background-color:$machineryHallColour;
@@ -4974,10 +5065,20 @@ div.form-actions {
 .indoor {
 	background-color:rgb(30,30,30);
 	border-color:darken(rgb(30,30,30), 20%) !important;
+	@media screen and (max-width: 640px) {
+	span {
+		left:-14px;
+	}
+}
 }
 .outdoor {
 	background-color:rgb(30,90,30);
 	border-color:darken(rgb(30,90,30), 20%) !important;
+	@media screen and (max-width: 640px) {
+	span {
+		left:-20px;
+	}
+}
 }
 
 /*fullmap*/
@@ -5485,7 +5586,7 @@ p.additionalInfo > a {
 .colorBlock {
 	padding:0 !important;
 	&.inactiveFilter {
-		background:rgb(70,70,70);
+		background:rgb(70,70,70) !important;
 		color:rgb(180,180,180);
 	}
 }
@@ -5509,7 +5610,7 @@ p.additionalInfo > a {
 }
 
 .em08 {
-	font-size:0.8em;
+	font-size:0.8em !important;
 }
 
 .flipLink.flipWord {
@@ -5547,11 +5648,11 @@ p.additionalInfo > a {
 	       -o-transition: all 0.3s ease-out;  
 	          transition: all 0.3s ease-out;
 	&.filtersOut {
-		-webkit-transform: translateY(-400px);
-		     -moz-transform: translateY(-400px);  
-		      -ms-transform: translateY(-400px);  
-		       -o-transform: translateY(-400px);  
-		          transform: translateY(-400px); 
+		-webkit-transform: translateY(-467px);
+		     -moz-transform: translateY(-467px);  
+		      -ms-transform: translateY(-467px);  
+		       -o-transform: translateY(-467px);  
+		          transform: translateY(-467px); 
 		          &.filtersIn {
 		          	-webkit-transform: translateY(0px);
 		          	     -moz-transform: translateY(0px);  
@@ -5570,7 +5671,7 @@ p.additionalInfo > a {
 	background:$rabdfBlue !important;
 }
 .filterRow {
-	height:400px;
+	height:467px;
 	.filtersRow {
 		text-align:justify;
 		padding:0;
@@ -5853,5 +5954,18 @@ table.stripedTable {
 		width: 48%;
 		display: inline-block;
 		line-height: 21px;	
+	}
+}
+.noPadding {
+	padding:0 !important;
+}
+.small-6.colorBlock {
+	width:50% !important;
+	height:70px !important;
+	&.allColor {
+		background: $goodColor;
+	}
+	&.noneColor {
+		background: $errorColor;
 	}
 }

@@ -3,7 +3,7 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 		var controller = this;
 		var sortedResult = Em.ArrayProxy.createWithMixins(
 		    Ember.SortableMixin, 
-		    { content:controller.get('content'), sortProperties: ['area'], sortAscending: true }
+		    { content:controller.get('content'), sortProperties: ['name'], sortAscending: true }
 	 	);
 	    return sortedResult;
 	}.property('content.@each'),
@@ -17,6 +17,30 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 			} else {
 				this.set('filters', true);
 			}
+		},
+		allOn: function() {
+			this.set('isHealth', true);
+			this.set('isBusiness', true);
+			this.set('isRenewables', true);
+			this.set('isFeeds', true);
+			this.set('isGenetics', true);
+			this.set('isStorage', true);
+			this.set('isEquipment', true);
+			this.set('isMilking', true);
+			this.set('isMilkmade', true);
+			this.set('isIrrigation', true);
+		},
+		allOff: function() {
+			this.set('isHealth', false);
+			this.set('isBusiness', false);
+			this.set('isRenewables', false);
+			this.set('isFeeds', false);
+			this.set('isGenetics', false);
+			this.set('isStorage', false);
+			this.set('isEquipment', false);
+			this.set('isMilking', false);
+			this.set('isMilkmade', false);
+			this.set('isIrrigation', false);
 		}
 	},
 	showAreas: [
@@ -41,6 +65,10 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 
 	isAll: function() {
 		return this.get('isHealth') && this.get('isBusiness') && this.get('isRenewables') && this.get('isFeeds') && this.get('isGenetics') && this.get('isStorage') && this.get('isEquipment') && this.get('isMilking') && this.get('isMilkmade') && this.get('isIrrigation');
+	}.property('isStorage', 'isEquipment', 'isMilking', 'isMilkmade', 'isIrrigation', 'isBusiness', 'isHealth', 'isRenewables', 'isFeeds', 'isGenetics'),
+
+	isNone: function() {
+		return !(this.get('isHealth') || this.get('isBusiness') || this.get('isRenewables') || this.get('isFeeds') || this.get('isGenetics') || this.get('isStorage') || this.get('isEquipment') || this.get('isMilking') || this.get('isMilkmade') || this.get('isIrrigation'));
 	}.property('isStorage', 'isEquipment', 'isMilking', 'isMilkmade', 'isIrrigation', 'isBusiness', 'isHealth', 'isRenewables', 'isFeeds', 'isGenetics'),
 
 	selectedAreaDidChange: function() {

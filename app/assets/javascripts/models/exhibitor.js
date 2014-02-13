@@ -16,6 +16,44 @@ App.Exhibitor = DS.Model.extend({
 
   	description: DS.attr('string'),
 
+    parsedZone: function() {
+        var zone = this.get('zone');
+        var parsedZone;
+        switch(zone){
+          case "animal health":
+            parsedZone = "animalhealth";
+            break
+          case "business management":
+            parsedZone = "businessmanagement";
+            break
+          case "diversifarm and renewables":
+            parsedZone = "diversifarmandrenewables";
+            break
+          case "feeds and forage":
+            parsedZone = "feedsandforage";
+            break;
+          case "genetics":
+            parsedZone = "genetics";
+            break;
+          case "housing and storage":
+            parsedZone = "housingandstorage";
+            break;
+          case "livestock equipment and machinery":
+            parsedZone = "livestockequipmentandmachinery";
+            break;
+          case "milking":
+            parsedZone = "milking";
+            break;
+          case "milkmade":
+            parsedZone = "milkmade";
+            break;
+          case "slurry, muck and irrigation":
+            parsedZone = "slurrymuckandirrigation";
+            break;
+        }
+        return parsedZone;
+      }.property('zone'),
+
     parsedWebsite: function() {
       var myVariable = this.get('website');
           if(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(myVariable)){
@@ -28,10 +66,6 @@ App.Exhibitor = DS.Model.extend({
   	parsedArea: function() {
   	  return this.get('area').replace(/ /g,'');
   	}.property('area'),
-
-  	parsedZone: function() {
-  	  return this.get('zone').replace(/ /g,'');
-  	}.property('zone'),
 
     shortArea: function() {
       var area = this.get('area');

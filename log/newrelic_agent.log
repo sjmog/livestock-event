@@ -14143,3 +14143,25 @@ unmatched close parenthesis: /i> New <%= model_name );@output_buffer.safe_append
 [02/12/14 13:55:28 +0000 Samuels-MacBook-Air-5.local (7612)] INFO : Installing Rails4 Error instrumentation
 [02/12/14 13:55:28 +0000 Samuels-MacBook-Air-5.local (7612)] INFO : Finished instrumentation
 [02/12/14 13:55:29 +0000 Samuels-MacBook-Air-5.local (7612)] INFO : Doing deferred dependency-detection before Rack startup
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Starting the New Relic agent in "development" environment.
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Reading configuration from config/newrelic.yml
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : New Relic Agent Developer Mode enabled.
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Enabling the Request Sampler.
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Enabling the Request Sampler.
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Environment: development
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Dispatcher: webrick
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Application: My Application
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] WARN : Agent configured not to send data in this environment.
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Installing ActiveMerchant instrumentation
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Installing ActiveRecord 4 instrumentation
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Installing Net instrumentation
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Installing deferred Rack instrumentation
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Installing Rails Sunspot instrumentation
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Installing Unicorn instrumentation
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Installing Rails 4 Controller instrumentation
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Installing Rails 4 view instrumentation
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Installing Rails4 Error instrumentation
+[02/13/14 13:39:40 +0000 samuels-air-5.lan (8226)] INFO : Finished instrumentation
+[02/13/14 13:39:42 +0000 samuels-air-5.lan (8226)] INFO : Doing deferred dependency-detection before Rack startup
