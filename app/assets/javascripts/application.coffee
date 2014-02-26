@@ -1,5 +1,6 @@
 #= require jquery
 #= require jquery_ujs
+#= require early_hooks
 #= require handlebars
 #= require ember
 #= require ember-data

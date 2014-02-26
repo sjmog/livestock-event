@@ -138,11 +138,6 @@ if (window.history && window.history.pushState) {
         });
       });
     });
-    this.resource('posts', function() {
-      this.route('show', {
-        path: '/:post_id'
-      });
-    });
     this.resource('users', function() {
       this.route('index', {
         path: '/'
