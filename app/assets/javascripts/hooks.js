@@ -1,3 +1,11 @@
+//make Emblem shut up
+
+var Emblem = {
+  compile: function(a, b) {
+    return "";
+  }
+};
+
 Ember.View.reopen({
   didInsertElement : function(){
     this._super();
