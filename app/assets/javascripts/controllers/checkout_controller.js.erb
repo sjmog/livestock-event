@@ -1,5 +1,5 @@
 App.CheckoutController = Ember.ObjectController.extend({
-
+  needs: ['application'],
   actions: {
     pay: function() {
       var router = this.get('target');

@@ -1,4 +1,5 @@
 App.ExhibitorsIndexController = Ember.ArrayController.extend({
+	needs: ['application'],
 	sortedExhibitors: function() {
 		var controller = this;
 		var sortedResult = Em.ArrayProxy.createWithMixins(

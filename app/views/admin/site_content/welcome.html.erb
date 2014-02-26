@@ -1,0 +1,278 @@
+<%= render "admin/base/left_sidebar" %>
+<%= render "admin/base/right_sidebar" %>
+
+
+
+<!-- Page Container -->
+<!-- In the PHP version you can set the following options from the config file -->
+<!-- Add the class .full-width for a full width page (100%, 1920px max width) -->
+<div id="page-container">
+   
+   <%= render "admin/base/top_menu" %>
+
+    <!-- FX Container -->
+    <!-- In the PHP version you can set the following options from the config file -->
+    <!--
+        All effects apply in resolutions larger than 1200px width
+        Add one of the following classes to #fx-container for setting an effect to main content when one of the sidebars are opened
+        'fx-none'           remove all effects (better website performance)
+        'fx-opacity'        opacity effect
+        'fx-move'           move effect
+        'fx-push'           push effect
+        'fx-rotate'         rotate effect
+        'fx-push-move'      push-move effect
+        'fx-push-rotate'    push-rotate effect
+    -->
+    <div id="fx-container" class="fx-opacity">
+        <!-- Page content -->
+        <div id="page-content" class="block">
+            
+            <!--form for booking forms-->
+            <div class="block">
+                <div class="block-title">
+                    <h2>'Welcome' tile <small>Content displayed on the 'welcome' tile.</small></h2>
+                </div>
+                <%= simple_form_for [:admin, @site_content], :html => { class: 'form-horizontal form-bordered' }, defaults: { input_html: { class: 'form-control' }, label_html: { class: 'control-label '} } do |f| %>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Welcome tile title</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_title %>
+                        </div>
+                    </div>
+                </div>
+
+                <br><h2>First tab <small>This tab is for introductory information.</small></h2>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab label</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_one_label %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab icon</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_one_icon %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_one_text, as: :text, rows: "15", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <br><h2>Second tab</h2>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab label</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_two_label %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab icon</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_two_icon %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab header</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_two_header %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_two_text, as: :text, rows: "15", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <br><h2>Third tab</h2>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab label</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_three_label %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab icon</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_three_icon %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab header</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_three_header %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_three_text, as: :text, rows: "15", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <br><h2>Fourth tab</h2>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab label</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_four_label %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab icon</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_four_icon %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab header</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_four_header %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_four_text, as: :text, rows: "15", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <br><h2>Fifth tab</h2>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab label</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_five_label %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab icon</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_five_icon %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab header</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_five_header %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_five_text, as: :text, rows: "15", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <br><h2>Sixth tab</h2>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab label</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_six_label %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Tab icon</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_six_icon %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab header</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_six_header %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Tab Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :welcome_six_text, as: :text, rows: "15", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            <div class="block">
+                <%= f.button :submit %>
+                <% end %>
+            </div>
+
+            <!--END form for booking forms-->
+       
+            
+        </div>
+        <!-- END Page Content -->
+
+        <!-- Remember to include excanvas for IE8 chart support -->
+        <!--[if IE 8]><script src="js/helpers/excanvas.min.js"></script><![endif]-->
+
+        <!-- Footer -->
+        <footer class="clearfix">
+            <div class="pull-right">
+                Crafted with <i class="fa fa-heart"></i> by <a class="ghostColor" href="http://www.ghostds.com" target="_blank">Ghost Design</a>
+            </div>
+            <div class="pull-left">
+                <span id="year-copy"></span> &copy; <a href="javascript:void(0)" target="_blank">Ghost Design</a>
+            </div>
+        </footer>
+        <!-- END Footer -->
+    </div>
+    <!-- END FX Container -->
+</div>
+<!-- END Page Container -->
+<!-- BEGIN Page Scripts -->
+<%= render 'admin/base/datatable_scripts' %>

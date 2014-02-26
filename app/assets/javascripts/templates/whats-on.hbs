@@ -1,3 +1,4 @@
+{{#with controller}}
 <div class="flipper">
 	<div class="front">
 		<span class="tile-title">what's on?</span>
@@ -7,13 +8,16 @@
 		       		<span class="icon-exhibitions-1"></span>
 		       		<label>exhibition</label>
 		        </div>
+
 		        <div class="carouContent">
 		            <div class="carouTabs">	
 
     				    <div class="carouTab activeCarou">
     				         <div class="carouTabTitle">animal health</div>
     				        <div class="carouContent">
-    				            <p>This zone will feature animal health and veterinary product manufacturers and distributors.</p>
+    				        	{{{controllers.application.siteContent.whatsonAhText}}}
+    				            
+    				        	
     				        </div> 
     				    </div>
     				    
@@ -21,7 +25,8 @@
     				        <div class="carouTabTitle">business management</div>
     				       
     				        <div class="carouContent">
-    				            <p>Exhibitors will include consultants, financial providers, insurance, IT, education, training and recruitment, trade associations, publishers and quality assurance.</p>
+    				        	{{{controllers.application.siteContent.whatsonBmText}}}
+    				            
     				        </div> 
     			  	    </div>
 
@@ -29,7 +34,8 @@
     				        <div class="carouTabTitle">diversification & renewables</div>
     				       
     				       <div class="carouContent">
-    				            <p>This exhibition zone attracts farmers looking to generate additional income from existing land and farm assets.</p>
+    				       	{{{controllers.application.siteContent.whatsonDrText}}}
+    				            
     				       </div> 
     				    </div>
 
@@ -37,7 +43,8 @@
     				        <div class="carouTabTitle">feeds & forage</div>
     				       
     				       <div class="carouContent">
-    				            <p>Companies in this zone will cover feeds, seeds, fertilisers, chemicals, silage and feed additives, soil and forage products. </p>
+    				       {{{controllers.application.siteContent.whatsonFfText}}}
+    				            
     				       </div> 
     				    </div>
 
@@ -45,7 +52,8 @@
     				        <div class="carouTabTitle">genetics</div>
     				       
     				       <div class="carouContent">
-    				            <p>This is a dedicated zone for all breeding AI companies and breed societies.</p>
+    				       {{{controllers.application.siteContent.whatsonGeneticsText}}}
+    				            
     				       </div> 
     				    </div>
 
@@ -53,7 +61,8 @@
     				        <div class="carouTabTitle">housing & storage</div>
     				       
     				       <div class="carouContent">
-    				            <p>Exhibitors will include animal housing, building and materials cubicles, bins and bedding products.</p>
+    				       {{{controllers.application.siteContent.whatsonHsText}}}
+    				            
     				       </div> 
     				    </div>
 
@@ -61,14 +70,16 @@
     				        <div class="carouTabTitle">livestock equipment & machinery</div>
     				       
     				       <div class="carouContent">
-    				            <p>This zone will cover Equipment for feeding, identification, handling, livestock fencing, tractors, telehandlers, machinery, attachments and spare parts.</p>
+    				       {{{controllers.application.siteContent.whatsonLemText}}}
+    				            
     				       </div> 
     				    </div>
 
     				    <div class="carouTab">
     				         <div class="carouTabTitle">machinery hall</div>
     				        <div class="carouContent">
-    				            <p>This hall is the UK’s largest dedicated undercover Machinery area.  Exhibitors include John Deere, Agco, New Holland and Land Rover.</p>
+    				        {{{controllers.application.siteContent.whatsonMhText}}}
+    				            
     				        </div> 
     				    </div>
 
@@ -76,7 +87,8 @@
     				        <div class="carouTabTitle">milking</div>
     				       
     				       <div class="carouContent">
-    				            <p>For all aspects of milking, including parlours, cooling equipment, spares, hygiene products, clothing and milk testing.</p>
+    				       {{{controllers.application.siteContent.whatsonMlText}}}
+    				            
     				       </div> 
     				    </div>
 
@@ -84,7 +96,8 @@
     				        <div class="carouTabTitle">milkmade</div>
     				       
     				        <div class="carouContent">
-    				            <p>This zone attracts farmers looking to add value to their milk, whether this be through securing new milk contracts or looking at processing their own milk into cheese, ice cream, yoghurt and other dairy products. </p>
+    				        {{{controllers.application.siteContent.whatsonMmText}}}
+    				            
     				        </div> 
     				    </div>
 
@@ -92,7 +105,8 @@
     				        <div class="carouTabTitle">slurry & irrigation</div>
     				       
     				       <div class="carouContent">
-    				            <p>For companies involved in the handling and storage of slurry and water, environmental products and advisory services.</p>
+    				       {{{controllers.application.siteContent.whatsonSiText}}}
+    				            
     				       </div> 
     				   </div>
     				</div>
@@ -111,7 +125,8 @@
   			       	        <div class="carouTabTitle">farm security</div>
   			       
   			       		 	<div class="carouContent">
-  			            		<p>Crime in the countryside has become a major issue for farmers, costing the industry £53m a year.  This feature will showcase latest farm security systems and provide opportunities for visitors to talk to farm security experts about their own security issues.</p>
+  			       		 	{{{controllers.application.siteContent.whatsonFarmsecText}}}
+  			            		
   			       			</div> 
   			   			</div>
   			    
@@ -119,7 +134,8 @@
 		  			       <div class="carouTabTitle">forage field</div>
 		  			       
 		  			       <div class="carouContent">
-		  			            <p>The opportunity for farmers to learn all about growing, measuring, protecting and ensiling all types of forage.</p>
+		  			       {{{controllers.application.siteContent.whatsonForfieldText}}}
+		  			            
 		  			       </div> 
 		  			   </div>
 
@@ -127,7 +143,8 @@
 		  			       <div class="carouTabTitle">pig & poultry</div>
 		  			       
 		  			       <div class="carouContent">
-		  			            <p>An exhibition area for visitors looking to add additional pig and poultry enterprises to their farm but needing specialist advice on feeding, equipment, housing and animal health – New for 2014</p>
+		  			       {{{controllers.application.siteContent.whatsonPigpoultText}}}
+		  			            
 		  			       </div> 
 		  			   </div> 
 
@@ -135,7 +152,8 @@
 		  			       <div class="carouTabTitle">lameness prevention workshop</div>
 		  			       
 		  			       <div class="carouContent">
-		  			            <p>Cattle and Sheep lameness is one of the most significant welfare and productivity issues affecting Livestock farmers. This workshop is designed for farmers and will focus on the prevention and management of lameness in cattle and sheep.  You will be able to hear about the latest research and developments in the prevention and management of lameness from industry specialists and get advice on the management of your particular lameness issues. The workshop will run throughout both Event days – New for 2014</p>
+		  			       {{{controllers.application.siteContent.whatsonLameprevText}}}
+		  			            
 		  			       </div> 
 		  			   </div>
 
@@ -143,7 +161,8 @@
 					       <div class="carouTabTitle">foot trimming demonstrations</div>
 					       
 					       <div class="carouContent">
-					            <p>Consistently popular demonstrations combined with lameness detection and prevent in livestock.</p>
+					       {{{controllers.application.siteContent.whatsonFoottrimText}}}
+					            
 					       </div> 
 					    </div>
 
@@ -165,7 +184,8 @@
 					       <div class="carouTabTitle">export centre</div>
 					       
 					       <div class="carouContent">
-					            <p>Learn which British based exporters promote their products to overseas visitors- New for 2014</p>
+					       {{{controllers.application.siteContent.whatsonExportText}}}
+					            
 					       </div> 
 					    </div>
 					    
@@ -173,8 +193,8 @@
 					        <div class="carouTabTitle">careers in agriculture</div>
 					        
 					        <div class="carouContent">
-					             <p>RABDF will be running informative seminars and workshops focusing on Careers in Agriculture.  Listen to presentations on 'A Day in the Life of...' and find out what it's really like to be a sales specialist, herd manager, nutritionist, engineer, marketing manager and more.<br />
-					             Fine tune your CV in the CV clinic, get advice on your business plan, network with potential employers and search for the latest job vacancies with Farmers Weekly.</p>
+					        {{{controllers.application.siteContent.whatsonCareersText}}}
+					             
 					        </div> 
 					    </div>
 
@@ -182,8 +202,8 @@
 					        <div class="carouTabTitle">dairy pro points</div>
 					        
 					        <div class="carouContent">
-					             <p>Dairy Pro points are available for most seminars. Registered Dairy Pro members can collect points by attending these seminars and the Livestock Event. Points will be recorded against the member’s personal register, giving recognition to their professionalism in dairying.<br />
-To become a member register at <a class="inlineLink" href="http://dairypro.co.uk" target="_blank">www.dairypro.co.uk</a>.</p>
+					        {{{controllers.application.siteContent.whatsonDairyproText}}}
+					             
 					        </div> 
 					    </div>
 				 	    
@@ -206,7 +226,8 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 		    		       	<div class="carouTabTitle">National Dairy Show</div>
 		    		       
 		    		       <div class="carouContent">
-		    		            <p>Holstein, Friesian, Ayrshire, Jersey, Guernsey, Brown Swiss and Shorthorn cows competing in the dairy classes.</p>
+		    		       {{{controllers.application.siteContent.whatsonNdsText}}}
+		    		            
 		    		       </div> 
 		    	 	    </div>
 		    		    
@@ -214,7 +235,8 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 		    		        <div class="carouTabTitle">National Charolais Show</div>
 		    		       
 		    		       <div class="carouContent">
-		    		            <p>An expanded show with additional animals completing in the beef classes following a highly successful inaugural event in 2013.</p>
+		    		       {{{controllers.application.siteContent.whatsonNcsText}}}
+		    		            
 		    		       </div> 
 		    		    </div>
 
@@ -222,7 +244,8 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 		    		        <div class="carouTabTitle">National British Blue Show</div>
 		    		       
 		    		       <div class="carouContent">
-		    		            <p>The first national show with classes for the beef breed at The NEC – NEW for 2014.</p>
+		    		       {{{controllers.application.siteContent.whatsonNbbsText}}}
+		    		            
 		    		       </div> 
 		    		    </div>
 
@@ -230,7 +253,8 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 		    		        <div class="carouTabTitle">National Lleyn Sheep Competition</div>
 		    		       
 		    		       <div class="carouContent">
-		    		            <p>The first national competition for the breed at The NEC – NEW for 2014.</p>
+		    		       {{{controllers.application.siteContent.whatsonNlscText}}}
+		    		            
 		    		       </div> 
 		    		    </div>
 
@@ -238,7 +262,8 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 		    		        <div class="carouTabTitle">Dairy, Beef and Sheep Breed Societies</div>
 		    		       
 		    		       <div class="carouContent">
-		    		            <p>The chance for farmers to see and discuss the merits of different breeds for their farm.</p>
+		    		       {{{controllers.application.siteContent.whatsonSocietiesText}}}
+		    		            
 		    		       </div> 
 		    		    </div>  
 
@@ -246,7 +271,8 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 		    		        <div class="carouTabTitle">National Aberdeen Angus Show</div>
 		    		       
 		    		       <div class="carouContent">
-		    		            <p>The first national show with classes for the beef breed at The NEC - NEW for 2014.</p>
+		    		       {{{controllers.application.siteContent.whatsonNaasText}}}
+		    		            
 		    		       </div> 
 		    		    </div>    
 		    		</div>
@@ -266,8 +292,8 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 			   		       <div class="carouTabTitle">business debates</div>
 			   		       
 			   		       <div class="carouContent">
-			   		            <p>The Business Debates are organised in conjunction with the Institute of Agricultural Management will be located in the Business Management zone. You will be able to hear about the latest developments in farm business management and get advice from influential speakers about running your farm business for profit.
-			   					Interactive seminars on various subjects that affect your business will be running throughout both days.</p>
+			   		       {{{controllers.application.siteContent.whatsonBusdebatesText}}}
+			   		            
 			   		       </div> 
 			   		   </div>
 
@@ -275,9 +301,8 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 			   		       <div class="carouTabTitle">farm health planning</div>
 			   		       
 			   		       <div class="carouContent">
-			   		            <p>The Farm Health Planning Seminars will be located in the Animal Health zone. This feature is designed to promote positive farm health planning in the dairy, beef, sheep, pig and poultry sectors.<br />
-			   		            The area will provide visitors with the opportunity to gather expert advice that will be of practical use on their own farms.<br />
-			   		            Interactive seminars on various subjects that affect Animal Health will be running throughout both days. </p> 
+			   		       {{{controllers.application.siteContent.whatsonFarmhealthText}}}
+			   		            
 			   		       </div> 
 			   		   </div>
 
@@ -285,8 +310,8 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 			   		       <div class="carouTabTitle">feed science forum</div>
 			   		       
 			   		       <div class="carouContent">
-			   		            <p>The Feed Science Forum seminars will be located in the Feeds and Forage Zone. This feature is designed to promote the latest technologies in feed science in the dairy, beef, sheep, pig and poultry sectors.<br />
-			   		            The area will provide visitors with the opportunity to gather expert advice that will be of practical use on their own farms. Interactive seminars on various subjects that affect animal feed will be presented over both event days.</p>
+			   		       {{{controllers.application.siteContent.whatsonFeedsciText}}}
+			   		            
 			   		       </div> 
 			   		   </div>
 			   		    
@@ -304,11 +329,13 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 		            <div class="row">
 		            	<div class="small-12 large-6 columns">
         		   			<h3>4 x 4 Pick Up Test Drives</h3>
-        		   			<p>A great chance to test drive these popular on farm workhorses on The NEC off-road test track.</p>
+        		   			{{{controllers.application.siteContent.whatsonFourfourText}}}
+        		   			
         		   		</div>
         		   		<div class="small-12 large-6 columns">
         		   			<h3>UTV Test Drives</h3>
-        		   			<p>A unique opportunity for visitors to test drive the latest UTVs around The NEC off-road test track.</p>
+        		   			{{{controllers.application.siteContent.whatsonUtvText}}}
+        		   			
         		   		</div>
         		   	</div>
 		       </div> 
@@ -316,3 +343,4 @@ To become a member register at <a class="inlineLink" href="http://dairypro.co.uk
 		</div>
 	</div>
 </div>
+{{/with}}

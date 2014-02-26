@@ -91,6 +91,28 @@
     -->
     <body class="header-fixed-top">
 
+    <% if flash[:success] %>
+
+    <div id="flash_notice_wrap">
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <small><em>Just now</em></small><br>
+            <span id="flash_notice"><%= flash[:success] %></span>
+        </div>
+    </div>
+
+    <% elsif flash[:error] %>
+
+    <div id="flash_notice_wrap">
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <small><em>Just now</em></small><br>
+            <span id="flash_notice"><%= flash[:error] %></span>
+        </div>
+    </div>
+
+    <% end %>
+
     <div id="flash_notice_wrap" style="display:none">
         <div class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>

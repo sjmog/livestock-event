@@ -1,5 +1,5 @@
 App.TicketsController = Ember.ArrayController.extend({
-	needs: ['index'],
+	needs: ['index', 'application'],
 	tickets:null,
 	ticketPrice: function() {
 		return this.get('tickets')*15

@@ -7,17 +7,19 @@ App.WhyVisitView = Ember.View.extend({
 	generalImportance: 2,
 	width: 1,
 	height: 1,
+	flipped:false,
+	toggleFlip: function() {
+		var view = this;
+		var flipped = view.flipped;
+		if(flipped) {
+			view.set('flipped', false);
+		}
+		else {
+			view.set('flipped', true);
+		}
+	},
 	didInsertElement: function() {
-		//for the flipping
-		$('#afarAction').click(function() {
-			$('.tile.afar .front').addClass('flipped');
-			$('.tile.afar .back').addClass('flipped');
-		});
-		//flip back
-		$('#afar-closeButton').click(function() {
-			$('.tile.afar .front').removeClass('flipped');
-			$('.tile.afar .back').removeClass('flipped');
-		});
+		
 	}
 });
 

@@ -134,10 +134,6 @@ class AdminController < ApplicationController
   end
   # Redirects to the login screen if the current user or admin is not authorized
   def ensure_authenticated_user
-  	puts session.size
-  	puts token
-  	puts request.session_options[:id]
-  	puts Rails.application.config.session_options[:key]
     if current_user
     	puts 'user authenticated, redirecting to main'
     else

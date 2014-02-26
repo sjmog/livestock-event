@@ -1,4 +1,5 @@
 App.ContractorsIndexController = Ember.ArrayController.extend({
+	needs: ['application'],
 	sortedContractors: function() {
 		var controller = this;
 		var sortedResult = Em.ArrayProxy.createWithMixins(

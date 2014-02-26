@@ -1,4 +1,5 @@
 App.UsersEditController = Ember.ObjectController.extend({
+    needs: ['application'],
   updateUser: function() {
     var router = this.get('target');
     var data = this.getProperties('id', 'name', 'email', 'password', 'password_confirmation');

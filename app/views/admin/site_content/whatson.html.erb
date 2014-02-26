@@ -1,0 +1,352 @@
+<%= render "admin/base/left_sidebar" %>
+<%= render "admin/base/right_sidebar" %>
+
+
+
+<!-- Page Container -->
+<!-- In the PHP version you can set the following options from the config file -->
+<!-- Add the class .full-width for a full width page (100%, 1920px max width) -->
+<div id="page-container">
+   
+   <%= render "admin/base/top_menu" %>
+
+    <!-- FX Container -->
+    <!-- In the PHP version you can set the following options from the config file -->
+    <!--
+        All effects apply in resolutions larger than 1200px width
+        Add one of the following classes to #fx-container for setting an effect to main content when one of the sidebars are opened
+        'fx-none'           remove all effects (better website performance)
+        'fx-opacity'        opacity effect
+        'fx-move'           move effect
+        'fx-push'           push effect
+        'fx-rotate'         rotate effect
+        'fx-push-move'      push-move effect
+        'fx-push-rotate'    push-rotate effect
+    -->
+    <div id="fx-container" class="fx-opacity">
+        <!-- Page content -->
+        <div id="page-content" class="block">
+            
+            <!--form for booking forms-->
+            <div class="block">
+                <div class="block-title">
+                    <h2>'What's on?' tile <small>Content displayed on the 'what's on?' tile.</small></h2>
+                </div>
+                <%= simple_form_for [:admin, @site_content], :html => { class: 'form-horizontal form-bordered' }, defaults: { input_html: { class: 'form-control' }, label_html: { class: 'control-label '} } do |f| %>
+
+                <br><h2>Exhibition <small>Exhibition zone details.</small></h2>
+                
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Animal Health Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_ah_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Business Management Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_bm_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Diversification & Renewables Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_dr_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Feeds & Forage Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_ff_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Genetics Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_genetics_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Housing & Storage Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_hs_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Livestock Equipment & Machinery Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_lem_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Machinery Hall Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_mh_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Milking Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_ml_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Milkmade Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_mm_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Slurry, Muck & Irrigation Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_si_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <br><h2>Features</h2>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Farm Security Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_farmsec_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Forage Field Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_forfield_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Pig & Poultry Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_pigpoult_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Lameness Prevention Workshop Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_lameprev_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Foot-trimming Demonstrations Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_foottrim_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <br><h2>Knowledge</h2>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Export Centre Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_export_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Careers in Agriculture Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_careers_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Dairy Pro points Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_dairypro_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <br><h2>Livestock</h2>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">National Dairy Show Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_nds_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">National Charolais Show Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_ncs_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">National British Blue Show Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_nbbs_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">National Lleyn Sheep Competition Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_nlsc_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Dairy, Beef and Sheep Breed Societies Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_societies_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">National Aberdeen Angus Show Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_naas_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <br><h2>Seminars</h2>
+                
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Business Debates Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_busdebates_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Farm Health Planning Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_farmhealth_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Feed Science Forum Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_feedsci_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <br><h2>Test Drives</h2>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">4x4 Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_fourfour_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">UTV Text</label>
+                        <div class="input-group">
+                            <%= f.input_field :whatson_utv_text, as: :text, rows: "10", style: "width:100% !important", class: "form-control textarea-editor" %>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            <div class="block">
+                <%= f.button :submit %>
+                <% end %>
+            </div>
+
+            <!--END form for booking forms-->
+       
+            
+        </div>
+        <!-- END Page Content -->
+
+        <!-- Remember to include excanvas for IE8 chart support -->
+        <!--[if IE 8]><script src="js/helpers/excanvas.min.js"></script><![endif]-->
+
+        <!-- Footer -->
+        <footer class="clearfix">
+            <div class="pull-right">
+                Crafted with <i class="fa fa-heart"></i> by <a class="ghostColor" href="http://www.ghostds.com" target="_blank">Ghost Design</a>
+            </div>
+            <div class="pull-left">
+                <span id="year-copy"></span> &copy; <a href="javascript:void(0)" target="_blank">Ghost Design</a>
+            </div>
+        </footer>
+        <!-- END Footer -->
+    </div>
+    <!-- END FX Container -->
+</div>
+<!-- END Page Container -->
+<!-- BEGIN Page Scripts -->
+<%= render 'admin/base/datatable_scripts' %>

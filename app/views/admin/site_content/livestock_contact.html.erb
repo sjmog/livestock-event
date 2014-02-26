@@ -1,0 +1,122 @@
+<%= render "admin/base/left_sidebar" %>
+<%= render "admin/base/right_sidebar" %>
+
+
+
+<!-- Page Container -->
+<!-- In the PHP version you can set the following options from the config file -->
+<!-- Add the class .full-width for a full width page (100%, 1920px max width) -->
+<div id="page-container">
+   
+   <%= render "admin/base/top_menu" %>
+
+    <!-- FX Container -->
+    <!-- In the PHP version you can set the following options from the config file -->
+    <!--
+        All effects apply in resolutions larger than 1200px width
+        Add one of the following classes to #fx-container for setting an effect to main content when one of the sidebars are opened
+        'fx-none'           remove all effects (better website performance)
+        'fx-opacity'        opacity effect
+        'fx-move'           move effect
+        'fx-push'           push effect
+        'fx-rotate'         rotate effect
+        'fx-push-move'      push-move effect
+        'fx-push-rotate'    push-rotate effect
+    -->
+    <div id="fx-container" class="fx-opacity">
+        <!-- Page content -->
+        <div id="page-content" class="block">
+            
+            <!--form for booking forms-->
+            <div class="block">
+                <div class="block-title">
+                    <h2>Livestock Show Contact details <small>Who should users be directed to contact concerning the Livestock Show?</small></h2>
+                </div>
+                <%= simple_form_for [:admin, @site_content], :html => { class: 'form-horizontal form-bordered' }, defaults: { input_html: { class: 'form-control' }, label_html: { class: 'control-label '} } do |f| %>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Name</label>
+                        <div class="input-group">
+                            <%= f.input_field :livestock_contact_name %>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Organisation</label>
+                        <div class="input-group">
+                            <%= f.input_field :livestock_contact_org %>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="list">Street</label>
+                        <div class="input-group">
+                            <%= f.input_field :livestock_contact_street %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">                    
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Locality</label>
+                        <div class="input-group">
+                            <%= f.input_field :livestock_contact_locality %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Region</label>
+                        <div class="input-group">
+                            <%= f.input_field :livestock_contact_region %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">                    
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Postcode</label>
+                        <div class="input-group">
+                            <%= f.input_field :livestock_contact_postcode %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" for="list">Country</label>
+                        <div class="input-group">
+                            <%= f.input_field :livestock_contact_country, :as => 'string' %>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="block">
+                <%= f.button :submit %>
+                <% end %>
+            </div>
+
+            <!--END form for booking forms-->
+       
+            
+        </div>
+        <!-- END Page Content -->
+
+        <!-- Remember to include excanvas for IE8 chart support -->
+        <!--[if IE 8]><script src="js/helpers/excanvas.min.js"></script><![endif]-->
+
+        <!-- Footer -->
+        <footer class="clearfix">
+            <div class="pull-right">
+                Crafted with <i class="fa fa-heart"></i> by <a class="ghostColor" href="http://www.ghostds.com" target="_blank">Ghost Design</a>
+            </div>
+            <div class="pull-left">
+                <span id="year-copy"></span> &copy; <a href="javascript:void(0)" target="_blank">Ghost Design</a>
+            </div>
+        </footer>
+        <!-- END Footer -->
+    </div>
+    <!-- END FX Container -->
+</div>
+<!-- END Page Container -->
+<!-- BEGIN Page Scripts -->
+<%= render 'admin/base/datatable_scripts' %>

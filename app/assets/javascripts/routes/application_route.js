@@ -17,4 +17,8 @@ App.ApplicationRoute = Ember.Route.extend({
 	   App.AuthManager = App.AuthManager.create();
 	 },
 
+	 setupController: function(controller) {
+	 	controller.set('siteContent', this.get('store').find('siteContent', 1));
+	 }
+
 });

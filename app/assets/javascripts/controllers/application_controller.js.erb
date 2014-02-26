@@ -3,6 +3,7 @@ needs: ['sessionsNew'],
 email: null,
 password: null,
 remember: false,
+siteContent: null,
 currentUser: function() {
     return App.AuthManager.get('apiKey.user')
   }.property('App.AuthManager.apiKey'),

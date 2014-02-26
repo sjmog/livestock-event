@@ -1,5 +1,5 @@
 App.NewUserController = Ember.ArrayController.extend({
-	needs: ['currentUser'],
+	needs: ['currentUser', 'application'],
 	init:function() {
 		this.set('content', App.User.create({}))
 	}

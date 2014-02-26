@@ -1,5 +1,5 @@
 <div class="flipper">
-	<div class="front">
+	<div {{bind-attr class=":front view.flipped:flipped"}}>
 		<span class="tile-title">why visit?</span>
 		<div class="row buttonContent">
 			<div class="small-6 columns vertWrap">
@@ -10,7 +10,7 @@
 			</div>
 			<div class="small-6 columns vertWrap">
 				<div class="vertElement">
-					{{#link-to 'exhibitors.index' class="button callToAction" id="afarAction"}}
+					{{#link-to 'exhibitors.index' class="button callToAction"}}
 					<span class="icon-card-user pink"></span>
 					{{/link-to}}
 					<span class="buttonLabel">exhibitor list</span>
@@ -19,21 +19,6 @@
 		</div>
 	</div>
 	<div class="back">
-		<!-- <a class="closeButton" id="afar-closeButton"><span class="icon-close-alt"></span></a>
-		<span class="tile-title">tour providers</span>
-		<div class="row buttonContent">
-			<div class="small-6 columns vertWrap">
-				<div class="vertElement">
-					<a href="http://www.fieldfarmtours.co.uk/uploads/tours/307_livestockevent.pdf" target="_blank" class="button callToAction"><span class="icon-location pink"></span></a>
-					<span class="buttonLabel">field farm tours</span>
-				</div>
-			</div>
-			<div class="small-6 columns vertWrap">
-				<div class="vertElement">
-					<a href="http://www.travel-solutions.co.uk/" target="_blank" id="afarAction" class="button callToAction"><span class="icon-travel-solutions-logo pink"></span></a>
-					<span class="buttonLabel">travel solutions</span>
-				</div>
-			</div>
-		</div> -->
+		
 	</div>
 </div>

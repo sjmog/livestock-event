@@ -1,5 +1,5 @@
 App.EditTestimonialController = Ember.ObjectController.extend({
-
+  needs: ['application'],
   save: function() {
     this.get('store').commit();
     this.redirectToModel();

@@ -21,7 +21,7 @@ gem 'figaro' #easy environment-specific variables
 gem 'simple_form' #super-simple form scaffolding
 gem 'formtastic' #slightly more powerful (and namespaced) rails forms
 gem 'local_time' #37Signals being wicked awesome and making a local time formatter
-gem 'analytics-ruby', '<1.0' #sexy analytics through segment.io
+gem 'analytics-ruby', :git => 'https://github.com/segmentio/analytics-ruby' #sexy analytics through segment.io
 gem 'prawn_rails' #PDF generation
 gem 'sunspot_rails' #powerful search & indexing...
 gem 'sunspot_solr' #...using Apache's Solr search API
@@ -64,6 +64,8 @@ gem 'ember-auth-rails'         # client-side authentication
 gem 'emblem-rails'             # easier to write templates
 
 gem 'ember-source', '>= 1.0.0.rc6.2'
+
+gem 'seed_dump' # dump parts of the DB to seeds via Rake
 
 gem 'koala' #nice Facebook API, https://github.com/arsduo/koala/wiki
 gem 'twitter', '>= 5.0.0.rc.1' #nice Twitter API, http://rdoc.info/gems/twitter

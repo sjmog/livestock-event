@@ -1,11 +1,13 @@
+{{#with controller}}
+
 <div class="flipper">
 	<div class="front">
-		<span class="tile-title">the uk's largest livestock trade event</span>
+		<span class="tile-title">{{controllers.application.siteContent.welcomeTitle}}</span>
 		<div class="carouTabs carouPanel6 carouBottom">
 		   <div class="carouTab activeCarou">
 		       <div class="carouTabTitle">
 		       		<span class="icon-cow"></span>
-		       		<label>the event</label>
+		       		<label>{{controllers.application.siteContent.welcomeOneLabel}}</label>
 		        </div>
 		        <div class="carouContent">
 		            <div class="row sponsorContent">
@@ -15,11 +17,7 @@
 		            		<article>
 		            		
 		            			<p class="sponsorSpiel welcomeMessage">
-		            				Held in the first week of July each year, the Livestock Event is the leading B2B event for the UK livestock industry. <br />
-		            				<br />
-		            				Principally sponsored by Barclays, we host both cattle and trade exhibitors within a 64,000sqm event area alongside working machinery demonstrations, 4 seminar areas, foot trimming demonstrations, National Dairy & Beef Shows and the National Lleyn Competition.<br />
-		            				<br />
-		            				The event attracts more than 460 exhibitors covering 11 unique product zones. Exhibitors are on hand during the two-day event to demonstrate all-new equipment, products and services to over 16,000 UK and International livestock farmers.
+		            				{{{controllers.application.siteContent.welcomeOneText}}}
 		            			</p>
 		            		</article>
 		            	</div>
@@ -28,24 +26,25 @@
 		    </div>
 		    <div class="carouTab">
 		        <div class="carouTabTitle">
-		       		<span class="icon-barclays-logo-full largerLogo hide-for-small"></span>
+		       		<span {{bind-attr class="controllers.application.siteContent.welcomeTwoIcon :largerLogo :hide-for-small"}}></span>
 		       		<span class="icon-barclays largerLogo show-for-small"></span>
-		       		<label>barclays</label>
+		       		<label>{{controllers.application.siteContent.welcomeTwoLabel}}</label>
 		        </div>
 		       
 		        <div class="carouContent">
 		            <div class="row sponsorContent">
 		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
-		            		<div class="imgWrap vertElement"><a href="http://www.barclays.co.uk/" target="_blank"><span class=" sponsorIcon icon-barclays-logo-full"></span></a></div>
+		            		<div class="imgWrap vertElement"><a href="http://www.barclays.co.uk/" target="_blank"><span {{bind-attr class=" :sponsorIcon controllers.application.siteContent.welcomeTwoIcon"}}></span></a></div>
 		            		
 		            	</div>
 		            	<div class="large-8 small-11 small-centered large-uncentered columns sponsorText">
 		            		<header>
-		            			<h2>Principal Sponsor</h2>
+		            			<h2>{{controllers.application.siteContent.welcomeTwoHeader}}</h2>
 		            		</header>
 		            		<article>
 		            			<p class="sponsorSpiel">
-		            				 Proud Principal Sponsor of the Livestock Event. Having supported agriculture for more than 250 years, we continually invest in our teams to ensure they understand and meet your needs now and in the future. We look forward to seeing you at the event.
+		            				{{controllers.application.siteContent.welcomeTwoText}}
+		            				 
 		            			</p>
 		            		</article>
 		            	</div>
@@ -56,25 +55,23 @@
 
 		     <div class="carouTab">
 		        <div class="carouTabTitle">
-		       		<span class="icon-dairyco-logo"></span>
-		       		<label>dairyco</label>
+		       		<span {{bind-attr class="controllers.application.siteContent.welcomeThreeIcon"}}></span>
+		       		<label>{{controllers.application.siteContent.welcomeThreeLabel}}</label>
 		        </div>
 		       
 		        <div class="carouContent">
 		            <div class="row sponsorContent">
 		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
-		            		<div class="imgWrap vertElement"><a href="http://www.dairyco.org.uk/" target="_blank"><span class=" sponsorIcon icon-dairyco-logo"></span></a></div>
+		            		<div class="imgWrap vertElement"><a href="http://www.dairyco.org.uk/" target="_blank"><span {{bind-attr class=" :sponsorIcon controllers.application.siteContent.welcomeThreeIcon"}}></span></a></div>
 		            	</div>
 		            	<div class="large-8 small-11 small-centered large-uncentered columns sponsorText">
 		            		<header>
-		            			<h2 class="sponsorTagLine">Proud Technical Supporter</h2>
+		            			<h2 class="sponsorTagLine">{{controllers.application.siteContent.welcomeThreeHeader}}</h2>
 		            		</header>
 		            		<article>
 		            			<p class="sponsorSpiel">
-		            				DairyCo provides independent, evidence-based 
-		            				information to British Farmers on animal fertility, health and welfare, 
-		            				business management, technical efficiently and the perception of dairy farming 
-		            				with the public.
+		            			{{controllers.application.siteContent.welcomeThreeText}}
+		            				
 		            			</p>
 		            		</article>
 		            	</div>
@@ -85,22 +82,23 @@
 
   			 <div class="carouTab">
 		        <div class="carouTabTitle">
-		       		<span class="icon-eblex-logo"></span>
-		       		<label>eblex</label>
+		       		<span {{bind-attr class="controllers.application.siteContent.welcomeFourIcon"}}></span>
+		       		<label>{{controllers.application.siteContent.welcomeFourLabel}}</label>
 		        </div>
 		       
 		        <div class="carouContent">
 		            <div class="row sponsorContent">
 		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
-		            	<div class="imgWrap vertElement"><a href="http://www.eblex.org.uk/" target="_blank"><span class=" sponsorIcon icon-eblex-logo"></span></a></div>
+		            	<div class="imgWrap vertElement"><a href="http://www.eblex.org.uk/" target="_blank"><span {{bind-attr class=":sponsorIcon controllers.application.siteContent.welcomeFourIcon"}}></span></a></div>
 		            	</div>
 		            	<div class="large-8 small-11 small-centered large-uncentered columns sponsorText">
 		            		<header>
-		            			<h2 class="sponsorTagLine">Sponsor of the beef section</h2>
+		            			<h2 class="sponsorTagLine">{{controllers.application.siteContent.welcomeFourHeader}}</h2>
 		            		</header>
 		            		<article>
 		            			<p class="sponsorSpiel">
-		            				Beef from the dairy herd is the main EBLEX focus at the event, although additional advice and information for all beef and sheep producers will be available.
+		            			{{controllers.application.siteContent.welcomeFourText}}
+		            				
 		            			</p>
 		            		</article>
 		            	</div>
@@ -112,21 +110,22 @@
   			 <div class="carouTab">
 		        <div class="carouTabTitle">
 		       		<span class="icon-zoetis-logo"></span>
-		       		<label>zoetis</label>
+		       		<label>{{controllers.application.siteContent.welcomeFiveLabel}}</label>
 		        </div>
 		       
 		        <div class="carouContent">
 		            <div class="row sponsorContent">
 		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
-		            	<div class="imgWrap vertElement"><a href="http://www.zoetis.com/" target="_blank"><span class=" sponsorIcon icon-zoetis-logo-full"></span></a></div>
+		            	<div class="imgWrap vertElement"><a href="http://www.zoetis.com/" target="_blank"><span {{bind-attr class=":sponsorIcon controllers.application.siteContent.welcomeFiveIcon"}}></span></a></div>
 		            	</div>
 		            	<div class="large-8 small-11 small-centered large-uncentered columns sponsorText">
 		            		<header>
-		            			<h2 class="sponsorTagLine">National Dairy Show sponsor</h2>
+		            			<h2 class="sponsorTagLine">{{controllers.application.siteContent.welcomeFiveHeader}}</h2>
 		            		</header>
 		            		<article>
 		            			<p class="sponsorSpiel">
-		            				Today we’re Zoetis, a company focused on animal health, committed to supporting you and your business.  We’re still home to the people and products you’ve come to trust for more than 60 years as Pfizer Animal Health, dedicated to providing you with the medicines, vaccines and services you need.
+		            			{{controllers.application.siteContent.welcomeFiveText}}
+		            				
 		            			</p>
 		            		</article>
 		            	</div>
@@ -137,22 +136,23 @@
 
   			 <div class="carouTab">
 		        <div class="carouTabTitle">
-		       		<span class="icon-giltspur-logo"></span>
-		       		<label>giltspur</label>
+		       		<span {{bind-attr class="controllers.application.siteContent.welcomeSixIcon"}}></span>
+		       		<label>{{controllers.application.siteContent.welcomeSixLabel}}</label>
 		        </div>
 		       
 		        <div class="carouContent">
 		            <div class="row sponsorContent">
 		            	<div class="large-4 small-10 small-centered large-uncentered columns vertWrap fullTabInner">
-		            	<div class="imgWrap vertElement"><a href="http://www.cowslips.com/" target="_blank"><span class=" sponsorIcon icon-giltspur-logo"></span></a></div>
+		            	<div class="imgWrap vertElement"><a href="http://www.cowslips.com/" target="_blank"><span {{bind-attr class=":sponsorIcon controllers.application.siteContent.welcomeSixIcon"}}></span></a></div>
 		            	</div>
 		            	<div class="large-8 small-11 small-centered large-uncentered columns sponsorText">
 		            		<header>
-		            			<h2 class="sponsorTagLine">Hoof-trimming demo sponsor</h2>
+		            			<h2 class="sponsorTagLine">{{controllers.application.siteContent.welcomeSixHeader}}</h2>
 		            		</header>
 		            		<article>
 		            			<p class="sponsorSpiel">
-		            				Manufacturer of cost-effective hoof-care solutions for the bovine and equine industries. Inventor of cowslips - orthopedic shoes for treatment of lameness in dairy cattle. Helping to relieve the pain of lameness and reducing the associated costs.
+		            			{{controllers.application.siteContent.welcomeSixText}}
+		            				
 		            			</p>
 		            		</article>
 		            	</div>
@@ -164,3 +164,5 @@
 		</div>
 	</div>
 </div>
+
+{{/with}}

@@ -1,4 +1,5 @@
 App.SupportersIndexController = Ember.ArrayController.extend({
+	needs: ['application'],
 	sortedSupporters: function() {
 		var controller = this;
 		var sortedResult = Em.ArrayProxy.createWithMixins(

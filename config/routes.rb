@@ -44,6 +44,7 @@ post 'charges' => 'charges#create'
     resources :hsforms
     resources :showforms
     resources :hazards
+    get 'site_contents/:id' => 'site_content#fetch'
     get 'contact' => 'contact#new'
     post 'contact' => 'contact#create'
     post 'session' => 'session#create'
@@ -71,7 +72,6 @@ post 'charges' => 'charges#create'
       resources :hsforms
       resources :showforms
       resources :hazards
-      
       #fix simple_form's updating (which goes via POST instead of PUT for some reason)
       post 'posts/:id' => 'posts#update'
       post 'stands/:id' => 'stands#update'
@@ -90,6 +90,8 @@ post 'charges' => 'charges#create'
       post 'raforms/:id' => 'raforms#update'
       post 'hsforms/:id' => 'hsforms#update'
       post 'showforms/:id' => 'showforms#update'
+      post 'site_contents/:id' => 'site_content#update', as: :site_content
+      patch 'site_contents/:id' => 'site_content#update'
 
       #printing
       get '/bookings/:id/print', to: 'bookings#print', as: :print_booking
@@ -113,6 +115,10 @@ post 'charges' => 'charges#create'
       # building forms
 
       get '/build-forms', :to => 'bookings#build_forms'
+
+      #cms
+
+      get '/site_contents/:name', :to => 'site_content#fetch', as: :fetch_content
   end
 
 
@@ -122,7 +128,7 @@ post 'charges' => 'charges#create'
 
   get '/paid', :to => 'backends#sagepay_return'
 
-  get '/admin', :to => 'admin#main'
+  get '/admin', :to => 'admin#main', as: :admin_main
 
   get '/admin/home/:token', :to => 'admin#main'
 

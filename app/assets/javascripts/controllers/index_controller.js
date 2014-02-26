@@ -64,14 +64,14 @@ App.IndexController = Ember.ArrayController.extend({
 	},
 	currentTestimonial: function() {
 		var allTestimonials = this.get('filteredTestimonials');
-		Ember.run.later(function() {
-			console.log(Ember.inspect(allTestimonials));
-			allTestimonials.forEach(function(item) {
-				Ember.run.later(function() {
-					console.log(item);
-				},200)
-			})
-		}, 800)
+		// Ember.run.later(function() {
+		// 	console.log(Ember.inspect(allTestimonials));
+		// 	allTestimonials.forEach(function(item) {
+		// 		Ember.run.later(function() {
+		// 			console.log(item);
+		// 		},200)
+		// 	})
+		// }, 800)
 	}.property('filteredTestimonals'),
 });
 

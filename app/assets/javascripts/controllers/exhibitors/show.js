@@ -1,5 +1,5 @@
 App.ExhibitorsShowController = Ember.ObjectController.extend({
-
+	needs: ['application'],
   destroy: function() {
     if (!confirm('Are you sure?')) return;
     this.get('model').deleteRecord();

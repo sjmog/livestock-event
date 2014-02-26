@@ -1,4 +1,5 @@
 App.SessionsNewController = Ember.ObjectController.extend({
+  needs: ['application'],
   init: function() {
     this._super();
     this.set('content', Ember.Object.create());

@@ -1,4 +1,5 @@
 RegistrationController = Ember.ObjectController.extend({
+	needs: ['application'],
   createUser: function() {
     var router = this.get('target');
     var data = this.getProperties('name', 'email', 'username', 'password', 'password_confirmation')

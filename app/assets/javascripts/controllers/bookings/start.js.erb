@@ -1,4 +1,5 @@
 App.BookingsStartController = Ember.ObjectController.extend({
+	needs: ['application'],
 	createUser: function() {
 	  var router = this.get('target');
 	  var data = this.getProperties('name', 'email', 'password', 'password_confirmation')

@@ -1,5 +1,5 @@
 App.ArticlesEditController = Ember.ObjectController.extend({
-
+needs: ['application'],
   actions: {
     save: function(article) {
       article.one('didCreate', this, function(){

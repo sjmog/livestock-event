@@ -65,11 +65,10 @@
         <h1>Message from Principal Sponsor</h1>
         <div class="row">
           <div class="large-6 small-12 columns vertWrap">
-            <div class="imgWrap vertElement"><span class="icon-barclays-logo-full picture"></span></div>
+            <div class="imgWrap vertElement"><span {{bind-attr class=":picture controllers.application.siteContent.registrationSponsorIcon"}}></span></div>
           </div>
           <div class="large-6 small-12 columns sponsorMessage">
-            <p>We are proud to continue our sponsorship of the Livestock Event to demonstrate the continuation of our 300 years of support for UK agriculture and, in this case, the livestock sector in particular.</p>
-            <p>The further development of the program to incorporate a National Dairy Show, the National Charolais show, the National British Blue Show, and the National Lleyn Sheep competition is sure to broaden the appeal of the event to attract more visitors and therefore more exhibitors.</p>
+            {{{controllers.application.siteContent.registrationSponsorText}}}
           </div>
         </div>
       </div>
@@ -109,8 +108,7 @@
       <div class="row">
         <div style="height:530px" class="small-10 large-6 small-centered large-centered columns vertWrap">
          <div class="vertElement">
-             <p>To book your stand on-line or by post, you will need to register or log in by entering your email address and creating a password. You will receive an email confirmation of your password: please keep it safe, as you will need it to access your application at any point in the future.</p>
-            <p>If you would prefer to apply by post, please sign up using the form overleaf and then click the 'apply by post' button on the next page.</p>
+            {{{controllers.application.siteContent.registrationHelp}}}
             
             <div class="row vertWrap">
               <div class="vertElement">

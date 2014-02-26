@@ -5,7 +5,8 @@ class Ability
     user ||= User.new
     puts user.id
     # can :manage, [Article, Testimonial, Contractor, Booking, Stand, User, Order, Supporter]
-    can :read, [Article, Contractor, Testimonial, Stand, Supporter, Exhibitor]
+    can :read, [SiteContent, Article, Contractor, Testimonial, Stand, Supporter, Exhibitor]
+    can :fetch, SiteContent
     can :create, User
     can :create, Order
     can :create, Message
