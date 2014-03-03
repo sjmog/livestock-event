@@ -14,7 +14,7 @@
   end
   unless @showform.telephone.nil? || @showform.telephone === 0
   else
-  	@showform.telephone = false
+  	@showform.telephone = ""
   end
  unless @showform.company_name.nil? || @showform.company_name === 0
  else
@@ -141,8 +141,19 @@ prawn_document() do |pdf|
      end
 
 
+     pdf.grid([4,0], [5,11]).bounding_box do
+        # color => black
+        pdf.fill_color "333333"
+      pdf.text "Telephone: ", :align => :left, :size => 10, :style => :italic, :color => "#AAAAAA"
+      
+      pdf.fill_color "ff0000"
+      pdf.text @showform.telephone, :align => :right, :color => "FF0000"
+     end
+
+
+
      
-      pdf.grid([4,0], [5,11]).bounding_box do
+      pdf.grid([5,0], [6,11]).bounding_box do
           # color => black
           pdf.fill_color "333333"
       pdf.text "Description of company (max 25 words): ", :align => :left, :size => 10, :style => :italic, :color => "#AAAAAA"
@@ -151,7 +162,7 @@ prawn_document() do |pdf|
       pdf.text @showform.particulars, :align => :right, :color => "FF0000"
       end
 
-      pdf.grid([5,0], [6,5]).bounding_box do
+      pdf.grid([6,0], [7,5]).bounding_box do
          # color => black
          pdf.fill_color "333333"
        pdf.text "Dairy: ", :align => :left, :size => 10, :style => :italic, :color => "#AAAAAA"
@@ -168,7 +179,7 @@ prawn_document() do |pdf|
        end
       end
 
-      pdf.grid([5,6], [6,11]).bounding_box do
+      pdf.grid([6,6], [7,11]).bounding_box do
          # color => black
          pdf.fill_color "333333"
        pdf.text "Beef: ", :align => :left, :size => 10, :style => :italic, :color => "#AAAAAA"
@@ -185,7 +196,7 @@ prawn_document() do |pdf|
        end
       end
 
-      pdf.grid([6,0], [7,5]).bounding_box do
+      pdf.grid([7,0], [8,5]).bounding_box do
          # color => black
          pdf.fill_color "333333"
        pdf.text "Sheep: ", :align => :left, :size => 10, :style => :italic, :color => "#AAAAAA"
@@ -202,7 +213,7 @@ prawn_document() do |pdf|
        end
       end
 
-      pdf.grid([6,6], [7,11]).bounding_box do
+      pdf.grid([7,6], [8,11]).bounding_box do
          # color => black
          pdf.fill_color "333333"
        pdf.text "Goats: ", :align => :left, :size => 10, :style => :italic, :color => "#AAAAAA"
@@ -219,7 +230,7 @@ prawn_document() do |pdf|
        end
       end
 
-      pdf.grid([7,0], [8,5]).bounding_box do
+      pdf.grid([8,0], [9,5]).bounding_box do
          # color => black
          pdf.fill_color "333333"
        pdf.text "Pigs: ", :align => :left, :size => 10, :style => :italic, :color => "#AAAAAA"
@@ -236,7 +247,7 @@ prawn_document() do |pdf|
        end
       end
 
-      pdf.grid([7,6], [8,11]).bounding_box do
+      pdf.grid([8,6], [9,11]).bounding_box do
          # color => black
          pdf.fill_color "333333"
        pdf.text "Poultry: ", :align => :left, :size => 10, :style => :italic, :color => "#AAAAAA"
@@ -253,7 +264,7 @@ prawn_document() do |pdf|
        end
       end
 
-      pdf.grid([8,0], [9,5]).bounding_box do
+      pdf.grid([9,0], [10,5]).bounding_box do
          # color => black
          pdf.fill_color "333333"
        pdf.text "Arable ", :align => :left, :size => 10, :style => :italic, :color => "#AAAAAA"
