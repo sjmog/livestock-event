@@ -1,6 +1,8 @@
 EmberAuthRailsDemo::Application.config do |config|
-  config.consumer_key = 'eSEcTALTZZf2v8tmN6K7IQ'
-  config.consumer_secret = 'L9HZq7x5yH7lqO7znoMir86b18bBrEaduwbGumjt5U0'
-  config.oauth_token = '275022202-etlt7ECsXWENBqIbUkQzSbBBcqbaTeQyx8MWIS4Q'
-  config.oauth_token_secret = '0eVXBo7wo3bqafCkWyOfvVhjiBHntgDGzw4cHJ7Fn0'
+  config.consumer_key = 'V60kYPb1Nn1zI0OD7EL7mw'
+  config.consumer_secret = 'i8pZhPHSjUYyp775s2P1SY04Fof6hSJCH0z8OtUc'
+  config.access_token = '391482739-nNsTF25FIgBl8u9NAfF9HCvRAy4Vzb4T2XxWTdQK'
+  config.access_token_secret = '0l3TdjLzRnk8HwGBOCB5yhRcC0AKJYW1o5WuKnQEjZNQf'
 end
+
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE

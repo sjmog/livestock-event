@@ -8,10 +8,10 @@ class SocialTSerializer < BaseSerializer
   attribute :created_at
 
   def day
-  	created_at.day
+  	published.day
   end
 
   def month
-  	created_at.strftime("%b")
+  	published.strftime("%b")
   end
 end

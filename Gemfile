@@ -70,6 +70,8 @@ gem 'seed_dump' # dump parts of the DB to seeds via Rake
 gem 'koala' #nice Facebook API, https://github.com/arsduo/koala/wiki
 gem 'twitter', '>= 5.0.0.rc.1' #nice Twitter API, http://rdoc.info/gems/twitter
 gem 'linkedin' #nice LinkedIn API, https://github.com/hexgnu/linkedin
+gem 'rest_client' #an easy REST client for connecting to various APIs
+gem 'chronic' #tasty natural date parsing
 
 gem 'unicorn'                  # better server gem for heroku
 gem 'rack-cors', :require => 'rack/cors' #CORS

@@ -14740,3 +14740,170 @@ unmatched close parenthesis: /i> New <%= model_name );@output_buffer.safe_append
 [02/26/14 14:53:12 +0000 Samuels-MacBook-Air-5.local (97303)] INFO : Installing Rails4 Error instrumentation
 [02/26/14 14:53:12 +0000 Samuels-MacBook-Air-5.local (97303)] INFO : Finished instrumentation
 [02/26/14 14:53:13 +0000 Samuels-MacBook-Air-5.local (97303)] INFO : Doing deferred dependency-detection before Rack startup
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Starting the New Relic agent in "development" environment.
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Reading configuration from config/newrelic.yml
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : New Relic Agent Developer Mode enabled.
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Enabling the Request Sampler.
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Environment: development
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Dispatcher: webrick
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Application: My Application
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] WARN : Agent configured not to send data in this environment.
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Installing ActiveMerchant instrumentation
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Installing ActiveRecord 4 instrumentation
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Installing Net instrumentation
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Installing deferred Rack instrumentation
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Installing Rails Sunspot instrumentation
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Installing Unicorn instrumentation
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Installing Rails 4 Controller instrumentation
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Installing Rails 4 view instrumentation
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Installing Rails4 Error instrumentation
+[02/28/14 15:08:25 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Finished instrumentation
+[02/28/14 15:08:26 +0000 Samuels-MacBook-Air-5.local (7337)] INFO : Doing deferred dependency-detection before Rack startup
+[02/28/14 15:30:11 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Starting the New Relic agent in "development" environment.
+[02/28/14 15:30:11 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/28/14 15:30:11 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Reading configuration from config/newrelic.yml
+[02/28/14 15:30:11 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : New Relic Agent Developer Mode enabled.
+[02/28/14 15:30:11 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Enabling the Request Sampler.
+[02/28/14 15:30:11 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Environment: development
+[02/28/14 15:30:11 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : No known dispatcher detected.
+[02/28/14 15:30:11 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Application: My Application
+[02/28/14 15:30:11 +0000 Samuels-MacBook-Air-5.local (7532)] WARN : Agent configured not to send data in this environment.
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Installing ActiveMerchant instrumentation
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Installing ActiveRecord 4 instrumentation
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Installing Net instrumentation
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Installing deferred Rack instrumentation
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Installing Rails Sunspot instrumentation
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Installing Unicorn instrumentation
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Installing Rails 4 Controller instrumentation
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Installing Rails 4 view instrumentation
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Installing Rails4 Error instrumentation
+[02/28/14 15:30:12 +0000 Samuels-MacBook-Air-5.local (7532)] INFO : Finished instrumentation
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Starting the New Relic agent in "development" environment.
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Reading configuration from config/newrelic.yml
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : New Relic Agent Developer Mode enabled.
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Enabling the Request Sampler.
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Environment: development
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Dispatcher: webrick
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Application: My Application
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] WARN : Agent configured not to send data in this environment.
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Installing ActiveMerchant instrumentation
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Installing ActiveRecord 4 instrumentation
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Installing Net instrumentation
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Installing deferred Rack instrumentation
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Installing Rails Sunspot instrumentation
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Installing Unicorn instrumentation
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Installing Rails 4 Controller instrumentation
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Installing Rails 4 view instrumentation
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Installing Rails4 Error instrumentation
+[03/03/14 13:13:27 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Finished instrumentation
+[03/03/14 13:13:28 +0000 Samuels-MacBook-Air-5.local (24037)] INFO : Doing deferred dependency-detection before Rack startup
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Starting the New Relic agent in "development" environment.
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Reading configuration from config/newrelic.yml
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : New Relic Agent Developer Mode enabled.
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Enabling the Request Sampler.
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Environment: development
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Dispatcher: webrick
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Application: My Application
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] WARN : Agent configured not to send data in this environment.
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Installing ActiveMerchant instrumentation
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Installing ActiveRecord 4 instrumentation
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Installing Net instrumentation
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Installing deferred Rack instrumentation
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Installing Rails Sunspot instrumentation
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Installing Unicorn instrumentation
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Installing Rails 4 Controller instrumentation
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Installing Rails 4 view instrumentation
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Installing Rails4 Error instrumentation
+[03/03/14 13:13:42 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Finished instrumentation
+[03/03/14 13:13:44 +0000 Samuels-MacBook-Air-5.local (24046)] INFO : Doing deferred dependency-detection before Rack startup
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Starting the New Relic agent in "development" environment.
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Reading configuration from config/newrelic.yml
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : New Relic Agent Developer Mode enabled.
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Enabling the Request Sampler.
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Environment: development
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Dispatcher: webrick
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Application: My Application
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] WARN : Agent configured not to send data in this environment.
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Installing ActiveMerchant instrumentation
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Installing ActiveRecord 4 instrumentation
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Installing Net instrumentation
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Installing deferred Rack instrumentation
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Installing Rails Sunspot instrumentation
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Installing Unicorn instrumentation
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Installing Rails 4 Controller instrumentation
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Installing Rails 4 view instrumentation
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Installing Rails4 Error instrumentation
+[03/03/14 13:25:20 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Finished instrumentation
+[03/03/14 13:25:21 +0000 Samuels-MacBook-Air-5.local (24140)] INFO : Doing deferred dependency-detection before Rack startup
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Starting the New Relic agent in "development" environment.
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Reading configuration from config/newrelic.yml
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : New Relic Agent Developer Mode enabled.
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Enabling the Request Sampler.
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Environment: development
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Dispatcher: webrick
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Application: My Application
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] WARN : Agent configured not to send data in this environment.
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Installing ActiveMerchant instrumentation
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Installing ActiveRecord 4 instrumentation
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Installing Net instrumentation
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Installing deferred Rack instrumentation
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Installing Rails Sunspot instrumentation
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Installing Unicorn instrumentation
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Installing Rails 4 Controller instrumentation
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Installing Rails 4 view instrumentation
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Installing Rails4 Error instrumentation
+[03/03/14 14:58:43 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Finished instrumentation
+[03/03/14 14:58:45 +0000 Samuels-MacBook-Air-5.local (24549)] INFO : Doing deferred dependency-detection before Rack startup
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Starting the New Relic agent in "development" environment.
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Reading configuration from config/newrelic.yml
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : New Relic Agent Developer Mode enabled.
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Enabling the Request Sampler.
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Environment: development
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Dispatcher: webrick
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Application: My Application
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] WARN : Agent configured not to send data in this environment.
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Installing ActiveMerchant instrumentation
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Installing ActiveRecord 4 instrumentation
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Installing Net instrumentation
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Installing deferred Rack instrumentation
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Installing Rails Sunspot instrumentation
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Installing Unicorn instrumentation
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Installing Rails 4 Controller instrumentation
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Installing Rails 4 view instrumentation
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Installing Rails4 Error instrumentation
+[03/03/14 15:08:56 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Finished instrumentation
+[03/03/14 15:08:57 +0000 Samuels-MacBook-Air-5.local (24607)] INFO : Doing deferred dependency-detection before Rack startup
+[03/03/14 15:22:02 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Starting the New Relic agent in "development" environment.
+[03/03/14 15:22:02 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[03/03/14 15:22:02 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Reading configuration from config/newrelic.yml
+[03/03/14 15:22:02 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : New Relic Agent Developer Mode enabled.
+[03/03/14 15:22:02 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Enabling the Request Sampler.
+[03/03/14 15:22:02 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Environment: development
+[03/03/14 15:22:02 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Dispatcher: webrick
+[03/03/14 15:22:02 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Application: My Application
+[03/03/14 15:22:02 +0000 Samuels-MacBook-Air-5.local (24667)] WARN : Agent configured not to send data in this environment.
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Installing ActiveMerchant instrumentation
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Installing ActiveRecord 4 instrumentation
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Installing Net instrumentation
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Installing deferred Rack instrumentation
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Installing Rails Sunspot instrumentation
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Installing Unicorn instrumentation
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Detected Unicorn, please see additional documentation: https://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Installing Rails 4 Controller instrumentation
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Installing Rails 4 view instrumentation
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Installing Rails4 Error instrumentation
+[03/03/14 15:22:03 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Finished instrumentation
+[03/03/14 15:22:04 +0000 Samuels-MacBook-Air-5.local (24667)] INFO : Doing deferred dependency-detection before Rack startup
