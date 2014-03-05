@@ -24,6 +24,7 @@
 					{{input type="checkbox" class="hiddenBox" name="isMilking" checked=isMilking}}
 					{{input type="checkbox" class="hiddenBox" name="isMilkmade" checked=isMilkmade}}
 					{{input type="checkbox" class="hiddenBox" name="isIrrigation" checked=isIrrigation}}
+					{{input type="checkbox" class="hiddenBox" name="isPig" checked=isPig}}
 					<div class="small-12 columns">
 						<h2>by Show Zone</h2>
 					</div>
@@ -118,6 +119,14 @@
 						<div class="vertWrap">
 							<span class="cw270 em08 vertElement uppercase bold">
 								irrigation
+							</span>
+						</div>
+					</div>
+
+					<div data-name="isPig" {{bind-attr class=":colorBlock isPig::inactiveFilter :pigandpoultry :exhibFilter :lastFilter"}}>
+						<div class="vertWrap">
+							<span class="cw270 em08 vertElement uppercase bold">
+								pig & poultry
 							</span>
 						</div>
 					</div>

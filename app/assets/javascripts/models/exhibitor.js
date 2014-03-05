@@ -50,6 +50,9 @@ App.Exhibitor = DS.Model.extend({
           case "slurry, muck and irrigation":
             parsedZone = "slurrymuckandirrigation";
             break;
+          case "pig and poultry":
+            parsedZone = "pigandpoultry";
+            break;
         }
         return parsedZone;
       }.property('zone'),
@@ -120,6 +123,9 @@ App.Exhibitor = DS.Model.extend({
           break;
         case "slurry, muck and irrigation":
           shortZone = "irrigation";
+          break;
+        case "pig and poultry":
+          shortZone = "pig poultry";
           break;
       }
       return shortZone;

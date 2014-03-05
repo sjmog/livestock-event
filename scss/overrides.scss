@@ -119,10 +119,20 @@ h4 {
 .carouTabTitle {
 	.icon-barclays-logo-full{
 		position:relative;
-		top:-22px;
+		top:-13px;
 		&:before {
 			font-size:3em !important;
 		}
+	}
+}
+
+.buttons-in-carou {
+	position:relative;
+	top:40px;
+	left:-20px;
+	@media screen and (max-width:640px) {
+		top: 400px !important;
+		left:0 !important;
 	}
 }
 
@@ -5058,6 +5068,10 @@ div.form-actions {
 		}
 	}
 }
+.pigandpoultry {
+	background-color: $rabdfOrange;
+	border-color:darken($rabdfOrange, 20%) !important;
+}
 .machineryhall {
 	background-color:$machineryHallColour;
 	border-color:darken($machineryHallColour, 20%) !important;
@@ -5684,7 +5698,7 @@ p.additionalInfo > a {
 		border:none !important;
 		margin:0;
 		height:140px;
-		width:10%;
+		width:9%;
 		padding:0;
 		&.pc20 {
 			width:20%;
@@ -5692,6 +5706,9 @@ p.additionalInfo > a {
 		& > .vertWrap {
 			height:100%;
 			width:100%;
+		}
+		&.lastFilter {
+			width:10%;
 		}
 	}
 }

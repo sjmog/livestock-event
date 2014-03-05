@@ -10490,9 +10490,18 @@ h4 {
 
 .carouTabTitle .icon-barclays-logo-full {
   position: relative;
-  top: -22px; }
+  top: -13px; }
   .carouTabTitle .icon-barclays-logo-full:before {
     font-size: 3em !important; }
+
+.buttons-in-carou {
+  position: relative;
+  top: 40px;
+  left: -20px; }
+  @media screen and (max-width: 640px) {
+    .buttons-in-carou {
+      top: 400px !important;
+      left: 0 !important; } }
 
 .carouContent p.welcomeMessage {
   margin-top: 20px !important; }
@@ -15121,6 +15130,10 @@ div.form-actions {
     .slurrymuckandirrigation.exhibFilter span {
       left: -21px; } }
 
+.pigandpoultry {
+  background-color: #f59331;
+  border-color: #b76009 !important; }
+
 .machineryhall {
   background-color: #874890;
   border-color: #47264c !important; }
@@ -15643,13 +15656,15 @@ p.additionalInfo > a {
     border: none !important;
     margin: 0;
     height: 140px;
-    width: 10%;
+    width: 9%;
     padding: 0; }
     .filterRow .colorBlock.pc20 {
       width: 20%; }
     .filterRow .colorBlock > .vertWrap {
       height: 100%;
       width: 100%; }
+    .filterRow .colorBlock.lastFilter {
+      width: 10%; }
 
 /* END exhibitors list */
 /*Retina graphics!*/

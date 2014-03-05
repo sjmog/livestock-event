@@ -30,6 +30,7 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 			this.set('isMilking', true);
 			this.set('isMilkmade', true);
 			this.set('isIrrigation', true);
+			this.set('isPig', true);
 		},
 		allOff: function() {
 			this.set('isHealth', false);
@@ -42,6 +43,7 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 			this.set('isMilking', false);
 			this.set('isMilkmade', false);
 			this.set('isIrrigation', false);
+			this.set('isPig', false);
 		}
 	},
 	showAreas: [
@@ -62,15 +64,17 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 	isMilking: true,
 	isMilkmade: true,
 	isIrrigation: true,
+	isPig: true,
+
 	filters:false,
 
 	isAll: function() {
 		return this.get('isHealth') && this.get('isBusiness') && this.get('isRenewables') && this.get('isFeeds') && this.get('isGenetics') && this.get('isStorage') && this.get('isEquipment') && this.get('isMilking') && this.get('isMilkmade') && this.get('isIrrigation');
-	}.property('isStorage', 'isEquipment', 'isMilking', 'isMilkmade', 'isIrrigation', 'isBusiness', 'isHealth', 'isRenewables', 'isFeeds', 'isGenetics'),
+	}.property('isPig', 'isStorage', 'isEquipment', 'isMilking', 'isMilkmade', 'isIrrigation', 'isBusiness', 'isHealth', 'isRenewables', 'isFeeds', 'isGenetics'),
 
 	isNone: function() {
 		return !(this.get('isHealth') || this.get('isBusiness') || this.get('isRenewables') || this.get('isFeeds') || this.get('isGenetics') || this.get('isStorage') || this.get('isEquipment') || this.get('isMilking') || this.get('isMilkmade') || this.get('isIrrigation'));
-	}.property('isStorage', 'isEquipment', 'isMilking', 'isMilkmade', 'isIrrigation', 'isBusiness', 'isHealth', 'isRenewables', 'isFeeds', 'isGenetics'),
+	}.property('isPig', 'isStorage', 'isEquipment', 'isMilking', 'isMilkmade', 'isIrrigation', 'isBusiness', 'isHealth', 'isRenewables', 'isFeeds', 'isGenetics'),
 
 	selectedAreaDidChange: function() {
 		var selectedArea = this.get('selectedArea');
@@ -85,6 +89,7 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 			this.set('isMilking', false);
 			this.set('isMilkmade', false);
 			this.set('isIrrigation', false);
+			this.set('isPig', false);
 		} else {
 			this.set('isHealth', true);
 			this.set('isBusiness', true);
@@ -96,6 +101,7 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 			this.set('isMilking', true);
 			this.set('isMilkmade', true);
 			this.set('isIrrigation', true);
+			this.set('isPig', true);
 		};
 	}.property('selectedArea'),
 
@@ -132,6 +138,7 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 			isMilking = this.get('isMilking'),
 			isMilkmade = this.get('isMilkmade'),
 			isIrrigation = this.get('isIrrigation');
+			isPig = this.get('isPig');
 		return this.get('sortedExhibitors').filter(function(item) {
 			if (!item.get('list')) {
 				return false; }
@@ -206,8 +213,13 @@ App.ExhibitorsIndexController = Ember.ArrayController.extend({
 						return true;
 					} else {console.log('nope');}
 				};
+				if (isPig) {
+					if(item.get('zone') === "pig and poultry") {
+						return true;
+					} else {console.log('nope');}
+				};
 			};
 			
 		});
-	}.property('selectedArea', 'sortedExhibitors.@each', 'isStorage', 'isEquipment', 'isMilking', 'isMilkmade', 'isIrrigation', 'isBusiness', 'isHealth', 'isRenewables', 'isFeeds', 'isGenetics'),
+	}.property('selectedArea', 'sortedExhibitors.@each', 'isPig', 'isStorage', 'isEquipment', 'isMilking', 'isMilkmade', 'isIrrigation', 'isBusiness', 'isHealth', 'isRenewables', 'isFeeds', 'isGenetics'),
 });
