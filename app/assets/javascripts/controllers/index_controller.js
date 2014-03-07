@@ -89,14 +89,14 @@ App.IndexController = Ember.ArrayController.extend({
 			var index = this.get('slid');
 			console.log(index);
 			var $slider = $('.tile-slider');
-			$slider.css('transform', 'translateX(' + (-270*(index + 1) - 10) + 'px)');
+			$slider.css('transform', 'translateX(' + (-270*(index + 1)) + 'px)');
 			this.set('slid', index + 1);
 		},
 		slideBackward: function() {
 			var index = this.get('slid');
 			console.log(index);
 			var $slider = $('.tile-slider');
-			$slider.css('transform', 'translateX(' + (-270*(index - 1) - 10) + 'px)');
+			$slider.css('transform', 'translateX(' + (-270*(index - 1)) + 'px)');
 			this.set('slid', index - 1);
 		}
 	}
