@@ -15883,6 +15883,7 @@ table.stripedTable {
 
 .tile-slider {
   width: 10000px;
+  margin-top: 10px;
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);

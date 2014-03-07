@@ -5997,6 +5997,7 @@ table.stripedTable {
 }
 .tile-slider {
 	width:10000px;
+	margin-top:10px;
 	@include transform(translateX(0));
 	@include transition(all 0.2s ease-in-out);
 }
