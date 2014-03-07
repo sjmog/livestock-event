@@ -44,6 +44,7 @@ post 'charges' => 'charges#create'
     resources :hsforms
     resources :showforms
     resources :hazards
+    resources :staff_members
     get 'site_contents/:id' => 'site_content#fetch'
     get 'contact' => 'contact#new'
     post 'contact' => 'contact#create'
@@ -72,6 +73,7 @@ post 'charges' => 'charges#create'
       resources :hsforms
       resources :showforms
       resources :hazards
+      resources :staff_members
       #fix simple_form's updating (which goes via POST instead of PUT for some reason)
       post 'posts/:id' => 'posts#update'
       post 'stands/:id' => 'stands#update'
@@ -92,6 +94,7 @@ post 'charges' => 'charges#create'
       post 'showforms/:id' => 'showforms#update'
       post 'site_contents/:id' => 'site_content#update', as: :site_content
       patch 'site_contents/:id' => 'site_content#update'
+      post 'staff_members/:id' => 'staff_members#update'
 
       #printing
       get '/bookings/:id/print', to: 'bookings#print', as: :print_booking

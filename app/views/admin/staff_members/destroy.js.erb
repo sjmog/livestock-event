@@ -1,0 +1,3 @@
+$("#flash_notice").html("<%= escape_javascript(flash[:notice])%>");
+$("#flash_notice_wrap").show(300);
+$("#datatable").html("<%= escape_javascript( render partial: "datatable", locals: {model: @staff_members} ) %>");

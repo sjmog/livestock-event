@@ -5976,6 +5976,9 @@ table.stripedTable {
 .noPadding {
 	padding:0 !important;
 }
+.no-padding {
+	padding:0 !important;
+}
 .small-6.colorBlock {
 	width:50% !important;
 	height:70px !important;
@@ -5985,4 +5988,28 @@ table.stripedTable {
 	&.noneColor {
 		background: $errorColor;
 	}
+}
+/* About Us */
+.slider-holder {
+	overflow: hidden;
+	margin: 0 0.9375em;
+	padding: 0;
+}
+.tile-slider {
+	width:10000px;
+	@include transform(translateX(0));
+	@include transition(all 0.2s ease-in-out);
+}
+.tile-slide {
+	display:inline-block;
+	width:270px;
+}
+.tile-slide:first-of-type .icon-back {
+	display: none;
+}
+.tile-slide:last-of-type .icon-forward {
+	display: none;
+}
+.staff-image {
+	@include border-radius(99999px);
 }

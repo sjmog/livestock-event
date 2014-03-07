@@ -1,0 +1,36 @@
+<!--form for new staff member-->
+<div class="block">
+	<div class="block-title">
+		<h2>Simple</h2>
+	</div>
+	<%= simple_form_for [:admin, @staff_member], :html => { class: 'form-horizontal form-bordered' }, defaults: { input_html: { class: 'form-control' }, label_html: { class: 'control-label '} } do |f| %>
+	<div class="form-group">
+		<div class="col-md-6"><%= f.input :name %></div>
+		<div class="col-md-6"><%= f.input :job %></div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-6"><%= f.input :image %></div>
+		<div class="col-md-6"><%= f.input :contact %></div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-12"><%= f.input :description, as: :text, input_html: {rows: "15", class: "form-control textarea-editor"} %></div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-6"><%= f.input :linkedin %></div>
+		<div class="col-md-6">
+			<label class="list optional control-label" for="list">Appears in public 'About Us' tile?</label>
+			<div class="input-group">
+				<%= f.input_field :enabled %>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<div class="block">
+	<%= f.button :submit %>
+	<% end %>
+</div>
+
+<!--END form for new staff member-->

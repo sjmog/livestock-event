@@ -1,8 +1,46 @@
 <div class="flipper">
 	<div class="front">
 		<span class="tile-title">contact us</span>
-		<div class="carouTabs carouPanel2 carouBottom">
-		   <div class="carouTab activeCarou">
+		<div class="carouTabs carouPanel3 carouBottom">
+			<div class="carouTab activeCarou">
+		        <div class="carouTabTitle">
+		       		<span class="icon-link-icon"></span>
+		       		<label>about us</label>
+		        </div>
+		       
+		        <div class="carouContent">
+		            <div class="row staticContent">
+					  	<div class="small-11 columns fullTabInner slider-holder">
+				  			<div class="tile-slider">
+				  				{{#each sortedStaffMembers}}
+				  				<div class="tile-slide">
+				  					<div class="row mt10">
+				  						<div class="small-1 columns no-padding vertWrap" style="height:110px;">
+				  							<span {{action slideBackward}} class="vertElement icon-back" style="font-size:1.4em; opacity:0.6; cursor:pointer;"></span>
+				  						</div>
+				  						<div class="small-5 columns vertWrap">
+				  							<img {{bind-attr src=image class=":staff-image :vertElement"}}>
+				  						</div>
+				  						<div class="small-5 columns no-padding">
+				  							<h2>{{name}}</h2>
+				  						</div>
+				  						<div class="small-1 columns no-padding vertWrap" style="height:110px;">
+				  							<span {{action slideForward}} class="vertElement icon-forward" style="font-size:1.4em; opacity:0.6; cursor:pointer;"></span>
+				  						</div>
+				  					</div>
+				  					<div class="row mt10">
+				  						<div class="small-12 columns">
+				  							<p><i>{{job}}</i>. {{{description}}}</p>
+				  						</div>
+				  					</div>
+				  				</div>
+				  				{{/each}}
+				  			</div>
+					  	</div>			  	
+					  </div>
+       			</div> 
+  			</div>
+		    <div class="carouTab">
 		       <div class="carouTabTitle">
 		       		<span class="icon-envelope"></span>
 		       		<label>e-mail us</label>

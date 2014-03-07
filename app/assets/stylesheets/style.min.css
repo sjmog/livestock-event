@@ -15864,6 +15864,9 @@ table.stripedTable {
 .noPadding {
   padding: 0 !important; }
 
+.no-padding {
+  padding: 0 !important; }
+
 .small-6.colorBlock {
   width: 50% !important;
   height: 70px !important; }
@@ -15871,6 +15874,38 @@ table.stripedTable {
     background: #75aa27; }
   .small-6.colorBlock.noneColor {
     background: #ff9494; }
+
+/* About Us */
+.slider-holder {
+  overflow: hidden;
+  margin: 0 0.9375em;
+  padding: 0; }
+
+.tile-slider {
+  width: 10000px;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+
+.tile-slide {
+  display: inline-block;
+  width: 270px; }
+
+.tile-slide:first-of-type .icon-back {
+  display: none; }
+
+.tile-slide:last-of-type .icon-forward {
+  display: none; }
+
+.staff-image {
+  -moz-border-radius: 99999px;
+  -webkit-border-radius: 99999px;
+  border-radius: 99999px; }
 
 /* Just click to select the code */
 @font-face {

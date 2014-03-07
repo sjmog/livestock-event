@@ -5,6 +5,7 @@ App.IndexController = Ember.ArrayController.extend({
 	social_ts: null,
 	social_fs: null,
 	social_ls: null,
+	staff_members: null,
 	tickets:null,
 	currentFilter: null,
 	sortedArticles: function() {
@@ -39,6 +40,14 @@ App.IndexController = Ember.ArrayController.extend({
 	 	);
 	    return sortedResult;
 	}.property('social_ls.@each'),
+	sortedStaffMembers: function() {
+		var controller = this;
+		var sortedResult = Em.ArrayProxy.createWithMixins(
+		    Ember.SortableMixin, 
+		    { content:controller.get('staff_members'), sortProperties: ['name'], sortAscending: false }
+	 	);
+	    return sortedResult;
+	}.property('staff_members.@each'),
 	filteredTestimonials: function() {
 		var controller = this;
 		currentFilter = controller.get('currentFilter');
@@ -61,6 +70,7 @@ App.IndexController = Ember.ArrayController.extend({
 		this.set('social_ts', App.SocialT.find());
 		this.set('social_fs', App.SocialF.find());
 		this.set('social_ls', App.SocialL.find());
+		this.set('staff_members', App.StaffMember.find());
 	},
 	currentTestimonial: function() {
 		var allTestimonials = this.get('filteredTestimonials');
@@ -73,5 +83,22 @@ App.IndexController = Ember.ArrayController.extend({
 		// 	})
 		// }, 800)
 	}.property('filteredTestimonals'),
+	slid: 0,
+	actions: {
+		slideForward: function() {
+			var index = this.get('slid');
+			console.log(index);
+			var $slider = $('.tile-slider');
+			$slider.css('transform', 'translateX(' + -270*(index + 1) + 'px)');
+			this.set('slid', index + 1);
+		},
+		slideBackward: function() {
+			var index = this.get('slid');
+			console.log(index);
+			var $slider = $('.tile-slider');
+			$slider.css('transform', 'translateX(' + -270*(index - 1) + 'px)');
+			this.set('slid', index - 1);
+		}
+	}
 });
 
