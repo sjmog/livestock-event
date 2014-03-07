@@ -10,11 +10,11 @@
 		       
 		        <div class="carouContent">
 		            <div class="row staticContent">
-					  	<div class="small-11 columns fullTabInner slider-holder">
+					  	<div class="small-11 columns fullTabInner slider-holder" style="width:90%">
 				  			<div class="tile-slider">
 				  				{{#each sortedStaffMembers}}
 				  				<div class="tile-slide">
-				  					<div class="row mt10">
+				  					<div class="row">
 				  						<div class="small-1 columns no-padding vertWrap" style="height:110px;">
 				  							<span {{action slideBackward}} class="vertElement icon-back" style="font-size:1.4em; opacity:0.6; cursor:pointer;"></span>
 				  						</div>
@@ -28,7 +28,7 @@
 				  							<span {{action slideForward}} class="vertElement icon-forward" style="font-size:1.4em; opacity:0.6; cursor:pointer;"></span>
 				  						</div>
 				  					</div>
-				  					<div class="row mt10">
+				  					<div class="row">
 				  						<div class="small-12 columns">
 				  							<p><i>{{job}}</i>. {{{description}}}</p>
 				  						</div>

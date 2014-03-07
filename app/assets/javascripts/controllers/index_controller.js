@@ -44,7 +44,7 @@ App.IndexController = Ember.ArrayController.extend({
 		var controller = this;
 		var sortedResult = Em.ArrayProxy.createWithMixins(
 		    Ember.SortableMixin, 
-		    { content:controller.get('staff_members'), sortProperties: ['name'], sortAscending: false }
+		    { content:controller.get('staff_members'), sortProperties: ['id'], sortAscending: true }
 	 	);
 	    return sortedResult;
 	}.property('staff_members.@each'),
@@ -89,14 +89,14 @@ App.IndexController = Ember.ArrayController.extend({
 			var index = this.get('slid');
 			console.log(index);
 			var $slider = $('.tile-slider');
-			$slider.css('transform', 'translateX(' + -270*(index + 1) + 'px)');
+			$slider.css('transform', 'translateX(' + (-270*(index + 1)) -10 + 'px)');
 			this.set('slid', index + 1);
 		},
 		slideBackward: function() {
 			var index = this.get('slid');
 			console.log(index);
 			var $slider = $('.tile-slider');
-			$slider.css('transform', 'translateX(' + -270*(index - 1) + 'px)');
+			$slider.css('transform', 'translateX(' + -270*(index - 1) -10 + 'px)');
 			this.set('slid', index - 1);
 		}
 	}
