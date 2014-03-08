@@ -14829,6 +14829,9 @@ div.form-actions {
   .carouContent p {
     font-size: 1em !important; }
 
+  .carouContent .tile-slide p {
+    font-size: 0.8em !important; }
+
   .carouTabTitle span {
     margin-top: 22px !important; }
 
