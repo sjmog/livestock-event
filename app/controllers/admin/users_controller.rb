@@ -21,7 +21,7 @@ module Admin
     def update
       @user = User.find(params[:id])
      
-      if @user.update(params[:user])
+      if @user.update_attributes(params[:user])
         redirect_to admin_user_path(@user)
       else
         render 'edit'

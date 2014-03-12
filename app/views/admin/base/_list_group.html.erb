@@ -26,12 +26,12 @@
         end
 
         %>
-        <a href="/admin/bookings" class="list-group-item">
+        <a href="/admin/bookings" class="list-group-item" style="width:80%; display:inline-block;">
             <span class="badge">#<%= booking.id %></span>
             <h4 class="list-group-item-heading"><%= booking.exhibiting_name %></h4>
             <p class="list-group-item-text">
 
-                <% # different reasons for needing attention %>
+                
                 <% if booking.attention_type === "verification" %>
                 Requires verification for <%= verify_forms.each { |item| print item, "&"} %>.
                 <% elsif booking.attention_type === "new" %>
@@ -39,7 +39,7 @@
                 <% end %>
                     
             </p>
-            <div class="btn-group">
+            <div class="btn-group" style="top:-25px; left:5%;">
                 <%= link_to admin_print_raform_path(raform) + '.pdf', :class => 'btn btn-xs btn-default', :'data-toggle' => "tooltip", :title => "Print Risk Assessment" do %>
                     <i class="fa fa-print"></i>
                 <% end %>

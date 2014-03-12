@@ -23,7 +23,7 @@ module Api
       @user = User.find(params[:id])
 
       respond_to do |format|
-        if @user.update_attributes(params[:user])
+        if @user.update(params[:user])
           format.html # new.html.erb
           format.json { render json: @user, status: 201 }
           
