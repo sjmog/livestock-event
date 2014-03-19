@@ -23,6 +23,17 @@ App.Article = DS.Model.extend({
     } else {return null};
   }.property('published'),
 
+  year: function() {
+    if(this.get('published')) {
+      return (this.get('published').getFullYear());
+    } else {return null};
+  }.property('published'),
+
+  shortYear: function() {
+    var year = this.get('year');
+    return String(year).substring(2,4);
+  }.property('year'),
+
   month: function() {
   	var monthNumber = this.get('monthNumber');
   	switch(monthNumber) {
