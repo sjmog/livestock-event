@@ -143,6 +143,8 @@ post 'charges' => 'charges#create'
 
   get '/*foo', :to => 'home#index', :constraints => FormatTest.new(:html)
 
+  get '/mYlhir7.html', :to => redirect('/mYlhir7.html')
+
 
 
 

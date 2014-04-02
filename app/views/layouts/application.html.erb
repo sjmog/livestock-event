@@ -30,31 +30,8 @@ window.analytics.page();
   <meta name="msapplication-wide310x150logo" content="/mstile-310x150.png" />
   <meta name="msapplication-square310x310logo" content="/mstile-310x310.png" />
 
-
   
   <%= stylesheet_link_tag    "application", :media => "all" %>
-
-  <!-- making terrible browsers a bit less terrible -->
-
-  <!--[if lt IE 8]>
-  <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
-  <![endif]-->
-
-  <!-- Selectivizr -->
-  <!--[if (gte IE 6)&(lte IE 8)]>
-    <script type="text/javascript" src="selectivizr-min.js"></script>
-  <![endif]-->
-
-  <!-- end Selectivizr -->
-
-
-  <!-- IE9.js -->
-  <!--[if (lte IE 9)&(gt IE 7)]>
-    <script type="text/javascript" src="ie9.min.js"></script>
-  <![endif]-->
-
-  <!-- END IE9.js -->
-
   <%= javascript_include_tag "application" %>
   <%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
@@ -68,7 +45,11 @@ window.analytics.page();
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <!--end payment scripts-->
 
+<!-- making terrible browsers a bit less terrible -->
 
+<!--[if lt IE 8]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+<![endif]-->
     
   </head>
   <body>
