@@ -10,7 +10,7 @@ App.ImageView = Ember.View.extend({
 	imgArray: [],
 	numberImgs: 6,
 	interval: null,
-	imgFolder: 'https://dl.dropboxusercontent.com/u/57653232/hosted%20files%20for%20rabdf%20do%20not%20delete/images/large/',
+	imgFolder: 'https://res.cloudinary.com/ghost-design/image/upload/',
 	moveAlong: function() {
 		var self = this;
 		var imgNumber = self.numberImgs;
@@ -26,6 +26,7 @@ App.ImageView = Ember.View.extend({
 		var self = this;
 		var imgArray = self.imgArray;
 		var imgFolder = self.imgFolder;
+		// For Dropbox, or other sequential naming
 		for (var i = 6; i > 0; i--) {
 			imgArray.push(imgFolder + 'large' + i + '.jpg');
 		};
