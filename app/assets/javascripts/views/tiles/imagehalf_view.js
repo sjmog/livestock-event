@@ -8,8 +8,8 @@ App.ImagehalfView = Ember.View.extend({
 	nextImage: null,
 	flipped:false,
 	imgArray: [],
-	numberImgs: 29,
-	imgFolder: 'https://dl.dropboxusercontent.com/u/57653232/hosted%20files%20for%20rabdf%20do%20not%20delete/images/small/',
+	numberImgs: 28,
+	imgFolder: 'https://res.cloudinary.com/ghost-design/image/upload/',
 	moveAlong: function() {
 		var self = this;
 		var imgNumber = self.numberImgs;
